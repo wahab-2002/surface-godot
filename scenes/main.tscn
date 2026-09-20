@@ -1,3 +1,60 @@
-[gd_scene format=3 uid="uid://qhavsmrb0pvs"]
+[gd_scene load_steps=4 format=3 uid="uid://qhavsmrb0pvs"]
+
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
+
+[sub_resource type="RectangleShape2D" id="Rectangle_horizontal"]
+size = Vector2(1600, 40)
+
+[sub_resource type="RectangleShape2D" id="Rectangle_vertical"]
+size = Vector2(40, 1000)
 
 [node name="Main" type="Node2D" unique_id=2020150133]
+
+[node name="Background" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 1600, 0, 1600, 1000, 0, 1000)
+color = Color(0.16, 0.18, 0.2, 1)
+
+[node name="Boundaries" type="StaticBody2D" parent="."]
+
+[node name="FloorCollision" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(800, 980)
+shape = SubResource("Rectangle_horizontal")
+
+[node name="FloorVisual" type="Polygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(0, 960, 1600, 960, 1600, 1000, 0, 1000)
+color = Color(0.4, 0.42, 0.44, 1)
+
+[node name="CeilingCollision" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(800, 20)
+shape = SubResource("Rectangle_horizontal")
+
+[node name="CeilingVisual" type="Polygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(0, 0, 1600, 0, 1600, 40, 0, 40)
+color = Color(0.4, 0.42, 0.44, 1)
+
+[node name="LeftCollision" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(20, 500)
+shape = SubResource("Rectangle_vertical")
+
+[node name="LeftVisual" type="Polygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(0, 0, 40, 0, 40, 1000, 0, 1000)
+color = Color(0.4, 0.42, 0.44, 1)
+
+[node name="RightCollision" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(1580, 500)
+shape = SubResource("Rectangle_vertical")
+
+[node name="RightVisual" type="Polygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(1560, 0, 1600, 0, 1600, 1000, 1560, 1000)
+color = Color(0.4, 0.42, 0.44, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(800, 740)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = 0
+limit_top = 0
+limit_right = 1600
+limit_bottom = 1000
+
+[editable path="Player"]
