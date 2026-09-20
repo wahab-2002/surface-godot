@@ -1,60 +1,142 @@
-[gd_scene load_steps=4 format=3 uid="uid://qhavsmrb0pvs"]
+[gd_scene load_steps=5 format=3 uid="uid://qhavsmrb0pvs"]
 
 [ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
 
 [sub_resource type="RectangleShape2D" id="Rectangle_horizontal"]
-size = Vector2(1600, 40)
+size = Vector2(2040, 40)
 
 [sub_resource type="RectangleShape2D" id="Rectangle_vertical"]
-size = Vector2(40, 1000)
+size = Vector2(40, 540)
+
+[sub_resource type="RectangleShape2D" id="Rectangle_obstacle"]
+size = Vector2(60, 280)
 
 [node name="Main" type="Node2D" unique_id=2020150133]
 
 [node name="Background" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(0, 0, 1600, 0, 1600, 1000, 0, 1000)
+polygon = PackedVector2Array(0, 0, 2040, 0, 2040, 540, 0, 540)
 color = Color(0.16, 0.18, 0.2, 1)
 
 [node name="Boundaries" type="StaticBody2D" parent="."]
 
 [node name="FloorCollision" type="CollisionShape2D" parent="Boundaries"]
-position = Vector2(800, 980)
+position = Vector2(1020, 520)
 shape = SubResource("Rectangle_horizontal")
 
 [node name="FloorVisual" type="Polygon2D" parent="Boundaries"]
-polygon = PackedVector2Array(0, 960, 1600, 960, 1600, 1000, 0, 1000)
+polygon = PackedVector2Array(0, 500, 2040, 500, 2040, 540, 0, 540)
 color = Color(0.4, 0.42, 0.44, 1)
 
 [node name="CeilingCollision" type="CollisionShape2D" parent="Boundaries"]
-position = Vector2(800, 20)
+position = Vector2(1020, 20)
 shape = SubResource("Rectangle_horizontal")
 
 [node name="CeilingVisual" type="Polygon2D" parent="Boundaries"]
-polygon = PackedVector2Array(0, 0, 1600, 0, 1600, 40, 0, 40)
+polygon = PackedVector2Array(0, 0, 2040, 0, 2040, 40, 0, 40)
 color = Color(0.4, 0.42, 0.44, 1)
 
 [node name="LeftCollision" type="CollisionShape2D" parent="Boundaries"]
-position = Vector2(20, 500)
+position = Vector2(20, 270)
 shape = SubResource("Rectangle_vertical")
 
 [node name="LeftVisual" type="Polygon2D" parent="Boundaries"]
-polygon = PackedVector2Array(0, 0, 40, 0, 40, 1000, 0, 1000)
+polygon = PackedVector2Array(0, 0, 40, 0, 40, 540, 0, 540)
 color = Color(0.4, 0.42, 0.44, 1)
 
 [node name="RightCollision" type="CollisionShape2D" parent="Boundaries"]
-position = Vector2(1580, 500)
+position = Vector2(2020, 270)
 shape = SubResource("Rectangle_vertical")
 
 [node name="RightVisual" type="Polygon2D" parent="Boundaries"]
-polygon = PackedVector2Array(1560, 0, 1600, 0, 1600, 1000, 1560, 1000)
+polygon = PackedVector2Array(2000, 0, 2040, 0, 2040, 540, 2000, 540)
 color = Color(0.4, 0.42, 0.44, 1)
 
+[node name="FirstRise" type="StaticBody2D" parent="."]
+position = Vector2(520, 220)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstRise"]
+position = Vector2(30, 140)
+shape = SubResource("Rectangle_obstacle")
+
+[node name="Visual" type="Polygon2D" parent="FirstRise"]
+polygon = PackedVector2Array(0, 0, 60, 0, 60, 280, 0, 280)
+color = Color(0.48, 0.5, 0.52, 1)
+
+[node name="FirstSink" type="StaticBody2D" parent="."]
+position = Vector2(920, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSink"]
+position = Vector2(30, 140)
+shape = SubResource("Rectangle_obstacle")
+
+[node name="Visual" type="Polygon2D" parent="FirstSink"]
+polygon = PackedVector2Array(0, 0, 60, 0, 60, 280, 0, 280)
+color = Color(0.48, 0.5, 0.52, 1)
+
+[node name="AlternatingRise" type="StaticBody2D" parent="."]
+position = Vector2(1280, 220)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlternatingRise"]
+position = Vector2(30, 140)
+shape = SubResource("Rectangle_obstacle")
+
+[node name="Visual" type="Polygon2D" parent="AlternatingRise"]
+polygon = PackedVector2Array(0, 0, 60, 0, 60, 280, 0, 280)
+color = Color(0.48, 0.5, 0.52, 1)
+
+[node name="AlternatingSink" type="StaticBody2D" parent="."]
+position = Vector2(1600, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlternatingSink"]
+position = Vector2(30, 140)
+shape = SubResource("Rectangle_obstacle")
+
+[node name="Visual" type="Polygon2D" parent="AlternatingSink"]
+polygon = PackedVector2Array(0, 0, 60, 0, 60, 280, 0, 280)
+color = Color(0.48, 0.5, 0.52, 1)
+
+[node name="FinishMarker" type="Node2D" parent="."]
+position = Vector2(1860, 500)
+
+[node name="Pole" type="Polygon2D" parent="FinishMarker"]
+polygon = PackedVector2Array(-3, -160, 3, -160, 3, 0, -3, 0)
+color = Color(0.8, 0.82, 0.84, 1)
+
+[node name="Base" type="Polygon2D" parent="FinishMarker"]
+polygon = PackedVector2Array(-28, -8, 28, -8, 28, 0, -28, 0)
+color = Color(0.8, 0.82, 0.84, 1)
+
+[node name="FlagSquare00" type="Polygon2D" parent="FinishMarker"]
+polygon = PackedVector2Array(3, -160, 23, -160, 23, -140, 3, -140)
+color = Color(0.9, 0.9, 0.9, 1)
+
+[node name="FlagSquare01" type="Polygon2D" parent="FinishMarker"]
+polygon = PackedVector2Array(23, -160, 43, -160, 43, -140, 23, -140)
+color = Color(0.28, 0.28, 0.28, 1)
+
+[node name="FlagSquare02" type="Polygon2D" parent="FinishMarker"]
+polygon = PackedVector2Array(43, -160, 63, -160, 63, -140, 43, -140)
+color = Color(0.9, 0.9, 0.9, 1)
+
+[node name="FlagSquare10" type="Polygon2D" parent="FinishMarker"]
+polygon = PackedVector2Array(3, -140, 23, -140, 23, -120, 3, -120)
+color = Color(0.28, 0.28, 0.28, 1)
+
+[node name="FlagSquare11" type="Polygon2D" parent="FinishMarker"]
+polygon = PackedVector2Array(23, -140, 43, -140, 43, -120, 23, -120)
+color = Color(0.9, 0.9, 0.9, 1)
+
+[node name="FlagSquare12" type="Polygon2D" parent="FinishMarker"]
+polygon = PackedVector2Array(43, -140, 63, -140, 63, -120, 43, -120)
+color = Color(0.28, 0.28, 0.28, 1)
+
 [node name="Player" parent="." instance=ExtResource("1_player")]
-position = Vector2(800, 740)
+position = Vector2(180, 440)
 
 [node name="Camera2D" parent="Player" index="2"]
 limit_left = 0
 limit_top = 0
-limit_right = 1600
-limit_bottom = 1000
+limit_right = 2040
+limit_bottom = 540
 
 [editable path="Player"]
