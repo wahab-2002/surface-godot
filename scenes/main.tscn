@@ -1,6 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://qhavsmrb0pvs"]
+[gd_scene load_steps=15 format=3 uid="uid://qhavsmrb0pvs"]
 
 [ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/hazard.tscn" id="2_hazard"]
+[ext_resource type="PackedScene" path="res://scenes/checkpoint.tscn" id="3_checkpoint"]
 
 [sub_resource type="RectangleShape2D" id="Rectangle_1"]
 size = Vector2(960, 40)
@@ -240,6 +242,18 @@ color = Color(0.9, 0.9, 0.9, 1)
 [node name="FlagSquare12" type="Polygon2D" parent="FinishMarker"]
 polygon = PackedVector2Array(43, -140, 63, -140, 63, -120, 43, -120)
 color = Color(0.28, 0.28, 0.28, 1)
+
+[node name="FirstSinkHazard" parent="." instance=ExtResource("2_hazard")]
+position = Vector2(480, 1520)
+
+[node name="AlternatingRiseHazard" parent="." instance=ExtResource("2_hazard")]
+position = Vector2(340, 790)
+
+[node name="AlternatingSinkHazard" parent="." instance=ExtResource("2_hazard")]
+position = Vector2(580, 1000)
+
+[node name="MidpointCheckpoint" parent="." instance=ExtResource("3_checkpoint")]
+position = Vector2(140, 1100)
 
 [node name="Player" parent="." instance=ExtResource("1_player")]
 position = Vector2(180, 2080)

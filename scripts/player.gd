@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @export var horizontal_speed: float = 220.0
@@ -6,6 +7,17 @@ extends CharacterBody2D
 @export var rise_speed: float = 180.0
 @export var sink_speed: float = 100.0
 @export var vertical_acceleration: float = 300.0
+
+var respawn_position: Vector2
+
+
+func _ready() -> void:
+	respawn_position = global_position
+
+
+func respawn() -> void:
+	global_position = respawn_position
+	velocity = Vector2.ZERO
 
 
 func _physics_process(delta: float) -> void:
