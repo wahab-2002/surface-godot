@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dat64uvnn8u4w"]
+
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/water_current.tscn" id="2_current"]
+
+[sub_resource type="RectangleShape2D" id="Horizontal_wall"]
+size = Vector2(960, 40)
+
+[sub_resource type="RectangleShape2D" id="Vertical_wall"]
+size = Vector2(40, 540)
+
+[node name="CurrentTest" type="Node2D" unique_id=490924858]
+
+[node name="Background" type="Polygon2D" parent="." unique_id=1800728470]
+color = Color(0.08, 0.15, 0.2, 1)
+polygon = PackedVector2Array(0, 0, 960, 0, 960, 540, 0, 540)
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=445717670]
+
+[node name="Floor" type="CollisionShape2D" parent="Walls" unique_id=1664932205]
+position = Vector2(480, 520)
+shape = SubResource("Horizontal_wall")
+
+[node name="Ceiling" type="CollisionShape2D" parent="Walls" unique_id=675140067]
+position = Vector2(480, 20)
+shape = SubResource("Horizontal_wall")
+
+[node name="Left" type="CollisionShape2D" parent="Walls" unique_id=951396195]
+position = Vector2(20, 270)
+shape = SubResource("Vertical_wall")
+
+[node name="Right" type="CollisionShape2D" parent="Walls" unique_id=269763843]
+position = Vector2(940, 270)
+shape = SubResource("Vertical_wall")
+
+[node name="Outline" type="Line2D" parent="Walls" unique_id=963162027]
+points = PackedVector2Array(20, 20, 940, 20, 940, 520, 20, 520, 20, 20)
+width = 40.0
+default_color = Color(0.4, 0.42, 0.44, 1)
+
+[node name="RightCurrent" parent="." unique_id=2028579202 instance=ExtResource("2_current")]
+position = Vector2(320, 360)
+strength = 430.0
+max_speed = 350.0
+
+[node name="UpCurrent" parent="." unique_id=384622771 instance=ExtResource("2_current")]
+position = Vector2(680, 360)
+direction = Vector2(0, -1)
+strength = 440.0
+max_speed = 350.0
+
+[node name="Instructions" type="Label" parent="." unique_id=1978632586]
+offset_left = 65.0
+offset_top = 65.0
+text = "TEMPORARY CURRENT TEST
+A/D: move    Space: swim up    Release Space: sink
+Left area pushes right. Right area pushes up."
+
+[node name="Player" parent="." unique_id=971702626 instance=ExtResource("1_player")]
+position = Vector2(110, 400)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = 0
+limit_top = 0
+limit_right = 960
+limit_bottom = 540
+
+[editable path="Player"]

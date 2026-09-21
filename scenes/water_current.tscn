@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/water_current.gd" id="1_current"]
+
+[sub_resource type="RectangleShape2D" id="Rectangle_current"]
+size = Vector2(240, 200)
+
+[node name="WaterCurrent" type="Area2D"]
+collision_layer = 0
+collision_mask = 1
+script = ExtResource("1_current")
+
+[node name="Visual" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-120, -100, 120, -100, 120, 100, -120, 100)
+color = Color(0.15, 0.7, 0.95, 0.35)
+
+[node name="Arrow" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-40, -8, 15, -8, 15, -24, 45, 0, 15, 24, 15, 8, -40, 8)
+color = Color(0.5, 0.9, 1, 0.9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("Rectangle_current")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
