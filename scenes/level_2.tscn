@@ -1,0 +1,434 @@
+[gd_scene format=3 uid="uid://bfvnnc7ldnefj"]
+
+[ext_resource type="PackedScene" path="res://scenes/checkpoint.tscn" id="checkpoint"]
+[ext_resource type="PackedScene" path="res://scenes/water_current.tscn" id="current"]
+[ext_resource type="PackedScene" path="res://scenes/hazard.tscn" id="hazard"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="player"]
+
+[sub_resource type="RectangleShape2D" id="Seabed"]
+size = Vector2(1200, 40)
+
+[sub_resource type="RectangleShape2D" id="LeftBoundary"]
+size = Vector2(40, 3200)
+
+[sub_resource type="RectangleShape2D" id="RightBoundary"]
+size = Vector2(40, 3200)
+
+[sub_resource type="RectangleShape2D" id="SurfaceBoundary"]
+size = Vector2(1200, 40)
+
+[sub_resource type="RectangleShape2D" id="OpeningReefShelf"]
+size = Vector2(760, 40)
+
+[sub_resource type="RectangleShape2D" id="OpeningRightCurrent"]
+size = Vector2(740, 260)
+
+[sub_resource type="RectangleShape2D" id="DriftUpperShelf"]
+size = Vector2(800, 40)
+
+[sub_resource type="RectangleShape2D" id="RideLeftCurrent"]
+size = Vector2(640, 240)
+
+[sub_resource type="RectangleShape2D" id="DriftObstacle"]
+size = Vector2(70, 290)
+
+[sub_resource type="RectangleShape2D" id="LiftLeftReef"]
+size = Vector2(100, 560)
+
+[sub_resource type="RectangleShape2D" id="LiftRightGuide"]
+size = Vector2(40, 320)
+
+[sub_resource type="RectangleShape2D" id="LiftUpperShelf"]
+size = Vector2(380, 40)
+
+[sub_resource type="RectangleShape2D" id="MainUpCurrent"]
+size = Vector2(160, 520)
+
+[sub_resource type="RectangleShape2D" id="LiftCapHazard"]
+size = Vector2(180, 30)
+
+[sub_resource type="RectangleShape2D" id="GateUpperShelf"]
+size = Vector2(860, 40)
+
+[sub_resource type="RectangleShape2D" id="GateApproachShelf"]
+size = Vector2(560, 40)
+
+[sub_resource type="RectangleShape2D" id="GateLowerPillar"]
+size = Vector2(60, 160)
+
+[sub_resource type="RectangleShape2D" id="GateUpperPillar"]
+size = Vector2(60, 80)
+
+[sub_resource type="RectangleShape2D" id="GateLowerEdge"]
+size = Vector2(80, 30)
+
+[sub_resource type="RectangleShape2D" id="GateUpperEdge"]
+size = Vector2(80, 30)
+
+[sub_resource type="RectangleShape2D" id="GateRightCurrent"]
+size = Vector2(350, 180)
+
+[sub_resource type="RectangleShape2D" id="FinalLeftGuide"]
+size = Vector2(40, 280)
+
+[sub_resource type="RectangleShape2D" id="FinalUpperShelf"]
+size = Vector2(400, 40)
+
+[sub_resource type="RectangleShape2D" id="FinalUpCurrent"]
+size = Vector2(180, 400)
+
+[sub_resource type="RectangleShape2D" id="FinalCapHazard"]
+size = Vector2(220, 30)
+
+[sub_resource type="RectangleShape2D" id="FinishRest"]
+size = Vector2(260, 40)
+
+[node name="Level2" type="Node2D" unique_id=1654279675]
+
+[node name="Background" type="Polygon2D" parent="." unique_id=1782749285]
+color = Color(0.08, 0.15, 0.2, 1)
+polygon = PackedVector2Array(0, 0, 1200, 0, 1200, 3200, 0, 3200)
+
+[node name="Seabed" type="StaticBody2D" parent="." unique_id=1647779847]
+position = Vector2(600, 3180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seabed" unique_id=1028691747]
+shape = SubResource("Seabed")
+
+[node name="Visual" type="Polygon2D" parent="Seabed" unique_id=421277352]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-600, -20, 600, -20, 600, 20, -600, 20)
+
+[node name="LeftBoundary" type="StaticBody2D" parent="." unique_id=170202087]
+position = Vector2(20, 1600)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBoundary" unique_id=39044739]
+shape = SubResource("LeftBoundary")
+
+[node name="Visual" type="Polygon2D" parent="LeftBoundary" unique_id=936802097]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-20, -1600, 20, -1600, 20, 1600, -20, 1600)
+
+[node name="RightBoundary" type="StaticBody2D" parent="." unique_id=996858850]
+position = Vector2(1180, 1600)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBoundary" unique_id=1759033403]
+shape = SubResource("RightBoundary")
+
+[node name="Visual" type="Polygon2D" parent="RightBoundary" unique_id=1104643090]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-20, -1600, 20, -1600, 20, 1600, -20, 1600)
+
+[node name="SurfaceBoundary" type="StaticBody2D" parent="." unique_id=1109571114]
+position = Vector2(600, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SurfaceBoundary" unique_id=1634181165]
+shape = SubResource("SurfaceBoundary")
+
+[node name="Visual" type="Polygon2D" parent="SurfaceBoundary" unique_id=1877082651]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-600, -20, 600, -20, 600, 20, -600, 20)
+
+[node name="OpeningReefShelf" type="StaticBody2D" parent="." unique_id=1458185185]
+position = Vector2(420, 2700)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpeningReefShelf" unique_id=964513239]
+shape = SubResource("OpeningReefShelf")
+
+[node name="Visual" type="Polygon2D" parent="OpeningReefShelf" unique_id=1703645526]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-380, -20, 380, -20, 380, 20, -380, 20)
+
+[node name="OpeningRightCurrent" parent="." unique_id=824072618 instance=ExtResource("current")]
+position = Vector2(550, 2950)
+strength = 240.0
+max_speed = 260.0
+
+[node name="Visual" parent="OpeningRightCurrent" index="0"]
+polygon = PackedVector2Array(-370, -130, 370, -130, 370, 130, -370, 130)
+
+[node name="CollisionShape2D" parent="OpeningRightCurrent" index="2"]
+shape = SubResource("OpeningRightCurrent")
+
+[node name="OpeningHint" type="Label" parent="." unique_id=453780314]
+offset_left = 100.0
+offset_top = 3060.0
+theme_override_font_sizes/font_size = 20
+text = "1  OPEN WATER
+A/D: steer   Space: rise   Release: sink
+Ride right, then swim up through the wide opening."
+
+[node name="BeforeDriftCheckpoint" parent="." unique_id=1287075937 instance=ExtResource("checkpoint")]
+position = Vector2(1010, 2770)
+
+[node name="DriftUpperShelf" type="StaticBody2D" parent="." unique_id=1521797138]
+position = Vector2(760, 2150)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DriftUpperShelf" unique_id=2094892687]
+shape = SubResource("DriftUpperShelf")
+
+[node name="Visual" type="Polygon2D" parent="DriftUpperShelf" unique_id=357000564]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-400, -20, 400, -20, 400, 20, -400, 20)
+
+[node name="RideLeftCurrent" parent="." unique_id=130766397 instance=ExtResource("current")]
+position = Vector2(780, 2510)
+direction = Vector2(-1, 0)
+strength = 330.0
+max_speed = 300.0
+
+[node name="Visual" parent="RideLeftCurrent" index="0"]
+polygon = PackedVector2Array(-320, -120, 320, -120, 320, 120, -320, 120)
+
+[node name="CollisionShape2D" parent="RideLeftCurrent" index="2"]
+rotation = 3.15381
+shape = SubResource("RideLeftCurrent")
+
+[node name="DriftObstacle" parent="." unique_id=768138861 instance=ExtResource("hazard")]
+position = Vector2(480, 2535)
+
+[node name="Visual" parent="DriftObstacle" index="0"]
+polygon = PackedVector2Array(-35, -145, 35, -145, 35, 145, -35, 145)
+
+[node name="CollisionShape2D" parent="DriftObstacle" index="1"]
+shape = SubResource("DriftObstacle")
+
+[node name="DriftHint" type="Label" parent="." unique_id=287934216]
+offset_left = 640.0
+offset_top = 2330.0
+theme_override_font_sizes/font_size = 20
+text = "2  RISE WHILE DRIFTING LEFT
+Clear the red obstacle from above."
+
+[node name="BeforeLiftCheckpoint" parent="." unique_id=312063268 instance=ExtResource("checkpoint")]
+position = Vector2(200, 2240)
+
+[node name="LiftLeftReef" type="StaticBody2D" parent="." unique_id=1664643667]
+position = Vector2(90, 1850)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LiftLeftReef" unique_id=2051048437]
+shape = SubResource("LiftLeftReef")
+
+[node name="Visual" type="Polygon2D" parent="LiftLeftReef" unique_id=694143274]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-50, -280, 50, -280, 50, 280, -50, 280)
+
+[node name="LiftRightGuide" type="StaticBody2D" parent="." unique_id=1690853668]
+position = Vector2(340, 1950)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LiftRightGuide" unique_id=1993486954]
+shape = SubResource("LiftRightGuide")
+
+[node name="Visual" type="Polygon2D" parent="LiftRightGuide" unique_id=2146376032]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-20, -160, 20, -160, 20, 160, -20, 160)
+
+[node name="LiftUpperShelf" type="StaticBody2D" parent="." unique_id=1274033265]
+position = Vector2(230, 1510)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LiftUpperShelf" unique_id=1081171855]
+shape = SubResource("LiftUpperShelf")
+
+[node name="Visual" type="Polygon2D" parent="LiftUpperShelf" unique_id=669798627]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-190, -20, 190, -20, 190, 20, -190, 20)
+
+[node name="MainUpCurrent" parent="." unique_id=1147198044 instance=ExtResource("current")]
+position = Vector2(230, 1840)
+direction = Vector2(0, -1)
+strength = 280.0
+max_speed = 240.0
+
+[node name="Visual" parent="MainUpCurrent" index="0"]
+polygon = PackedVector2Array(-80, -260, 80, -260, 80, 260, -80, 260)
+
+[node name="CollisionShape2D" parent="MainUpCurrent" index="2"]
+shape = SubResource("MainUpCurrent")
+
+[node name="LiftCapHazard" parent="." unique_id=398729886 instance=ExtResource("hazard")]
+position = Vector2(230, 1545)
+
+[node name="Visual" parent="LiftCapHazard" index="0"]
+polygon = PackedVector2Array(-90, -15, 90, -15, 90, 15, -90, 15)
+
+[node name="CollisionShape2D" parent="LiftCapHazard" index="1"]
+shape = SubResource("LiftCapHazard")
+
+[node name="LiftHint" type="Label" parent="." unique_id=715484151]
+offset_left = 430.0
+offset_top = 1790.0
+theme_override_font_sizes/font_size = 20
+text = "3  STEER RIGHT OUT OF THE LIFT
+Exit above the guide, below the red cap.
+Releasing Space slows your rise."
+
+[node name="GateUpperShelf" type="StaticBody2D" parent="." unique_id=1489814675]
+position = Vector2(470, 1080)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GateUpperShelf" unique_id=768152342]
+shape = SubResource("GateUpperShelf")
+
+[node name="Visual" type="Polygon2D" parent="GateUpperShelf" unique_id=1392264486]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-430, -20, 430, -20, 430, 20, -430, 20)
+
+[node name="GateApproachShelf" type="StaticBody2D" parent="." unique_id=346704124]
+position = Vector2(880, 1550)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GateApproachShelf" unique_id=793096020]
+shape = SubResource("GateApproachShelf")
+
+[node name="Visual" type="Polygon2D" parent="GateApproachShelf" unique_id=1849296402]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-280, -20, 280, -20, 280, 20, -280, 20)
+
+[node name="GateLowerPillar" type="StaticBody2D" parent="." unique_id=1460965449]
+position = Vector2(790, 1450)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GateLowerPillar" unique_id=1335548773]
+shape = SubResource("GateLowerPillar")
+
+[node name="Visual" type="Polygon2D" parent="GateLowerPillar" unique_id=567887428]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-30, -80, 30, -80, 30, 80, -30, 80)
+
+[node name="GateUpperPillar" type="StaticBody2D" parent="." unique_id=624056778]
+position = Vector2(790, 1120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GateUpperPillar" unique_id=1072568131]
+shape = SubResource("GateUpperPillar")
+
+[node name="Visual" type="Polygon2D" parent="GateUpperPillar" unique_id=1352983404]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-30, -40, 30, -40, 30, 40, -30, 40)
+
+[node name="GateLowerEdge" parent="." unique_id=1364700719 instance=ExtResource("hazard")]
+position = Vector2(790, 1355)
+
+[node name="Visual" parent="GateLowerEdge" index="0"]
+polygon = PackedVector2Array(-40, -15, 40, -15, 40, 15, -40, 15)
+
+[node name="CollisionShape2D" parent="GateLowerEdge" index="1"]
+shape = SubResource("GateLowerEdge")
+
+[node name="GateUpperEdge" parent="." unique_id=1953214111 instance=ExtResource("hazard")]
+position = Vector2(790, 1175)
+
+[node name="Visual" parent="GateUpperEdge" index="0"]
+polygon = PackedVector2Array(-40, -15, 40, -15, 40, 15, -40, 15)
+
+[node name="CollisionShape2D" parent="GateUpperEdge" index="1"]
+shape = SubResource("GateUpperEdge")
+
+[node name="GateRightCurrent" parent="." unique_id=13700852 instance=ExtResource("current")]
+position = Vector2(535, 1330)
+strength = 300.0
+max_speed = 280.0
+
+[node name="Visual" parent="GateRightCurrent" index="0"]
+polygon = PackedVector2Array(-175, -90, 175, -90, 175, 90, -175, 90)
+
+[node name="CollisionShape2D" parent="GateRightCurrent" index="2"]
+shape = SubResource("GateRightCurrent")
+
+[node name="GateHint" type="Label" parent="." unique_id=215823064]
+offset_left = 110.0
+offset_top = 1140.0
+theme_override_font_sizes/font_size = 20
+text = "4  CARRY MOMENTUM THROUGH THE GAP
+Aim between the red edges before drifting right."
+
+[node name="BeforeFinalCheckpoint" parent="." unique_id=2024154267 instance=ExtResource("checkpoint")]
+position = Vector2(1020, 1150)
+
+[node name="FinalLeftGuide" type="StaticBody2D" parent="." unique_id=906390758]
+position = Vector2(880, 920)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalLeftGuide" unique_id=275914184]
+shape = SubResource("FinalLeftGuide")
+
+[node name="Visual" type="Polygon2D" parent="FinalLeftGuide" unique_id=2072176674]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-20, -140, 20, -140, 20, 140, -20, 140)
+
+[node name="FinalUpperShelf" type="StaticBody2D" parent="." unique_id=775173129]
+position = Vector2(960, 480)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalUpperShelf" unique_id=359638980]
+shape = SubResource("FinalUpperShelf")
+
+[node name="Visual" type="Polygon2D" parent="FinalUpperShelf" unique_id=1526901903]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-200, -20, 200, -20, 200, 20, -200, 20)
+
+[node name="FinalUpCurrent" parent="." unique_id=641399513 instance=ExtResource("current")]
+position = Vector2(1020, 820)
+direction = Vector2(0, -1)
+strength = 300.0
+max_speed = 260.0
+
+[node name="Visual" parent="FinalUpCurrent" index="0"]
+polygon = PackedVector2Array(-90, -200, 90, -200, 90, 200, -90, 200)
+
+[node name="CollisionShape2D" parent="FinalUpCurrent" index="2"]
+shape = SubResource("FinalUpCurrent")
+
+[node name="FinalCapHazard" parent="." unique_id=1678967569 instance=ExtResource("hazard")]
+position = Vector2(1020, 570)
+
+[node name="Visual" parent="FinalCapHazard" index="0"]
+polygon = PackedVector2Array(-110, -15, 110, -15, 110, 15, -110, 15)
+
+[node name="CollisionShape2D" parent="FinalCapHazard" index="1"]
+shape = SubResource("FinalCapHazard")
+
+[node name="FinalHint" type="Label" parent="." unique_id=450891311]
+offset_left = 390.0
+offset_top = 700.0
+theme_override_font_sizes/font_size = 20
+text = "5  RISE, THEN STEER LEFT
+Leave the lift above the guide.
+Carry your upward momentum toward the marker."
+
+[node name="FinishRest" type="StaticBody2D" parent="." unique_id=1987061564]
+position = Vector2(600, 350)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishRest" unique_id=414914221]
+shape = SubResource("FinishRest")
+
+[node name="Visual" type="Polygon2D" parent="FinishRest" unique_id=107976783]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-130, -20, 130, -20, 130, 20, -130, 20)
+
+[node name="FinishMarker" type="Polygon2D" parent="." unique_id=1848135788]
+position = Vector2(600, 250)
+color = Color(0.3, 0.95, 0.6, 0.8)
+polygon = PackedVector2Array(-70, -50, 70, -50, 70, 50, -70, 50)
+
+[node name="FinishLabel" type="Label" parent="." unique_id=678682609]
+offset_left = 435.0
+offset_top = 115.0
+theme_override_font_sizes/font_size = 20
+text = "SURFACE - TEMPORARY LEVEL END
+Reach the green marker to finish this gray-box."
+
+[node name="Player" parent="." unique_id=610321890 instance=ExtResource("player")]
+position = Vector2(150, 3100)
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_left = 0
+limit_top = 0
+limit_right = 1200
+limit_bottom = 3200
+
+[editable path="OpeningRightCurrent"]
+[editable path="RideLeftCurrent"]
+[editable path="DriftObstacle"]
+[editable path="MainUpCurrent"]
+[editable path="LiftCapHazard"]
+[editable path="GateLowerEdge"]
+[editable path="GateUpperEdge"]
+[editable path="GateRightCurrent"]
+[editable path="FinalUpCurrent"]
+[editable path="FinalCapHazard"]
+[editable path="Player"]
