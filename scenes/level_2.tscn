@@ -2,17 +2,19 @@
 
 [ext_resource type="PackedScene" path="res://scenes/checkpoint.tscn" id="checkpoint"]
 [ext_resource type="PackedScene" path="res://scenes/water_current.tscn" id="current"]
+[ext_resource type="PackedScene" path="res://scenes/falling_debris.tscn" id="falling_debris"]
 [ext_resource type="PackedScene" path="res://scenes/hazard.tscn" id="hazard"]
+[ext_resource type="Script" uid="uid://bv25caeic70r4" path="res://scripts/level_2.gd" id="level_script"]
 [ext_resource type="PackedScene" path="res://scenes/player.tscn" id="player"]
 
 [sub_resource type="RectangleShape2D" id="Seabed"]
 size = Vector2(1200, 40)
 
 [sub_resource type="RectangleShape2D" id="LeftBoundary"]
-size = Vector2(40, 3200)
+size = Vector2(40, 16000)
 
 [sub_resource type="RectangleShape2D" id="RightBoundary"]
-size = Vector2(40, 3200)
+size = Vector2(40, 16000)
 
 [sub_resource type="RectangleShape2D" id="SurfaceBoundary"]
 size = Vector2(1200, 40)
@@ -27,16 +29,16 @@ size = Vector2(740, 260)
 size = Vector2(800, 40)
 
 [sub_resource type="RectangleShape2D" id="RideLeftCurrent"]
-size = Vector2(640, 240)
+size = Vector2(585.9685, 240.00018)
 
 [sub_resource type="RectangleShape2D" id="DriftObstacle"]
 size = Vector2(70, 290)
 
 [sub_resource type="RectangleShape2D" id="LiftLeftReef"]
-size = Vector2(100, 560)
+size = Vector2(100, 600)
 
 [sub_resource type="RectangleShape2D" id="LiftRightGuide"]
-size = Vector2(40, 320)
+size = Vector2(40, 380)
 
 [sub_resource type="RectangleShape2D" id="LiftUpperShelf"]
 size = Vector2(380, 40)
@@ -69,10 +71,7 @@ size = Vector2(80, 30)
 size = Vector2(350, 180)
 
 [sub_resource type="RectangleShape2D" id="FinalLeftGuide"]
-size = Vector2(40, 280)
-
-[sub_resource type="RectangleShape2D" id="FinalUpperShelf"]
-size = Vector2(400, 40)
+size = Vector2(40, 288)
 
 [sub_resource type="RectangleShape2D" id="FinalUpCurrent"]
 size = Vector2(180, 400)
@@ -80,17 +79,540 @@ size = Vector2(180, 400)
 [sub_resource type="RectangleShape2D" id="FinalCapHazard"]
 size = Vector2(220, 30)
 
-[sub_resource type="RectangleShape2D" id="FinishRest"]
-size = Vector2(260, 40)
+[sub_resource type="RectangleShape2D" id="SurfaceTriggerShape"]
+size = Vector2(140, 100)
+
+[sub_resource type="RectangleShape2D" id="Middle01_SplitReef_UpperReef"]
+size = Vector2(880, 40)
+
+[sub_resource type="RectangleShape2D" id="Middle01_SplitReef_RightDrift"]
+size = Vector2(500, 202)
+
+[sub_resource type="RectangleShape2D" id="Middle01_SplitReef_LowTooth"]
+size = Vector2(80, 180)
+
+[sub_resource type="RectangleShape2D" id="Middle01_SplitReef_LowToothTip"]
+size = Vector2(100, 20)
+
+[sub_resource type="RectangleShape2D" id="Middle01_SplitReef_HighTooth"]
+size = Vector2(70, 200)
+
+[sub_resource type="RectangleShape2D" id="Middle01_SplitReef_HighToothTip"]
+size = Vector2(90, 20)
+
+[sub_resource type="RectangleShape2D" id="Middle01_SplitReef_LeftReturn"]
+size = Vector2(200, 180)
+
+[sub_resource type="RectangleShape2D" id="Middle01_SplitReef_ReturnLowerEdge"]
+size = Vector2(300, 24)
+
+[sub_resource type="RectangleShape2D" id="Middle01_SplitReef_RightLift"]
+size = Vector2(170, 260)
+
+[sub_resource type="RectangleShape2D" id="Middle01_SplitReef_ExitLift"]
+size = Vector2(170, 400)
+
+[sub_resource type="RectangleShape2D" id="Middle01_SplitReef_ExitGuide"]
+size = Vector2(40, 140)
+
+[sub_resource type="RectangleShape2D" id="Middle01_SplitReef_ChannelFloorEdge"]
+size = Vector2(570, 20)
+
+[sub_resource type="RectangleShape2D" id="Middle01_SplitReef_CurrentLowTooth"]
+size = Vector2(80, 120)
+
+[sub_resource type="RectangleShape2D" id="Middle01_SplitReef_ZigzagHangingReef"]
+size = Vector2(60, 300)
+
+[sub_resource type="RectangleShape2D" id="Middle01_SplitReef_ZigzagHangingTip"]
+size = Vector2(80, 20)
+
+[sub_resource type="RectangleShape2D" id="Middle01_SplitReef_ZigzagRisingReef"]
+size = Vector2(60, 190)
+
+[sub_resource type="RectangleShape2D" id="Middle01_SplitReef_ZigzagRisingTip"]
+size = Vector2(80, 20)
+
+[sub_resource type="RectangleShape2D" id="Middle02_EntryGate_UpperReef"]
+size = Vector2(880, 40)
+
+[sub_resource type="RectangleShape2D" id="Middle02_EntryGate_RightDrift"]
+size = Vector2(500, 320)
+
+[sub_resource type="RectangleShape2D" id="Middle02_EntryGate_EntryGateUpper"]
+size = Vector2(60, 148)
+
+[sub_resource type="RectangleShape2D" id="Middle02_EntryGate_EntryGateLower"]
+size = Vector2(60, 68)
+
+[sub_resource type="RectangleShape2D" id="Middle02_EntryGate_EntryUpperEdge"]
+size = Vector2(90, 24)
+
+[sub_resource type="RectangleShape2D" id="Middle02_EntryGate_EntryLowerEdge"]
+size = Vector2(90, 24)
+
+[sub_resource type="RectangleShape2D" id="Middle02_EntryGate_ReturnLowerEdge"]
+size = Vector2(240, 24)
+
+[sub_resource type="RectangleShape2D" id="Middle02_EntryGate_ReturnGateUpper"]
+size = Vector2(60, 120)
+
+[sub_resource type="RectangleShape2D" id="Middle02_EntryGate_ReturnUpperEdge"]
+size = Vector2(90, 20)
+
+[sub_resource type="RectangleShape2D" id="Middle02_EntryGate_ReturnLowerLip"]
+size = Vector2(100, 20)
+
+[sub_resource type="RectangleShape2D" id="Middle02_EntryGate_ReturnGateLower"]
+size = Vector2(60, 140)
+
+[sub_resource type="RectangleShape2D" id="Middle02_EntryGate_RightLift"]
+size = Vector2(170, 260)
+
+[sub_resource type="RectangleShape2D" id="Middle02_EntryGate_ExitGuide"]
+size = Vector2(40, 220)
+
+[sub_resource type="RectangleShape2D" id="Middle02_EntryGate_ChannelFloorEdge"]
+size = Vector2(739.75, 20)
+
+[sub_resource type="RectangleShape2D" id="Middle02_EntryGate_CurrentLowTooth"]
+size = Vector2(80, 120)
+
+[sub_resource type="RectangleShape2D" id="Middle02_EntryGate_CurrentHighTooth"]
+size = Vector2(80, 70)
+
+[sub_resource type="RectangleShape2D" id="Middle02_EntryGate_ReturnCeiling"]
+size = Vector2(440, 110)
+
+[sub_resource type="RectangleShape2D" id="Middle02_EntryGate_LiftInnerSideEdge"]
+size = Vector2(30, 153)
+
+[sub_resource type="RectangleShape2D" id="Middle03_LiftTransfer_RightDrift"]
+size = Vector2(520, 180)
+
+[sub_resource type="RectangleShape2D" id="Middle03_LiftTransfer_EntryUpperEdge"]
+size = Vector2(180, 24)
+
+[sub_resource type="RectangleShape2D" id="Middle03_LiftTransfer_EntryLowerEdge"]
+size = Vector2(200, 24)
+
+[sub_resource type="RectangleShape2D" id="Middle03_LiftTransfer_LeftReturn"]
+size = Vector2(200, 180)
+
+[sub_resource type="RectangleShape2D" id="Middle03_LiftTransfer_ReturnLowerEdge"]
+size = Vector2(240, 24)
+
+[sub_resource type="RectangleShape2D" id="Middle03_LiftTransfer_RightLift"]
+size = Vector2(160, 360)
+
+[sub_resource type="RectangleShape2D" id="Middle03_LiftTransfer_LiftCap"]
+size = Vector2(160, 24)
+
+[sub_resource type="RectangleShape2D" id="Middle03_LiftTransfer_ExitLift"]
+size = Vector2(170, 200)
+
+[sub_resource type="RectangleShape2D" id="Middle03_LiftTransfer_ExitLiftCap"]
+size = Vector2(180, 24)
+
+[sub_resource type="RectangleShape2D" id="Middle03_LiftTransfer_ChannelFloorEdge"]
+size = Vector2(560, 20)
+
+[sub_resource type="RectangleShape2D" id="Middle03_LiftTransfer_CurrentLowTooth"]
+size = Vector2(80, 40)
+
+[sub_resource type="RectangleShape2D" id="Middle03_LiftTransfer_CurrentHighTooth"]
+size = Vector2(80, 120)
+
+[sub_resource type="RectangleShape2D" id="Middle03_LiftTransfer_ZigzagHangingTip"]
+size = Vector2(24, 100)
+
+[sub_resource type="RectangleShape2D" id="Middle03_LiftTransfer_ZigzagRisingTip"]
+size = Vector2(24, 120)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_MiddleReef"]
+size = Vector2(910, 40)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_UpperReef"]
+size = Vector2(890, 40)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_CheckpointRest"]
+size = Vector2(150, 30)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_RightDrift"]
+size = Vector2(500, 320)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_EntryGateUpper"]
+size = Vector2(60, 158)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_EntryGateLower"]
+size = Vector2(60, 78)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_EntryUpperEdge"]
+size = Vector2(90, 24)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_EntryLowerEdge"]
+size = Vector2(90, 24)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_SecondWindowLower"]
+size = Vector2(100, 24)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_SecondWindowUpper"]
+size = Vector2(100, 24)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_LeftReturn"]
+size = Vector2(320, 180)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_ReturnLowerEdge"]
+size = Vector2(240, 24)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_ReturnGateUpper"]
+size = Vector2(60, 120)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_ReturnUpperEdge"]
+size = Vector2(90, 20)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_ReturnLowerLip"]
+size = Vector2(100, 20)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_ReturnGateLower"]
+size = Vector2(60, 170)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_ChannelCeiling"]
+size = Vector2(420, 120)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_ChannelFloorEdge"]
+size = Vector2(560, 20)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_CurrentLowTooth"]
+size = Vector2(80, 120)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_CurrentHighTooth"]
+size = Vector2(215, 91)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_ReturnCeiling"]
+size = Vector2(639, 110)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_RightLiftFloorEdge"]
+size = Vector2(140, 20)
+
+[sub_resource type="RectangleShape2D" id="Middle04_DriftWindows_LiftInnerSideEdge"]
+size = Vector2(30, 80)
+
+[sub_resource type="RectangleShape2D" id="Late01_NarrowReef_EntryUpperEdge"]
+size = Vector2(20, 140)
+
+[sub_resource type="RectangleShape2D" id="Late01_NarrowReef_EntryLowerEdge"]
+size = Vector2(20, 120)
+
+[sub_resource type="RectangleShape2D" id="Late01_NarrowReef_SecondWindowLower"]
+size = Vector2(200, 20)
+
+[sub_resource type="RectangleShape2D" id="Late01_NarrowReef_SecondWindowUpper"]
+size = Vector2(160, 24)
+
+[sub_resource type="RectangleShape2D" id="Late01_NarrowReef_ReturnLowerEdge"]
+size = Vector2(220, 24)
+
+[sub_resource type="RectangleShape2D" id="Late01_NarrowReef_ReturnUpperEdge"]
+size = Vector2(20, 140)
+
+[sub_resource type="RectangleShape2D" id="Late01_NarrowReef_ReturnLowerLip"]
+size = Vector2(20, 100)
+
+[sub_resource type="RectangleShape2D" id="Late01_NarrowReef_RightLift"]
+size = Vector2(160, 260)
+
+[sub_resource type="RectangleShape2D" id="Late01_NarrowReef_ExitLift"]
+size = Vector2(140, 260)
+
+[sub_resource type="RectangleShape2D" id="Late01_NarrowReef_UpperReefLip"]
+size = Vector2(20, 100)
+
+[sub_resource type="RectangleShape2D" id="Late01_NarrowReef_ExitGuideLip"]
+size = Vector2(120, 24)
+
+[sub_resource type="RectangleShape2D" id="Late01_NarrowReef_ChannelFloorEdge"]
+size = Vector2(280, 20)
+
+[sub_resource type="RectangleShape2D" id="Late01_NarrowReef_CurrentLowTooth"]
+size = Vector2(20, 100)
+
+[sub_resource type="RectangleShape2D" id="Late01_NarrowReef_CurrentHighTooth"]
+size = Vector2(24, 160)
+
+[sub_resource type="RectangleShape2D" id="Late01_NarrowReef_ReturnInnerTooth"]
+size = Vector2(120, 24)
+
+[sub_resource type="RectangleShape2D" id="Late01_NarrowReef_RightLiftFloorEdge"]
+size = Vector2(80, 20)
+
+[sub_resource type="RectangleShape2D" id="Late01_NarrowReef_LiftInnerSideEdge"]
+size = Vector2(20, 120)
+
+[sub_resource type="RectangleShape2D" id="Late01_NarrowReef_ExitLiftLowerTooth"]
+size = Vector2(80, 24)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_MiddleReef"]
+size = Vector2(910, 40)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_UpperReef"]
+size = Vector2(890, 40)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_CheckpointRest"]
+size = Vector2(150, 30)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_RightDrift"]
+size = Vector2(500, 320)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_EntryGateUpper"]
+size = Vector2(60, 168)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_EntryGateLower"]
+size = Vector2(60, 88)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_EntryUpperEdge"]
+size = Vector2(90, 24)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_EntryLowerEdge"]
+size = Vector2(90, 24)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_LeftReturn"]
+size = Vector2(540, 200)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_ReturnLowerEdge"]
+size = Vector2(240, 24)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_RightLift"]
+size = Vector2(170, 437)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_LiftInnerGuide"]
+size = Vector2(40, 180)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_LiftCap"]
+size = Vector2(200, 24)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_ExitLift"]
+size = Vector2(170, 400)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_ExitGuide"]
+size = Vector2(40, 220)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_ExitLiftCap"]
+size = Vector2(180, 24)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_UpperReefLip"]
+size = Vector2(90, 20)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_ExitGuideLip"]
+size = Vector2(60, 20)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_UpperRightDrift"]
+size = Vector2(220, 130)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_ChannelCeiling"]
+size = Vector2(429, 120)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_ChannelFloorEdge"]
+size = Vector2(560, 20)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_CurrentLowTooth"]
+size = Vector2(80, 120)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_CurrentHighTooth"]
+size = Vector2(80, 70)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_ReturnCeiling"]
+size = Vector2(440, 110)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_ReturnInnerTooth"]
+size = Vector2(90, 40)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_RightLiftFloorEdge"]
+size = Vector2(140, 20)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_TransferExitLowerEdge"]
+size = Vector2(220, 24)
+
+[sub_resource type="RectangleShape2D" id="Late02_Crossflow_ExitLiftLowerTooth"]
+size = Vector2(45, 280)
+
+[sub_resource type="RectangleShape2D" id="Late03_RisingGates_RightDrift"]
+size = Vector2(280, 160)
+
+[sub_resource type="RectangleShape2D" id="Late03_RisingGates_EntryUpperEdge"]
+size = Vector2(180, 24)
+
+[sub_resource type="RectangleShape2D" id="Late03_RisingGates_EntryLowerEdge"]
+size = Vector2(24, 180)
+
+[sub_resource type="RectangleShape2D" id="Late03_RisingGates_LeftReturn"]
+size = Vector2(160, 180)
+
+[sub_resource type="RectangleShape2D" id="Late03_RisingGates_ReturnLowerEdge"]
+size = Vector2(240, 24)
+
+[sub_resource type="RectangleShape2D" id="Late03_RisingGates_RightLift"]
+size = Vector2(180, 240)
+
+[sub_resource type="RectangleShape2D" id="Late03_RisingGates_LiftCap"]
+size = Vector2(220, 24)
+
+[sub_resource type="RectangleShape2D" id="Late03_RisingGates_LiftLeftTooth"]
+size = Vector2(20, 100)
+
+[sub_resource type="RectangleShape2D" id="Late03_RisingGates_LiftRightTooth"]
+size = Vector2(24, 140)
+
+[sub_resource type="RectangleShape2D" id="Late03_RisingGates_ExitLift"]
+size = Vector2(170, 260)
+
+[sub_resource type="RectangleShape2D" id="Late03_RisingGates_ExitLiftCap"]
+size = Vector2(220, 24)
+
+[sub_resource type="RectangleShape2D" id="Late03_RisingGates_UpperReefLip"]
+size = Vector2(24, 160)
+
+[sub_resource type="RectangleShape2D" id="Late03_RisingGates_ExitGuideLip"]
+size = Vector2(20, 100)
+
+[sub_resource type="RectangleShape2D" id="Late03_RisingGates_ExitLeftTooth"]
+size = Vector2(20, 100)
+
+[sub_resource type="RectangleShape2D" id="Late03_RisingGates_ExitRightTooth"]
+size = Vector2(24, 100)
+
+[sub_resource type="RectangleShape2D" id="Late03_RisingGates_ChannelFloorEdge"]
+size = Vector2(200, 24)
+
+[sub_resource type="RectangleShape2D" id="Late03_RisingGates_CurrentLowTooth"]
+size = Vector2(20, 100)
+
+[sub_resource type="RectangleShape2D" id="Late03_RisingGates_CurrentHighTooth"]
+size = Vector2(24, 100)
+
+[sub_resource type="RectangleShape2D" id="Late03_RisingGates_ZigzagHangingTip"]
+size = Vector2(100, 24)
+
+[sub_resource type="RectangleShape2D" id="Late03_RisingGates_ZigzagRisingTip"]
+size = Vector2(80, 24)
+
+[sub_resource type="RectangleShape2D" id="Late03_RisingGates_RightLiftFloorEdge"]
+size = Vector2(20, 120)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_RightDrift"]
+size = Vector2(280, 160)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_EntryUpperEdge"]
+size = Vector2(24, 160)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_EntryLowerEdge"]
+size = Vector2(20, 120)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_SecondWindowLower"]
+size = Vector2(70, 24)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_SecondWindowUpper"]
+size = Vector2(80, 24)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_LeftReturn"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_ReturnLowerEdge"]
+size = Vector2(100, 24)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_ReturnUpperEdge"]
+size = Vector2(24, 120)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_ReturnLowerLip"]
+size = Vector2(70, 24)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_RightLift"]
+size = Vector2(160, 260)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_LiftCap"]
+size = Vector2(80, 24)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_LiftLeftTooth"]
+size = Vector2(40, 60)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_LiftRightTooth"]
+size = Vector2(40, 60)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_ExitLift"]
+size = Vector2(160, 240)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_ExitLiftCap"]
+size = Vector2(80, 24)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_UpperReefLip"]
+size = Vector2(24, 90)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_ExitGuideLip"]
+size = Vector2(24, 90)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_UpperDriftLower"]
+size = Vector2(44, 24)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_ChannelFloorEdge"]
+size = Vector2(240, 20)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_CurrentLowTooth"]
+size = Vector2(80, 40)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_CurrentHighTooth"]
+size = Vector2(80, 40)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_ReturnInnerTooth"]
+size = Vector2(70, 24)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_RightLiftFloorEdge"]
+size = Vector2(24, 140)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_TransferExitLowerEdge"]
+size = Vector2(119, 24)
+
+[sub_resource type="RectangleShape2D" id="Late04_SurfaceRun_ExitLiftLowerTooth"]
+size = Vector2(70, 24)
+
+[sub_resource type="RectangleShape2D" id="Root_OpeningFloorWreckage"]
+size = Vector2(580, 28)
+
+[sub_resource type="RectangleShape2D" id="Root_OpeningLowTooth"]
+size = Vector2(80, 200)
+
+[sub_resource type="RectangleShape2D" id="Root_OpeningLowToothEdge"]
+size = Vector2(100, 20)
+
+[sub_resource type="RectangleShape2D" id="Root_DriftCeilingTooth"]
+size = Vector2(90, 290)
+
+[sub_resource type="RectangleShape2D" id="Root_DriftCeilingEdge"]
+size = Vector2(110, 20)
+
+[sub_resource type="RectangleShape2D" id="Root_DriftFloorWreckage"]
+size = Vector2(360, 26)
+
+[sub_resource type="RectangleShape2D" id="Root_EarlyLiftSideEdge"]
+size = Vector2(30, 110)
+
+[sub_resource type="RectangleShape2D" id="Root_EarlyGateFloorWreckage"]
+size = Vector2(340, 24)
+
+[sub_resource type="RectangleShape2D" id="Root_EarlyFinalLiftSideEdge"]
+size = Vector2(30, 238)
+
+[sub_resource type="RectangleShape2D" id="Root_EarlyExitFloorEdge"]
+size = Vector2(180, 24)
 
 [node name="Level2" type="Node2D" unique_id=1654279675]
+script = ExtResource("level_script")
 
 [node name="Background" type="Polygon2D" parent="." unique_id=1782749285]
 color = Color(0.08, 0.15, 0.2, 1)
-polygon = PackedVector2Array(0, 0, 1200, 0, 1200, 3200, 0, 3200)
+polygon = PackedVector2Array(0, 0, 1200, 0, 1200, 16000, 0, 16000)
 
 [node name="Seabed" type="StaticBody2D" parent="." unique_id=1647779847]
-position = Vector2(600, 3180)
+position = Vector2(600, 15980)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Seabed" unique_id=1028691747]
 shape = SubResource("Seabed")
@@ -100,24 +622,24 @@ color = Color(0.38, 0.43, 0.46, 1)
 polygon = PackedVector2Array(-600, -20, 600, -20, 600, 20, -600, 20)
 
 [node name="LeftBoundary" type="StaticBody2D" parent="." unique_id=170202087]
-position = Vector2(20, 1600)
+position = Vector2(20, 8000)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBoundary" unique_id=39044739]
 shape = SubResource("LeftBoundary")
 
 [node name="Visual" type="Polygon2D" parent="LeftBoundary" unique_id=936802097]
 color = Color(0.38, 0.43, 0.46, 1)
-polygon = PackedVector2Array(-20, -1600, 20, -1600, 20, 1600, -20, 1600)
+polygon = PackedVector2Array(-20, -8000, 20, -8000, 20, 8000, -20, 8000)
 
 [node name="RightBoundary" type="StaticBody2D" parent="." unique_id=996858850]
-position = Vector2(1180, 1600)
+position = Vector2(1180, 8000)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightBoundary" unique_id=1759033403]
 shape = SubResource("RightBoundary")
 
 [node name="Visual" type="Polygon2D" parent="RightBoundary" unique_id=1104643090]
 color = Color(0.38, 0.43, 0.46, 1)
-polygon = PackedVector2Array(-20, -1600, 20, -1600, 20, 1600, -20, 1600)
+polygon = PackedVector2Array(-20, -8000, 20, -8000, 20, 8000, -20, 8000)
 
 [node name="SurfaceBoundary" type="StaticBody2D" parent="." unique_id=1109571114]
 position = Vector2(600, 20)
@@ -130,7 +652,7 @@ color = Color(0.38, 0.43, 0.46, 1)
 polygon = PackedVector2Array(-600, -20, 600, -20, 600, 20, -600, 20)
 
 [node name="OpeningReefShelf" type="StaticBody2D" parent="." unique_id=1458185185]
-position = Vector2(420, 2700)
+position = Vector2(420, 15500)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OpeningReefShelf" unique_id=964513239]
 shape = SubResource("OpeningReefShelf")
@@ -140,29 +662,26 @@ color = Color(0.38, 0.43, 0.46, 1)
 polygon = PackedVector2Array(-380, -20, 380, -20, 380, 20, -380, 20)
 
 [node name="OpeningRightCurrent" parent="." unique_id=824072618 instance=ExtResource("current")]
-position = Vector2(550, 2950)
-strength = 240.0
-max_speed = 260.0
+position = Vector2(550, 15750)
+strength = 280.0
+max_speed = 280.0
 
 [node name="Visual" parent="OpeningRightCurrent" index="0"]
+position = Vector2(-96, -80)
 polygon = PackedVector2Array(-370, -130, 370, -130, 370, 130, -370, 130)
 
+[node name="Arrow" parent="OpeningRightCurrent" index="1"]
+position = Vector2(-100, -78)
+
 [node name="CollisionShape2D" parent="OpeningRightCurrent" index="2"]
+position = Vector2(-96, -80)
 shape = SubResource("OpeningRightCurrent")
 
-[node name="OpeningHint" type="Label" parent="." unique_id=453780314]
-offset_left = 100.0
-offset_top = 3060.0
-theme_override_font_sizes/font_size = 20
-text = "1  OPEN WATER
-A/D: steer   Space: rise   Release: sink
-Ride right, then swim up through the wide opening."
-
 [node name="BeforeDriftCheckpoint" parent="." unique_id=1287075937 instance=ExtResource("checkpoint")]
-position = Vector2(1010, 2770)
+position = Vector2(1010, 15570)
 
 [node name="DriftUpperShelf" type="StaticBody2D" parent="." unique_id=1521797138]
-position = Vector2(760, 2150)
+position = Vector2(760, 14950)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DriftUpperShelf" unique_id=2094892687]
 shape = SubResource("DriftUpperShelf")
@@ -172,20 +691,23 @@ color = Color(0.38, 0.43, 0.46, 1)
 polygon = PackedVector2Array(-400, -20, 400, -20, 400, 20, -400, 20)
 
 [node name="RideLeftCurrent" parent="." unique_id=130766397 instance=ExtResource("current")]
-position = Vector2(780, 2510)
+position = Vector2(780, 15310)
 direction = Vector2(-1, 0)
-strength = 330.0
+strength = 300.0
 max_speed = 300.0
 
 [node name="Visual" parent="RideLeftCurrent" index="0"]
+position = Vector2(27, 0)
+scale = Vector2(0.915625, 1)
 polygon = PackedVector2Array(-320, -120, 320, -120, 320, 120, -320, 120)
 
 [node name="CollisionShape2D" parent="RideLeftCurrent" index="2"]
-rotation = 3.15381
+position = Vector2(27.4599, 0)
+rotation = -3.1415925
 shape = SubResource("RideLeftCurrent")
 
 [node name="DriftObstacle" parent="." unique_id=768138861 instance=ExtResource("hazard")]
-position = Vector2(480, 2535)
+position = Vector2(480, 15335)
 
 [node name="Visual" parent="DriftObstacle" index="0"]
 polygon = PackedVector2Array(-35, -145, 35, -145, 35, 145, -35, 145)
@@ -193,38 +715,37 @@ polygon = PackedVector2Array(-35, -145, 35, -145, 35, 145, -35, 145)
 [node name="CollisionShape2D" parent="DriftObstacle" index="1"]
 shape = SubResource("DriftObstacle")
 
-[node name="DriftHint" type="Label" parent="." unique_id=287934216]
-offset_left = 640.0
-offset_top = 2330.0
-theme_override_font_sizes/font_size = 20
-text = "2  RISE WHILE DRIFTING LEFT
-Clear the red obstacle from above."
-
 [node name="BeforeLiftCheckpoint" parent="." unique_id=312063268 instance=ExtResource("checkpoint")]
-position = Vector2(200, 2240)
+position = Vector2(200, 15040)
 
 [node name="LiftLeftReef" type="StaticBody2D" parent="." unique_id=1664643667]
-position = Vector2(90, 1850)
+position = Vector2(90, 14650)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LiftLeftReef" unique_id=2051048437]
+position = Vector2(0, -20)
 shape = SubResource("LiftLeftReef")
 
 [node name="Visual" type="Polygon2D" parent="LiftLeftReef" unique_id=694143274]
+position = Vector2(0, -20.499794)
+scale = Vector2(1, 1.0732136)
 color = Color(0.38, 0.43, 0.46, 1)
 polygon = PackedVector2Array(-50, -280, 50, -280, 50, 280, -50, 280)
 
 [node name="LiftRightGuide" type="StaticBody2D" parent="." unique_id=1690853668]
-position = Vector2(340, 1950)
+position = Vector2(340, 14750)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LiftRightGuide" unique_id=1993486954]
+position = Vector2(0, 30)
 shape = SubResource("LiftRightGuide")
 
 [node name="Visual" type="Polygon2D" parent="LiftRightGuide" unique_id=2146376032]
+position = Vector2(0, 30.000078)
+scale = Vector2(1, 1.1875005)
 color = Color(0.38, 0.43, 0.46, 1)
-polygon = PackedVector2Array(-20, -160, 20, -160, 20, 160, -20, 160)
+polygon = PackedVector2Array(-20, -160, 20, -160, 20, 160, 0.45950317, 160, -20, 160)
 
 [node name="LiftUpperShelf" type="StaticBody2D" parent="." unique_id=1274033265]
-position = Vector2(230, 1510)
+position = Vector2(230, 14310)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LiftUpperShelf" unique_id=1081171855]
 shape = SubResource("LiftUpperShelf")
@@ -234,10 +755,10 @@ color = Color(0.38, 0.43, 0.46, 1)
 polygon = PackedVector2Array(-190, -20, 190, -20, 190, 20, -190, 20)
 
 [node name="MainUpCurrent" parent="." unique_id=1147198044 instance=ExtResource("current")]
-position = Vector2(230, 1840)
+position = Vector2(230, 14640)
 direction = Vector2(0, -1)
-strength = 280.0
-max_speed = 240.0
+strength = 320.0
+max_speed = 270.0
 
 [node name="Visual" parent="MainUpCurrent" index="0"]
 polygon = PackedVector2Array(-80, -260, 80, -260, 80, 260, -80, 260)
@@ -246,7 +767,7 @@ polygon = PackedVector2Array(-80, -260, 80, -260, 80, 260, -80, 260)
 shape = SubResource("MainUpCurrent")
 
 [node name="LiftCapHazard" parent="." unique_id=398729886 instance=ExtResource("hazard")]
-position = Vector2(230, 1545)
+position = Vector2(230, 14345)
 
 [node name="Visual" parent="LiftCapHazard" index="0"]
 polygon = PackedVector2Array(-90, -15, 90, -15, 90, 15, -90, 15)
@@ -254,16 +775,8 @@ polygon = PackedVector2Array(-90, -15, 90, -15, 90, 15, -90, 15)
 [node name="CollisionShape2D" parent="LiftCapHazard" index="1"]
 shape = SubResource("LiftCapHazard")
 
-[node name="LiftHint" type="Label" parent="." unique_id=715484151]
-offset_left = 430.0
-offset_top = 1790.0
-theme_override_font_sizes/font_size = 20
-text = "3  STEER RIGHT OUT OF THE LIFT
-Exit above the guide, below the red cap.
-Releasing Space slows your rise."
-
 [node name="GateUpperShelf" type="StaticBody2D" parent="." unique_id=1489814675]
-position = Vector2(470, 1080)
+position = Vector2(470, 13880)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GateUpperShelf" unique_id=768152342]
 shape = SubResource("GateUpperShelf")
@@ -273,7 +786,7 @@ color = Color(0.38, 0.43, 0.46, 1)
 polygon = PackedVector2Array(-430, -20, 430, -20, 430, 20, -430, 20)
 
 [node name="GateApproachShelf" type="StaticBody2D" parent="." unique_id=346704124]
-position = Vector2(880, 1550)
+position = Vector2(880, 14350)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GateApproachShelf" unique_id=793096020]
 shape = SubResource("GateApproachShelf")
@@ -283,7 +796,7 @@ color = Color(0.38, 0.43, 0.46, 1)
 polygon = PackedVector2Array(-280, -20, 280, -20, 280, 20, -280, 20)
 
 [node name="GateLowerPillar" type="StaticBody2D" parent="." unique_id=1460965449]
-position = Vector2(790, 1450)
+position = Vector2(790, 14250)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GateLowerPillar" unique_id=1335548773]
 shape = SubResource("GateLowerPillar")
@@ -293,7 +806,7 @@ color = Color(0.38, 0.43, 0.46, 1)
 polygon = PackedVector2Array(-30, -80, 30, -80, 30, 80, -30, 80)
 
 [node name="GateUpperPillar" type="StaticBody2D" parent="." unique_id=624056778]
-position = Vector2(790, 1120)
+position = Vector2(790, 13920)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GateUpperPillar" unique_id=1072568131]
 shape = SubResource("GateUpperPillar")
@@ -303,7 +816,7 @@ color = Color(0.38, 0.43, 0.46, 1)
 polygon = PackedVector2Array(-30, -40, 30, -40, 30, 40, -30, 40)
 
 [node name="GateLowerEdge" parent="." unique_id=1364700719 instance=ExtResource("hazard")]
-position = Vector2(790, 1355)
+position = Vector2(790, 14155)
 
 [node name="Visual" parent="GateLowerEdge" index="0"]
 polygon = PackedVector2Array(-40, -15, 40, -15, 40, 15, -40, 15)
@@ -312,7 +825,7 @@ polygon = PackedVector2Array(-40, -15, 40, -15, 40, 15, -40, 15)
 shape = SubResource("GateLowerEdge")
 
 [node name="GateUpperEdge" parent="." unique_id=1953214111 instance=ExtResource("hazard")]
-position = Vector2(790, 1175)
+position = Vector2(790, 13975)
 
 [node name="Visual" parent="GateUpperEdge" index="0"]
 polygon = PackedVector2Array(-40, -15, 40, -15, 40, 15, -40, 15)
@@ -321,9 +834,9 @@ polygon = PackedVector2Array(-40, -15, 40, -15, 40, 15, -40, 15)
 shape = SubResource("GateUpperEdge")
 
 [node name="GateRightCurrent" parent="." unique_id=13700852 instance=ExtResource("current")]
-position = Vector2(535, 1330)
-strength = 300.0
-max_speed = 280.0
+position = Vector2(535, 14130)
+strength = 350.0
+max_speed = 320.0
 
 [node name="Visual" parent="GateRightCurrent" index="0"]
 polygon = PackedVector2Array(-175, -90, 175, -90, 175, 90, -175, 90)
@@ -331,41 +844,27 @@ polygon = PackedVector2Array(-175, -90, 175, -90, 175, 90, -175, 90)
 [node name="CollisionShape2D" parent="GateRightCurrent" index="2"]
 shape = SubResource("GateRightCurrent")
 
-[node name="GateHint" type="Label" parent="." unique_id=215823064]
-offset_left = 110.0
-offset_top = 1140.0
-theme_override_font_sizes/font_size = 20
-text = "4  CARRY MOMENTUM THROUGH THE GAP
-Aim between the red edges before drifting right."
-
 [node name="BeforeFinalCheckpoint" parent="." unique_id=2024154267 instance=ExtResource("checkpoint")]
-position = Vector2(1020, 1150)
+position = Vector2(1020, 13950)
 
 [node name="FinalLeftGuide" type="StaticBody2D" parent="." unique_id=906390758]
-position = Vector2(880, 920)
+position = Vector2(880, 13750)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinalLeftGuide" unique_id=275914184]
+position = Vector2(0, -34)
 shape = SubResource("FinalLeftGuide")
 
 [node name="Visual" type="Polygon2D" parent="FinalLeftGuide" unique_id=2072176674]
+position = Vector2(0, -33.999977)
+scale = Vector2(1, 1.3090907)
 color = Color(0.38, 0.43, 0.46, 1)
-polygon = PackedVector2Array(-20, -140, 20, -140, 20, 140, -20, 140)
-
-[node name="FinalUpperShelf" type="StaticBody2D" parent="." unique_id=775173129]
-position = Vector2(960, 480)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalUpperShelf" unique_id=359638980]
-shape = SubResource("FinalUpperShelf")
-
-[node name="Visual" type="Polygon2D" parent="FinalUpperShelf" unique_id=1526901903]
-color = Color(0.38, 0.43, 0.46, 1)
-polygon = PackedVector2Array(-200, -20, 200, -20, 200, 20, -200, 20)
+polygon = PackedVector2Array(-20, -110, -0.9464569, -109.999985, 20, -110, 20, 110, -20, 110)
 
 [node name="FinalUpCurrent" parent="." unique_id=641399513 instance=ExtResource("current")]
-position = Vector2(1020, 820)
+position = Vector2(1020, 13620)
 direction = Vector2(0, -1)
-strength = 300.0
-max_speed = 260.0
+strength = 360.0
+max_speed = 300.0
 
 [node name="Visual" parent="FinalUpCurrent" index="0"]
 polygon = PackedVector2Array(-90, -200, 90, -200, 90, 200, -90, 200)
@@ -374,7 +873,7 @@ polygon = PackedVector2Array(-90, -200, 90, -200, 90, 200, -90, 200)
 shape = SubResource("FinalUpCurrent")
 
 [node name="FinalCapHazard" parent="." unique_id=1678967569 instance=ExtResource("hazard")]
-position = Vector2(1020, 570)
+position = Vector2(1020, 13315)
 
 [node name="Visual" parent="FinalCapHazard" index="0"]
 polygon = PackedVector2Array(-110, -15, 110, -15, 110, 15, -110, 15)
@@ -382,44 +881,2404 @@ polygon = PackedVector2Array(-110, -15, 110, -15, 110, 15, -110, 15)
 [node name="CollisionShape2D" parent="FinalCapHazard" index="1"]
 shape = SubResource("FinalCapHazard")
 
-[node name="FinalHint" type="Label" parent="." unique_id=450891311]
-offset_left = 390.0
-offset_top = 700.0
-theme_override_font_sizes/font_size = 20
-text = "5  RISE, THEN STEER LEFT
-Leave the lift above the guide.
-Carry your upward momentum toward the marker."
-
-[node name="FinishRest" type="StaticBody2D" parent="." unique_id=1987061564]
-position = Vector2(600, 350)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishRest" unique_id=414914221]
-shape = SubResource("FinishRest")
-
-[node name="Visual" type="Polygon2D" parent="FinishRest" unique_id=107976783]
-color = Color(0.38, 0.43, 0.46, 1)
-polygon = PackedVector2Array(-130, -20, 130, -20, 130, 20, -130, 20)
-
-[node name="FinishMarker" type="Polygon2D" parent="." unique_id=1848135788]
-position = Vector2(600, 250)
-color = Color(0.3, 0.95, 0.6, 0.8)
-polygon = PackedVector2Array(-70, -50, 70, -50, 70, 50, -70, 50)
-
-[node name="FinishLabel" type="Label" parent="." unique_id=678682609]
-offset_left = 435.0
-offset_top = 115.0
-theme_override_font_sizes/font_size = 20
-text = "SURFACE - TEMPORARY LEVEL END
-Reach the green marker to finish this gray-box."
-
 [node name="Player" parent="." unique_id=610321890 instance=ExtResource("player")]
-position = Vector2(150, 3100)
+position = Vector2(150, 15900)
 
 [node name="Camera2D" parent="Player" index="2"]
+offset = Vector2(0, -90)
 limit_left = 0
 limit_top = 0
 limit_right = 1200
-limit_bottom = 3200
+limit_bottom = 16000
+
+[node name="SurfaceTrigger" type="Area2D" parent="." unique_id=1488763108]
+position = Vector2(600, 130)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SurfaceTrigger" unique_id=1295705201]
+shape = SubResource("SurfaceTriggerShape")
+
+[node name="RetryMessageTimer" type="Timer" parent="." unique_id=1688292535]
+wait_time = 3.0
+one_shot = true
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1007093861]
+
+[node name="OxygenTime" type="Label" parent="HUD" unique_id=1907552672]
+offset_left = 20.0
+offset_top = 16.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 20
+text = "Oxygen"
+
+[node name="OxygenBar" type="ProgressBar" parent="HUD" unique_id=1294645336]
+offset_left = 20.0
+offset_top = 46.0
+offset_right = 280.0
+offset_bottom = 72.0
+mouse_filter = 2
+value = 100.0
+
+[node name="RetryMessage" type="Label" parent="HUD" unique_id=392502662]
+visible = false
+offset_left = 20.0
+offset_top = 82.0
+text = "Out of oxygen — retrying."
+
+[node name="Completion" type="ColorRect" parent="HUD" unique_id=1064197345]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.08, 0.12, 0.95)
+
+[node name="Message" type="Label" parent="HUD/Completion" unique_id=489805768]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "You reached the surface!
+Escape complete."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Middle01_SplitReef" type="Node2D" parent="." unique_id=2135443723]
+position = Vector2(0, 11200)
+
+[node name="UpperReef" type="StaticBody2D" parent="Middle01_SplitReef" unique_id=721742245]
+position = Vector2(715, 480)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle01_SplitReef/UpperReef" unique_id=1452628354]
+position = Vector2(5, 0)
+shape = SubResource("Middle01_SplitReef_UpperReef")
+
+[node name="Visual" type="Polygon2D" parent="Middle01_SplitReef/UpperReef" unique_id=2134364989]
+position = Vector2(5.0000057, 0)
+scale = Vector2(0.98876405, 1)
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-445, -20, 445, -20, 445, 20, -445, 20)
+
+[node name="Checkpoint" parent="Middle01_SplitReef" unique_id=1593603361 instance=ExtResource("checkpoint")]
+position = Vector2(230, 1500)
+
+[node name="RightDrift" parent="Middle01_SplitReef" unique_id=100971338 instance=ExtResource("current")]
+position = Vector2(550, 1290)
+strength = 400.0
+max_speed = 330.0
+
+[node name="Visual" parent="Middle01_SplitReef/RightDrift" index="0"]
+position = Vector2(0, -59)
+scale = Vector2(1, 0.63125)
+polygon = PackedVector2Array(-250, -160, 250, -160, 250, 160, -250, 160)
+
+[node name="Arrow" parent="Middle01_SplitReef/RightDrift" index="1"]
+position = Vector2(0, -55)
+
+[node name="CollisionShape2D" parent="Middle01_SplitReef/RightDrift" index="2"]
+position = Vector2(0, -59)
+shape = SubResource("Middle01_SplitReef_RightDrift")
+
+[node name="LowTooth" type="StaticBody2D" parent="Middle01_SplitReef" unique_id=1037016285]
+position = Vector2(690, 1470)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle01_SplitReef/LowTooth" unique_id=540919813]
+shape = SubResource("Middle01_SplitReef_LowTooth")
+
+[node name="Visual" type="Polygon2D" parent="Middle01_SplitReef/LowTooth" unique_id=768021892]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-40, -90, 40, -90, 40, 90, -40, 90)
+
+[node name="LowToothTip" parent="Middle01_SplitReef" unique_id=108157616 instance=ExtResource("hazard")]
+position = Vector2(690, 1370)
+
+[node name="Visual" parent="Middle01_SplitReef/LowToothTip" index="0"]
+polygon = PackedVector2Array(-50, -10, 50, -10, 50, 10, -50, 10)
+
+[node name="CollisionShape2D" parent="Middle01_SplitReef/LowToothTip" index="1"]
+shape = SubResource("Middle01_SplitReef_LowToothTip")
+
+[node name="HighTooth" type="StaticBody2D" parent="Middle01_SplitReef" unique_id=981236612]
+position = Vector2(900, 1100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle01_SplitReef/HighTooth" unique_id=166501469]
+shape = SubResource("Middle01_SplitReef_HighTooth")
+
+[node name="Visual" type="Polygon2D" parent="Middle01_SplitReef/HighTooth" unique_id=66488933]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-35, -100, 35, -100, 35, 100, -35, 100)
+
+[node name="HighToothTip" parent="Middle01_SplitReef" unique_id=810802187 instance=ExtResource("hazard")]
+position = Vector2(900, 1210)
+
+[node name="Visual" parent="Middle01_SplitReef/HighToothTip" index="0"]
+polygon = PackedVector2Array(-45, -10, 45, -10, 45, 10, -45, 10)
+
+[node name="CollisionShape2D" parent="Middle01_SplitReef/HighToothTip" index="1"]
+shape = SubResource("Middle01_SplitReef_HighToothTip")
+
+[node name="LeftReturn" parent="Middle01_SplitReef" unique_id=1690090143 instance=ExtResource("current")]
+position = Vector2(970, 750)
+direction = Vector2(-1, 0)
+strength = 360.0
+max_speed = 300.0
+
+[node name="Visual" parent="Middle01_SplitReef/LeftReturn" index="0"]
+position = Vector2(-1, -38)
+polygon = PackedVector2Array(-100, -90, 100, -90, 100, 90, -100, 90)
+
+[node name="Arrow" parent="Middle01_SplitReef/LeftReturn" index="1"]
+position = Vector2(0, -37)
+
+[node name="CollisionShape2D" parent="Middle01_SplitReef/LeftReturn" index="2"]
+position = Vector2(-1, -38)
+shape = SubResource("Middle01_SplitReef_LeftReturn")
+
+[node name="ReturnLowerEdge" parent="Middle01_SplitReef" unique_id=1992377236 instance=ExtResource("hazard")]
+position = Vector2(650, 968)
+
+[node name="Visual" parent="Middle01_SplitReef/ReturnLowerEdge" index="0"]
+polygon = PackedVector2Array(-150, -12, 150, -12, 150, 12, -150, 12)
+
+[node name="CollisionShape2D" parent="Middle01_SplitReef/ReturnLowerEdge" index="1"]
+shape = SubResource("Middle01_SplitReef_ReturnLowerEdge")
+
+[node name="RightLift" parent="Middle01_SplitReef" unique_id=901881806 instance=ExtResource("current")]
+position = Vector2(1055, 1010)
+direction = Vector2(0, -1)
+strength = 330.0
+max_speed = 250.0
+
+[node name="Visual" parent="Middle01_SplitReef/RightLift" index="0"]
+polygon = PackedVector2Array(-85, -130, 85, -130, 85, 130, -85, 130)
+
+[node name="CollisionShape2D" parent="Middle01_SplitReef/RightLift" index="2"]
+shape = SubResource("Middle01_SplitReef_RightLift")
+
+[node name="ExitLift" parent="Middle01_SplitReef" unique_id=736589378 instance=ExtResource("current")]
+position = Vector2(175, 480)
+direction = Vector2(0, -1)
+strength = 300.0
+max_speed = 220.0
+
+[node name="Visual" parent="Middle01_SplitReef/ExitLift" index="0"]
+polygon = PackedVector2Array(-85, -200, 85, -200, 85, 200, -85, 200)
+
+[node name="CollisionShape2D" parent="Middle01_SplitReef/ExitLift" index="2"]
+shape = SubResource("Middle01_SplitReef_ExitLift")
+
+[node name="ExitGuide" type="StaticBody2D" parent="Middle01_SplitReef" unique_id=520136193]
+position = Vector2(300, 570)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle01_SplitReef/ExitGuide" unique_id=91835023]
+shape = SubResource("Middle01_SplitReef_ExitGuide")
+
+[node name="Visual" type="Polygon2D" parent="Middle01_SplitReef/ExitGuide" unique_id=242007539]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-20, -70, 20, -70, 20, 70, -20, 70)
+
+[node name="ChannelFloorEdge" parent="Middle01_SplitReef" unique_id=1579281639 instance=ExtResource("hazard")]
+position = Vector2(710, 1450)
+
+[node name="Visual" parent="Middle01_SplitReef/ChannelFloorEdge" index="0"]
+position = Vector2(-5.000005, 0)
+scale = Vector2(1.0178572, 1)
+polygon = PackedVector2Array(-280, -10, 280, -10, 280, 10, -280, 10)
+
+[node name="CollisionShape2D" parent="Middle01_SplitReef/ChannelFloorEdge" index="1"]
+position = Vector2(-5, 0)
+shape = SubResource("Middle01_SplitReef_ChannelFloorEdge")
+
+[node name="CurrentLowTooth" parent="Middle01_SplitReef" unique_id=1755841626 instance=ExtResource("hazard")]
+position = Vector2(520, 1400)
+
+[node name="Visual" parent="Middle01_SplitReef/CurrentLowTooth" index="0"]
+polygon = PackedVector2Array(-40, -60, 40, -60, 40, 60, -40, 60)
+
+[node name="CollisionShape2D" parent="Middle01_SplitReef/CurrentLowTooth" index="1"]
+shape = SubResource("Middle01_SplitReef_CurrentLowTooth")
+
+[node name="ZigzagHangingReef" type="StaticBody2D" parent="Middle01_SplitReef" unique_id=599433221]
+position = Vector2(760, 650)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle01_SplitReef/ZigzagHangingReef" unique_id=2032250213]
+shape = SubResource("Middle01_SplitReef_ZigzagHangingReef")
+
+[node name="Visual" type="Polygon2D" parent="Middle01_SplitReef/ZigzagHangingReef" unique_id=1493788930]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-30, -150, 30, -150, 30, 150, -30, 150)
+
+[node name="ZigzagHangingTip" parent="Middle01_SplitReef" unique_id=2102860496 instance=ExtResource("hazard")]
+position = Vector2(760, 810)
+
+[node name="CollisionShape2D" parent="Middle01_SplitReef/ZigzagHangingTip" index="1"]
+shape = SubResource("Middle01_SplitReef_ZigzagHangingTip")
+
+[node name="ZigzagRisingReef" type="StaticBody2D" parent="Middle01_SplitReef" unique_id=1506567246]
+position = Vector2(350, 885)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle01_SplitReef/ZigzagRisingReef" unique_id=1989669396]
+shape = SubResource("Middle01_SplitReef_ZigzagRisingReef")
+
+[node name="Visual" type="Polygon2D" parent="Middle01_SplitReef/ZigzagRisingReef" unique_id=669908423]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-30, -95, 30, -95, 30, 95, -30, 95)
+
+[node name="ZigzagRisingTip" parent="Middle01_SplitReef" unique_id=2027228982 instance=ExtResource("hazard")]
+position = Vector2(350, 780)
+
+[node name="CollisionShape2D" parent="Middle01_SplitReef/ZigzagRisingTip" index="1"]
+shape = SubResource("Middle01_SplitReef_ZigzagRisingTip")
+
+[node name="UpperExitFunnel" type="StaticBody2D" parent="Middle01_SplitReef" unique_id=322868974]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle01_SplitReef/UpperExitFunnel" unique_id=1422659907]
+polygon = PackedVector2Array(524, 1, 1160, 0, 1160, 460, 280, 460)
+
+[node name="Visual" type="Polygon2D" parent="Middle01_SplitReef/UpperExitFunnel" unique_id=498537213]
+position = Vector2(4, -12.000238)
+scale = Vector2(0.9960242, 1.0261917)
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(523.0796, 11.693359, 1160.6143, 11.693359, 1160.6143, 459.95313, 277.10168, 459.95313)
+
+[node name="ChannelFloor" type="StaticBody2D" parent="Middle01_SplitReef" unique_id=2068946191]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle01_SplitReef/ChannelFloor" unique_id=1924457815]
+polygon = PackedVector2Array(420, 1460, 1160, 1460, 1160, 1600, 420, 1600)
+
+[node name="Visual" type="Polygon2D" parent="Middle01_SplitReef/ChannelFloor" unique_id=1174135420]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(420, 1460, 1160, 1460, 1160, 1600, 420, 1600)
+
+[node name="CheckpointRest" type="StaticBody2D" parent="Middle01_SplitReef" unique_id=1948850847]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle01_SplitReef/CheckpointRest" unique_id=497712424]
+position = Vector2(0, -5914.741)
+scale = Vector2(1, 4.919643)
+polygon = PackedVector2Array(40, 1513.2687, 305, 1513.2687, 306, 1599.8602, 40, 1600)
+
+[node name="Visual" type="Polygon2D" parent="Middle01_SplitReef/CheckpointRest" unique_id=1027965202]
+position = Vector2(0, -7322.1245)
+scale = Vector2(1, 5.7857027)
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(40, 1530, 305, 1530, 305, 1599.8271, 40, 1600)
+
+[node name="JoinedChannelRoof" type="StaticBody2D" parent="Middle01_SplitReef" unique_id=1854238781]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle01_SplitReef/JoinedChannelRoof" unique_id=2098961677]
+polygon = PackedVector2Array(40, 980, 950, 980, 950, 1020, 720, 1020, 680, 1060, 680, 1120, 340, 1120, 280, 1060, 40, 1060)
+
+[node name="Visual" type="Polygon2D" parent="Middle01_SplitReef/JoinedChannelRoof" unique_id=1359789235]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(40, 980, 950, 980, 950, 1020, 720, 1020, 680, 1060, 680, 1120, 340, 1120, 280, 1060, 40, 1060)
+
+[node name="Middle02_EntryGate" type="Node2D" parent="." unique_id=1982143120]
+position = Vector2(0, 9600)
+
+[node name="UpperReef" type="StaticBody2D" parent="Middle02_EntryGate" unique_id=386157638]
+position = Vector2(715, 480)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle02_EntryGate/UpperReef" unique_id=1753888769]
+position = Vector2(5, 0)
+shape = SubResource("Middle02_EntryGate_UpperReef")
+
+[node name="Visual" type="Polygon2D" parent="Middle02_EntryGate/UpperReef" unique_id=98080987]
+position = Vector2(5, 0)
+scale = Vector2(0.98876405, 1)
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-445, -20, 445, -20, 445, 20, -445, 20)
+
+[node name="Checkpoint" parent="Middle02_EntryGate" unique_id=1944311404 instance=ExtResource("checkpoint")]
+position = Vector2(230, 1500)
+
+[node name="RightDrift" parent="Middle02_EntryGate" unique_id=2057826895 instance=ExtResource("current")]
+position = Vector2(550, 1290)
+strength = 440.0
+
+[node name="Visual" parent="Middle02_EntryGate/RightDrift" index="0"]
+polygon = PackedVector2Array(-250, -160, 250, -160, 250, 160, -250, 160)
+
+[node name="CollisionShape2D" parent="Middle02_EntryGate/RightDrift" index="2"]
+shape = SubResource("Middle02_EntryGate_RightDrift")
+
+[node name="EntryGateUpper" type="StaticBody2D" parent="Middle02_EntryGate" unique_id=422363836]
+position = Vector2(790, 1094)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle02_EntryGate/EntryGateUpper" unique_id=2097811481]
+shape = SubResource("Middle02_EntryGate_EntryGateUpper")
+
+[node name="Visual" type="Polygon2D" parent="Middle02_EntryGate/EntryGateUpper" unique_id=677014715]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-30, -74, 30, -74, 30, 74, -30, 74)
+
+[node name="EntryGateLower" type="StaticBody2D" parent="Middle02_EntryGate" unique_id=261433107]
+position = Vector2(790, 1426)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle02_EntryGate/EntryGateLower" unique_id=465897602]
+shape = SubResource("Middle02_EntryGate_EntryGateLower")
+
+[node name="Visual" type="Polygon2D" parent="Middle02_EntryGate/EntryGateLower" unique_id=253916567]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-30, -34, 30, -34, 30, 34, -30, 34)
+
+[node name="EntryUpperEdge" parent="Middle02_EntryGate" unique_id=1424671283 instance=ExtResource("hazard")]
+position = Vector2(790, 1180)
+
+[node name="Visual" parent="Middle02_EntryGate/EntryUpperEdge" index="0"]
+polygon = PackedVector2Array(-45, -12, 45, -12, 45, 12, -45, 12)
+
+[node name="CollisionShape2D" parent="Middle02_EntryGate/EntryUpperEdge" index="1"]
+shape = SubResource("Middle02_EntryGate_EntryUpperEdge")
+
+[node name="EntryLowerEdge" parent="Middle02_EntryGate" unique_id=2108971100 instance=ExtResource("hazard")]
+position = Vector2(790, 1380)
+
+[node name="Visual" parent="Middle02_EntryGate/EntryLowerEdge" index="0"]
+polygon = PackedVector2Array(-45, -12, 45, -12, 45, 12, -45, 12)
+
+[node name="CollisionShape2D" parent="Middle02_EntryGate/EntryLowerEdge" index="1"]
+shape = SubResource("Middle02_EntryGate_EntryLowerEdge")
+
+[node name="ReturnLowerEdge" parent="Middle02_EntryGate" unique_id=1372167022 instance=ExtResource("hazard")]
+position = Vector2(700, 875)
+
+[node name="Visual" parent="Middle02_EntryGate/ReturnLowerEdge" index="0"]
+polygon = PackedVector2Array(-120, -12, 120, -12, 120, 12, -120, 12)
+
+[node name="CollisionShape2D" parent="Middle02_EntryGate/ReturnLowerEdge" index="1"]
+shape = SubResource("Middle02_EntryGate_ReturnLowerEdge")
+
+[node name="ReturnLowerEdge2" parent="Middle02_EntryGate" unique_id=1419600512 instance=ExtResource("hazard")]
+position = Vector2(700, 875)
+
+[node name="Visual" parent="Middle02_EntryGate/ReturnLowerEdge2" index="0"]
+position = Vector2(-540, 93)
+polygon = PackedVector2Array(-120, -12, 120, -12, 120, 12, -120, 12)
+
+[node name="CollisionShape2D" parent="Middle02_EntryGate/ReturnLowerEdge2" index="1"]
+position = Vector2(-540, 93)
+shape = SubResource("Middle02_EntryGate_ReturnLowerEdge")
+
+[node name="ReturnGateUpper" type="StaticBody2D" parent="Middle02_EntryGate" unique_id=1085166633]
+position = Vector2(490, 560)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle02_EntryGate/ReturnGateUpper" unique_id=163590890]
+shape = SubResource("Middle02_EntryGate_ReturnGateUpper")
+
+[node name="Visual" type="Polygon2D" parent="Middle02_EntryGate/ReturnGateUpper" unique_id=1978568621]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-30, -60, 30, -60, 30, 60, -30, 60)
+
+[node name="ReturnUpperEdge" parent="Middle02_EntryGate" unique_id=907229720 instance=ExtResource("hazard")]
+position = Vector2(490, 630)
+
+[node name="Visual" parent="Middle02_EntryGate/ReturnUpperEdge" index="0"]
+polygon = PackedVector2Array(-45, -10, 45, -10, 45, 10, -45, 10)
+
+[node name="CollisionShape2D" parent="Middle02_EntryGate/ReturnUpperEdge" index="1"]
+shape = SubResource("Middle02_EntryGate_ReturnUpperEdge")
+
+[node name="ReturnUpperEdge2" parent="Middle02_EntryGate" unique_id=2025909207 instance=ExtResource("hazard")]
+position = Vector2(490, 630)
+
+[node name="Visual" parent="Middle02_EntryGate/ReturnUpperEdge2" index="0"]
+position = Vector2(-285, -310)
+polygon = PackedVector2Array(-45, -10, 45, -10, 45, 10, -45, 10)
+
+[node name="CollisionShape2D" parent="Middle02_EntryGate/ReturnUpperEdge2" index="1"]
+position = Vector2(-285, -310)
+shape = SubResource("Middle02_EntryGate_ReturnUpperEdge")
+
+[node name="ReturnUpperEdge3" parent="Middle02_EntryGate" unique_id=1181520722 instance=ExtResource("hazard")]
+position = Vector2(490, 630)
+
+[node name="Visual" parent="Middle02_EntryGate/ReturnUpperEdge3" index="0"]
+position = Vector2(-296, -620)
+polygon = PackedVector2Array(-45, -10, 45, -10, 45, 10, -45, 10)
+
+[node name="CollisionShape2D" parent="Middle02_EntryGate/ReturnUpperEdge3" index="1"]
+position = Vector2(-296, -620)
+shape = SubResource("Middle02_EntryGate_ReturnUpperEdge")
+
+[node name="ReturnLowerLip" parent="Middle02_EntryGate" unique_id=9906614 instance=ExtResource("hazard")]
+position = Vector2(490, 820)
+
+[node name="Visual" parent="Middle02_EntryGate/ReturnLowerLip" index="0"]
+polygon = PackedVector2Array(-50, -10, 50, -10, 50, 10, -50, 10)
+
+[node name="CollisionShape2D" parent="Middle02_EntryGate/ReturnLowerLip" index="1"]
+shape = SubResource("Middle02_EntryGate_ReturnLowerLip")
+
+[node name="ReturnGateLower" type="StaticBody2D" parent="Middle02_EntryGate" unique_id=1840319081]
+position = Vector2(490, 910)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle02_EntryGate/ReturnGateLower" unique_id=2015200051]
+shape = SubResource("Middle02_EntryGate_ReturnGateLower")
+
+[node name="Visual" type="Polygon2D" parent="Middle02_EntryGate/ReturnGateLower" unique_id=383886796]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-30, -70, 30, -70, 30, 70, -30, 70)
+
+[node name="RightLift" parent="Middle02_EntryGate" unique_id=719432748 instance=ExtResource("current")]
+position = Vector2(1055, 1010)
+direction = Vector2(0, -1)
+strength = 370.0
+max_speed = 270.0
+
+[node name="Visual" parent="Middle02_EntryGate/RightLift" index="0"]
+polygon = PackedVector2Array(-85, -130, 85, -130, 85, 130, -85, 130)
+
+[node name="CollisionShape2D" parent="Middle02_EntryGate/RightLift" index="2"]
+shape = SubResource("Middle02_EntryGate_RightLift")
+
+[node name="ExitGuide" type="StaticBody2D" parent="Middle02_EntryGate" unique_id=924071849]
+position = Vector2(300, 610)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle02_EntryGate/ExitGuide" unique_id=954758329]
+shape = SubResource("Middle02_EntryGate_ExitGuide")
+
+[node name="Visual" type="Polygon2D" parent="Middle02_EntryGate/ExitGuide" unique_id=1465880547]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-20, -110, 20, -110, 20, 110, -20, 110)
+
+[node name="ChannelFloorEdge" parent="Middle02_EntryGate" unique_id=179435243 instance=ExtResource("hazard")]
+position = Vector2(710, 1450)
+
+[node name="Visual" parent="Middle02_EntryGate/ChannelFloorEdge" index="0"]
+position = Vector2(79.999985, 0)
+scale = Vector2(1.3214287, 1)
+polygon = PackedVector2Array(-280, -10, 280, -10, 280, 10, -280, 10)
+
+[node name="CollisionShape2D" parent="Middle02_EntryGate/ChannelFloorEdge" index="1"]
+position = Vector2(80.125, 0)
+shape = SubResource("Middle02_EntryGate_ChannelFloorEdge")
+
+[node name="CurrentLowTooth" parent="Middle02_EntryGate" unique_id=1376466213 instance=ExtResource("hazard")]
+position = Vector2(520, 1400)
+
+[node name="Visual" parent="Middle02_EntryGate/CurrentLowTooth" index="0"]
+polygon = PackedVector2Array(-40, -60, 40, -60, 40, 60, -40, 60)
+
+[node name="CollisionShape2D" parent="Middle02_EntryGate/CurrentLowTooth" index="1"]
+shape = SubResource("Middle02_EntryGate_CurrentLowTooth")
+
+[node name="CurrentHighTooth" parent="Middle02_EntryGate" unique_id=83605401 instance=ExtResource("hazard")]
+position = Vector2(660, 1165)
+
+[node name="Visual" parent="Middle02_EntryGate/CurrentHighTooth" index="0"]
+polygon = PackedVector2Array(-40, -35, 40, -35, 40, 35, -40, 35)
+
+[node name="CollisionShape2D" parent="Middle02_EntryGate/CurrentHighTooth" index="1"]
+shape = SubResource("Middle02_EntryGate_CurrentHighTooth")
+
+[node name="ReturnCeiling" type="StaticBody2D" parent="Middle02_EntryGate" unique_id=684636920]
+position = Vector2(780, 555)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle02_EntryGate/ReturnCeiling" unique_id=148195832]
+shape = SubResource("Middle02_EntryGate_ReturnCeiling")
+
+[node name="Visual" type="Polygon2D" parent="Middle02_EntryGate/ReturnCeiling" unique_id=1797677699]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-220, -55, 220, -55, 220, 55, -220, 55)
+
+[node name="LiftInnerSideEdge" parent="Middle02_EntryGate" unique_id=1376439551 instance=ExtResource("hazard")]
+position = Vector2(965, 1060)
+
+[node name="Visual" parent="Middle02_EntryGate/LiftInnerSideEdge" index="0"]
+position = Vector2(0, -36.5)
+scale = Vector2(1, 1.9125)
+polygon = PackedVector2Array(-15, -40, 15, -40, 15, 40, -15, 40)
+
+[node name="CollisionShape2D" parent="Middle02_EntryGate/LiftInnerSideEdge" index="1"]
+position = Vector2(0, -36.5)
+shape = SubResource("Middle02_EntryGate_LiftInnerSideEdge")
+
+[node name="UpperExitFunnel" type="StaticBody2D" parent="Middle02_EntryGate" unique_id=809077789]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle02_EntryGate/UpperExitFunnel" unique_id=2078916655]
+polygon = PackedVector2Array(524, 0, 1160, 0, 1160, 460, 360, 460)
+
+[node name="Visual" type="Polygon2D" parent="Middle02_EntryGate/UpperExitFunnel" unique_id=1443330955]
+position = Vector2(0, 49.285713)
+scale = Vector2(1, 0.89285713)
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(524, -56.320313, 1162, -56.320313, 1160, 460, 360, 460)
+
+[node name="EntryGateDebris" parent="Middle02_EntryGate" unique_id=226563836 instance=ExtResource("falling_debris")]
+position = Vector2(355, 1135)
+warning_time = 1.1
+fall_speed = 220.0
+fall_distance = 285.0
+
+[node name="ChannelFloor" type="StaticBody2D" parent="Middle02_EntryGate" unique_id=1836636483]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle02_EntryGate/ChannelFloor" unique_id=161269648]
+polygon = PackedVector2Array(420, 1460, 1160, 1460, 1160, 1600, 420, 1600)
+
+[node name="Visual" type="Polygon2D" parent="Middle02_EntryGate/ChannelFloor" unique_id=351254557]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(420, 1460, 1160, 1460, 1160, 1600, 420, 1600)
+
+[node name="CheckpointRest" type="StaticBody2D" parent="Middle02_EntryGate" unique_id=1141318359]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle02_EntryGate/CheckpointRest" unique_id=1898945383]
+polygon = PackedVector2Array(40, 1530, 305, 1530, 305, 1570, 260, 1600, 40, 1600)
+
+[node name="Visual" type="Polygon2D" parent="Middle02_EntryGate/CheckpointRest" unique_id=1834679748]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(40, 1530, 305, 1530, 305, 1570, 260, 1600, 40, 1600)
+
+[node name="JoinedChannelRoof" type="StaticBody2D" parent="Middle02_EntryGate" unique_id=1614767169]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle02_EntryGate/JoinedChannelRoof" unique_id=408109652]
+polygon = PackedVector2Array(40, 980, 950, 980, 950, 1020, 720, 1020, 680, 1060, 680, 1120, 340, 1120, 280, 1060, 40, 1060)
+
+[node name="Visual" type="Polygon2D" parent="Middle02_EntryGate/JoinedChannelRoof" unique_id=811936104]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(40, 980, 950, 980, 950, 1020, 720, 1020, 680, 1060, 680, 1120, 340, 1120, 280, 1060, 40, 1060)
+
+[node name="ReturnFloorShoulder" type="StaticBody2D" parent="Middle02_EntryGate" unique_id=1748841794]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle02_EntryGate/ReturnFloorShoulder" unique_id=1647910125]
+polygon = PackedVector2Array(580, 887, 820, 887, 880, 947, 950, 947, 950, 980, 580, 980)
+
+[node name="Visual" type="Polygon2D" parent="Middle02_EntryGate/ReturnFloorShoulder" unique_id=1699612356]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(580, 887, 820, 887, 880, 947, 950, 947, 950, 980, 580, 980)
+
+[node name="LeftStillWaterStep" type="StaticBody2D" parent="Middle02_EntryGate" unique_id=1006148624]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle02_EntryGate/LeftStillWaterStep" unique_id=890294825]
+polygon = PackedVector2Array(40, 410, 130, 410, 170, 450, 40, 450)
+
+[node name="Visual" type="Polygon2D" parent="Middle02_EntryGate/LeftStillWaterStep" unique_id=1609725589]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(40, 410, 130, 410, 170, 450, 40, 450)
+
+[node name="RightStillWaterStep" type="StaticBody2D" parent="Middle02_EntryGate" unique_id=443782119]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle02_EntryGate/RightStillWaterStep" unique_id=1689679704]
+polygon = PackedVector2Array(200, 270, 500, 270, 500, 310, 160, 310)
+
+[node name="Visual" type="Polygon2D" parent="Middle02_EntryGate/RightStillWaterStep" unique_id=1709543527]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(200, 270, 500, 270, 500, 310, 160, 310)
+
+[node name="Middle03_LiftTransfer" type="Node2D" parent="." unique_id=1345777210]
+position = Vector2(0, 8000)
+
+[node name="Checkpoint" parent="Middle03_LiftTransfer" unique_id=1903241476 instance=ExtResource("checkpoint")]
+position = Vector2(230, 1500)
+
+[node name="RightDrift" parent="Middle03_LiftTransfer" unique_id=858279848 instance=ExtResource("current")]
+position = Vector2(620, 900)
+strength = 480.0
+max_speed = 370.0
+
+[node name="Visual" parent="Middle03_LiftTransfer/RightDrift" index="0"]
+polygon = PackedVector2Array(-260, -90, 260, -90, 260, 90, -260, 90)
+
+[node name="CollisionShape2D" parent="Middle03_LiftTransfer/RightDrift" index="2"]
+shape = SubResource("Middle03_LiftTransfer_RightDrift")
+
+[node name="EntryUpperEdge" parent="Middle03_LiftTransfer" unique_id=1314158055 instance=ExtResource("hazard")]
+position = Vector2(560, 792)
+
+[node name="Visual" parent="Middle03_LiftTransfer/EntryUpperEdge" index="0"]
+polygon = PackedVector2Array(-90, -12, 90, -12, 90, 12, -90, 12)
+
+[node name="CollisionShape2D" parent="Middle03_LiftTransfer/EntryUpperEdge" index="1"]
+shape = SubResource("Middle03_LiftTransfer_EntryUpperEdge")
+
+[node name="EntryLowerEdge" parent="Middle03_LiftTransfer" unique_id=1759738549 instance=ExtResource("hazard")]
+position = Vector2(500, 1028)
+
+[node name="Visual" parent="Middle03_LiftTransfer/EntryLowerEdge" index="0"]
+polygon = PackedVector2Array(-100, -12, 100, -12, 100, 12, -100, 12)
+
+[node name="CollisionShape2D" parent="Middle03_LiftTransfer/EntryLowerEdge" index="1"]
+shape = SubResource("Middle03_LiftTransfer_EntryLowerEdge")
+
+[node name="LeftReturn" parent="Middle03_LiftTransfer" unique_id=2037650162 instance=ExtResource("current")]
+position = Vector2(980, 600)
+direction = Vector2(-1, 0)
+strength = 440.0
+max_speed = 340.0
+
+[node name="Visual" parent="Middle03_LiftTransfer/LeftReturn" index="0"]
+polygon = PackedVector2Array(-100, -90, 100, -90, 100, 90, -100, 90)
+
+[node name="CollisionShape2D" parent="Middle03_LiftTransfer/LeftReturn" index="2"]
+shape = SubResource("Middle03_LiftTransfer_LeftReturn")
+
+[node name="ReturnLowerEdge" parent="Middle03_LiftTransfer" unique_id=1205926704 instance=ExtResource("hazard")]
+position = Vector2(780, 648)
+
+[node name="Visual" parent="Middle03_LiftTransfer/ReturnLowerEdge" index="0"]
+polygon = PackedVector2Array(-120, -12, 120, -12, 120, 12, -120, 12)
+
+[node name="CollisionShape2D" parent="Middle03_LiftTransfer/ReturnLowerEdge" index="1"]
+shape = SubResource("Middle03_LiftTransfer_ReturnLowerEdge")
+
+[node name="EntryLift" parent="Middle03_LiftTransfer" unique_id=1603056595 instance=ExtResource("current")]
+position = Vector2(230, 1240)
+direction = Vector2(0, -1)
+strength = 410.0
+max_speed = 285.0
+
+[node name="Visual" parent="Middle03_LiftTransfer/EntryLift" index="0"]
+polygon = PackedVector2Array(-80, -180, 80, -180, 80, 180, -80, 180)
+
+[node name="CollisionShape2D" parent="Middle03_LiftTransfer/EntryLift" index="2"]
+shape = SubResource("Middle03_LiftTransfer_RightLift")
+
+[node name="LiftCap" parent="Middle03_LiftTransfer" unique_id=1508419694 instance=ExtResource("hazard")]
+position = Vector2(230, 952)
+
+[node name="Visual" parent="Middle03_LiftTransfer/LiftCap" index="0"]
+polygon = PackedVector2Array(-80, -12, 80, -12, 80, 12, -80, 12)
+
+[node name="CollisionShape2D" parent="Middle03_LiftTransfer/LiftCap" index="1"]
+shape = SubResource("Middle03_LiftTransfer_LiftCap")
+
+[node name="ExitLift" parent="Middle03_LiftTransfer" unique_id=2023042924 instance=ExtResource("current")]
+position = Vector2(430, 440)
+direction = Vector2(0, -1)
+strength = 380.0
+max_speed = 250.0
+
+[node name="Visual" parent="Middle03_LiftTransfer/ExitLift" index="0"]
+polygon = PackedVector2Array(-85, -100, 85, -100, 85, 100, -85, 100)
+
+[node name="CollisionShape2D" parent="Middle03_LiftTransfer/ExitLift" index="2"]
+shape = SubResource("Middle03_LiftTransfer_ExitLift")
+
+[node name="ExitLiftCap" parent="Middle03_LiftTransfer" unique_id=1724970497 instance=ExtResource("hazard")]
+position = Vector2(430, 250)
+
+[node name="Visual" parent="Middle03_LiftTransfer/ExitLiftCap" index="0"]
+polygon = PackedVector2Array(-90, -12, 90, -12, 90, 12, -90, 12)
+
+[node name="CollisionShape2D" parent="Middle03_LiftTransfer/ExitLiftCap" index="1"]
+shape = SubResource("Middle03_LiftTransfer_ExitLiftCap")
+
+[node name="ChannelFloorEdge" parent="Middle03_LiftTransfer" unique_id=1554350282 instance=ExtResource("hazard")]
+position = Vector2(710, 1450)
+
+[node name="Visual" parent="Middle03_LiftTransfer/ChannelFloorEdge" index="0"]
+polygon = PackedVector2Array(-280, -10, 280, -10, 280, 10, -280, 10)
+
+[node name="CollisionShape2D" parent="Middle03_LiftTransfer/ChannelFloorEdge" index="1"]
+shape = SubResource("Middle03_LiftTransfer_ChannelFloorEdge")
+
+[node name="CurrentLowTooth" parent="Middle03_LiftTransfer" unique_id=1733403845 instance=ExtResource("hazard")]
+position = Vector2(670, 1020)
+
+[node name="Visual" parent="Middle03_LiftTransfer/CurrentLowTooth" index="0"]
+position = Vector2(170, -220)
+polygon = PackedVector2Array(-40, -20, 40, -20, 40, 20, -40, 20)
+
+[node name="CollisionShape2D" parent="Middle03_LiftTransfer/CurrentLowTooth" index="1"]
+position = Vector2(170, -220)
+shape = SubResource("Middle03_LiftTransfer_CurrentLowTooth")
+
+[node name="CurrentHighTooth" parent="Middle03_LiftTransfer" unique_id=1702891584 instance=ExtResource("hazard")]
+position = Vector2(980, 960)
+
+[node name="Visual" parent="Middle03_LiftTransfer/CurrentHighTooth" index="0"]
+polygon = PackedVector2Array(-40, -60, 40, -60, 40, 60, -40, 60)
+
+[node name="CollisionShape2D" parent="Middle03_LiftTransfer/CurrentHighTooth" index="1"]
+shape = SubResource("Middle03_LiftTransfer_CurrentHighTooth")
+
+[node name="InnerTurnEdge" parent="Middle03_LiftTransfer" unique_id=757509159 instance=ExtResource("hazard")]
+position = Vector2(332, 580)
+
+[node name="Visual" parent="Middle03_LiftTransfer/InnerTurnEdge" index="0"]
+polygon = PackedVector2Array(-12, -50, 12, -50, 12, 50, -12, 50)
+
+[node name="CollisionShape2D" parent="Middle03_LiftTransfer/InnerTurnEdge" index="1"]
+shape = SubResource("Middle03_LiftTransfer_ZigzagHangingTip")
+
+[node name="OuterTurnEdge" parent="Middle03_LiftTransfer" unique_id=1998360590 instance=ExtResource("hazard")]
+position = Vector2(1148, 500)
+
+[node name="Visual" parent="Middle03_LiftTransfer/OuterTurnEdge" index="0"]
+polygon = PackedVector2Array(-12, -60, 12, -60, 12, 60, -12, 60)
+
+[node name="CollisionShape2D" parent="Middle03_LiftTransfer/OuterTurnEdge" index="1"]
+shape = SubResource("Middle03_LiftTransfer_ZigzagRisingTip")
+
+[node name="CheckpointRest" type="StaticBody2D" parent="Middle03_LiftTransfer" unique_id=1074450971]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle03_LiftTransfer/CheckpointRest" unique_id=191822208]
+polygon = PackedVector2Array(40, 1530, 280, 1530, 280, 1570, 240, 1600, 40, 1600)
+
+[node name="Visual" type="Polygon2D" parent="Middle03_LiftTransfer/CheckpointRest" unique_id=1923449001]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(40, 1530, 280, 1530, 280, 1570, 240, 1600, 40, 1600)
+
+[node name="LowerRightReef" type="StaticBody2D" parent="Middle03_LiftTransfer" unique_id=1369705260]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle03_LiftTransfer/LowerRightReef" unique_id=663601193]
+polygon = PackedVector2Array(400, 1600, 1160, 1600, 1160, 1020, 920, 1020, 860, 1040, 400, 1040, 400, 1100)
+
+[node name="Visual" type="Polygon2D" parent="Middle03_LiftTransfer/LowerRightReef" unique_id=1322262023]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(400, 1600, 1160, 1600, 1160, 1020, 920, 1020, 860, 1040, 400, 1040, 400, 1100)
+
+[node name="BentInnerReef" type="StaticBody2D" parent="Middle03_LiftTransfer" unique_id=1845834184]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle03_LiftTransfer/BentInnerReef" unique_id=115145189]
+polygon = PackedVector2Array(40, 940, 310, 940, 440, 780, 700, 780, 700, 660, 320, 660, 320, 500, 40, 500)
+
+[node name="Visual" type="Polygon2D" parent="Middle03_LiftTransfer/BentInnerReef" unique_id=325044052]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(40, 940, 310, 940, 440, 780, 700, 780, 700, 660, 320, 660, 320, 500, 40, 500)
+
+[node name="TransferSpur" type="StaticBody2D" parent="Middle03_LiftTransfer" unique_id=1008699294]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle03_LiftTransfer/TransferSpur" unique_id=572246889]
+position = Vector2(0, -94.5)
+scale = Vector2(1, 1.15)
+polygon = PackedVector2Array(320, 660, 900, 660, 960, 720, 960, 760, 320, 760)
+
+[node name="Visual" type="Polygon2D" parent="Middle03_LiftTransfer/TransferSpur" unique_id=975901612]
+position = Vector2(0, -132.00401)
+scale = Vector2(1, 1.2000061)
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(320, 660, 900, 660, 960, 720, 960, 760, 320, 760)
+
+[node name="UpperOuterReef" type="StaticBody2D" parent="Middle03_LiftTransfer" unique_id=2142205626]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle03_LiftTransfer/UpperOuterReef" unique_id=772489455]
+polygon = PackedVector2Array(600, 40, 1160, 40, 1160, 460, 560, 460, 560, 300)
+
+[node name="Visual" type="Polygon2D" parent="Middle03_LiftTransfer/UpperOuterReef" unique_id=1483902590]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(600, 40, 1160, 40, 1160, 460, 560, 460, 560, 300)
+
+[node name="ExitOverhang" type="StaticBody2D" parent="Middle03_LiftTransfer" unique_id=13514457]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle03_LiftTransfer/ExitOverhang" unique_id=504424737]
+polygon = PackedVector2Array(340, 40, 600, 40, 600, 238, 340, 238)
+
+[node name="Visual" type="Polygon2D" parent="Middle03_LiftTransfer/ExitOverhang" unique_id=1502276366]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(340, 40, 600, 40, 600, 238, 340, 238)
+
+[node name="Middle04_DriftWindows" type="Node2D" parent="." unique_id=1692207578]
+position = Vector2(0, 6400)
+
+[node name="MiddleReef" type="StaticBody2D" parent="Middle04_DriftWindows" unique_id=622682548]
+position = Vector2(495, 1000)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle04_DriftWindows/MiddleReef" unique_id=1355927594]
+shape = SubResource("Middle04_DriftWindows_MiddleReef")
+
+[node name="Visual" type="Polygon2D" parent="Middle04_DriftWindows/MiddleReef" unique_id=22243733]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-455, -20, 455, -20, 455, 20, -455, 20)
+
+[node name="UpperReef" type="StaticBody2D" parent="Middle04_DriftWindows" unique_id=1475993522]
+position = Vector2(715, 480)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle04_DriftWindows/UpperReef" unique_id=240938406]
+shape = SubResource("Middle04_DriftWindows_UpperReef")
+
+[node name="Visual" type="Polygon2D" parent="Middle04_DriftWindows/UpperReef" unique_id=521219294]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-445, -20, 445, -20, 445, 20, -445, 20)
+
+[node name="Checkpoint" parent="Middle04_DriftWindows" unique_id=552560826 instance=ExtResource("checkpoint")]
+position = Vector2(230, 1500)
+
+[node name="CheckpointRest" type="StaticBody2D" parent="Middle04_DriftWindows" unique_id=1936135181]
+position = Vector2(230, 1545)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle04_DriftWindows/CheckpointRest" unique_id=50221010]
+shape = SubResource("Middle04_DriftWindows_CheckpointRest")
+
+[node name="Visual" type="Polygon2D" parent="Middle04_DriftWindows/CheckpointRest" unique_id=933843082]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-75, -15, 75, -15, 75, 15, -75, 15)
+
+[node name="RightDrift" parent="Middle04_DriftWindows" unique_id=626945903 instance=ExtResource("current")]
+position = Vector2(550, 1290)
+strength = 520.0
+max_speed = 390.0
+
+[node name="Visual" parent="Middle04_DriftWindows/RightDrift" index="0"]
+polygon = PackedVector2Array(-250, -160, 250, -160, 250, 160, -250, 160)
+
+[node name="CollisionShape2D" parent="Middle04_DriftWindows/RightDrift" index="2"]
+shape = SubResource("Middle04_DriftWindows_RightDrift")
+
+[node name="EntryGateUpper" type="StaticBody2D" parent="Middle04_DriftWindows" unique_id=133480730]
+position = Vector2(790, 1099)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle04_DriftWindows/EntryGateUpper" unique_id=1931306052]
+shape = SubResource("Middle04_DriftWindows_EntryGateUpper")
+
+[node name="Visual" type="Polygon2D" parent="Middle04_DriftWindows/EntryGateUpper" unique_id=808133896]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-30, -79, 30, -79, 30, 79, -30, 79)
+
+[node name="EntryGateLower" type="StaticBody2D" parent="Middle04_DriftWindows" unique_id=1282761090]
+position = Vector2(790, 1421)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle04_DriftWindows/EntryGateLower" unique_id=211586311]
+shape = SubResource("Middle04_DriftWindows_EntryGateLower")
+
+[node name="Visual" type="Polygon2D" parent="Middle04_DriftWindows/EntryGateLower" unique_id=1921016608]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-30, -39, 30, -39, 30, 39, -30, 39)
+
+[node name="EntryUpperEdge" parent="Middle04_DriftWindows" unique_id=1860387118 instance=ExtResource("hazard")]
+position = Vector2(790, 1190)
+
+[node name="Visual" parent="Middle04_DriftWindows/EntryUpperEdge" index="0"]
+polygon = PackedVector2Array(-45, -12, 45, -12, 45, 12, -45, 12)
+
+[node name="CollisionShape2D" parent="Middle04_DriftWindows/EntryUpperEdge" index="1"]
+shape = SubResource("Middle04_DriftWindows_EntryUpperEdge")
+
+[node name="EntryLowerEdge" parent="Middle04_DriftWindows" unique_id=756617951 instance=ExtResource("hazard")]
+position = Vector2(790, 1370)
+
+[node name="Visual" parent="Middle04_DriftWindows/EntryLowerEdge" index="0"]
+polygon = PackedVector2Array(-45, -12, 45, -12, 45, 12, -45, 12)
+
+[node name="CollisionShape2D" parent="Middle04_DriftWindows/EntryLowerEdge" index="1"]
+shape = SubResource("Middle04_DriftWindows_EntryLowerEdge")
+
+[node name="SecondWindowLower" parent="Middle04_DriftWindows" unique_id=1690923316 instance=ExtResource("hazard")]
+position = Vector2(960, 1320)
+
+[node name="Visual" parent="Middle04_DriftWindows/SecondWindowLower" index="0"]
+polygon = PackedVector2Array(-50, -12, 50, -12, 50, 12, -50, 12)
+
+[node name="CollisionShape2D" parent="Middle04_DriftWindows/SecondWindowLower" index="1"]
+shape = SubResource("Middle04_DriftWindows_SecondWindowLower")
+
+[node name="SecondWindowUpper" parent="Middle04_DriftWindows" unique_id=1117376857 instance=ExtResource("hazard")]
+position = Vector2(960, 1120)
+
+[node name="Visual" parent="Middle04_DriftWindows/SecondWindowUpper" index="0"]
+polygon = PackedVector2Array(-50, -12, 50, -12, 50, 12, -50, 12)
+
+[node name="CollisionShape2D" parent="Middle04_DriftWindows/SecondWindowUpper" index="1"]
+shape = SubResource("Middle04_DriftWindows_SecondWindowUpper")
+
+[node name="LeftReturn" parent="Middle04_DriftWindows" unique_id=679034468 instance=ExtResource("current")]
+position = Vector2(910, 740)
+direction = Vector2(-1, 0)
+strength = 480.0
+max_speed = 360.0
+
+[node name="Visual" parent="Middle04_DriftWindows/LeftReturn" index="0"]
+polygon = PackedVector2Array(-160, -90, 160, -90, 160, 90, -160, 90)
+
+[node name="CollisionShape2D" parent="Middle04_DriftWindows/LeftReturn" index="2"]
+shape = SubResource("Middle04_DriftWindows_LeftReturn")
+
+[node name="ReturnLowerEdge" parent="Middle04_DriftWindows" unique_id=1455064484 instance=ExtResource("hazard")]
+position = Vector2(700, 875)
+
+[node name="Visual" parent="Middle04_DriftWindows/ReturnLowerEdge" index="0"]
+polygon = PackedVector2Array(-120, -12, 120, -12, 120, 12, -120, 12)
+
+[node name="CollisionShape2D" parent="Middle04_DriftWindows/ReturnLowerEdge" index="1"]
+shape = SubResource("Middle04_DriftWindows_ReturnLowerEdge")
+
+[node name="ReturnGateUpper" type="StaticBody2D" parent="Middle04_DriftWindows" unique_id=257658336]
+position = Vector2(490, 560)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle04_DriftWindows/ReturnGateUpper" unique_id=47509017]
+shape = SubResource("Middle04_DriftWindows_ReturnGateUpper")
+
+[node name="Visual" type="Polygon2D" parent="Middle04_DriftWindows/ReturnGateUpper" unique_id=2113701553]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-30, -60, 30, -60, 30, 60, -30, 60)
+
+[node name="ReturnUpperEdge" parent="Middle04_DriftWindows" unique_id=890380531 instance=ExtResource("hazard")]
+position = Vector2(490, 630)
+
+[node name="Visual" parent="Middle04_DriftWindows/ReturnUpperEdge" index="0"]
+polygon = PackedVector2Array(-45, -10, 45, -10, 45, 10, -45, 10)
+
+[node name="CollisionShape2D" parent="Middle04_DriftWindows/ReturnUpperEdge" index="1"]
+shape = SubResource("Middle04_DriftWindows_ReturnUpperEdge")
+
+[node name="ReturnLowerLip" parent="Middle04_DriftWindows" unique_id=282388515 instance=ExtResource("hazard")]
+position = Vector2(490, 800)
+
+[node name="Visual" parent="Middle04_DriftWindows/ReturnLowerLip" index="0"]
+polygon = PackedVector2Array(-50, -10, 50, -10, 50, 10, -50, 10)
+
+[node name="CollisionShape2D" parent="Middle04_DriftWindows/ReturnLowerLip" index="1"]
+shape = SubResource("Middle04_DriftWindows_ReturnLowerLip")
+
+[node name="ReturnGateLower" type="StaticBody2D" parent="Middle04_DriftWindows" unique_id=855145745]
+position = Vector2(490, 900)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle04_DriftWindows/ReturnGateLower" unique_id=783262934]
+position = Vector2(0, -5)
+shape = SubResource("Middle04_DriftWindows_ReturnGateLower")
+
+[node name="Visual" type="Polygon2D" parent="Middle04_DriftWindows/ReturnGateLower" unique_id=388922715]
+position = Vector2(0, -4.999941)
+scale = Vector2(1, 1.0624993)
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-30, -80, 30, -80, 30, 80, -30, 80)
+
+[node name="ChannelCeiling" type="StaticBody2D" parent="Middle04_DriftWindows" unique_id=1384969898]
+position = Vector2(510, 1060)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle04_DriftWindows/ChannelCeiling" unique_id=374850321]
+position = Vector2(40, 0)
+shape = SubResource("Middle04_DriftWindows_ChannelCeiling")
+
+[node name="Visual" type="Polygon2D" parent="Middle04_DriftWindows/ChannelCeiling" unique_id=1129461913]
+position = Vector2(40.499992, 0)
+scale = Vector2(1.2382352, 1)
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-170, -60, 170, -60, 170, 60, -170, 60)
+
+[node name="ChannelFloorEdge" parent="Middle04_DriftWindows" unique_id=1269210236 instance=ExtResource("hazard")]
+position = Vector2(710, 1450)
+
+[node name="Visual" parent="Middle04_DriftWindows/ChannelFloorEdge" index="0"]
+polygon = PackedVector2Array(-280, -10, 280, -10, 280, 10, -280, 10)
+
+[node name="CollisionShape2D" parent="Middle04_DriftWindows/ChannelFloorEdge" index="1"]
+shape = SubResource("Middle04_DriftWindows_ChannelFloorEdge")
+
+[node name="CurrentLowTooth" parent="Middle04_DriftWindows" unique_id=298771678 instance=ExtResource("hazard")]
+position = Vector2(520, 1400)
+
+[node name="Visual" parent="Middle04_DriftWindows/CurrentLowTooth" index="0"]
+polygon = PackedVector2Array(-40, -60, 40, -60, 40, 60, -40, 60)
+
+[node name="CollisionShape2D" parent="Middle04_DriftWindows/CurrentLowTooth" index="1"]
+shape = SubResource("Middle04_DriftWindows_CurrentLowTooth")
+
+[node name="CurrentHighTooth" parent="Middle04_DriftWindows" unique_id=1639713369 instance=ExtResource("hazard")]
+position = Vector2(660, 1165)
+
+[node name="Visual" parent="Middle04_DriftWindows/CurrentHighTooth" index="0"]
+position = Vector2(-67.00001, 1)
+scale = Vector2(2.6875002, 1.3)
+polygon = PackedVector2Array(-40, -35, 40, -35, 40, 35, -40, 35)
+
+[node name="CollisionShape2D" parent="Middle04_DriftWindows/CurrentHighTooth" index="1"]
+position = Vector2(-67, 1)
+shape = SubResource("Middle04_DriftWindows_CurrentHighTooth")
+
+[node name="ReturnCeiling" type="StaticBody2D" parent="Middle04_DriftWindows" unique_id=2091516521]
+position = Vector2(780, 555)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle04_DriftWindows/ReturnCeiling" unique_id=1173007158]
+position = Vector2(60.5, 0)
+shape = SubResource("Middle04_DriftWindows_ReturnCeiling")
+
+[node name="Visual" type="Polygon2D" parent="Middle04_DriftWindows/ReturnCeiling" unique_id=1457023619]
+position = Vector2(59.999977, 0)
+scale = Vector2(1.4636362, 1)
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-220, -55, 220, -55, 220, 55, -220, 55)
+
+[node name="RightLiftFloorEdge" parent="Middle04_DriftWindows" unique_id=1426318085 instance=ExtResource("hazard")]
+position = Vector2(1090, 1450)
+
+[node name="Visual" parent="Middle04_DriftWindows/RightLiftFloorEdge" index="0"]
+polygon = PackedVector2Array(-70, -10, 70, -10, 70, 10, -70, 10)
+
+[node name="CollisionShape2D" parent="Middle04_DriftWindows/RightLiftFloorEdge" index="1"]
+shape = SubResource("Middle04_DriftWindows_RightLiftFloorEdge")
+
+[node name="LiftInnerSideEdge" parent="Middle04_DriftWindows" unique_id=985933480 instance=ExtResource("hazard")]
+position = Vector2(965, 1060)
+
+[node name="Visual" parent="Middle04_DriftWindows/LiftInnerSideEdge" index="0"]
+polygon = PackedVector2Array(-15, -40, 15, -40, 15, 40, -15, 40)
+
+[node name="CollisionShape2D" parent="Middle04_DriftWindows/LiftInnerSideEdge" index="1"]
+shape = SubResource("Middle04_DriftWindows_LiftInnerSideEdge")
+
+[node name="ChannelFloor" type="StaticBody2D" parent="Middle04_DriftWindows" unique_id=2135443261]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle04_DriftWindows/ChannelFloor" unique_id=7124607]
+position = Vector2(0, -310.1875)
+scale = Vector2(1, 1.21875)
+polygon = PackedVector2Array(420, 1460, 1160, 1460, 1160, 1600, 420, 1600)
+
+[node name="Visual" type="Polygon2D" parent="Middle04_DriftWindows/ChannelFloor" unique_id=1334417915]
+position = Vector2(0, -417.14368)
+scale = Vector2(1, 1.2857147)
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(420, 1460, 1160, 1460, 1160, 1600, 790.92896, 1600, 420, 1600)
+
+[node name="WindowUpperCollar" type="StaticBody2D" parent="Middle04_DriftWindows" unique_id=1930828337]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle04_DriftWindows/WindowUpperCollar" unique_id=1400420286]
+polygon = PackedVector2Array(880, 1020, 1010, 1020, 1010, 1108, 910, 1108, 880, 1078)
+
+[node name="Visual" type="Polygon2D" parent="Middle04_DriftWindows/WindowUpperCollar" unique_id=244674404]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(880, 1020, 1010, 1020, 1010, 1108, 910, 1108, 880, 1078)
+
+[node name="WindowLowerCollar" type="StaticBody2D" parent="Middle04_DriftWindows" unique_id=2035312248]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle04_DriftWindows/WindowLowerCollar" unique_id=1468509858]
+polygon = PackedVector2Array(910, 1332, 1010, 1332, 1010, 1460, 880, 1460, 880, 1362)
+
+[node name="Visual" type="Polygon2D" parent="Middle04_DriftWindows/WindowLowerCollar" unique_id=1559001423]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(910, 1332, 1010, 1332, 1010, 1460, 880, 1460, 880, 1362)
+
+[node name="ReturnFloorBank" type="StaticBody2D" parent="Middle04_DriftWindows" unique_id=366567400]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle04_DriftWindows/ReturnFloorBank" unique_id=326925031]
+polygon = PackedVector2Array(580, 887, 820, 887, 880, 947, 950, 947, 950, 980, 580, 980)
+
+[node name="Visual" type="Polygon2D" parent="Middle04_DriftWindows/ReturnFloorBank" unique_id=1035604327]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(580, 887, 820, 887, 880, 947, 950, 947, 950, 980, 580, 980)
+
+[node name="ClimbInnerShoulder" type="StaticBody2D" parent="Middle04_DriftWindows" unique_id=1806572778]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle04_DriftWindows/ClimbInnerShoulder" unique_id=1525396670]
+polygon = PackedVector2Array(910, 1020, 950, 1020, 950, 1100, 910, 1060)
+
+[node name="Visual" type="Polygon2D" parent="Middle04_DriftWindows/ClimbInnerShoulder" unique_id=2013266782]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(910, 1020, 950, 1020, 950, 1100, 910, 1060)
+
+[node name="UpperExitFunnel" type="StaticBody2D" parent="Middle04_DriftWindows" unique_id=1195405906]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Middle04_DriftWindows/UpperExitFunnel" unique_id=1847236574]
+polygon = PackedVector2Array(532, 0, 1160, 0, 1160, 460, 360, 460, 300, 560, 270, 560, 270, 460)
+
+[node name="Visual" type="Polygon2D" parent="Middle04_DriftWindows/UpperExitFunnel" unique_id=1135118864]
+position = Vector2(0, 52.76923)
+scale = Vector2(1, 0.9057692)
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(532, -58.25879, 1160, -58.25879, 1160, 460, 360, 460, 300, 560, 270, 560, 270, 449.59668)
+
+[node name="Late01_NarrowReef" type="Node2D" parent="." unique_id=1430909645]
+position = Vector2(0, 4800)
+
+[node name="Checkpoint" parent="Late01_NarrowReef" unique_id=856150882 instance=ExtResource("checkpoint")]
+position = Vector2(230, 1500)
+
+[node name="EntryUpperEdge" parent="Late01_NarrowReef" unique_id=1788258323 instance=ExtResource("hazard")]
+position = Vector2(610, 1300)
+
+[node name="Visual" parent="Late01_NarrowReef/EntryUpperEdge" index="0"]
+polygon = PackedVector2Array(-10, -70, 10, -70, 10, 70, -10, 70)
+
+[node name="CollisionShape2D" parent="Late01_NarrowReef/EntryUpperEdge" index="1"]
+shape = SubResource("Late01_NarrowReef_EntryUpperEdge")
+
+[node name="EntryLowerEdge" parent="Late01_NarrowReef" unique_id=1869695413 instance=ExtResource("hazard")]
+position = Vector2(370, 1320)
+
+[node name="Visual" parent="Late01_NarrowReef/EntryLowerEdge" index="0"]
+polygon = PackedVector2Array(-10, -60, 10, -60, 10, 60, -10, 60)
+
+[node name="CollisionShape2D" parent="Late01_NarrowReef/EntryLowerEdge" index="1"]
+shape = SubResource("Late01_NarrowReef_EntryLowerEdge")
+
+[node name="SecondWindowLower" parent="Late01_NarrowReef" unique_id=1618312766 instance=ExtResource("hazard")]
+position = Vector2(720, 1210)
+
+[node name="Visual" parent="Late01_NarrowReef/SecondWindowLower" index="0"]
+polygon = PackedVector2Array(-100, -10, 100, -10, 100, 10, -100, 10)
+
+[node name="CollisionShape2D" parent="Late01_NarrowReef/SecondWindowLower" index="1"]
+shape = SubResource("Late01_NarrowReef_SecondWindowLower")
+
+[node name="SecondWindowUpper" parent="Late01_NarrowReef" unique_id=2094255275 instance=ExtResource("hazard")]
+position = Vector2(700, 932)
+
+[node name="Visual" parent="Late01_NarrowReef/SecondWindowUpper" index="0"]
+polygon = PackedVector2Array(-80, -12, 80, -12, 80, 12, -80, 12)
+
+[node name="CollisionShape2D" parent="Late01_NarrowReef/SecondWindowUpper" index="1"]
+shape = SubResource("Late01_NarrowReef_SecondWindowUpper")
+
+[node name="ReturnLowerEdge" parent="Late01_NarrowReef" unique_id=2025040606 instance=ExtResource("hazard")]
+position = Vector2(370, 988)
+
+[node name="Visual" parent="Late01_NarrowReef/ReturnLowerEdge" index="0"]
+polygon = PackedVector2Array(-110, -12, 110, -12, 110, 12, -110, 12)
+
+[node name="CollisionShape2D" parent="Late01_NarrowReef/ReturnLowerEdge" index="1"]
+shape = SubResource("Late01_NarrowReef_ReturnLowerEdge")
+
+[node name="ReturnUpperEdge" parent="Late01_NarrowReef" unique_id=1639848143 instance=ExtResource("hazard")]
+position = Vector2(610, 810)
+
+[node name="Visual" parent="Late01_NarrowReef/ReturnUpperEdge" index="0"]
+polygon = PackedVector2Array(-10, -70, 10, -70, 10, 70, -10, 70)
+
+[node name="CollisionShape2D" parent="Late01_NarrowReef/ReturnUpperEdge" index="1"]
+shape = SubResource("Late01_NarrowReef_ReturnUpperEdge")
+
+[node name="ReturnLowerLip" parent="Late01_NarrowReef" unique_id=125318994 instance=ExtResource("hazard")]
+position = Vector2(270, 850)
+
+[node name="Visual" parent="Late01_NarrowReef/ReturnLowerLip" index="0"]
+polygon = PackedVector2Array(-10, -50, 10, -50, 10, 50, -10, 50)
+
+[node name="CollisionShape2D" parent="Late01_NarrowReef/ReturnLowerLip" index="1"]
+shape = SubResource("Late01_NarrowReef_ReturnLowerLip")
+
+[node name="LowerShaftCurrent" parent="Late01_NarrowReef" unique_id=745228206 instance=ExtResource("current")]
+position = Vector2(550, 1110)
+direction = Vector2(0, -1)
+strength = 490.0
+max_speed = 315.0
+
+[node name="Visual" parent="Late01_NarrowReef/LowerShaftCurrent" index="0"]
+polygon = PackedVector2Array(-80, -130, 80, -130, 80, 130, -80, 130)
+
+[node name="CollisionShape2D" parent="Late01_NarrowReef/LowerShaftCurrent" index="2"]
+shape = SubResource("Late01_NarrowReef_RightLift")
+
+[node name="ExitLift" parent="Late01_NarrowReef" unique_id=873468072 instance=ExtResource("current")]
+position = Vector2(370, 480)
+direction = Vector2(0, -1)
+strength = 460.0
+max_speed = 280.0
+
+[node name="Visual" parent="Late01_NarrowReef/ExitLift" index="0"]
+polygon = PackedVector2Array(-70, -130, 70, -130, 70, 130, -70, 130)
+
+[node name="CollisionShape2D" parent="Late01_NarrowReef/ExitLift" index="2"]
+shape = SubResource("Late01_NarrowReef_ExitLift")
+
+[node name="UpperReefLip" parent="Late01_NarrowReef" unique_id=355721922 instance=ExtResource("hazard")]
+position = Vector2(310, 390)
+
+[node name="Visual" parent="Late01_NarrowReef/UpperReefLip" index="0"]
+polygon = PackedVector2Array(-10, -50, 10, -50, 10, 50, -10, 50)
+
+[node name="CollisionShape2D" parent="Late01_NarrowReef/UpperReefLip" index="1"]
+shape = SubResource("Late01_NarrowReef_UpperReefLip")
+
+[node name="ExitGuideLip" parent="Late01_NarrowReef" unique_id=1113913811 instance=ExtResource("hazard")]
+position = Vector2(540, 528)
+
+[node name="Visual" parent="Late01_NarrowReef/ExitGuideLip" index="0"]
+polygon = PackedVector2Array(-60, -12, 60, -12, 60, 12, -60, 12)
+
+[node name="CollisionShape2D" parent="Late01_NarrowReef/ExitGuideLip" index="1"]
+shape = SubResource("Late01_NarrowReef_ExitGuideLip")
+
+[node name="ChannelFloorEdge" parent="Late01_NarrowReef" unique_id=498824626 instance=ExtResource("hazard")]
+position = Vector2(560, 1530)
+
+[node name="Visual" parent="Late01_NarrowReef/ChannelFloorEdge" index="0"]
+polygon = PackedVector2Array(-140, -10, 140, -10, 140, 10, -140, 10)
+
+[node name="CollisionShape2D" parent="Late01_NarrowReef/ChannelFloorEdge" index="1"]
+shape = SubResource("Late01_NarrowReef_ChannelFloorEdge")
+
+[node name="CurrentLowTooth" parent="Late01_NarrowReef" unique_id=575573287 instance=ExtResource("hazard")]
+position = Vector2(490, 1160)
+
+[node name="Visual" parent="Late01_NarrowReef/CurrentLowTooth" index="0"]
+polygon = PackedVector2Array(-10, -50, 10, -50, 10, 50, -10, 50)
+
+[node name="CollisionShape2D" parent="Late01_NarrowReef/CurrentLowTooth" index="1"]
+shape = SubResource("Late01_NarrowReef_CurrentLowTooth")
+
+[node name="CurrentHighTooth" parent="Late01_NarrowReef" unique_id=980580876 instance=ExtResource("hazard")]
+position = Vector2(848, 1080)
+
+[node name="Visual" parent="Late01_NarrowReef/CurrentHighTooth" index="0"]
+polygon = PackedVector2Array(-12, -80, 12, -80, 12, 80, -12, 80)
+
+[node name="CollisionShape2D" parent="Late01_NarrowReef/CurrentHighTooth" index="1"]
+shape = SubResource("Late01_NarrowReef_CurrentHighTooth")
+
+[node name="ReturnInnerTooth" parent="Late01_NarrowReef" unique_id=729176461 instance=ExtResource("hazard")]
+position = Vector2(200, 748)
+
+[node name="Visual" parent="Late01_NarrowReef/ReturnInnerTooth" index="0"]
+polygon = PackedVector2Array(-60, -12, 60, -12, 60, 12, -60, 12)
+
+[node name="CollisionShape2D" parent="Late01_NarrowReef/ReturnInnerTooth" index="1"]
+shape = SubResource("Late01_NarrowReef_ReturnInnerTooth")
+
+[node name="RightLiftFloorEdge" parent="Late01_NarrowReef" unique_id=1118505505 instance=ExtResource("hazard")]
+position = Vector2(660, 1390)
+
+[node name="CollisionShape2D" parent="Late01_NarrowReef/RightLiftFloorEdge" index="1"]
+shape = SubResource("Late01_NarrowReef_RightLiftFloorEdge")
+
+[node name="LiftInnerSideEdge" parent="Late01_NarrowReef" unique_id=1735682915 instance=ExtResource("hazard")]
+position = Vector2(630, 420)
+
+[node name="Visual" parent="Late01_NarrowReef/LiftInnerSideEdge" index="0"]
+polygon = PackedVector2Array(-10, -60, 10, -60, 10, 60, -10, 60)
+
+[node name="CollisionShape2D" parent="Late01_NarrowReef/LiftInnerSideEdge" index="1"]
+shape = SubResource("Late01_NarrowReef_LiftInnerSideEdge")
+
+[node name="ExitLiftLowerTooth" parent="Late01_NarrowReef" unique_id=1702136125 instance=ExtResource("hazard")]
+position = Vector2(260, 512)
+
+[node name="Visual" parent="Late01_NarrowReef/ExitLiftLowerTooth" index="0"]
+polygon = PackedVector2Array(-40, -12, 40, -12, 40, 12, -40, 12)
+
+[node name="CollisionShape2D" parent="Late01_NarrowReef/ExitLiftLowerTooth" index="1"]
+shape = SubResource("Late01_NarrowReef_ExitLiftLowerTooth")
+
+[node name="LeftSteppedBank" type="StaticBody2D" parent="Late01_NarrowReef" unique_id=266738631]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Late01_NarrowReef/LeftSteppedBank" unique_id=1590706326]
+polygon = PackedVector2Array(40, 1600, 120, 1600, 120, 1420, 360, 1420, 360, 1220, 480, 1220, 480, 1000, 260, 1000, 260, 760, 140, 760, 140, 500, 300, 500, 300, 260, 40, 260)
+
+[node name="Visual" type="Polygon2D" parent="Late01_NarrowReef/LeftSteppedBank" unique_id=1403208618]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(40, 1600, 120, 1600, 120, 1420, 360, 1420, 360, 1220, 480, 1220, 480, 1000, 260, 1000, 260, 760, 140, 760, 140, 500, 300, 500, 300, 260, 40, 260)
+
+[node name="RightSteppedBank" type="StaticBody2D" parent="Late01_NarrowReef" unique_id=1808879915]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Late01_NarrowReef/RightSteppedBank" unique_id=858454106]
+polygon = PackedVector2Array(1160, 1600, 700, 1600, 700, 1380, 620, 1380, 620, 1220, 860, 1220, 860, 920, 620, 920, 620, 720, 480, 720, 480, 540, 640, 540, 640, 260, 500, 180, 500, 0, 1160, 0)
+
+[node name="Visual" type="Polygon2D" parent="Late01_NarrowReef/RightSteppedBank" unique_id=583866285]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(1160, 1600, 700, 1600, 700, 1380, 620, 1380, 620, 1220, 860, 1220, 860, 920, 620, 920, 620, 720, 480, 720, 480, 540, 640, 540, 640, 260, 500, 180, 500, 0, 1160, 0)
+
+[node name="CheckpointRest" type="StaticBody2D" parent="Late01_NarrowReef" unique_id=1570203385]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Late01_NarrowReef/CheckpointRest" unique_id=779600095]
+polygon = PackedVector2Array(120, 1530, 305, 1530, 305, 1600, 120, 1600)
+
+[node name="Visual" type="Polygon2D" parent="Late01_NarrowReef/CheckpointRest" unique_id=1661098461]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(120, 1530, 305, 1530, 305, 1600, 120, 1600)
+
+[node name="EntranceFloor" type="StaticBody2D" parent="Late01_NarrowReef" unique_id=1202237367]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Late01_NarrowReef/EntranceFloor" unique_id=1128331485]
+polygon = PackedVector2Array(420, 1540, 700, 1540, 700, 1600, 420, 1600)
+
+[node name="Visual" type="Polygon2D" parent="Late01_NarrowReef/EntranceFloor" unique_id=1728151110]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(420, 1540, 700, 1540, 700, 1600, 420, 1600)
+
+[node name="Late02_Crossflow" type="Node2D" parent="." unique_id=1885071894]
+position = Vector2(0, 3200)
+
+[node name="MiddleReef" type="StaticBody2D" parent="Late02_Crossflow" unique_id=1675530702]
+position = Vector2(495, 1000)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Late02_Crossflow/MiddleReef" unique_id=1761599636]
+shape = SubResource("Late02_Crossflow_MiddleReef")
+
+[node name="Visual" type="Polygon2D" parent="Late02_Crossflow/MiddleReef" unique_id=1145534952]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-455, -20, 455, -20, 455, 20, -455, 20)
+
+[node name="UpperReef" type="StaticBody2D" parent="Late02_Crossflow" unique_id=158430514]
+position = Vector2(715, 480)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Late02_Crossflow/UpperReef" unique_id=131603576]
+shape = SubResource("Late02_Crossflow_UpperReef")
+
+[node name="Visual" type="Polygon2D" parent="Late02_Crossflow/UpperReef" unique_id=984260383]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-445, -20, 445, -20, 445, 20, -445, 20)
+
+[node name="Checkpoint" parent="Late02_Crossflow" unique_id=1809317344 instance=ExtResource("checkpoint")]
+position = Vector2(230, 1500)
+
+[node name="CheckpointRest" type="StaticBody2D" parent="Late02_Crossflow" unique_id=318112966]
+position = Vector2(230, 1545)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Late02_Crossflow/CheckpointRest" unique_id=148485369]
+shape = SubResource("Late02_Crossflow_CheckpointRest")
+
+[node name="Visual" type="Polygon2D" parent="Late02_Crossflow/CheckpointRest" unique_id=1395155607]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-75, -15, 75, -15, 75, 15, -75, 15)
+
+[node name="RightDrift" parent="Late02_Crossflow" unique_id=1529181317 instance=ExtResource("current")]
+position = Vector2(550, 1290)
+strength = 600.0
+max_speed = 440.0
+
+[node name="Visual" parent="Late02_Crossflow/RightDrift" index="0"]
+polygon = PackedVector2Array(-250, -160, 250, -160, 250, 160, -250, 160)
+
+[node name="CollisionShape2D" parent="Late02_Crossflow/RightDrift" index="2"]
+shape = SubResource("Late02_Crossflow_RightDrift")
+
+[node name="EntryGateUpper" type="StaticBody2D" parent="Late02_Crossflow" unique_id=931833214]
+position = Vector2(790, 1104)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Late02_Crossflow/EntryGateUpper" unique_id=1879177161]
+shape = SubResource("Late02_Crossflow_EntryGateUpper")
+
+[node name="Visual" type="Polygon2D" parent="Late02_Crossflow/EntryGateUpper" unique_id=1228509717]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-30, -84, 30, -84, 30, 84, -30, 84)
+
+[node name="EntryGateLower" type="StaticBody2D" parent="Late02_Crossflow" unique_id=26869335]
+position = Vector2(790, 1416)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Late02_Crossflow/EntryGateLower" unique_id=1361123114]
+shape = SubResource("Late02_Crossflow_EntryGateLower")
+
+[node name="Visual" type="Polygon2D" parent="Late02_Crossflow/EntryGateLower" unique_id=1181994428]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-30, -44, 30, -44, 30, 44, -30, 44)
+
+[node name="EntryUpperEdge" parent="Late02_Crossflow" unique_id=2481144 instance=ExtResource("hazard")]
+position = Vector2(790, 1200)
+
+[node name="Visual" parent="Late02_Crossflow/EntryUpperEdge" index="0"]
+polygon = PackedVector2Array(-45, -12, 45, -12, 45, 12, -45, 12)
+
+[node name="CollisionShape2D" parent="Late02_Crossflow/EntryUpperEdge" index="1"]
+shape = SubResource("Late02_Crossflow_EntryUpperEdge")
+
+[node name="EntryLowerEdge" parent="Late02_Crossflow" unique_id=370419918 instance=ExtResource("hazard")]
+position = Vector2(790, 1360)
+
+[node name="Visual" parent="Late02_Crossflow/EntryLowerEdge" index="0"]
+polygon = PackedVector2Array(-45, -12, 45, -12, 45, 12, -45, 12)
+
+[node name="CollisionShape2D" parent="Late02_Crossflow/EntryLowerEdge" index="1"]
+shape = SubResource("Late02_Crossflow_EntryLowerEdge")
+
+[node name="LeftReturn" parent="Late02_Crossflow" unique_id=1868450002 instance=ExtResource("current")]
+position = Vector2(810, 740)
+direction = Vector2(-1, 0)
+strength = 560.0
+max_speed = 410.0
+
+[node name="Visual" parent="Late02_Crossflow/LeftReturn" index="0"]
+polygon = PackedVector2Array(-270, -100, 270, -100, 270, 100, -270, 100)
+
+[node name="CollisionShape2D" parent="Late02_Crossflow/LeftReturn" index="2"]
+shape = SubResource("Late02_Crossflow_LeftReturn")
+
+[node name="ReturnLowerEdge" parent="Late02_Crossflow" unique_id=107044809 instance=ExtResource("hazard")]
+position = Vector2(700, 875)
+
+[node name="Visual" parent="Late02_Crossflow/ReturnLowerEdge" index="0"]
+polygon = PackedVector2Array(-120, -12, 120, -12, 120, 12, -120, 12)
+
+[node name="CollisionShape2D" parent="Late02_Crossflow/ReturnLowerEdge" index="1"]
+shape = SubResource("Late02_Crossflow_ReturnLowerEdge")
+
+[node name="RightLift" parent="Late02_Crossflow" unique_id=540891475 instance=ExtResource("current")]
+position = Vector2(1055, 1010)
+direction = Vector2(0, -1)
+strength = 530.0
+max_speed = 330.0
+
+[node name="Visual" parent="Late02_Crossflow/RightLift" index="0"]
+position = Vector2(0, 49)
+scale = Vector2(1, 1.2882353)
+polygon = PackedVector2Array(-85, -170, 85, -170, 85, 170, -85, 170)
+
+[node name="CollisionShape2D" parent="Late02_Crossflow/RightLift" index="2"]
+position = Vector2(0, 48.5)
+shape = SubResource("Late02_Crossflow_RightLift")
+
+[node name="LiftInnerGuide" type="StaticBody2D" parent="Late02_Crossflow" unique_id=870157840]
+position = Vector2(950, 1030)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Late02_Crossflow/LiftInnerGuide" unique_id=1489237979]
+shape = SubResource("Late02_Crossflow_LiftInnerGuide")
+
+[node name="Visual" type="Polygon2D" parent="Late02_Crossflow/LiftInnerGuide" unique_id=1675196642]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-20, -90, 20, -90, 20, 90, -20, 90)
+
+[node name="LiftCap" parent="Late02_Crossflow" unique_id=143475017 instance=ExtResource("hazard")]
+position = Vector2(1040, 615)
+
+[node name="Visual" parent="Late02_Crossflow/LiftCap" index="0"]
+polygon = PackedVector2Array(-100, -12, 100, -12, 100, 12, -100, 12)
+
+[node name="CollisionShape2D" parent="Late02_Crossflow/LiftCap" index="1"]
+shape = SubResource("Late02_Crossflow_LiftCap")
+
+[node name="ExitLift" parent="Late02_Crossflow" unique_id=1528946586 instance=ExtResource("current")]
+position = Vector2(175, 480)
+direction = Vector2(0, -1)
+strength = 500.0
+max_speed = 300.0
+
+[node name="Visual" parent="Late02_Crossflow/ExitLift" index="0"]
+polygon = PackedVector2Array(-85, -200, 85, -200, 85, 200, -85, 200)
+
+[node name="CollisionShape2D" parent="Late02_Crossflow/ExitLift" index="2"]
+shape = SubResource("Late02_Crossflow_ExitLift")
+
+[node name="ExitGuide" type="StaticBody2D" parent="Late02_Crossflow" unique_id=2127956323]
+position = Vector2(300, 610)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Late02_Crossflow/ExitGuide" unique_id=1758324152]
+shape = SubResource("Late02_Crossflow_ExitGuide")
+
+[node name="Visual" type="Polygon2D" parent="Late02_Crossflow/ExitGuide" unique_id=1767968298]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-20, -110, 20, -110, 20, 110, -20, 110)
+
+[node name="ExitLiftCap" parent="Late02_Crossflow" unique_id=380526588 instance=ExtResource("hazard")]
+position = Vector2(150, 232)
+
+[node name="Visual" parent="Late02_Crossflow/ExitLiftCap" index="0"]
+polygon = PackedVector2Array(-90, -12, 90, -12, 90, 12, -90, 12)
+
+[node name="CollisionShape2D" parent="Late02_Crossflow/ExitLiftCap" index="1"]
+shape = SubResource("Late02_Crossflow_ExitLiftCap")
+
+[node name="UpperReefLip" parent="Late02_Crossflow" unique_id=1488676613 instance=ExtResource("hazard")]
+position = Vector2(365, 450)
+
+[node name="Visual" parent="Late02_Crossflow/UpperReefLip" index="0"]
+polygon = PackedVector2Array(-45, -10, 45, -10, 45, 10, -45, 10)
+
+[node name="CollisionShape2D" parent="Late02_Crossflow/UpperReefLip" index="1"]
+shape = SubResource("Late02_Crossflow_UpperReefLip")
+
+[node name="ExitGuideLip" parent="Late02_Crossflow" unique_id=1567194777 instance=ExtResource("hazard")]
+position = Vector2(300, 490)
+
+[node name="Visual" parent="Late02_Crossflow/ExitGuideLip" index="0"]
+polygon = PackedVector2Array(-30, -10, 30, -10, 30, 10, -30, 10)
+
+[node name="CollisionShape2D" parent="Late02_Crossflow/ExitGuideLip" index="1"]
+shape = SubResource("Late02_Crossflow_ExitGuideLip")
+
+[node name="UpperRightDrift" parent="Late02_Crossflow" unique_id=202708771 instance=ExtResource("current")]
+position = Vector2(480, 300)
+strength = 500.0
+max_speed = 370.0
+
+[node name="Visual" parent="Late02_Crossflow/UpperRightDrift" index="0"]
+position = Vector2(-110, 16)
+polygon = PackedVector2Array(-110, -65, 110, -65, 110, 65, -110, 65)
+
+[node name="Arrow" parent="Late02_Crossflow/UpperRightDrift" index="1"]
+position = Vector2(-110, 18)
+
+[node name="CollisionShape2D" parent="Late02_Crossflow/UpperRightDrift" index="2"]
+position = Vector2(-110, 16)
+shape = SubResource("Late02_Crossflow_UpperRightDrift")
+
+[node name="ChannelCeiling" type="StaticBody2D" parent="Late02_Crossflow" unique_id=2015485974]
+position = Vector2(510, 1060)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Late02_Crossflow/ChannelCeiling" unique_id=239775834]
+position = Vector2(44.5, 0)
+shape = SubResource("Late02_Crossflow_ChannelCeiling")
+
+[node name="Visual" type="Polygon2D" parent="Late02_Crossflow/ChannelCeiling" unique_id=2122060324]
+position = Vector2(44.499973, 0)
+scale = Vector2(1.2617645, 1)
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-170, -60, 170, -60, 170, -0.9256897, 170, 60, -170, 60)
+
+[node name="ChannelFloorEdge" parent="Late02_Crossflow" unique_id=884937856 instance=ExtResource("hazard")]
+position = Vector2(710, 1450)
+
+[node name="Visual" parent="Late02_Crossflow/ChannelFloorEdge" index="0"]
+polygon = PackedVector2Array(-280, -10, 280, -10, 280, 10, -280, 10)
+
+[node name="CollisionShape2D" parent="Late02_Crossflow/ChannelFloorEdge" index="1"]
+shape = SubResource("Late02_Crossflow_ChannelFloorEdge")
+
+[node name="CurrentLowTooth" parent="Late02_Crossflow" unique_id=1850757593 instance=ExtResource("hazard")]
+position = Vector2(520, 1400)
+
+[node name="Visual" parent="Late02_Crossflow/CurrentLowTooth" index="0"]
+polygon = PackedVector2Array(-40, -60, 40, -60, 40, 60, -40, 60)
+
+[node name="CollisionShape2D" parent="Late02_Crossflow/CurrentLowTooth" index="1"]
+shape = SubResource("Late02_Crossflow_CurrentLowTooth")
+
+[node name="CurrentHighTooth" parent="Late02_Crossflow" unique_id=38513505 instance=ExtResource("hazard")]
+position = Vector2(660, 1165)
+
+[node name="Visual" parent="Late02_Crossflow/CurrentHighTooth" index="0"]
+polygon = PackedVector2Array(-40, -35, 40, -35, 40, 35, -40, 35)
+
+[node name="CollisionShape2D" parent="Late02_Crossflow/CurrentHighTooth" index="1"]
+shape = SubResource("Late02_Crossflow_CurrentHighTooth")
+
+[node name="ReturnCeiling" type="StaticBody2D" parent="Late02_Crossflow" unique_id=1761386004]
+position = Vector2(780, 555)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Late02_Crossflow/ReturnCeiling" unique_id=1391255662]
+shape = SubResource("Late02_Crossflow_ReturnCeiling")
+
+[node name="Visual" type="Polygon2D" parent="Late02_Crossflow/ReturnCeiling" unique_id=1765821407]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-220, -55, 220, -55, 220, 55, -220, 55)
+
+[node name="ReturnInnerTooth" parent="Late02_Crossflow" unique_id=1718703019 instance=ExtResource("hazard")]
+position = Vector2(810, 825)
+
+[node name="Visual" parent="Late02_Crossflow/ReturnInnerTooth" index="0"]
+polygon = PackedVector2Array(-45, -20, 45, -20, 45, 20, -45, 20)
+
+[node name="CollisionShape2D" parent="Late02_Crossflow/ReturnInnerTooth" index="1"]
+shape = SubResource("Late02_Crossflow_ReturnInnerTooth")
+
+[node name="RightLiftFloorEdge" parent="Late02_Crossflow" unique_id=838745019 instance=ExtResource("hazard")]
+position = Vector2(1090, 1450)
+
+[node name="Visual" parent="Late02_Crossflow/RightLiftFloorEdge" index="0"]
+polygon = PackedVector2Array(-70, -10, 70, -10, 70, 10, -70, 10)
+
+[node name="CollisionShape2D" parent="Late02_Crossflow/RightLiftFloorEdge" index="1"]
+shape = SubResource("Late02_Crossflow_RightLiftFloorEdge")
+
+[node name="TransferExitLowerEdge" parent="Late02_Crossflow" unique_id=1207009869 instance=ExtResource("hazard")]
+position = Vector2(630, 395)
+
+[node name="Visual" parent="Late02_Crossflow/TransferExitLowerEdge" index="0"]
+polygon = PackedVector2Array(-110, -12, 110, -12, 110, 12, -110, 12)
+
+[node name="CollisionShape2D" parent="Late02_Crossflow/TransferExitLowerEdge" index="1"]
+shape = SubResource("Late02_Crossflow_TransferExitLowerEdge")
+
+[node name="ExitLiftLowerTooth" parent="Late02_Crossflow" unique_id=1257241248 instance=ExtResource("hazard")]
+position = Vector2(80, 590)
+
+[node name="Visual" parent="Late02_Crossflow/ExitLiftLowerTooth" index="0"]
+position = Vector2(-18, -95.00002)
+scale = Vector2(1, 3.1111114)
+polygon = PackedVector2Array(-22.5, -45, 22.5, -45, 22.5, 45, -22.5, 45)
+
+[node name="CollisionShape2D" parent="Late02_Crossflow/ExitLiftLowerTooth" index="1"]
+position = Vector2(-18, -95)
+shape = SubResource("Late02_Crossflow_ExitLiftLowerTooth")
+
+[node name="TransferDebris" parent="Late02_Crossflow" unique_id=254867083 instance=ExtResource("falling_debris")]
+position = Vector2(700, 150)
+fall_distance = 230.0
+
+[node name="ChannelFloor" type="StaticBody2D" parent="Late02_Crossflow" unique_id=1112169847]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Late02_Crossflow/ChannelFloor" unique_id=1935487848]
+polygon = PackedVector2Array(420, 1460, 1160, 1460, 1160, 1600, 420, 1600)
+
+[node name="Visual" type="Polygon2D" parent="Late02_Crossflow/ChannelFloor" unique_id=1012979756]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(420, 1460, 1160, 1460, 1160, 1600, 420, 1600)
+
+[node name="ReturnFloorBank" type="StaticBody2D" parent="Late02_Crossflow" unique_id=690482297]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Late02_Crossflow/ReturnFloorBank" unique_id=633872377]
+polygon = PackedVector2Array(580, 887, 765, 887, 765, 845, 855, 845, 855, 887, 950, 947, 950, 980, 580, 980)
+
+[node name="Visual" type="Polygon2D" parent="Late02_Crossflow/ReturnFloorBank" unique_id=1901869815]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(580, 887, 765, 887, 765, 845, 855, 845, 855, 887, 950, 947, 950, 980, 580, 980)
+
+[node name="UpperTransferWall" type="StaticBody2D" parent="Late02_Crossflow" unique_id=421539555]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Late02_Crossflow/UpperTransferWall" unique_id=1328917274]
+polygon = PackedVector2Array(740, 0, 1160, 0, 1160, 460, 740, 460)
+
+[node name="Visual" type="Polygon2D" parent="Late02_Crossflow/UpperTransferWall" unique_id=1696418340]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(740, 0, 1160, 0, 1160, 460, 740, 460)
+
+[node name="UpperTransferCeiling" type="StaticBody2D" parent="Late02_Crossflow" unique_id=1155627080]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Late02_Crossflow/UpperTransferCeiling" unique_id=1805286737]
+position = Vector2(-12.864578, 0)
+scale = Vector2(0.87630206, 1)
+polygon = PackedVector2Array(40, 180, 520, 180, 520, 220, 40, 220)
+
+[node name="Visual" type="Polygon2D" parent="Late02_Crossflow/UpperTransferCeiling" unique_id=660999278]
+position = Vector2(6.416664, 0)
+scale = Vector2(0.83958334, 1)
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(40, 180, 520, 180, 520, 220, 40, 220)
+
+[node name="TransferFloorBank" type="StaticBody2D" parent="Late02_Crossflow" unique_id=1768771408]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Late02_Crossflow/TransferFloorBank" unique_id=1335117532]
+polygon = PackedVector2Array(520, 407, 740, 407, 740, 460, 580, 460, 520, 440)
+
+[node name="Visual" type="Polygon2D" parent="Late02_Crossflow/TransferFloorBank" unique_id=370740809]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(520, 407, 740, 407, 740, 460, 580, 460, 520, 440)
+
+[node name="DebrisSupport" type="StaticBody2D" parent="Late02_Crossflow" unique_id=154920409]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Late02_Crossflow/DebrisSupport" unique_id=1726191275]
+polygon = PackedVector2Array(672, 110, 740, 110, 740, 134, 672, 134)
+
+[node name="Visual" type="Polygon2D" parent="Late02_Crossflow/DebrisSupport" unique_id=390338526]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(672, 110, 740, 110, 740, 134, 672, 134)
+
+[node name="Late03_RisingGates" type="Node2D" parent="." unique_id=282858548]
+position = Vector2(0, 1600)
+
+[node name="Checkpoint" parent="Late03_RisingGates" unique_id=2058457800 instance=ExtResource("checkpoint")]
+position = Vector2(760, 1500)
+
+[node name="RightDrift" parent="Late03_RisingGates" unique_id=1357644248 instance=ExtResource("current")]
+position = Vector2(730, 1200)
+strength = 640.0
+max_speed = 460.0
+
+[node name="Visual" parent="Late03_RisingGates/RightDrift" index="0"]
+polygon = PackedVector2Array(-140, -80, 140, -80, 140, 80, -140, 80)
+
+[node name="CollisionShape2D" parent="Late03_RisingGates/RightDrift" index="2"]
+shape = SubResource("Late03_RisingGates_RightDrift")
+
+[node name="EntryUpperEdge" parent="Late03_RisingGates" unique_id=1306310617 instance=ExtResource("hazard")]
+position = Vector2(630, 1138)
+
+[node name="Visual" parent="Late03_RisingGates/EntryUpperEdge" index="0"]
+polygon = PackedVector2Array(-90, -12, 90, -12, 90, 12, -90, 12)
+
+[node name="CollisionShape2D" parent="Late03_RisingGates/EntryUpperEdge" index="1"]
+shape = SubResource("Late03_RisingGates_EntryUpperEdge")
+
+[node name="EntryLowerEdge" parent="Late03_RisingGates" unique_id=679133544 instance=ExtResource("hazard")]
+position = Vector2(988, 1330)
+
+[node name="Visual" parent="Late03_RisingGates/EntryLowerEdge" index="0"]
+polygon = PackedVector2Array(-12, -90, 12, -90, 12, 90, -12, 90)
+
+[node name="CollisionShape2D" parent="Late03_RisingGates/EntryLowerEdge" index="1"]
+shape = SubResource("Late03_RisingGates_EntryLowerEdge")
+
+[node name="LeftReturn" parent="Late03_RisingGates" unique_id=534793747 instance=ExtResource("current")]
+position = Vector2(860, 740)
+direction = Vector2(-1, 0)
+strength = 600.0
+max_speed = 430.0
+
+[node name="Visual" parent="Late03_RisingGates/LeftReturn" index="0"]
+polygon = PackedVector2Array(-80, -90, 80, -90, 80, 90, -80, 90)
+
+[node name="CollisionShape2D" parent="Late03_RisingGates/LeftReturn" index="2"]
+shape = SubResource("Late03_RisingGates_LeftReturn")
+
+[node name="ReturnLowerEdge" parent="Late03_RisingGates" unique_id=147344254 instance=ExtResource("hazard")]
+position = Vector2(550, 838)
+
+[node name="Visual" parent="Late03_RisingGates/ReturnLowerEdge" index="0"]
+polygon = PackedVector2Array(-120, -12, 120, -12, 120, 12, -120, 12)
+
+[node name="CollisionShape2D" parent="Late03_RisingGates/ReturnLowerEdge" index="1"]
+shape = SubResource("Late03_RisingGates_ReturnLowerEdge")
+
+[node name="LowerGateLift" parent="Late03_RisingGates" unique_id=2120435684 instance=ExtResource("current")]
+position = Vector2(640, 1360)
+direction = Vector2(0, -1)
+strength = 570.0
+max_speed = 345.0
+
+[node name="Visual" parent="Late03_RisingGates/LowerGateLift" index="0"]
+polygon = PackedVector2Array(-90, -120, 90, -120, 90, 120, -90, 120)
+
+[node name="CollisionShape2D" parent="Late03_RisingGates/LowerGateLift" index="2"]
+shape = SubResource("Late03_RisingGates_RightLift")
+
+[node name="LiftCap" parent="Late03_RisingGates" unique_id=1770228406 instance=ExtResource("hazard")]
+position = Vector2(810, 632)
+
+[node name="Visual" parent="Late03_RisingGates/LiftCap" index="0"]
+polygon = PackedVector2Array(-110, -12, 110, -12, 110, 12, -110, 12)
+
+[node name="CollisionShape2D" parent="Late03_RisingGates/LiftCap" index="1"]
+shape = SubResource("Late03_RisingGates_LiftCap")
+
+[node name="LiftLeftTooth" parent="Late03_RisingGates" unique_id=450950361 instance=ExtResource("hazard")]
+position = Vector2(730, 1010)
+
+[node name="Visual" parent="Late03_RisingGates/LiftLeftTooth" index="0"]
+polygon = PackedVector2Array(-10, -50, 10, -50, 10, 50, -10, 50)
+
+[node name="CollisionShape2D" parent="Late03_RisingGates/LiftLeftTooth" index="1"]
+shape = SubResource("Late03_RisingGates_LiftLeftTooth")
+
+[node name="LiftRightTooth" parent="Late03_RisingGates" unique_id=83254755 instance=ExtResource("hazard")]
+position = Vector2(988, 900)
+
+[node name="Visual" parent="Late03_RisingGates/LiftRightTooth" index="0"]
+polygon = PackedVector2Array(-12, -70, 12, -70, 12, 70, -12, 70)
+
+[node name="CollisionShape2D" parent="Late03_RisingGates/LiftRightTooth" index="1"]
+shape = SubResource("Late03_RisingGates_LiftRightTooth")
+
+[node name="UpperGateLift" parent="Late03_RisingGates" unique_id=1930523605 instance=ExtResource("current")]
+position = Vector2(850, 1000)
+direction = Vector2(0, -1)
+strength = 540.0
+max_speed = 315.0
+
+[node name="Visual" parent="Late03_RisingGates/UpperGateLift" index="0"]
+polygon = PackedVector2Array(-85, -130, 85, -130, 85, 130, -85, 130)
+
+[node name="CollisionShape2D" parent="Late03_RisingGates/UpperGateLift" index="2"]
+shape = SubResource("Late03_RisingGates_ExitLift")
+
+[node name="ExitLiftCap" parent="Late03_RisingGates" unique_id=109481527 instance=ExtResource("hazard")]
+position = Vector2(490, 110)
+
+[node name="Visual" parent="Late03_RisingGates/ExitLiftCap" index="0"]
+polygon = PackedVector2Array(-110, -12, 110, -12, 110, 12, -110, 12)
+
+[node name="CollisionShape2D" parent="Late03_RisingGates/ExitLiftCap" index="1"]
+shape = SubResource("Late03_RisingGates_ExitLiftCap")
+
+[node name="UpperReefLip" parent="Late03_RisingGates" unique_id=1160737894 instance=ExtResource("hazard")]
+position = Vector2(588, 420)
+
+[node name="Visual" parent="Late03_RisingGates/UpperReefLip" index="0"]
+polygon = PackedVector2Array(-12, -80, 12, -80, 12, 80, -12, 80)
+
+[node name="CollisionShape2D" parent="Late03_RisingGates/UpperReefLip" index="1"]
+shape = SubResource("Late03_RisingGates_UpperReefLip")
+
+[node name="ExitGuideLip" parent="Late03_RisingGates" unique_id=608504703 instance=ExtResource("hazard")]
+position = Vector2(350, 480)
+
+[node name="Visual" parent="Late03_RisingGates/ExitGuideLip" index="0"]
+polygon = PackedVector2Array(-10, -50, 10, -50, 10, 50, -10, 50)
+
+[node name="CollisionShape2D" parent="Late03_RisingGates/ExitGuideLip" index="1"]
+shape = SubResource("Late03_RisingGates_ExitGuideLip")
+
+[node name="ExitLeftTooth" parent="Late03_RisingGates" unique_id=1525486333 instance=ExtResource("hazard")]
+position = Vector2(350, 710)
+
+[node name="Visual" parent="Late03_RisingGates/ExitLeftTooth" index="0"]
+polygon = PackedVector2Array(-10, -50, 10, -50, 10, 50, -10, 50)
+
+[node name="CollisionShape2D" parent="Late03_RisingGates/ExitLeftTooth" index="1"]
+shape = SubResource("Late03_RisingGates_ExitLeftTooth")
+
+[node name="ExitRightTooth" parent="Late03_RisingGates" unique_id=1655811633 instance=ExtResource("hazard")]
+position = Vector2(588, 250)
+
+[node name="Visual" parent="Late03_RisingGates/ExitRightTooth" index="0"]
+polygon = PackedVector2Array(-12, -50, 12, -50, 12, 50, -12, 50)
+
+[node name="CollisionShape2D" parent="Late03_RisingGates/ExitRightTooth" index="1"]
+shape = SubResource("Late03_RisingGates_ExitRightTooth")
+
+[node name="ChannelFloorEdge" parent="Late03_RisingGates" unique_id=1616509701 instance=ExtResource("hazard")]
+position = Vector2(900, 1518)
+
+[node name="Visual" parent="Late03_RisingGates/ChannelFloorEdge" index="0"]
+polygon = PackedVector2Array(-100, -12, 100, -12, 100, 12, -100, 12)
+
+[node name="CollisionShape2D" parent="Late03_RisingGates/ChannelFloorEdge" index="1"]
+shape = SubResource("Late03_RisingGates_ChannelFloorEdge")
+
+[node name="CurrentLowTooth" parent="Late03_RisingGates" unique_id=902582535 instance=ExtResource("hazard")]
+position = Vector2(490, 1410)
+
+[node name="Visual" parent="Late03_RisingGates/CurrentLowTooth" index="0"]
+polygon = PackedVector2Array(-10, -50, 10, -50, 10, 50, -10, 50)
+
+[node name="CollisionShape2D" parent="Late03_RisingGates/CurrentLowTooth" index="1"]
+shape = SubResource("Late03_RisingGates_CurrentLowTooth")
+
+[node name="CurrentHighTooth" parent="Late03_RisingGates" unique_id=2046170429 instance=ExtResource("hazard")]
+position = Vector2(988, 1150)
+
+[node name="Visual" parent="Late03_RisingGates/CurrentHighTooth" index="0"]
+polygon = PackedVector2Array(-12, -50, 12, -50, 12, 50, -12, 50)
+
+[node name="CollisionShape2D" parent="Late03_RisingGates/CurrentHighTooth" index="1"]
+shape = SubResource("Late03_RisingGates_CurrentHighTooth")
+
+[node name="TransferCeilingEdge" parent="Late03_RisingGates" unique_id=1803278200 instance=ExtResource("hazard")]
+position = Vector2(660, 632)
+
+[node name="Visual" parent="Late03_RisingGates/TransferCeilingEdge" index="0"]
+polygon = PackedVector2Array(-50, -12, 50, -12, 50, 12, -50, 12)
+
+[node name="CollisionShape2D" parent="Late03_RisingGates/TransferCeilingEdge" index="1"]
+shape = SubResource("Late03_RisingGates_ZigzagHangingTip")
+
+[node name="TransferCeilingEdge2" parent="Late03_RisingGates" unique_id=867296428 instance=ExtResource("hazard")]
+position = Vector2(660, 632)
+
+[node name="Visual" parent="Late03_RisingGates/TransferCeilingEdge2" index="0"]
+position = Vector2(-230, -644)
+polygon = PackedVector2Array(-50, -12, 50, -12, 50, 12, -50, 12)
+
+[node name="CollisionShape2D" parent="Late03_RisingGates/TransferCeilingEdge2" index="1"]
+position = Vector2(-230, -644)
+shape = SubResource("Late03_RisingGates_ZigzagHangingTip")
+
+[node name="TransferLandingEdge" parent="Late03_RisingGates" unique_id=1285531489 instance=ExtResource("hazard")]
+position = Vector2(440, 838)
+
+[node name="Visual" parent="Late03_RisingGates/TransferLandingEdge" index="0"]
+polygon = PackedVector2Array(-40, -12, 40, -12, 40, 12, -40, 12)
+
+[node name="CollisionShape2D" parent="Late03_RisingGates/TransferLandingEdge" index="1"]
+shape = SubResource("Late03_RisingGates_ZigzagRisingTip")
+
+[node name="RightLiftFloorEdge" parent="Late03_RisingGates" unique_id=628172679 instance=ExtResource("hazard")]
+position = Vector2(490, 1240)
+
+[node name="Visual" parent="Late03_RisingGates/RightLiftFloorEdge" index="0"]
+polygon = PackedVector2Array(-10, -60, 10, -60, 10, 60, -10, 60)
+
+[node name="CollisionShape2D" parent="Late03_RisingGates/RightLiftFloorEdge" index="1"]
+shape = SubResource("Late03_RisingGates_RightLiftFloorEdge")
+
+[node name="InnerGateReef" type="StaticBody2D" parent="Late03_RisingGates" unique_id=1459424180]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Late03_RisingGates/InnerGateReef" unique_id=1069321833]
+polygon = PackedVector2Array(40, 1600, 480, 1600, 480, 1150, 720, 1150, 720, 850, 340, 850, 340, 300, 40, 300)
+
+[node name="Visual" type="Polygon2D" parent="Late03_RisingGates/InnerGateReef" unique_id=621947313]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(40, 1600, 480, 1600, 480, 1150, 720, 1150, 720, 850, 340, 850, 340, 300, 40, 300)
+
+[node name="OuterGateReef" type="StaticBody2D" parent="Late03_RisingGates" unique_id=89074486]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Late03_RisingGates/OuterGateReef" unique_id=1272042282]
+polygon = PackedVector2Array(1160, 1600, 1000, 1600, 1000, 620, 600, 620, 600, 0, 1160, 0)
+
+[node name="Visual" type="Polygon2D" parent="Late03_RisingGates/OuterGateReef" unique_id=743976429]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(1160, 1600, 1000, 1600, 1000, 620, 600, 620, 600, 0, 1160, 0)
+
+[node name="CheckpointRest" type="StaticBody2D" parent="Late03_RisingGates" unique_id=1793296713]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Late03_RisingGates/CheckpointRest" unique_id=912859927]
+position = Vector2(60.49108, 0)
+scale = Vector2(0.94419646, 1)
+polygon = PackedVector2Array(720, 1530, 1000, 1530, 1000, 1600, 720, 1600)
+
+[node name="Visual" type="Polygon2D" parent="Late03_RisingGates/CheckpointRest" unique_id=979395627]
+position = Vector2(71.4285, 0)
+scale = Vector2(0.9285716, 1)
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(720, 1530, 1000, 1530, 1000, 1600, 720, 1600)
+
+[node name="ExitBrow" type="StaticBody2D" parent="Late03_RisingGates" unique_id=845798854]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Late03_RisingGates/ExitBrow" unique_id=1348112280]
+polygon = PackedVector2Array(380, 0, 600, 0, 600, 98, 380, 98)
+
+[node name="Visual" type="Polygon2D" parent="Late03_RisingGates/ExitBrow" unique_id=582044903]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(380, 0, 600, 0, 600, 98, 380, 98)
+
+[node name="Late04_SurfaceRun" type="Node2D" parent="." unique_id=1015992629]
+
+[node name="Checkpoint" parent="Late04_SurfaceRun" unique_id=1821717809 instance=ExtResource("checkpoint")]
+position = Vector2(230, 1500)
+
+[node name="RightDrift" parent="Late04_SurfaceRun" unique_id=78542888 instance=ExtResource("current")]
+position = Vector2(510, 1320)
+strength = 680.0
+max_speed = 480.0
+
+[node name="Visual" parent="Late04_SurfaceRun/RightDrift" index="0"]
+polygon = PackedVector2Array(-140, -80, 140, -80, 140, 80, -140, 80)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/RightDrift" index="2"]
+shape = SubResource("Late04_SurfaceRun_RightDrift")
+
+[node name="EntryUpperEdge" parent="Late04_SurfaceRun" unique_id=1139385359 instance=ExtResource("hazard")]
+position = Vector2(988, 1270)
+
+[node name="Visual" parent="Late04_SurfaceRun/EntryUpperEdge" index="0"]
+polygon = PackedVector2Array(-12, -80, 12, -80, 12, 80, -12, 80)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/EntryUpperEdge" index="1"]
+shape = SubResource("Late04_SurfaceRun_EntryUpperEdge")
+
+[node name="EntryLowerEdge" parent="Late04_SurfaceRun" unique_id=1994401385 instance=ExtResource("hazard")]
+position = Vector2(710, 1100)
+
+[node name="Visual" parent="Late04_SurfaceRun/EntryLowerEdge" index="0"]
+polygon = PackedVector2Array(-10, -60, 10, -60, 10, 60, -10, 60)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/EntryLowerEdge" index="1"]
+shape = SubResource("Late04_SurfaceRun_EntryLowerEdge")
+
+[node name="SecondWindowLower" parent="Late04_SurfaceRun" unique_id=1139382636 instance=ExtResource("hazard")]
+position = Vector2(675, 986)
+
+[node name="Visual" parent="Late04_SurfaceRun/SecondWindowLower" index="0"]
+polygon = PackedVector2Array(-35, -12, 35, -12, 35, 12, -35, 12)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/SecondWindowLower" index="1"]
+shape = SubResource("Late04_SurfaceRun_SecondWindowLower")
+
+[node name="SecondWindowUpper" parent="Late04_SurfaceRun" unique_id=1503475793 instance=ExtResource("hazard")]
+position = Vector2(665, 940)
+
+[node name="Visual" parent="Late04_SurfaceRun/SecondWindowUpper" index="0"]
+polygon = PackedVector2Array(-40, -12, 40, -12, 40, 12, -40, 12)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/SecondWindowUpper" index="1"]
+shape = SubResource("Late04_SurfaceRun_SecondWindowUpper")
+
+[node name="LeftReturn" parent="Late04_SurfaceRun" unique_id=1921242238 instance=ExtResource("current")]
+position = Vector2(750, 840)
+direction = Vector2(-1, 0)
+strength = 640.0
+max_speed = 450.0
+
+[node name="Visual" parent="Late04_SurfaceRun/LeftReturn" index="0"]
+polygon = PackedVector2Array(-120, -90, 120, -90, 120, 90, -120, 90)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/LeftReturn" index="2"]
+shape = SubResource("Late04_SurfaceRun_LeftReturn")
+
+[node name="ReturnLowerEdge" parent="Late04_SurfaceRun" unique_id=170647318 instance=ExtResource("hazard")]
+position = Vector2(540, 850)
+
+[node name="Visual" parent="Late04_SurfaceRun/ReturnLowerEdge" index="0"]
+polygon = PackedVector2Array(-50, -12, 50, -12, 50, 12, -50, 12)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/ReturnLowerEdge" index="1"]
+shape = SubResource("Late04_SurfaceRun_ReturnLowerEdge")
+
+[node name="ReturnUpperEdge" parent="Late04_SurfaceRun" unique_id=803180234 instance=ExtResource("hazard")]
+position = Vector2(412, 210)
+
+[node name="Visual" parent="Late04_SurfaceRun/ReturnUpperEdge" index="0"]
+polygon = PackedVector2Array(-12, -60, 12, -60, 12, 60, -12, 60)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/ReturnUpperEdge" index="1"]
+shape = SubResource("Late04_SurfaceRun_ReturnUpperEdge")
+
+[node name="ReturnLowerLip" parent="Late04_SurfaceRun" unique_id=1362995306 instance=ExtResource("hazard")]
+position = Vector2(395, 705)
+
+[node name="Visual" parent="Late04_SurfaceRun/ReturnLowerLip" index="0"]
+polygon = PackedVector2Array(-35, -12, 35, -12, 35, 12, -35, 12)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/ReturnLowerLip" index="1"]
+shape = SubResource("Late04_SurfaceRun_ReturnLowerLip")
+
+[node name="RightLift" parent="Late04_SurfaceRun" unique_id=1513576739 instance=ExtResource("current")]
+position = Vector2(870, 1080)
+direction = Vector2(0, -1)
+strength = 610.0
+max_speed = 360.0
+
+[node name="Visual" parent="Late04_SurfaceRun/RightLift" index="0"]
+polygon = PackedVector2Array(-80, -130, 80, -130, 80, 130, -80, 130)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/RightLift" index="2"]
+shape = SubResource("Late04_SurfaceRun_RightLift")
+
+[node name="LiftCap" parent="Late04_SurfaceRun" unique_id=113715075 instance=ExtResource("hazard")]
+position = Vector2(966, 1030)
+
+[node name="Visual" parent="Late04_SurfaceRun/LiftCap" index="0"]
+polygon = PackedVector2Array(-40, -12, 40, -12, 40, 12, -40, 12)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/LiftCap" index="1"]
+shape = SubResource("Late04_SurfaceRun_LiftCap")
+
+[node name="LiftLeftTooth" parent="Late04_SurfaceRun" unique_id=620831672 instance=ExtResource("hazard")]
+position = Vector2(955, 900)
+
+[node name="Visual" parent="Late04_SurfaceRun/LiftLeftTooth" index="0"]
+polygon = PackedVector2Array(-20, -30, 20, -30, 20, 30, -20, 30)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/LiftLeftTooth" index="1"]
+shape = SubResource("Late04_SurfaceRun_LiftLeftTooth")
+
+[node name="LiftRightTooth" parent="Late04_SurfaceRun" unique_id=1148401377 instance=ExtResource("hazard")]
+position = Vector2(1110, 785)
+
+[node name="Visual" parent="Late04_SurfaceRun/LiftRightTooth" index="0"]
+polygon = PackedVector2Array(-20, -30, 20, -30, 20, 30, -20, 30)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/LiftRightTooth" index="1"]
+shape = SubResource("Late04_SurfaceRun_LiftRightTooth")
+
+[node name="ExitLift" parent="Late04_SurfaceRun" unique_id=2082294676 instance=ExtResource("current")]
+position = Vector2(520, 520)
+direction = Vector2(0, -1)
+strength = 580.0
+max_speed = 330.0
+
+[node name="Visual" parent="Late04_SurfaceRun/ExitLift" index="0"]
+polygon = PackedVector2Array(-80, -120, 80, -120, 80, 120, -80, 120)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/ExitLift" index="2"]
+shape = SubResource("Late04_SurfaceRun_ExitLift")
+
+[node name="ExitLiftCap" parent="Late04_SurfaceRun" unique_id=324401206 instance=ExtResource("hazard")]
+position = Vector2(760, 240)
+
+[node name="Visual" parent="Late04_SurfaceRun/ExitLiftCap" index="0"]
+polygon = PackedVector2Array(-40, -12, 40, -12, 40, 12, -40, 12)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/ExitLiftCap" index="1"]
+shape = SubResource("Late04_SurfaceRun_ExitLiftCap")
+
+[node name="UpperReefLip" parent="Late04_SurfaceRun" unique_id=1949512474 instance=ExtResource("hazard")]
+position = Vector2(388, 360)
+
+[node name="Visual" parent="Late04_SurfaceRun/UpperReefLip" index="0"]
+polygon = PackedVector2Array(-12, -45, 12, -45, 12, 45, -12, 45)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/UpperReefLip" index="1"]
+shape = SubResource("Late04_SurfaceRun_UpperReefLip")
+
+[node name="ExitGuideLip" parent="Late04_SurfaceRun" unique_id=528741924 instance=ExtResource("hazard")]
+position = Vector2(672, 550)
+
+[node name="Visual" parent="Late04_SurfaceRun/ExitGuideLip" index="0"]
+polygon = PackedVector2Array(-12, -45, 12, -45, 12, 45, -12, 45)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/ExitGuideLip" index="1"]
+shape = SubResource("Late04_SurfaceRun_ExitGuideLip")
+
+[node name="UpperDriftLower" parent="Late04_SurfaceRun" unique_id=1599693828 instance=ExtResource("hazard")]
+position = Vector2(322, 532)
+
+[node name="Visual" parent="Late04_SurfaceRun/UpperDriftLower" index="0"]
+polygon = PackedVector2Array(-22, -12, 22, -12, 22, 12, -22, 12)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/UpperDriftLower" index="1"]
+shape = SubResource("Late04_SurfaceRun_UpperDriftLower")
+
+[node name="ChannelFloorEdge" parent="Late04_SurfaceRun" unique_id=620648214 instance=ExtResource("hazard")]
+position = Vector2(240, 1410)
+
+[node name="Visual" parent="Late04_SurfaceRun/ChannelFloorEdge" index="0"]
+polygon = PackedVector2Array(-120, -10, 120, -10, 120, 10, -120, 10)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/ChannelFloorEdge" index="1"]
+shape = SubResource("Late04_SurfaceRun_ChannelFloorEdge")
+
+[node name="CurrentLowTooth" parent="Late04_SurfaceRun" unique_id=470631782 instance=ExtResource("hazard")]
+position = Vector2(430, 1355)
+
+[node name="Visual" parent="Late04_SurfaceRun/CurrentLowTooth" index="0"]
+position = Vector2(-30, 45)
+polygon = PackedVector2Array(-40, -20, 40, -20, 40, 20, -40, 20)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/CurrentLowTooth" index="1"]
+position = Vector2(-30, 45)
+shape = SubResource("Late04_SurfaceRun_CurrentLowTooth")
+
+[node name="CurrentHighTooth" parent="Late04_SurfaceRun" unique_id=441079921 instance=ExtResource("hazard")]
+position = Vector2(620, 1209)
+
+[node name="Visual" parent="Late04_SurfaceRun/CurrentHighTooth" index="0"]
+position = Vector2(60, -29)
+polygon = PackedVector2Array(-40, -20, 40, -20, 40, 20, -40, 20)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/CurrentHighTooth" index="1"]
+position = Vector2(60, -29)
+shape = SubResource("Late04_SurfaceRun_CurrentHighTooth")
+
+[node name="ReturnInnerTooth" parent="Late04_SurfaceRun" unique_id=1516756785 instance=ExtResource("hazard")]
+position = Vector2(680, 690)
+
+[node name="Visual" parent="Late04_SurfaceRun/ReturnInnerTooth" index="0"]
+polygon = PackedVector2Array(-35, -12, 35, -12, 35, 12, -35, 12)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/ReturnInnerTooth" index="1"]
+shape = SubResource("Late04_SurfaceRun_ReturnInnerTooth")
+
+[node name="RightLiftFloorEdge" parent="Late04_SurfaceRun" unique_id=618877373 instance=ExtResource("hazard")]
+position = Vector2(988, 1450)
+
+[node name="Visual" parent="Late04_SurfaceRun/RightLiftFloorEdge" index="0"]
+polygon = PackedVector2Array(-12, -70, 12, -70, 12, 70, -12, 70)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/RightLiftFloorEdge" index="1"]
+shape = SubResource("Late04_SurfaceRun_RightLiftFloorEdge")
+
+[node name="TransferExitLowerEdge" parent="Late04_SurfaceRun" unique_id=213615292 instance=ExtResource("hazard")]
+position = Vector2(705, 404)
+
+[node name="Visual" parent="Late04_SurfaceRun/TransferExitLowerEdge" index="0"]
+position = Vector2(-38.999996, 0)
+scale = Vector2(2.9499998, 1)
+polygon = PackedVector2Array(-20, -12, 20, -12, 20, 12, -20, 12)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/TransferExitLowerEdge" index="1"]
+position = Vector2(-38, 0)
+shape = SubResource("Late04_SurfaceRun_TransferExitLowerEdge")
+
+[node name="ExitLiftLowerTooth" parent="Late04_SurfaceRun" unique_id=110765579 instance=ExtResource("hazard")]
+position = Vector2(445, 775)
+
+[node name="Visual" parent="Late04_SurfaceRun/ExitLiftLowerTooth" index="0"]
+polygon = PackedVector2Array(-35, -12, 35, -12, 35, 12, -35, 12)
+
+[node name="CollisionShape2D" parent="Late04_SurfaceRun/ExitLiftLowerTooth" index="1"]
+shape = SubResource("Late04_SurfaceRun_ExitLiftLowerTooth")
+
+[node name="InnerEscapeReef" type="StaticBody2D" parent="Late04_SurfaceRun" unique_id=1349779431]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Late04_SurfaceRun/InnerEscapeReef" unique_id=633221943]
+polygon = PackedVector2Array(43, 1900, 116, 1900, 120, 1420, 360, 1420, 700, 1160, 700, 1000, 450, 750, 300, 550, 400, 330, 400, 0, 40, 0)
+
+[node name="Visual" type="Polygon2D" parent="Late04_SurfaceRun/InnerEscapeReef" unique_id=1817681087]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(40, 1900, 116, 1900, 120, 1420, 360, 1420, 700, 1160, 700, 1000, 450, 750, 300, 550, 400, 330, 400, 0, 40, 0)
+
+[node name="OuterEscapeReef" type="StaticBody2D" parent="Late04_SurfaceRun" unique_id=702692099]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Late04_SurfaceRun/OuterEscapeReef" unique_id=1690194503]
+polygon = PackedVector2Array(1160, 1600, 1000, 1600, 1000, 1100, 850, 850, 650, 650, 720, 400, 800, 250, 800, 0, 1160, 0)
+
+[node name="Visual" type="Polygon2D" parent="Late04_SurfaceRun/OuterEscapeReef" unique_id=657964150]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(1160, 1600, 1000, 1600, 1000, 1100, 850, 850, 650, 650, 720, 400, 800, 250, 800, 0, 1160, 0)
+
+[node name="CheckpointRest" type="StaticBody2D" parent="Late04_SurfaceRun" unique_id=80545474]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Late04_SurfaceRun/CheckpointRest" unique_id=1148992661]
+position = Vector2(24.792236, 0)
+scale = Vector2(0.7939189, 1)
+polygon = PackedVector2Array(120, 1530, 305, 1530, 305, 1600, 120, 1600)
+
+[node name="Visual" type="Polygon2D" parent="Late04_SurfaceRun/CheckpointRest" unique_id=671132655]
+position = Vector2(14.756757, 0)
+scale = Vector2(0.827027, 1)
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(120, 1530, 305, 1530, 305, 1600, 120, 1600)
+
+[node name="InnerBendShoulder" type="StaticBody2D" parent="Late04_SurfaceRun" unique_id=519661065]
+
+[node name="OuterBendShoulder" type="StaticBody2D" parent="Late04_SurfaceRun" unique_id=127804953]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Late04_SurfaceRun/OuterBendShoulder" unique_id=60303500]
+polygon = PackedVector2Array(920, 1018, 1000, 1018, 1000, 1060, 950, 1060)
+
+[node name="Visual" type="Polygon2D" parent="Late04_SurfaceRun/OuterBendShoulder" unique_id=2124708174]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(920, 1018, 1000, 1018, 1000, 1060, 950, 1060)
+
+[node name="LowerEntryShoulder" type="StaticBody2D" parent="Late04_SurfaceRun" unique_id=386443344]
+
+[node name="LowerExitShoulder" type="StaticBody2D" parent="Late04_SurfaceRun" unique_id=796516804]
+
+[node name="FinishMarker" type="Polygon2D" parent="." unique_id=846991428]
+position = Vector2(600, 130)
+color = Color(0.3, 0.95, 0.6, 0.8)
+polygon = PackedVector2Array(-70, -50, 70, -50, 70, 50, -70, 50)
+
+[node name="SurfaceLabel" type="Label" parent="." unique_id=2137583239]
+offset_left = 540.0
+offset_top = 55.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 18
+text = "SURFACE"
+
+[node name="OpeningFloorWreckage" parent="." unique_id=1370850939 instance=ExtResource("hazard")]
+position = Vector2(590, 15946)
+
+[node name="Visual" parent="OpeningFloorWreckage" index="0"]
+polygon = PackedVector2Array(-290, -14, 290, -14, 290, 14, -290, 14)
+
+[node name="CollisionShape2D" parent="OpeningFloorWreckage" index="1"]
+shape = SubResource("Root_OpeningFloorWreckage")
+
+[node name="OpeningLowTooth" type="StaticBody2D" parent="." unique_id=649275981]
+position = Vector2(580, 15860)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpeningLowTooth" unique_id=945729395]
+shape = SubResource("Root_OpeningLowTooth")
+
+[node name="Visual" type="Polygon2D" parent="OpeningLowTooth" unique_id=1275648124]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-40, -100, 40, -100, 40, 100, -40, 100)
+
+[node name="OpeningLowToothEdge" parent="." unique_id=1387690568 instance=ExtResource("hazard")]
+position = Vector2(580, 15750)
+
+[node name="Visual" parent="OpeningLowToothEdge" index="0"]
+polygon = PackedVector2Array(-50, -10, 50, -10, 50, 10, -50, 10)
+
+[node name="CollisionShape2D" parent="OpeningLowToothEdge" index="1"]
+shape = SubResource("Root_OpeningLowToothEdge")
+
+[node name="DriftCeilingTooth" type="StaticBody2D" parent="." unique_id=1221527972]
+position = Vector2(790, 15115)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DriftCeilingTooth" unique_id=908602653]
+shape = SubResource("Root_DriftCeilingTooth")
+
+[node name="Visual" type="Polygon2D" parent="DriftCeilingTooth" unique_id=1967331874]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-45, -145, 45, -145, 45, 145, -45, 145)
+
+[node name="DriftCeilingEdge" parent="." unique_id=968088235 instance=ExtResource("hazard")]
+position = Vector2(790, 15270)
+
+[node name="Visual" parent="DriftCeilingEdge" index="0"]
+polygon = PackedVector2Array(-55, -10, 55, -10, 55, 10, -55, 10)
+
+[node name="CollisionShape2D" parent="DriftCeilingEdge" index="1"]
+shape = SubResource("Root_DriftCeilingEdge")
+
+[node name="DriftFloorWreckage" parent="." unique_id=86915023 instance=ExtResource("hazard")]
+position = Vector2(670, 15467)
+
+[node name="Visual" parent="DriftFloorWreckage" index="0"]
+polygon = PackedVector2Array(-180, -13, 180, -13, 180, 13, -180, 13)
+
+[node name="CollisionShape2D" parent="DriftFloorWreckage" index="1"]
+shape = SubResource("Root_DriftFloorWreckage")
+
+[node name="EarlyLiftSideEdge" parent="." unique_id=692660938 instance=ExtResource("hazard")]
+position = Vector2(310, 14660)
+
+[node name="Visual" parent="EarlyLiftSideEdge" index="0"]
+polygon = PackedVector2Array(-15, -55, 15, -55, 15, 55, -15, 55)
+
+[node name="CollisionShape2D" parent="EarlyLiftSideEdge" index="1"]
+shape = SubResource("Root_EarlyLiftSideEdge")
+
+[node name="EarlyLiftSideEdge2" parent="." unique_id=2103831903 instance=ExtResource("hazard")]
+position = Vector2(310, 14660)
+
+[node name="Visual" parent="EarlyLiftSideEdge2" index="0"]
+position = Vector2(-155, 100)
+polygon = PackedVector2Array(-15, -55, 15, -55, 15, 55, -15, 55)
+
+[node name="CollisionShape2D" parent="EarlyLiftSideEdge2" index="1"]
+position = Vector2(-155, 100)
+shape = SubResource("Root_EarlyLiftSideEdge")
+
+[node name="EarlyGateFunnel" type="StaticBody2D" parent="." unique_id=495495038]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EarlyGateFunnel" unique_id=561940719]
+polygon = PackedVector2Array(420, 14330, 500, 14330, 500, 14220, 470, 14170, 420, 14220)
+
+[node name="Visual" type="Polygon2D" parent="EarlyGateFunnel" unique_id=231200354]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(420, 14330, 500, 14330, 500, 14220, 470, 14170, 420, 14220)
+
+[node name="EarlyGateFloorWreckage" parent="." unique_id=1916295811 instance=ExtResource("hazard")]
+position = Vector2(910, 14318)
+
+[node name="Visual" parent="EarlyGateFloorWreckage" index="0"]
+position = Vector2(80.000015, 0)
+scale = Vector2(1.5454546, 1)
+polygon = PackedVector2Array(-110, -12, 110, -12, 110, 12, -110, 12)
+
+[node name="CollisionShape2D" parent="EarlyGateFloorWreckage" index="1"]
+position = Vector2(80, 0)
+shape = SubResource("Root_EarlyGateFloorWreckage")
+
+[node name="EarlyFinalLiftSideEdge" parent="." unique_id=55955151 instance=ExtResource("hazard")]
+position = Vector2(1115, 13600)
+
+[node name="Visual" parent="EarlyFinalLiftSideEdge" index="0"]
+position = Vector2(0, 9.196997e-05)
+scale = Vector2(1, 2.3799963)
+polygon = PackedVector2Array(-15, -50, 0.053131104, -50, 15, -50, 15, 50, -15, 50)
+
+[node name="CollisionShape2D" parent="EarlyFinalLiftSideEdge" index="1"]
+shape = SubResource("Root_EarlyFinalLiftSideEdge")
+
+[node name="EarlyFinalLiftSideEdge2" parent="." unique_id=2060563659 instance=ExtResource("hazard")]
+position = Vector2(1115, 13600)
+
+[node name="Visual" parent="EarlyFinalLiftSideEdge2" index="0"]
+position = Vector2(-200, 91)
+scale = Vector2(1, 2.38)
+polygon = PackedVector2Array(-15, -50, 15, -50, 15, 50, -15, 50)
+
+[node name="CollisionShape2D" parent="EarlyFinalLiftSideEdge2" index="1"]
+position = Vector2(-200, 91)
+shape = SubResource("Root_EarlyFinalLiftSideEdge")
+
+[node name="EarlyFinalLiftSideEdge3" parent="." unique_id=453718587 instance=ExtResource("hazard")]
+position = Vector2(1115, 13600)
+
+[node name="Visual" parent="EarlyFinalLiftSideEdge3" index="0"]
+position = Vector2(-1060, -1982)
+scale = Vector2(1, 2.4)
+polygon = PackedVector2Array(-15, -50, 15, -50, 15, 50, -15, 50)
+
+[node name="CollisionShape2D" parent="EarlyFinalLiftSideEdge3" index="1"]
+position = Vector2(-1060, -1982)
+shape = SubResource("Root_EarlyFinalLiftSideEdge")
+
+[node name="EarlyExitFloorEdge" parent="." unique_id=437304250 instance=ExtResource("hazard")]
+position = Vector2(490, 13188)
+
+[node name="Visual" parent="EarlyExitFloorEdge" index="0"]
+polygon = PackedVector2Array(-90, -12, 90, -12, 90, 12, -90, 12)
+
+[node name="CollisionShape2D" parent="EarlyExitFloorEdge" index="1"]
+shape = SubResource("Root_EarlyExitFloorEdge")
+
+[node name="EarlyExitFloorEdge2" parent="." unique_id=364845566 instance=ExtResource("hazard")]
+position = Vector2(490, 13188)
+
+[node name="Visual" parent="EarlyExitFloorEdge2" index="0"]
+position = Vector2(20, -376)
+polygon = PackedVector2Array(-90, -12, 90, -12, 90, 12, -90, 12)
+
+[node name="CollisionShape2D" parent="EarlyExitFloorEdge2" index="1"]
+position = Vector2(20, -376)
+shape = SubResource("Root_EarlyExitFloorEdge")
+
+[node name="EarlyLiftOuterShoulder" type="StaticBody2D" parent="." unique_id=745350763]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EarlyLiftOuterShoulder" unique_id=337725140]
+polygon = PackedVector2Array(1160, 13510, 1130, 13550, 1130, 13650, 1160, 13710)
+
+[node name="Visual" type="Polygon2D" parent="EarlyLiftOuterShoulder" unique_id=198709353]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(1160, 13510, 1130, 13550, 1130, 13650, 1160, 13710)
+
+[node name="EarlyExitSteppedReef" type="StaticBody2D" parent="." unique_id=1437741153]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EarlyExitSteppedReef" unique_id=634401844]
+polygon = PackedVector2Array(40, 13070, 420, 13070, 420, 13200, 580, 13200, 580, 13571, 860, 13572, 859, 13860, 40, 13860)
+
+[node name="Visual" type="Polygon2D" parent="EarlyExitSteppedReef" unique_id=190743257]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(40, 13070, 420, 13070, 420, 13200, 580, 13200, 580, 13570, 861, 13572, 872, 13862, 40, 13860)
+
+[node name="EarlyExitOverhang" type="StaticBody2D" parent="." unique_id=769513690]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EarlyExitOverhang" unique_id=1996490178]
+polygon = PackedVector2Array(800, 13070, 1160, 13070, 1160, 13300, 760, 13300, 760, 13110)
+
+[node name="Visual" type="Polygon2D" parent="EarlyExitOverhang" unique_id=520406999]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(800, 13070, 1160, 13070, 1160, 13300, 760, 13300, 760, 13110)
+
+[connection signal="body_entered" from="SurfaceTrigger" to="." method="_on_surface_body_entered"]
+[connection signal="timeout" from="RetryMessageTimer" to="." method="_on_retry_message_timer_timeout"]
 
 [editable path="OpeningRightCurrent"]
 [editable path="RideLeftCurrent"]
@@ -432,3 +3291,152 @@ limit_bottom = 3200
 [editable path="FinalUpCurrent"]
 [editable path="FinalCapHazard"]
 [editable path="Player"]
+[editable path="Middle01_SplitReef/RightDrift"]
+[editable path="Middle01_SplitReef/LowToothTip"]
+[editable path="Middle01_SplitReef/HighToothTip"]
+[editable path="Middle01_SplitReef/LeftReturn"]
+[editable path="Middle01_SplitReef/ReturnLowerEdge"]
+[editable path="Middle01_SplitReef/RightLift"]
+[editable path="Middle01_SplitReef/ExitLift"]
+[editable path="Middle01_SplitReef/ChannelFloorEdge"]
+[editable path="Middle01_SplitReef/CurrentLowTooth"]
+[editable path="Middle01_SplitReef/ZigzagHangingTip"]
+[editable path="Middle01_SplitReef/ZigzagRisingTip"]
+[editable path="Middle02_EntryGate/RightDrift"]
+[editable path="Middle02_EntryGate/EntryUpperEdge"]
+[editable path="Middle02_EntryGate/EntryLowerEdge"]
+[editable path="Middle02_EntryGate/ReturnLowerEdge"]
+[editable path="Middle02_EntryGate/ReturnLowerEdge2"]
+[editable path="Middle02_EntryGate/ReturnUpperEdge"]
+[editable path="Middle02_EntryGate/ReturnUpperEdge2"]
+[editable path="Middle02_EntryGate/ReturnUpperEdge3"]
+[editable path="Middle02_EntryGate/ReturnLowerLip"]
+[editable path="Middle02_EntryGate/RightLift"]
+[editable path="Middle02_EntryGate/ChannelFloorEdge"]
+[editable path="Middle02_EntryGate/CurrentLowTooth"]
+[editable path="Middle02_EntryGate/CurrentHighTooth"]
+[editable path="Middle02_EntryGate/LiftInnerSideEdge"]
+[editable path="Middle03_LiftTransfer/RightDrift"]
+[editable path="Middle03_LiftTransfer/EntryUpperEdge"]
+[editable path="Middle03_LiftTransfer/EntryLowerEdge"]
+[editable path="Middle03_LiftTransfer/LeftReturn"]
+[editable path="Middle03_LiftTransfer/ReturnLowerEdge"]
+[editable path="Middle03_LiftTransfer/EntryLift"]
+[editable path="Middle03_LiftTransfer/LiftCap"]
+[editable path="Middle03_LiftTransfer/ExitLift"]
+[editable path="Middle03_LiftTransfer/ExitLiftCap"]
+[editable path="Middle03_LiftTransfer/ChannelFloorEdge"]
+[editable path="Middle03_LiftTransfer/CurrentLowTooth"]
+[editable path="Middle03_LiftTransfer/CurrentHighTooth"]
+[editable path="Middle03_LiftTransfer/InnerTurnEdge"]
+[editable path="Middle03_LiftTransfer/OuterTurnEdge"]
+[editable path="Middle04_DriftWindows/RightDrift"]
+[editable path="Middle04_DriftWindows/EntryUpperEdge"]
+[editable path="Middle04_DriftWindows/EntryLowerEdge"]
+[editable path="Middle04_DriftWindows/SecondWindowLower"]
+[editable path="Middle04_DriftWindows/SecondWindowUpper"]
+[editable path="Middle04_DriftWindows/LeftReturn"]
+[editable path="Middle04_DriftWindows/ReturnLowerEdge"]
+[editable path="Middle04_DriftWindows/ReturnUpperEdge"]
+[editable path="Middle04_DriftWindows/ReturnLowerLip"]
+[editable path="Middle04_DriftWindows/ChannelFloorEdge"]
+[editable path="Middle04_DriftWindows/CurrentLowTooth"]
+[editable path="Middle04_DriftWindows/CurrentHighTooth"]
+[editable path="Middle04_DriftWindows/RightLiftFloorEdge"]
+[editable path="Middle04_DriftWindows/LiftInnerSideEdge"]
+[editable path="Late01_NarrowReef/EntryUpperEdge"]
+[editable path="Late01_NarrowReef/EntryLowerEdge"]
+[editable path="Late01_NarrowReef/SecondWindowLower"]
+[editable path="Late01_NarrowReef/SecondWindowUpper"]
+[editable path="Late01_NarrowReef/ReturnLowerEdge"]
+[editable path="Late01_NarrowReef/ReturnUpperEdge"]
+[editable path="Late01_NarrowReef/ReturnLowerLip"]
+[editable path="Late01_NarrowReef/LowerShaftCurrent"]
+[editable path="Late01_NarrowReef/ExitLift"]
+[editable path="Late01_NarrowReef/UpperReefLip"]
+[editable path="Late01_NarrowReef/ExitGuideLip"]
+[editable path="Late01_NarrowReef/ChannelFloorEdge"]
+[editable path="Late01_NarrowReef/CurrentLowTooth"]
+[editable path="Late01_NarrowReef/CurrentHighTooth"]
+[editable path="Late01_NarrowReef/ReturnInnerTooth"]
+[editable path="Late01_NarrowReef/RightLiftFloorEdge"]
+[editable path="Late01_NarrowReef/LiftInnerSideEdge"]
+[editable path="Late01_NarrowReef/ExitLiftLowerTooth"]
+[editable path="Late02_Crossflow/RightDrift"]
+[editable path="Late02_Crossflow/EntryUpperEdge"]
+[editable path="Late02_Crossflow/EntryLowerEdge"]
+[editable path="Late02_Crossflow/LeftReturn"]
+[editable path="Late02_Crossflow/ReturnLowerEdge"]
+[editable path="Late02_Crossflow/RightLift"]
+[editable path="Late02_Crossflow/LiftCap"]
+[editable path="Late02_Crossflow/ExitLift"]
+[editable path="Late02_Crossflow/ExitLiftCap"]
+[editable path="Late02_Crossflow/UpperReefLip"]
+[editable path="Late02_Crossflow/ExitGuideLip"]
+[editable path="Late02_Crossflow/UpperRightDrift"]
+[editable path="Late02_Crossflow/ChannelFloorEdge"]
+[editable path="Late02_Crossflow/CurrentLowTooth"]
+[editable path="Late02_Crossflow/CurrentHighTooth"]
+[editable path="Late02_Crossflow/ReturnInnerTooth"]
+[editable path="Late02_Crossflow/RightLiftFloorEdge"]
+[editable path="Late02_Crossflow/TransferExitLowerEdge"]
+[editable path="Late02_Crossflow/ExitLiftLowerTooth"]
+[editable path="Late03_RisingGates/RightDrift"]
+[editable path="Late03_RisingGates/EntryUpperEdge"]
+[editable path="Late03_RisingGates/EntryLowerEdge"]
+[editable path="Late03_RisingGates/LeftReturn"]
+[editable path="Late03_RisingGates/ReturnLowerEdge"]
+[editable path="Late03_RisingGates/LowerGateLift"]
+[editable path="Late03_RisingGates/LiftCap"]
+[editable path="Late03_RisingGates/LiftLeftTooth"]
+[editable path="Late03_RisingGates/LiftRightTooth"]
+[editable path="Late03_RisingGates/UpperGateLift"]
+[editable path="Late03_RisingGates/ExitLiftCap"]
+[editable path="Late03_RisingGates/UpperReefLip"]
+[editable path="Late03_RisingGates/ExitGuideLip"]
+[editable path="Late03_RisingGates/ExitLeftTooth"]
+[editable path="Late03_RisingGates/ExitRightTooth"]
+[editable path="Late03_RisingGates/ChannelFloorEdge"]
+[editable path="Late03_RisingGates/CurrentLowTooth"]
+[editable path="Late03_RisingGates/CurrentHighTooth"]
+[editable path="Late03_RisingGates/TransferCeilingEdge"]
+[editable path="Late03_RisingGates/TransferCeilingEdge2"]
+[editable path="Late03_RisingGates/TransferLandingEdge"]
+[editable path="Late03_RisingGates/RightLiftFloorEdge"]
+[editable path="Late04_SurfaceRun/RightDrift"]
+[editable path="Late04_SurfaceRun/EntryUpperEdge"]
+[editable path="Late04_SurfaceRun/EntryLowerEdge"]
+[editable path="Late04_SurfaceRun/SecondWindowLower"]
+[editable path="Late04_SurfaceRun/SecondWindowUpper"]
+[editable path="Late04_SurfaceRun/LeftReturn"]
+[editable path="Late04_SurfaceRun/ReturnLowerEdge"]
+[editable path="Late04_SurfaceRun/ReturnUpperEdge"]
+[editable path="Late04_SurfaceRun/ReturnLowerLip"]
+[editable path="Late04_SurfaceRun/RightLift"]
+[editable path="Late04_SurfaceRun/LiftCap"]
+[editable path="Late04_SurfaceRun/LiftLeftTooth"]
+[editable path="Late04_SurfaceRun/LiftRightTooth"]
+[editable path="Late04_SurfaceRun/ExitLift"]
+[editable path="Late04_SurfaceRun/ExitLiftCap"]
+[editable path="Late04_SurfaceRun/UpperReefLip"]
+[editable path="Late04_SurfaceRun/ExitGuideLip"]
+[editable path="Late04_SurfaceRun/UpperDriftLower"]
+[editable path="Late04_SurfaceRun/ChannelFloorEdge"]
+[editable path="Late04_SurfaceRun/CurrentLowTooth"]
+[editable path="Late04_SurfaceRun/CurrentHighTooth"]
+[editable path="Late04_SurfaceRun/ReturnInnerTooth"]
+[editable path="Late04_SurfaceRun/RightLiftFloorEdge"]
+[editable path="Late04_SurfaceRun/TransferExitLowerEdge"]
+[editable path="Late04_SurfaceRun/ExitLiftLowerTooth"]
+[editable path="OpeningFloorWreckage"]
+[editable path="OpeningLowToothEdge"]
+[editable path="DriftCeilingEdge"]
+[editable path="DriftFloorWreckage"]
+[editable path="EarlyLiftSideEdge"]
+[editable path="EarlyLiftSideEdge2"]
+[editable path="EarlyGateFloorWreckage"]
+[editable path="EarlyFinalLiftSideEdge"]
+[editable path="EarlyFinalLiftSideEdge2"]
+[editable path="EarlyFinalLiftSideEdge3"]
+[editable path="EarlyExitFloorEdge"]
+[editable path="EarlyExitFloorEdge2"]

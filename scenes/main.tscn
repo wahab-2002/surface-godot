@@ -1,14 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://qhavsmrb0pvs"]
+[gd_scene format=3 uid="uid://qhavsmrb0pvs"]
 
 [ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
 [ext_resource type="PackedScene" path="res://scenes/hazard.tscn" id="2_hazard"]
 [ext_resource type="PackedScene" path="res://scenes/checkpoint.tscn" id="3_checkpoint"]
+[ext_resource type="Script" uid="uid://bqm2d1eifnw8g" path="res://scripts/level_exit.gd" id="4_exit"]
+[ext_resource type="PackedScene" path="res://scenes/water_current.tscn" id="5_current"]
+[ext_resource type="PackedScene" path="res://scenes/falling_debris.tscn" id="falling_debris"]
 
 [sub_resource type="RectangleShape2D" id="Rectangle_1"]
 size = Vector2(960, 40)
 
 [sub_resource type="RectangleShape2D" id="Rectangle_2"]
-size = Vector2(40, 2200)
+size = Vector2(40, 3600)
 
 [sub_resource type="RectangleShape2D" id="Rectangle_3"]
 size = Vector2(680, 40)
@@ -37,231 +40,627 @@ size = Vector2(60, 40)
 [sub_resource type="RectangleShape2D" id="Rectangle_11"]
 size = Vector2(660, 40)
 
+[sub_resource type="RectangleShape2D" id="ExitShape"]
+size = Vector2(160, 80)
+
+[sub_resource type="RectangleShape2D" id="Root_CurrentCheckpointRest"]
+size = Vector2(145, 40)
+
+[sub_resource type="RectangleShape2D" id="Root_GentleRightCurrent"]
+size = Vector2(600, 440)
+
+[sub_resource type="RectangleShape2D" id="Root_GentleUpCurrent"]
+size = Vector2(180, 420)
+
+[sub_resource type="RectangleShape2D" id="Root_ExitApproachShelf"]
+size = Vector2(540, 40)
+
+[sub_resource type="RectangleShape2D" id="Root_PracticeDrift"]
+size = Vector2(280, 150)
+
+[sub_resource type="RectangleShape2D" id="Root_PracticeHazard"]
+size = Vector2(279, 20)
+
+[sub_resource type="RectangleShape2D" id="Root_ExitRest"]
+size = Vector2(120, 40)
+
+[sub_resource type="RectangleShape2D" id="Root_StarterHangingBeam"]
+size = Vector2(60, 80)
+
+[sub_resource type="RectangleShape2D" id="Root_SinkRoomFloorWreckage"]
+size = Vector2(180, 30)
+
+[sub_resource type="RectangleShape2D" id="Root_AlternatingFloorWreckage"]
+size = Vector2(150, 26)
+
+[sub_resource type="RectangleShape2D" id="Root_FinalBulkheadFloorWreckage"]
+size = Vector2(130, 26)
+
+[sub_resource type="RectangleShape2D" id="Root_AlternatingDoorFrame"]
+size = Vector2(160, 40)
+
+[sub_resource type="RectangleShape2D" id="Root_FinalTurnCeiling"]
+size = Vector2(260, 40)
+
+[sub_resource type="RectangleShape2D" id="Root_TrainingLowTooth"]
+size = Vector2(90, 160)
+
+[sub_resource type="RectangleShape2D" id="Root_TrainingLowToothEdge"]
+size = Vector2(110, 20)
+
+[sub_resource type="RectangleShape2D" id="Root_TrainingFloorWreckage"]
+size = Vector2(110, 20)
+
+[sub_resource type="RectangleShape2D" id="Root_LiftSideWreckage"]
+size = Vector2(40, 90)
+
+[sub_resource type="RectangleShape2D" id="Root_MidpointRest"]
+size = Vector2(120, 40)
+
 [node name="Main" type="Node2D" unique_id=2020150133]
 
-[node name="Background" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(0, 0, 960, 0, 960, 2200, 0, 2200)
+[node name="Background" type="Polygon2D" parent="." unique_id=1677917047]
 color = Color(0.16, 0.18, 0.2, 1)
+polygon = PackedVector2Array(0, 0, 960, 0, 960, 3600, 0, 3600)
 
-[node name="HullFloor" type="StaticBody2D" parent="."]
-position = Vector2(0, 2160)
+[node name="HullFloor" type="StaticBody2D" parent="." unique_id=1392980472]
+position = Vector2(0, 3560)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HullFloor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HullFloor" unique_id=533454549]
 position = Vector2(480, 20)
 shape = SubResource("Rectangle_1")
 
-[node name="Visual" type="Polygon2D" parent="HullFloor"]
-polygon = PackedVector2Array(0, 0, 960, 0, 960, 40, 0, 40)
+[node name="Visual" type="Polygon2D" parent="HullFloor" unique_id=425840688]
 color = Color(0.4, 0.42, 0.44, 1)
+polygon = PackedVector2Array(0, 0, 960, 0, 960, 40, 0, 40)
 
-[node name="HullLeft" type="StaticBody2D" parent="."]
-position = Vector2(0, 0)
+[node name="HullLeft" type="StaticBody2D" parent="." unique_id=316141975]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HullLeft"]
-position = Vector2(20, 1100)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HullLeft" unique_id=908981248]
+position = Vector2(20, 1800)
 shape = SubResource("Rectangle_2")
 
-[node name="Visual" type="Polygon2D" parent="HullLeft"]
-polygon = PackedVector2Array(0, 0, 40, 0, 40, 2200, 0, 2200)
+[node name="Visual" type="Polygon2D" parent="HullLeft" unique_id=1763880763]
 color = Color(0.4, 0.42, 0.44, 1)
+polygon = PackedVector2Array(0, 0, 40, 0, 40, 3600, 0, 3600)
 
-[node name="HullRight" type="StaticBody2D" parent="."]
+[node name="HullRight" type="StaticBody2D" parent="." unique_id=919899387]
 position = Vector2(920, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HullRight"]
-position = Vector2(20, 1100)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HullRight" unique_id=931846879]
+position = Vector2(20, 1800)
 shape = SubResource("Rectangle_2")
 
-[node name="Visual" type="Polygon2D" parent="HullRight"]
-polygon = PackedVector2Array(0, 0, 40, 0, 40, 2200, 0, 2200)
+[node name="Visual" type="Polygon2D" parent="HullRight" unique_id=1000830644]
 color = Color(0.4, 0.42, 0.44, 1)
+polygon = PackedVector2Array(0, 0, 40, 0, 40, 3600, 0, 3600)
 
-[node name="UpperBoundary" type="StaticBody2D" parent="."]
-position = Vector2(0, 0)
+[node name="UpperBoundary" type="StaticBody2D" parent="." unique_id=1743539110]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperBoundary"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperBoundary" unique_id=2022858579]
 position = Vector2(480, 20)
 shape = SubResource("Rectangle_1")
 
-[node name="Visual" type="Polygon2D" parent="UpperBoundary"]
-polygon = PackedVector2Array(0, 0, 960, 0, 960, 40, 0, 40)
+[node name="Visual" type="Polygon2D" parent="UpperBoundary" unique_id=573379789]
 color = Color(0.4, 0.42, 0.44, 1)
+polygon = PackedVector2Array(0, 0, 960, 0, 960, 40, 0, 40)
 
-[node name="StartRoomCeiling" type="StaticBody2D" parent="."]
-position = Vector2(40, 1680)
+[node name="StartRoomCeiling" type="StaticBody2D" parent="." unique_id=895693560]
+position = Vector2(40, 3080)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartRoomCeiling"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartRoomCeiling" unique_id=1260232338]
 position = Vector2(340, 20)
 shape = SubResource("Rectangle_3")
 
-[node name="Visual" type="Polygon2D" parent="StartRoomCeiling"]
-polygon = PackedVector2Array(0, 0, 680, 0, 680, 40, 0, 40)
+[node name="Visual" type="Polygon2D" parent="StartRoomCeiling" unique_id=1848390082]
 color = Color(0.4, 0.42, 0.44, 1)
+polygon = PackedVector2Array(0, 0, 680, 0, 680, 40, 0, 40)
 
-[node name="RiseShaftWall" type="StaticBody2D" parent="."]
-position = Vector2(680, 1380)
+[node name="RiseShaftWall" type="StaticBody2D" parent="." unique_id=673397642]
+position = Vector2(680, 2780)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RiseShaftWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RiseShaftWall" unique_id=1326948707]
 position = Vector2(20, 150)
 shape = SubResource("Rectangle_4")
 
-[node name="Visual" type="Polygon2D" parent="RiseShaftWall"]
-polygon = PackedVector2Array(0, 0, 40, 0, 40, 300, 0, 300)
+[node name="Visual" type="Polygon2D" parent="RiseShaftWall" unique_id=2000943607]
 color = Color(0.4, 0.42, 0.44, 1)
+polygon = PackedVector2Array(0, 0, 40, 0, 40, 300, 0, 300)
 
-[node name="SinkRoomCeiling" type="StaticBody2D" parent="."]
-position = Vector2(240, 1160)
+[node name="SinkRoomCeiling" type="StaticBody2D" parent="." unique_id=309799624]
+position = Vector2(240, 2560)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SinkRoomCeiling"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SinkRoomCeiling" unique_id=58932215]
 position = Vector2(340, 20)
 shape = SubResource("Rectangle_3")
 
-[node name="Visual" type="Polygon2D" parent="SinkRoomCeiling"]
-polygon = PackedVector2Array(0, 0, 680, 0, 680, 40, 0, 40)
+[node name="Visual" type="Polygon2D" parent="SinkRoomCeiling" unique_id=314656169]
 color = Color(0.4, 0.42, 0.44, 1)
+polygon = PackedVector2Array(0, 0, 680, 0, 680, 40, 0, 40)
 
-[node name="FirstSinkBulkhead" type="StaticBody2D" parent="."]
-position = Vector2(460, 1200)
+[node name="FirstSinkBulkhead" type="StaticBody2D" parent="." unique_id=1069278100]
+position = Vector2(460, 2600)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSinkBulkhead"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSinkBulkhead" unique_id=1823088159]
 position = Vector2(20, 155)
 shape = SubResource("Rectangle_5")
 
-[node name="Visual" type="Polygon2D" parent="FirstSinkBulkhead"]
-polygon = PackedVector2Array(0, 0, 40, 0, 40, 310, 0, 310)
+[node name="Visual" type="Polygon2D" parent="FirstSinkBulkhead" unique_id=948612255]
 color = Color(0.48, 0.5, 0.52, 1)
+polygon = PackedVector2Array(0, 0, 40, 0, 40, 310, 0, 310)
 
-[node name="AlternatingRoomCeiling" type="StaticBody2D" parent="."]
-position = Vector2(40, 600)
+[node name="AlternatingRoomCeiling" type="StaticBody2D" parent="." unique_id=847465566]
+position = Vector2(40, 2000)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AlternatingRoomCeiling"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlternatingRoomCeiling" unique_id=1658324645]
 position = Vector2(340, 20)
 shape = SubResource("Rectangle_3")
 
-[node name="Visual" type="Polygon2D" parent="AlternatingRoomCeiling"]
-polygon = PackedVector2Array(0, 0, 680, 0, 680, 40, 0, 40)
+[node name="Visual" type="Polygon2D" parent="AlternatingRoomCeiling" unique_id=179714139]
 color = Color(0.4, 0.42, 0.44, 1)
+polygon = PackedVector2Array(0, 0, 680, 0, 680, 40, 0, 40)
 
-[node name="AlternatingRiseBulkhead" type="StaticBody2D" parent="."]
-position = Vector2(320, 800)
+[node name="AlternatingRiseBulkhead" type="StaticBody2D" parent="." unique_id=173834469]
+position = Vector2(320, 2200)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AlternatingRiseBulkhead"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlternatingRiseBulkhead" unique_id=1172355970]
 position = Vector2(20, 180)
 shape = SubResource("Rectangle_6")
 
-[node name="Visual" type="Polygon2D" parent="AlternatingRiseBulkhead"]
-polygon = PackedVector2Array(0, 0, 40, 0, 40, 360, 0, 360)
+[node name="Visual" type="Polygon2D" parent="AlternatingRiseBulkhead" unique_id=592997588]
 color = Color(0.48, 0.5, 0.52, 1)
+polygon = PackedVector2Array(0, 0, 40, 0, 40, 360, 0, 360)
 
-[node name="AlternatingSinkBulkhead" type="StaticBody2D" parent="."]
-position = Vector2(560, 640)
+[node name="AlternatingSinkBulkhead" type="StaticBody2D" parent="." unique_id=650418127]
+position = Vector2(560, 2040)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AlternatingSinkBulkhead"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlternatingSinkBulkhead" unique_id=625050231]
 position = Vector2(20, 175)
 shape = SubResource("Rectangle_7")
 
-[node name="Visual" type="Polygon2D" parent="AlternatingSinkBulkhead"]
-polygon = PackedVector2Array(0, 0, 40, 0, 40, 350, 0, 350)
+[node name="Visual" type="Polygon2D" parent="AlternatingSinkBulkhead" unique_id=2002705578]
 color = Color(0.48, 0.5, 0.52, 1)
+polygon = PackedVector2Array(0, 0, 40, 0, 40, 350, 0, 350)
 
-[node name="FinalRiseBulkhead" type="StaticBody2D" parent="."]
-position = Vector2(540, 340)
+[node name="FinalRiseBulkhead" type="StaticBody2D" parent="." unique_id=1395920160]
+position = Vector2(540, 1740)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalRiseBulkhead"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalRiseBulkhead" unique_id=121342998]
 position = Vector2(20, 130)
 shape = SubResource("Rectangle_8")
 
-[node name="Visual" type="Polygon2D" parent="FinalRiseBulkhead"]
-polygon = PackedVector2Array(0, 0, 40, 0, 40, 260, 0, 260)
+[node name="Visual" type="Polygon2D" parent="FinalRiseBulkhead" unique_id=175663992]
 color = Color(0.48, 0.5, 0.52, 1)
+polygon = PackedVector2Array(0, 0, 40, 0, 40, 260, 0, 260)
 
-[node name="FinalSinkBulkhead" type="StaticBody2D" parent="."]
-position = Vector2(340, 180)
+[node name="FinalSinkBulkhead" type="StaticBody2D" parent="." unique_id=1828387143]
+position = Vector2(340, 1580)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalSinkBulkhead"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalSinkBulkhead" unique_id=114961864]
 position = Vector2(20, 135)
 shape = SubResource("Rectangle_9")
 
-[node name="Visual" type="Polygon2D" parent="FinalSinkBulkhead"]
-polygon = PackedVector2Array(0, 0, 40, 0, 40, 270, 0, 270)
+[node name="Visual" type="Polygon2D" parent="FinalSinkBulkhead" unique_id=1697746437]
 color = Color(0.48, 0.5, 0.52, 1)
+polygon = PackedVector2Array(0, 0, 40, 0, 40, 270, 0, 270)
 
-[node name="ExitRoofLeft" type="StaticBody2D" parent="."]
-position = Vector2(40, 180)
+[node name="ExitRoofLeft" type="StaticBody2D" parent="." unique_id=1675486703]
+position = Vector2(40, 1580)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitRoofLeft"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitRoofLeft" unique_id=1681538123]
 position = Vector2(30, 20)
 shape = SubResource("Rectangle_10")
 
-[node name="Visual" type="Polygon2D" parent="ExitRoofLeft"]
-polygon = PackedVector2Array(0, 0, 60, 0, 60, 40, 0, 40)
+[node name="Visual" type="Polygon2D" parent="ExitRoofLeft" unique_id=949563291]
 color = Color(0.4, 0.42, 0.44, 1)
+polygon = PackedVector2Array(0, 0, 60, 0, 60, 40, 0, 40)
 
-[node name="ExitRoofRight" type="StaticBody2D" parent="."]
-position = Vector2(260, 180)
+[node name="ExitRoofRight" type="StaticBody2D" parent="." unique_id=228105692]
+position = Vector2(260, 1580)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitRoofRight"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitRoofRight" unique_id=2002657221]
 position = Vector2(330, 20)
 shape = SubResource("Rectangle_11")
 
-[node name="Visual" type="Polygon2D" parent="ExitRoofRight"]
-polygon = PackedVector2Array(0, 0, 660, 0, 660, 40, 0, 40)
+[node name="Visual" type="Polygon2D" parent="ExitRoofRight" unique_id=867613958]
 color = Color(0.4, 0.42, 0.44, 1)
+polygon = PackedVector2Array(0, 0, 660, 0, 660, 40, 0, 40)
 
-[node name="FinishMarker" type="Node2D" parent="."]
+[node name="FinishMarker" type="Node2D" parent="." unique_id=1715972044]
 position = Vector2(170, 180)
 
-[node name="Pole" type="Polygon2D" parent="FinishMarker"]
+[node name="Pole" type="Polygon2D" parent="FinishMarker" unique_id=2009510394]
+color = Color(0.8, 0.82, 0.84, 1)
 polygon = PackedVector2Array(-3, -160, 3, -160, 3, 0, -3, 0)
-color = Color(0.8, 0.82, 0.84, 1)
 
-[node name="Base" type="Polygon2D" parent="FinishMarker"]
+[node name="Base" type="Polygon2D" parent="FinishMarker" unique_id=1425896069]
+color = Color(0.8, 0.82, 0.84, 1)
 polygon = PackedVector2Array(-28, -8, 28, -8, 28, 0, -28, 0)
-color = Color(0.8, 0.82, 0.84, 1)
 
-[node name="FlagSquare00" type="Polygon2D" parent="FinishMarker"]
+[node name="FlagSquare00" type="Polygon2D" parent="FinishMarker" unique_id=860332164]
+color = Color(0.9, 0.9, 0.9, 1)
 polygon = PackedVector2Array(3, -160, 23, -160, 23, -140, 3, -140)
-color = Color(0.9, 0.9, 0.9, 1)
 
-[node name="FlagSquare01" type="Polygon2D" parent="FinishMarker"]
+[node name="FlagSquare01" type="Polygon2D" parent="FinishMarker" unique_id=228146277]
+color = Color(0.28, 0.28, 0.28, 1)
 polygon = PackedVector2Array(23, -160, 43, -160, 43, -140, 23, -140)
-color = Color(0.28, 0.28, 0.28, 1)
 
-[node name="FlagSquare02" type="Polygon2D" parent="FinishMarker"]
+[node name="FlagSquare02" type="Polygon2D" parent="FinishMarker" unique_id=572933441]
+color = Color(0.9, 0.9, 0.9, 1)
 polygon = PackedVector2Array(43, -160, 63, -160, 63, -140, 43, -140)
-color = Color(0.9, 0.9, 0.9, 1)
 
-[node name="FlagSquare10" type="Polygon2D" parent="FinishMarker"]
+[node name="FlagSquare10" type="Polygon2D" parent="FinishMarker" unique_id=344494757]
+color = Color(0.28, 0.28, 0.28, 1)
 polygon = PackedVector2Array(3, -140, 23, -140, 23, -120, 3, -120)
-color = Color(0.28, 0.28, 0.28, 1)
 
-[node name="FlagSquare11" type="Polygon2D" parent="FinishMarker"]
-polygon = PackedVector2Array(23, -140, 43, -140, 43, -120, 23, -120)
+[node name="FlagSquare11" type="Polygon2D" parent="FinishMarker" unique_id=705575780]
 color = Color(0.9, 0.9, 0.9, 1)
+polygon = PackedVector2Array(23, -140, 43, -140, 43, -120, 23, -120)
 
-[node name="FlagSquare12" type="Polygon2D" parent="FinishMarker"]
-polygon = PackedVector2Array(43, -140, 63, -140, 63, -120, 43, -120)
+[node name="FlagSquare12" type="Polygon2D" parent="FinishMarker" unique_id=11196202]
 color = Color(0.28, 0.28, 0.28, 1)
+polygon = PackedVector2Array(43, -140, 63, -140, 63, -120, 43, -120)
 
-[node name="FirstSinkHazard" parent="." instance=ExtResource("2_hazard")]
-position = Vector2(480, 1520)
+[node name="AlternatingRiseHazard" parent="." unique_id=719986230 instance=ExtResource("2_hazard")]
+position = Vector2(340, 2190)
 
-[node name="AlternatingRiseHazard" parent="." instance=ExtResource("2_hazard")]
-position = Vector2(340, 790)
+[node name="AlternatingSinkHazard" parent="." unique_id=1778827500 instance=ExtResource("2_hazard")]
+position = Vector2(580, 2400)
 
-[node name="AlternatingSinkHazard" parent="." instance=ExtResource("2_hazard")]
-position = Vector2(580, 1000)
+[node name="MidpointCheckpoint" parent="." unique_id=376593961 instance=ExtResource("3_checkpoint")]
+position = Vector2(140, 2500)
 
-[node name="MidpointCheckpoint" parent="." instance=ExtResource("3_checkpoint")]
-position = Vector2(140, 1100)
-
-[node name="Player" parent="." instance=ExtResource("1_player")]
-position = Vector2(180, 2080)
+[node name="Player" parent="." unique_id=1085594756 instance=ExtResource("1_player")]
+position = Vector2(180, 3480)
 
 [node name="Camera2D" parent="Player" index="2"]
 limit_left = 0
 limit_top = 0
 limit_right = 960
-limit_bottom = 2200
+limit_bottom = 3600
+
+[node name="LevelExit" type="Area2D" parent="." unique_id=1340263278]
+position = Vector2(180, 140)
+collision_layer = 0
+script = ExtResource("4_exit")
+
+[node name="Visual" type="Polygon2D" parent="LevelExit" unique_id=1064235348]
+color = Color(0.3, 0.95, 0.6, 0.35)
+polygon = PackedVector2Array(-80, -40, 80, -40, 80, 40, -80, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelExit" unique_id=602760569]
+shape = SubResource("ExitShape")
+
+[node name="ExitLabel" type="Label" parent="." unique_id=428824744]
+offset_left = 65.0
+offset_top = 225.0
+text = "OPEN WATER
+Oxygen countdown starts beyond this exit."
+
+[node name="MovementHint" type="Label" parent="." unique_id=43716179]
+offset_left = 58.0
+offset_top = 3142.0
+offset_right = 463.0
+offset_bottom = 3197.0
+theme_override_font_sizes/font_size = 18
+text = "A / D: swim sideways. Hold Space: rise.
+Gray walls are solid. Try steering around them."
+
+[node name="SinkHint" type="Label" parent="." unique_id=802695971]
+offset_left = 510.0
+offset_top = 2780.0
+theme_override_font_sizes/font_size = 18
+text = "Release Space to sink.
+Pass below the hanging wall."
+
+[node name="FirstCheckpoint" parent="." unique_id=1595947819 instance=ExtResource("3_checkpoint")]
+position = Vector2(810, 2720)
+
+[node name="CheckpointHint" type="Label" parent="." unique_id=1739680921]
+offset_left = 590.0
+offset_top = 2640.0
+theme_override_font_sizes/font_size = 18
+text = "Yellow marks a checkpoint.
+Touch it to save your respawn point."
+
+[node name="HazardHint" type="Label" parent="." unique_id=461184152]
+offset_left = 80.0
+offset_top = 2940.0
+theme_override_font_sizes/font_size = 18
+text = "Red hazards send you back
+to your last checkpoint."
+
+[node name="CurrentCheckpoint" parent="." unique_id=372410486 instance=ExtResource("3_checkpoint")]
+position = Vector2(120, 1380)
+
+[node name="CurrentCheckpointRest" type="StaticBody2D" parent="." unique_id=1087944360]
+position = Vector2(112.5, 1425)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CurrentCheckpointRest" unique_id=1406996733]
+shape = SubResource("Root_CurrentCheckpointRest")
+
+[node name="Visual" type="Polygon2D" parent="CurrentCheckpointRest" unique_id=1519566736]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-72.5, -20, 72.5, -20, 72.5, 20, -72.5, 20)
+
+[node name="GentleRightCurrent" parent="." unique_id=955091665 instance=ExtResource("5_current")]
+position = Vector2(480, 1220)
+strength = 220.0
+max_speed = 180.0
+
+[node name="Visual" parent="GentleRightCurrent" index="0"]
+polygon = PackedVector2Array(-300, -220, 300, -220, 300, 220, -300, 220)
+
+[node name="CollisionShape2D" parent="GentleRightCurrent" index="2"]
+shape = SubResource("Root_GentleRightCurrent")
+
+[node name="HorizontalCurrentHint" type="Label" parent="." unique_id=1028093407]
+z_index = 1
+offset_left = 85.0
+offset_top = 1460.0
+theme_override_font_sizes/font_size = 18
+text = "Blue arrows push you along; you can still steer.
+Strong flows may only slow when you push against them.
+Momentum fades gradually after you leave."
+
+[node name="GentleUpCurrent" parent="." unique_id=884859699 instance=ExtResource("5_current")]
+position = Vector2(810, 710)
+direction = Vector2(0, -1)
+strength = 220.0
+max_speed = 180.0
+
+[node name="Visual" parent="GentleUpCurrent" index="0"]
+polygon = PackedVector2Array(-90, -210, 90, -210, 90, 210, -90, 210)
+
+[node name="CollisionShape2D" parent="GentleUpCurrent" index="2"]
+shape = SubResource("Root_GentleUpCurrent")
+
+[node name="UpCurrentHint" type="Label" parent="." unique_id=2013234918]
+offset_left = 70.0
+offset_top = 800.0
+theme_override_font_sizes/font_size = 18
+text = "Upward currents lift you even without Space.
+Steer sideways to leave; you cannot dive against them."
+
+[node name="LiftCheckpoint" parent="." unique_id=1686002935 instance=ExtResource("3_checkpoint")]
+position = Vector2(810, 1010)
+
+[node name="ExitApproachShelf" type="StaticBody2D" parent="." unique_id=50635075]
+position = Vector2(310, 430)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitApproachShelf" unique_id=1400128126]
+shape = SubResource("Root_ExitApproachShelf")
+
+[node name="Visual" type="Polygon2D" parent="ExitApproachShelf" unique_id=1447136580]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-270, -20, 270, -20, 270, 20, -270, 20)
+
+[node name="PracticeDrift" parent="." unique_id=298630025 instance=ExtResource("5_current")]
+position = Vector2(400, 320)
+direction = Vector2(-1, 0)
+strength = 320.0
+max_speed = 280.0
+
+[node name="Visual" parent="PracticeDrift" index="0"]
+polygon = PackedVector2Array(-140, -75, 140, -75, 140, 75, -140, 75)
+
+[node name="CollisionShape2D" parent="PracticeDrift" index="2"]
+shape = SubResource("Root_PracticeDrift")
+
+[node name="PracticeHazard" parent="." unique_id=1209861950 instance=ExtResource("2_hazard")]
+position = Vector2(530, 400)
+
+[node name="Visual" parent="PracticeHazard" index="0"]
+position = Vector2(-89.49999, 0)
+scale = Vector2(3.4875002, 1)
+
+[node name="CollisionShape2D" parent="PracticeHazard" index="1"]
+position = Vector2(-89.5, 0)
+shape = SubResource("Root_PracticeHazard")
+
+[node name="ExitRest" type="StaticBody2D" parent="." unique_id=454537039]
+position = Vector2(180, 225)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitRest" unique_id=1437882658]
+shape = SubResource("Root_ExitRest")
+
+[node name="Visual" type="Polygon2D" parent="ExitRest" unique_id=299329090]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-60, -20, 60, -20, 60, 20, -60, 20)
+
+[node name="SlopingCargo" type="StaticBody2D" parent="." unique_id=1670783913]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SlopingCargo" unique_id=1353969128]
+polygon = PackedVector2Array(330, 3560, 330, 3400, 440, 3300, 500, 3300, 500, 3560)
+
+[node name="Visual" type="Polygon2D" parent="SlopingCargo" unique_id=536160888]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(330, 3560, 330, 3400, 440, 3300, 500, 3300, 500, 3560)
+
+[node name="StarterHangingBeam" type="StaticBody2D" parent="." unique_id=1278372956]
+position = Vector2(630, 3160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StarterHangingBeam" unique_id=751045340]
+shape = SubResource("Root_StarterHangingBeam")
+
+[node name="Visual" type="Polygon2D" parent="StarterHangingBeam" unique_id=1803420751]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-30, -40, 30, -40, 30, 40, -30, 40)
+
+[node name="SinkRoomFloorWreckage" parent="." unique_id=714407385 instance=ExtResource("2_hazard")]
+position = Vector2(340, 3065)
+
+[node name="Visual" parent="SinkRoomFloorWreckage" index="0"]
+polygon = PackedVector2Array(-90, -15, 90, -15, 90, 15, -90, 15)
+
+[node name="CollisionShape2D" parent="SinkRoomFloorWreckage" index="1"]
+shape = SubResource("Root_SinkRoomFloorWreckage")
+
+[node name="AlternatingFloorWreckage" parent="." unique_id=422181709 instance=ExtResource("2_hazard")]
+position = Vector2(445, 2547)
+
+[node name="Visual" parent="AlternatingFloorWreckage" index="0"]
+polygon = PackedVector2Array(-75, -13, 75, -13, 75, 13, -75, 13)
+
+[node name="CollisionShape2D" parent="AlternatingFloorWreckage" index="1"]
+shape = SubResource("Root_AlternatingFloorWreckage")
+
+[node name="FinalBulkheadFloorWreckage" parent="." unique_id=292781462 instance=ExtResource("2_hazard")]
+position = Vector2(700, 1987)
+
+[node name="Visual" parent="FinalBulkheadFloorWreckage" index="0"]
+polygon = PackedVector2Array(-65, -13, 65, -13, 65, 13, -65, 13)
+
+[node name="CollisionShape2D" parent="FinalBulkheadFloorWreckage" index="1"]
+shape = SubResource("Root_FinalBulkheadFloorWreckage")
+
+[node name="AlternatingDoorFrame" type="StaticBody2D" parent="." unique_id=1620249362]
+position = Vector2(840, 2170)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlternatingDoorFrame" unique_id=411988384]
+shape = SubResource("Root_AlternatingDoorFrame")
+
+[node name="Visual" type="Polygon2D" parent="AlternatingDoorFrame" unique_id=53633922]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-80, -20, 80, -20, 80, 20, -80, 20)
+
+[node name="FinalTurnCeiling" type="StaticBody2D" parent="." unique_id=1154463941]
+position = Vector2(790, 1640)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalTurnCeiling" unique_id=509252189]
+shape = SubResource("Root_FinalTurnCeiling")
+
+[node name="Visual" type="Polygon2D" parent="FinalTurnCeiling" unique_id=144992042]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-130, -20, 130, -20, 130, 20, -130, 20)
+
+[node name="TrainingLowTooth" type="StaticBody2D" parent="." unique_id=1688512574]
+position = Vector2(530, 1370)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrainingLowTooth" unique_id=738619437]
+shape = SubResource("Root_TrainingLowTooth")
+
+[node name="Visual" type="Polygon2D" parent="TrainingLowTooth" unique_id=82091762]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-45, -80, 45, -80, 45, 80, -45, 80)
+
+[node name="TrainingLowToothEdge" parent="." unique_id=59323736 instance=ExtResource("2_hazard")]
+position = Vector2(530, 1280)
+
+[node name="Visual" parent="TrainingLowToothEdge" index="0"]
+polygon = PackedVector2Array(-55, -10, 55, -10, 55, 10, -55, 10)
+
+[node name="CollisionShape2D" parent="TrainingLowToothEdge" index="1"]
+shape = SubResource("Root_TrainingLowToothEdge")
+
+[node name="TrainingFloorWreckage" parent="." unique_id=1644885194 instance=ExtResource("2_hazard")]
+position = Vector2(655, 1420)
+
+[node name="Visual" parent="TrainingFloorWreckage" index="0"]
+polygon = PackedVector2Array(-55, -10, 55, -10, 55, 10, -55, 10)
+
+[node name="CollisionShape2D" parent="TrainingFloorWreckage" index="1"]
+shape = SubResource("Root_TrainingFloorWreckage")
+
+[node name="LiftSideWreckage" parent="." unique_id=1013010695 instance=ExtResource("2_hazard")]
+position = Vector2(900, 675)
+
+[node name="Visual" parent="LiftSideWreckage" index="0"]
+polygon = PackedVector2Array(-20, -45, 20, -45, 20, 45, -20, 45)
+
+[node name="CollisionShape2D" parent="LiftSideWreckage" index="1"]
+shape = SubResource("Root_LiftSideWreckage")
+
+[node name="LiftSideWreckage2" parent="." unique_id=1887341104 instance=ExtResource("2_hazard")]
+position = Vector2(900, 675)
+
+[node name="Visual" parent="LiftSideWreckage2" index="0"]
+position = Vector2(-160, 73)
+polygon = PackedVector2Array(-20, -45, 20, -45, 20, 45, -20, 45)
+
+[node name="CollisionShape2D" parent="LiftSideWreckage2" index="1"]
+position = Vector2(-160, 73)
+shape = SubResource("Root_LiftSideWreckage")
+
+[node name="ExitSlopingRoof" type="StaticBody2D" parent="." unique_id=792342935]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ExitSlopingRoof" unique_id=453897434]
+polygon = PackedVector2Array(300, 40, 700, 40, 700, 220, 550, 220, 450, 180, 300, 180)
+
+[node name="Visual" type="Polygon2D" parent="ExitSlopingRoof" unique_id=2084227632]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(300, 40, 700, 40, 700, 220, 550, 220, 450, 180, 300, 180)
+
+[node name="TutorialDebris" parent="." unique_id=1208084821 instance=ExtResource("falling_debris")]
+position = Vector2(440, 2080)
+warning_time = 1.2
+fall_speed = 200.0
+fall_distance = 410.0
+
+[node name="DebrisHint" type="Label" parent="." unique_id=1554942857]
+offset_left = 60.0
+offset_top = 2070.0
+theme_override_font_sizes/font_size = 18
+text = "Loose debris flashes before falling.
+Leave the orange drop column."
+
+[node name="FirstCheckpointRest" type="StaticBody2D" parent="." unique_id=1034181753]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FirstCheckpointRest" unique_id=1604950345]
+polygon = PackedVector2Array(680, 2750, 830, 2750, 830, 2790, 720, 2790, 720, 2780, 680, 2780)
+
+[node name="Visual" type="Polygon2D" parent="FirstCheckpointRest" unique_id=771399068]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(680, 2750, 830, 2750, 830, 2790, 720, 2790, 720, 2780, 680, 2780)
+
+[node name="MidpointRest" type="StaticBody2D" parent="." unique_id=983252948]
+position = Vector2(100, 2550)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MidpointRest" unique_id=1092079646]
+shape = SubResource("Root_MidpointRest")
+
+[node name="Visual" type="Polygon2D" parent="MidpointRest" unique_id=444931378]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(-60, -20, 60, -20, 60, 20, -60, 20)
+
+[node name="BrokenUpperDeck" type="StaticBody2D" parent="." unique_id=734991170]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BrokenUpperDeck" unique_id=390356721]
+polygon = PackedVector2Array(40, 940, 680, 940, 680, 540, 720, 540, 720, 980, 700, 980, 700, 1100, 260, 1100, 180, 1020, 40, 1020)
+
+[node name="Visual" type="Polygon2D" parent="BrokenUpperDeck" unique_id=484678427]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(40, 940, 680, 940, 680, 540, 720, 540, 720, 980, 700, 980, 700, 1100, 260, 1100, 180, 1020, 40, 1020)
+
+[node name="CurrentRoomLowerGuide" type="StaticBody2D" parent="." unique_id=482561075]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CurrentRoomLowerGuide" unique_id=2059592472]
+polygon = PackedVector2Array(300, 1430, 920, 1430, 920, 1600, 260, 1600, 260, 1510, 300, 1470)
+
+[node name="Visual" type="Polygon2D" parent="CurrentRoomLowerGuide" unique_id=513783467]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(300, 1430, 920, 1430, 920, 1600, 260, 1600, 260, 1510, 300, 1470)
+
+[node name="LiftRoof" type="StaticBody2D" parent="." unique_id=1623475882]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LiftRoof" unique_id=1675394780]
+polygon = PackedVector2Array(700, 40, 920, 40, 920, 370, 700, 370)
+
+[node name="Visual" type="Polygon2D" parent="LiftRoof" unique_id=1110917813]
+color = Color(0.38, 0.43, 0.46, 1)
+polygon = PackedVector2Array(700, 40, 920, 40, 920, 370, 700, 370)
+
+[connection signal="body_entered" from="LevelExit" to="LevelExit" method="_on_body_entered"]
 
 [editable path="Player"]
+[editable path="GentleRightCurrent"]
+[editable path="GentleUpCurrent"]
+[editable path="PracticeDrift"]
+[editable path="PracticeHazard"]
+[editable path="SinkRoomFloorWreckage"]
+[editable path="AlternatingFloorWreckage"]
+[editable path="FinalBulkheadFloorWreckage"]
+[editable path="TrainingLowToothEdge"]
+[editable path="TrainingFloorWreckage"]
+[editable path="LiftSideWreckage"]
+[editable path="LiftSideWreckage2"]

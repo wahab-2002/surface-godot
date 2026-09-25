@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/falling_debris.gd" id="debris"]
+[ext_resource type="Script" path="res://scripts/hazard.gd" id="hazard"]
+
+[sub_resource type="RectangleShape2D" id="BlockShape"]
+size = Vector2(56, 32)
+
+[sub_resource type="RectangleShape2D" id="TriggerShape"]
+size = Vector2(200, 320)
+
+[node name="FallingDebris" type="Node2D"]
+script = ExtResource("debris")
+
+[node name="DropColumn" type="Line2D" parent="."]
+points = PackedVector2Array(0, 20, 0, 360)
+width = 56.0
+default_color = Color(1, 0.65, 0.15, 0.15)
+
+[node name="Trigger" type="Area2D" parent="."]
+position = Vector2(0, 180)
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+shape = SubResource("TriggerShape")
+
+[node name="Debris" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 1
+monitoring = false
+script = ExtResource("hazard")
+
+[node name="Visual" type="Polygon2D" parent="Debris"]
+polygon = PackedVector2Array(-28, -16, 28, -16, 28, 16, -28, 16)
+color = Color(1, 0.65, 0.15, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Debris"]
+shape = SubResource("BlockShape")
+
+[node name="WarningTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="Trigger" to="." method="_on_trigger_body_entered"]
+[connection signal="body_entered" from="Debris" to="Debris" method="_on_body_entered"]
+[connection signal="timeout" from="WarningTimer" to="." method="_on_warning_timer_timeout"]

@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+signal respawned
+
 @export var horizontal_speed: float = 220.0
 @export var horizontal_acceleration: float = 500.0
 @export var horizontal_drag: float = 350.0
@@ -28,6 +30,7 @@ func respawn() -> void:
 	swimming_velocity = Vector2.ZERO
 	current_velocity = Vector2.ZERO
 	currents.clear()
+	respawned.emit()
 
 
 func _physics_process(delta: float) -> void:
