@@ -1,7 +1,7 @@
 extends Node2D
 
-# Generous first-playtest budget; tune after timing a complete run.
-@export_range(1.0, 600.0, 1.0, "or_greater", "suffix:s") var oxygen_duration: float = 420.0
+# Five minutes to reach the surface.
+@export_range(1.0, 600.0, 1.0, "or_greater", "suffix:s") var oxygen_duration: float = 300.0
 
 var oxygen_remaining: float
 var completed: bool = false
@@ -18,11 +18,10 @@ func _process(delta: float) -> void:
 
 	oxygen_remaining = maxf(oxygen_remaining - delta, 0.0)
 	if oxygen_remaining <= 0.0:
-		# A failed attempt restarts at the latest checkpoint with a fresh countdown.
-		$Player.respawn()
-		oxygen_remaining = oxygen_duration
-		$HUD/RetryMessage.show()
-		$RetryMessageTimer.start()
+		# Restart the level, including checkpoints and the oxygen countdown.
+		set_process(false)
+		get_tree().reload_current_scene.call_deferred()
+		return
 	update_oxygen_display()
 
 
