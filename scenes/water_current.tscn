@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3]
 
 [ext_resource type="Script" path="res://scripts/water_current.gd" id="1_current"]
 
+[ext_resource type="Shader" path="res://scripts/ocean_current.gdshader" id="flow_art"]
+
 [sub_resource type="RectangleShape2D" id="Rectangle_current"]
 size = Vector2(240, 200)
+
+[sub_resource type="ShaderMaterial" id="CurrentArt"]
+shader = ExtResource("flow_art")
 
 [node name="WaterCurrent" type="Area2D"]
 collision_layer = 0
@@ -11,6 +16,8 @@ collision_mask = 1
 script = ExtResource("1_current")
 
 [node name="Visual" type="Polygon2D" parent="."]
+z_index = -3
+material = SubResource("CurrentArt")
 polygon = PackedVector2Array(-120, -100, 120, -100, 120, 100, -120, 100)
 color = Color(0.15, 0.7, 0.95, 0.35)
 

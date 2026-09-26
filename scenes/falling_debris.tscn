@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene format=3]
 
 [ext_resource type="Script" path="res://scripts/falling_debris.gd" id="debris"]
 [ext_resource type="Script" path="res://scripts/hazard.gd" id="hazard"]
+
+[ext_resource type="Texture2D" path="res://assets/hazard_scrap.svg" id="scrap_art"]
 
 [sub_resource type="RectangleShape2D" id="BlockShape"]
 size = Vector2(56, 32)
@@ -34,6 +36,8 @@ script = ExtResource("hazard")
 [node name="Visual" type="Polygon2D" parent="Debris"]
 polygon = PackedVector2Array(-28, -16, 28, -16, 28, 16, -28, 16)
 color = Color(1, 0.65, 0.15, 1)
+texture = ExtResource("scrap_art")
+texture_repeat = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Debris"]
 shape = SubResource("BlockShape")

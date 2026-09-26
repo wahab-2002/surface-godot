@@ -5,7 +5,12 @@
 [ext_resource type="PackedScene" path="res://scenes/checkpoint.tscn" id="3_checkpoint"]
 [ext_resource type="Script" uid="uid://bqm2d1eifnw8g" path="res://scripts/level_exit.gd" id="4_exit"]
 [ext_resource type="PackedScene" path="res://scenes/water_current.tscn" id="5_current"]
+[ext_resource type="Texture2D" uid="uid://bwoleouwyx1oo" path="res://assets/wreck_backwall.svg" id="backwall_art"]
+[ext_resource type="Texture2D" uid="uid://borf7ru6e5c2r" path="res://assets/wreck_beam.svg" id="beam_art"]
 [ext_resource type="PackedScene" path="res://scenes/falling_debris.tscn" id="falling_debris"]
+[ext_resource type="Shader" uid="uid://dodyueuips4i8" path="res://scripts/ocean_current.gdshader" id="flow_art"]
+[ext_resource type="Texture2D" uid="uid://biym3ev7wgs0" path="res://assets/wreck_plates.svg" id="plate_art"]
+[ext_resource type="PackedScene" path="res://scenes/wreck_decoration.tscn" id="wreck_decoration"]
 
 [sub_resource type="RectangleShape2D" id="Rectangle_1"]
 size = Vector2(960, 40)
@@ -46,14 +51,32 @@ size = Vector2(160, 80)
 [sub_resource type="RectangleShape2D" id="Root_CurrentCheckpointRest"]
 size = Vector2(145, 40)
 
+[sub_resource type="ShaderMaterial" id="CurrentArt0"]
+shader = ExtResource("flow_art")
+shader_parameter/flow_direction = Vector2(1, 0)
+shader_parameter/zone_min = Vector2(-300, -220)
+shader_parameter/zone_size = Vector2(600, 440)
+
 [sub_resource type="RectangleShape2D" id="Root_GentleRightCurrent"]
 size = Vector2(600, 440)
+
+[sub_resource type="ShaderMaterial" id="CurrentArt1"]
+shader = ExtResource("flow_art")
+shader_parameter/flow_direction = Vector2(0, -1)
+shader_parameter/zone_min = Vector2(-90, -210)
+shader_parameter/zone_size = Vector2(180, 420)
 
 [sub_resource type="RectangleShape2D" id="Root_GentleUpCurrent"]
 size = Vector2(180, 420)
 
 [sub_resource type="RectangleShape2D" id="Root_ExitApproachShelf"]
 size = Vector2(540, 40)
+
+[sub_resource type="ShaderMaterial" id="CurrentArt2"]
+shader = ExtResource("flow_art")
+shader_parameter/flow_direction = Vector2(-1, 0)
+shader_parameter/zone_min = Vector2(-140, -75)
+shader_parameter/zone_size = Vector2(280, 150)
 
 [sub_resource type="RectangleShape2D" id="Root_PracticeDrift"]
 size = Vector2(280, 150)
@@ -99,9 +122,15 @@ size = Vector2(120, 40)
 
 [node name="Main" type="Node2D" unique_id=2020150133]
 
+[node name="WreckDecoration" parent="." unique_id=719065253 instance=ExtResource("wreck_decoration")]
+
 [node name="Background" type="Polygon2D" parent="." unique_id=1677917047]
-color = Color(0.16, 0.18, 0.2, 1)
+z_index = -20
+texture_repeat = 2
+color = Color(0.72, 0.83, 0.88, 1)
+texture = ExtResource("backwall_art")
 polygon = PackedVector2Array(0, 0, 960, 0, 960, 3600, 0, 3600)
+uv = PackedVector2Array(0, 0, 960, 0, 960, 3600, 0, 3600)
 
 [node name="HullFloor" type="StaticBody2D" parent="." unique_id=1392980472]
 position = Vector2(0, 3560)
@@ -111,8 +140,12 @@ position = Vector2(480, 20)
 shape = SubResource("Rectangle_1")
 
 [node name="Visual" type="Polygon2D" parent="HullFloor" unique_id=425840688]
-color = Color(0.4, 0.42, 0.44, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(0, 0, 960, 0, 960, 40, 0, 40)
+uv = PackedVector2Array(0, 0, 960, 0, 960, 40, 0, 40)
 
 [node name="HullLeft" type="StaticBody2D" parent="." unique_id=316141975]
 
@@ -121,8 +154,12 @@ position = Vector2(20, 1800)
 shape = SubResource("Rectangle_2")
 
 [node name="Visual" type="Polygon2D" parent="HullLeft" unique_id=1763880763]
-color = Color(0.4, 0.42, 0.44, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(0, 0, 40, 0, 40, 3600, 0, 3600)
+uv = PackedVector2Array(0, 0, 0, 40, 3600, 40, 3600, 0)
 
 [node name="HullRight" type="StaticBody2D" parent="." unique_id=919899387]
 position = Vector2(920, 0)
@@ -132,8 +169,12 @@ position = Vector2(20, 1800)
 shape = SubResource("Rectangle_2")
 
 [node name="Visual" type="Polygon2D" parent="HullRight" unique_id=1000830644]
-color = Color(0.4, 0.42, 0.44, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(0, 0, 40, 0, 40, 3600, 0, 3600)
+uv = PackedVector2Array(0, 0, 0, 40, 3600, 40, 3600, 0)
 
 [node name="UpperBoundary" type="StaticBody2D" parent="." unique_id=1743539110]
 
@@ -142,8 +183,12 @@ position = Vector2(480, 20)
 shape = SubResource("Rectangle_1")
 
 [node name="Visual" type="Polygon2D" parent="UpperBoundary" unique_id=573379789]
-color = Color(0.4, 0.42, 0.44, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(0, 0, 960, 0, 960, 40, 0, 40)
+uv = PackedVector2Array(0, 0, 960, 0, 960, 40, 0, 40)
 
 [node name="StartRoomCeiling" type="StaticBody2D" parent="." unique_id=895693560]
 position = Vector2(40, 3080)
@@ -153,8 +198,12 @@ position = Vector2(340, 20)
 shape = SubResource("Rectangle_3")
 
 [node name="Visual" type="Polygon2D" parent="StartRoomCeiling" unique_id=1848390082]
-color = Color(0.4, 0.42, 0.44, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(0, 0, 680, 0, 680, 40, 0, 40)
+uv = PackedVector2Array(0, 0, 680, 0, 680, 40, 0, 40)
 
 [node name="RiseShaftWall" type="StaticBody2D" parent="." unique_id=673397642]
 position = Vector2(680, 2780)
@@ -164,8 +213,12 @@ position = Vector2(20, 150)
 shape = SubResource("Rectangle_4")
 
 [node name="Visual" type="Polygon2D" parent="RiseShaftWall" unique_id=2000943607]
-color = Color(0.4, 0.42, 0.44, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(0, 0, 40, 0, 40, 300, 0, 300)
+uv = PackedVector2Array(0, 0, 0, 40, 300, 40, 300, 0)
 
 [node name="SinkRoomCeiling" type="StaticBody2D" parent="." unique_id=309799624]
 position = Vector2(240, 2560)
@@ -175,8 +228,12 @@ position = Vector2(340, 20)
 shape = SubResource("Rectangle_3")
 
 [node name="Visual" type="Polygon2D" parent="SinkRoomCeiling" unique_id=314656169]
-color = Color(0.4, 0.42, 0.44, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(0, 0, 680, 0, 680, 40, 0, 40)
+uv = PackedVector2Array(0, 0, 680, 0, 680, 40, 0, 40)
 
 [node name="FirstSinkBulkhead" type="StaticBody2D" parent="." unique_id=1069278100]
 position = Vector2(460, 2600)
@@ -186,8 +243,12 @@ position = Vector2(20, 155)
 shape = SubResource("Rectangle_5")
 
 [node name="Visual" type="Polygon2D" parent="FirstSinkBulkhead" unique_id=948612255]
-color = Color(0.48, 0.5, 0.52, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(0, 0, 40, 0, 40, 310, 0, 310)
+uv = PackedVector2Array(0, 0, 0, 40, 310, 40, 310, 0)
 
 [node name="AlternatingRoomCeiling" type="StaticBody2D" parent="." unique_id=847465566]
 position = Vector2(40, 2000)
@@ -197,8 +258,12 @@ position = Vector2(340, 20)
 shape = SubResource("Rectangle_3")
 
 [node name="Visual" type="Polygon2D" parent="AlternatingRoomCeiling" unique_id=179714139]
-color = Color(0.4, 0.42, 0.44, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(0, 0, 680, 0, 680, 40, 0, 40)
+uv = PackedVector2Array(0, 0, 680, 0, 680, 40, 0, 40)
 
 [node name="AlternatingRiseBulkhead" type="StaticBody2D" parent="." unique_id=173834469]
 position = Vector2(320, 2200)
@@ -208,8 +273,12 @@ position = Vector2(20, 180)
 shape = SubResource("Rectangle_6")
 
 [node name="Visual" type="Polygon2D" parent="AlternatingRiseBulkhead" unique_id=592997588]
-color = Color(0.48, 0.5, 0.52, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(0, 0, 40, 0, 40, 360, 0, 360)
+uv = PackedVector2Array(0, 0, 0, 40, 360, 40, 360, 0)
 
 [node name="AlternatingSinkBulkhead" type="StaticBody2D" parent="." unique_id=650418127]
 position = Vector2(560, 2040)
@@ -219,8 +288,12 @@ position = Vector2(20, 175)
 shape = SubResource("Rectangle_7")
 
 [node name="Visual" type="Polygon2D" parent="AlternatingSinkBulkhead" unique_id=2002705578]
-color = Color(0.48, 0.5, 0.52, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(0, 0, 40, 0, 40, 350, 0, 350)
+uv = PackedVector2Array(0, 0, 0, 40, 350, 40, 350, 0)
 
 [node name="FinalRiseBulkhead" type="StaticBody2D" parent="." unique_id=1395920160]
 position = Vector2(540, 1740)
@@ -230,8 +303,12 @@ position = Vector2(20, 130)
 shape = SubResource("Rectangle_8")
 
 [node name="Visual" type="Polygon2D" parent="FinalRiseBulkhead" unique_id=175663992]
-color = Color(0.48, 0.5, 0.52, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(0, 0, 40, 0, 40, 260, 0, 260)
+uv = PackedVector2Array(0, 0, 0, 40, 260, 40, 260, 0)
 
 [node name="FinalSinkBulkhead" type="StaticBody2D" parent="." unique_id=1828387143]
 position = Vector2(340, 1580)
@@ -241,8 +318,12 @@ position = Vector2(20, 135)
 shape = SubResource("Rectangle_9")
 
 [node name="Visual" type="Polygon2D" parent="FinalSinkBulkhead" unique_id=1697746437]
-color = Color(0.48, 0.5, 0.52, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(0, 0, 40, 0, 40, 270, 0, 270)
+uv = PackedVector2Array(0, 0, 0, 40, 270, 40, 270, 0)
 
 [node name="ExitRoofLeft" type="StaticBody2D" parent="." unique_id=1675486703]
 position = Vector2(40, 1580)
@@ -252,8 +333,12 @@ position = Vector2(30, 20)
 shape = SubResource("Rectangle_10")
 
 [node name="Visual" type="Polygon2D" parent="ExitRoofLeft" unique_id=949563291]
-color = Color(0.4, 0.42, 0.44, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(0, 0, 60, 0, 60, 40, 0, 40)
+uv = PackedVector2Array(0, 0, 60, 0, 60, 40, 0, 40)
 
 [node name="ExitRoofRight" type="StaticBody2D" parent="." unique_id=228105692]
 position = Vector2(260, 1580)
@@ -263,8 +348,12 @@ position = Vector2(330, 20)
 shape = SubResource("Rectangle_11")
 
 [node name="Visual" type="Polygon2D" parent="ExitRoofRight" unique_id=867613958]
-color = Color(0.4, 0.42, 0.44, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(0, 0, 660, 0, 660, 40, 0, 40)
+uv = PackedVector2Array(0, 0, 660, 0, 660, 40, 0, 40)
 
 [node name="FinishMarker" type="Node2D" parent="." unique_id=1715972044]
 position = Vector2(170, 180)
@@ -332,23 +421,35 @@ polygon = PackedVector2Array(-80, -40, 80, -40, 80, 40, -80, 40)
 shape = SubResource("ExitShape")
 
 [node name="ExitLabel" type="Label" parent="." unique_id=428824744]
+z_index = 3
 offset_left = 65.0
 offset_top = 225.0
+theme_override_colors/font_shadow_color = Color(0.015, 0.03, 0.04, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
 text = "OPEN WATER
 Oxygen countdown starts beyond this exit."
 
 [node name="MovementHint" type="Label" parent="." unique_id=43716179]
+z_index = 3
 offset_left = 58.0
 offset_top = 3142.0
 offset_right = 463.0
 offset_bottom = 3197.0
+theme_override_colors/font_shadow_color = Color(0.015, 0.03, 0.04, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
 theme_override_font_sizes/font_size = 18
 text = "A / D: swim sideways. Hold Space: rise.
 Gray walls are solid. Try steering around them."
 
 [node name="SinkHint" type="Label" parent="." unique_id=802695971]
+z_index = 3
 offset_left = 510.0
 offset_top = 2780.0
+theme_override_colors/font_shadow_color = Color(0.015, 0.03, 0.04, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
 theme_override_font_sizes/font_size = 18
 text = "Release Space to sink.
 Pass below the hanging wall."
@@ -357,15 +458,23 @@ Pass below the hanging wall."
 position = Vector2(810, 2720)
 
 [node name="CheckpointHint" type="Label" parent="." unique_id=1739680921]
+z_index = 3
 offset_left = 590.0
 offset_top = 2640.0
+theme_override_colors/font_shadow_color = Color(0.015, 0.03, 0.04, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
 theme_override_font_sizes/font_size = 18
 text = "Yellow marks a checkpoint.
 Touch it to save your respawn point."
 
 [node name="HazardHint" type="Label" parent="." unique_id=461184152]
+z_index = 3
 offset_left = 80.0
 offset_top = 2940.0
+theme_override_colors/font_shadow_color = Color(0.015, 0.03, 0.04, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
 theme_override_font_sizes/font_size = 18
 text = "Red hazards send you back
 to your last checkpoint."
@@ -380,8 +489,12 @@ position = Vector2(112.5, 1425)
 shape = SubResource("Root_CurrentCheckpointRest")
 
 [node name="Visual" type="Polygon2D" parent="CurrentCheckpointRest" unique_id=1519566736]
-color = Color(0.38, 0.43, 0.46, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(-72.5, -20, 72.5, -20, 72.5, 20, -72.5, 20)
+uv = PackedVector2Array(-72.5, -20, 72.5, -20, 72.5, 20, -72.5, 20)
 
 [node name="GentleRightCurrent" parent="." unique_id=955091665 instance=ExtResource("5_current")]
 position = Vector2(480, 1220)
@@ -389,15 +502,19 @@ strength = 220.0
 max_speed = 180.0
 
 [node name="Visual" parent="GentleRightCurrent" index="0"]
+material = SubResource("CurrentArt0")
 polygon = PackedVector2Array(-300, -220, 300, -220, 300, 220, -300, 220)
 
 [node name="CollisionShape2D" parent="GentleRightCurrent" index="2"]
 shape = SubResource("Root_GentleRightCurrent")
 
 [node name="HorizontalCurrentHint" type="Label" parent="." unique_id=1028093407]
-z_index = 1
+z_index = 3
 offset_left = 85.0
 offset_top = 1460.0
+theme_override_colors/font_shadow_color = Color(0.015, 0.03, 0.04, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
 theme_override_font_sizes/font_size = 18
 text = "Blue arrows push you along; you can still steer.
 Strong flows may only slow when you push against them.
@@ -410,14 +527,19 @@ strength = 220.0
 max_speed = 180.0
 
 [node name="Visual" parent="GentleUpCurrent" index="0"]
+material = SubResource("CurrentArt1")
 polygon = PackedVector2Array(-90, -210, 90, -210, 90, 210, -90, 210)
 
 [node name="CollisionShape2D" parent="GentleUpCurrent" index="2"]
 shape = SubResource("Root_GentleUpCurrent")
 
 [node name="UpCurrentHint" type="Label" parent="." unique_id=2013234918]
+z_index = 3
 offset_left = 70.0
 offset_top = 800.0
+theme_override_colors/font_shadow_color = Color(0.015, 0.03, 0.04, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
 theme_override_font_sizes/font_size = 18
 text = "Upward currents lift you even without Space.
 Steer sideways to leave; you cannot dive against them."
@@ -432,8 +554,12 @@ position = Vector2(310, 430)
 shape = SubResource("Root_ExitApproachShelf")
 
 [node name="Visual" type="Polygon2D" parent="ExitApproachShelf" unique_id=1447136580]
-color = Color(0.38, 0.43, 0.46, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(-270, -20, 270, -20, 270, 20, -270, 20)
+uv = PackedVector2Array(-270, -20, 270, -20, 270, 20, -270, 20)
 
 [node name="PracticeDrift" parent="." unique_id=298630025 instance=ExtResource("5_current")]
 position = Vector2(400, 320)
@@ -442,6 +568,7 @@ strength = 320.0
 max_speed = 280.0
 
 [node name="Visual" parent="PracticeDrift" index="0"]
+material = SubResource("CurrentArt2")
 polygon = PackedVector2Array(-140, -75, 140, -75, 140, 75, -140, 75)
 
 [node name="CollisionShape2D" parent="PracticeDrift" index="2"]
@@ -465,8 +592,12 @@ position = Vector2(180, 225)
 shape = SubResource("Root_ExitRest")
 
 [node name="Visual" type="Polygon2D" parent="ExitRest" unique_id=299329090]
-color = Color(0.38, 0.43, 0.46, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(-60, -20, 60, -20, 60, 20, -60, 20)
+uv = PackedVector2Array(-60, -20, 60, -20, 60, 20, -60, 20)
 
 [node name="SlopingCargo" type="StaticBody2D" parent="." unique_id=1670783913]
 
@@ -474,8 +605,12 @@ polygon = PackedVector2Array(-60, -20, 60, -20, 60, 20, -60, 20)
 polygon = PackedVector2Array(330, 3560, 330, 3400, 440, 3300, 500, 3300, 500, 3560)
 
 [node name="Visual" type="Polygon2D" parent="SlopingCargo" unique_id=536160888]
-color = Color(0.38, 0.43, 0.46, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("plate_art")
 polygon = PackedVector2Array(330, 3560, 330, 3400, 440, 3300, 500, 3300, 500, 3560)
+uv = PackedVector2Array(330, 3560, 330, 3400, 440, 3300, 500, 3300, 500, 3560)
 
 [node name="StarterHangingBeam" type="StaticBody2D" parent="." unique_id=1278372956]
 position = Vector2(630, 3160)
@@ -484,8 +619,12 @@ position = Vector2(630, 3160)
 shape = SubResource("Root_StarterHangingBeam")
 
 [node name="Visual" type="Polygon2D" parent="StarterHangingBeam" unique_id=1803420751]
-color = Color(0.38, 0.43, 0.46, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(-30, -40, 30, -40, 30, 40, -30, 40)
+uv = PackedVector2Array(-40, -20, -40, 20, 40, 20, 40, -20)
 
 [node name="SinkRoomFloorWreckage" parent="." unique_id=714407385 instance=ExtResource("2_hazard")]
 position = Vector2(340, 3065)
@@ -521,8 +660,12 @@ position = Vector2(840, 2170)
 shape = SubResource("Root_AlternatingDoorFrame")
 
 [node name="Visual" type="Polygon2D" parent="AlternatingDoorFrame" unique_id=53633922]
-color = Color(0.38, 0.43, 0.46, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(-80, -20, 80, -20, 80, 20, -80, 20)
+uv = PackedVector2Array(-80, -20, 80, -20, 80, 20, -80, 20)
 
 [node name="FinalTurnCeiling" type="StaticBody2D" parent="." unique_id=1154463941]
 position = Vector2(790, 1640)
@@ -531,8 +674,12 @@ position = Vector2(790, 1640)
 shape = SubResource("Root_FinalTurnCeiling")
 
 [node name="Visual" type="Polygon2D" parent="FinalTurnCeiling" unique_id=144992042]
-color = Color(0.38, 0.43, 0.46, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(-130, -20, 130, -20, 130, 20, -130, 20)
+uv = PackedVector2Array(-130, -20, 130, -20, 130, 20, -130, 20)
 
 [node name="TrainingLowTooth" type="StaticBody2D" parent="." unique_id=1688512574]
 position = Vector2(530, 1370)
@@ -541,8 +688,12 @@ position = Vector2(530, 1370)
 shape = SubResource("Root_TrainingLowTooth")
 
 [node name="Visual" type="Polygon2D" parent="TrainingLowTooth" unique_id=82091762]
-color = Color(0.38, 0.43, 0.46, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("plate_art")
 polygon = PackedVector2Array(-45, -80, 45, -80, 45, 80, -45, 80)
+uv = PackedVector2Array(-45, -80, 45, -80, 45, 80, -45, 80)
 
 [node name="TrainingLowToothEdge" parent="." unique_id=59323736 instance=ExtResource("2_hazard")]
 position = Vector2(530, 1280)
@@ -588,8 +739,12 @@ shape = SubResource("Root_LiftSideWreckage")
 polygon = PackedVector2Array(300, 40, 700, 40, 700, 220, 550, 220, 450, 180, 300, 180)
 
 [node name="Visual" type="Polygon2D" parent="ExitSlopingRoof" unique_id=2084227632]
-color = Color(0.38, 0.43, 0.46, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("plate_art")
 polygon = PackedVector2Array(300, 40, 700, 40, 700, 220, 550, 220, 450, 180, 300, 180)
+uv = PackedVector2Array(300, 40, 700, 40, 700, 220, 550, 220, 450, 180, 300, 180)
 
 [node name="TutorialDebris" parent="." unique_id=1208084821 instance=ExtResource("falling_debris")]
 position = Vector2(440, 2080)
@@ -598,8 +753,12 @@ fall_speed = 200.0
 fall_distance = 410.0
 
 [node name="DebrisHint" type="Label" parent="." unique_id=1554942857]
+z_index = 3
 offset_left = 60.0
 offset_top = 2070.0
+theme_override_colors/font_shadow_color = Color(0.015, 0.03, 0.04, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
 theme_override_font_sizes/font_size = 18
 text = "Loose debris flashes before falling.
 Leave the orange drop column."
@@ -610,8 +769,12 @@ Leave the orange drop column."
 polygon = PackedVector2Array(680, 2750, 830, 2750, 830, 2790, 720, 2790, 720, 2780, 680, 2780)
 
 [node name="Visual" type="Polygon2D" parent="FirstCheckpointRest" unique_id=771399068]
-color = Color(0.38, 0.43, 0.46, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(680, 2750, 830, 2750, 830, 2790, 720, 2790, 720, 2780, 680, 2780)
+uv = PackedVector2Array(680, 2750, 830, 2750, 830, 2790, 720, 2790, 720, 2780, 680, 2780)
 
 [node name="MidpointRest" type="StaticBody2D" parent="." unique_id=983252948]
 position = Vector2(100, 2550)
@@ -620,8 +783,12 @@ position = Vector2(100, 2550)
 shape = SubResource("Root_MidpointRest")
 
 [node name="Visual" type="Polygon2D" parent="MidpointRest" unique_id=444931378]
-color = Color(0.38, 0.43, 0.46, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("beam_art")
 polygon = PackedVector2Array(-60, -20, 60, -20, 60, 20, -60, 20)
+uv = PackedVector2Array(-60, -20, 60, -20, 60, 20, -60, 20)
 
 [node name="BrokenUpperDeck" type="StaticBody2D" parent="." unique_id=734991170]
 
@@ -629,8 +796,12 @@ polygon = PackedVector2Array(-60, -20, 60, -20, 60, 20, -60, 20)
 polygon = PackedVector2Array(40, 940, 680, 940, 680, 540, 720, 540, 720, 980, 700, 980, 700, 1100, 260, 1100, 180, 1020, 40, 1020)
 
 [node name="Visual" type="Polygon2D" parent="BrokenUpperDeck" unique_id=484678427]
-color = Color(0.38, 0.43, 0.46, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("plate_art")
 polygon = PackedVector2Array(40, 940, 680, 940, 680, 540, 720, 540, 720, 980, 700, 980, 700, 1100, 260, 1100, 180, 1020, 40, 1020)
+uv = PackedVector2Array(40, 940, 680, 940, 680, 540, 720, 540, 720, 980, 700, 980, 700, 1100, 260, 1100, 180, 1020, 40, 1020)
 
 [node name="CurrentRoomLowerGuide" type="StaticBody2D" parent="." unique_id=482561075]
 
@@ -638,8 +809,12 @@ polygon = PackedVector2Array(40, 940, 680, 940, 680, 540, 720, 540, 720, 980, 70
 polygon = PackedVector2Array(300, 1430, 920, 1430, 920, 1600, 260, 1600, 260, 1510, 300, 1470)
 
 [node name="Visual" type="Polygon2D" parent="CurrentRoomLowerGuide" unique_id=513783467]
-color = Color(0.38, 0.43, 0.46, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("plate_art")
 polygon = PackedVector2Array(300, 1430, 920, 1430, 920, 1600, 260, 1600, 260, 1510, 300, 1470)
+uv = PackedVector2Array(300, 1430, 920, 1430, 920, 1600, 260, 1600, 260, 1510, 300, 1470)
 
 [node name="LiftRoof" type="StaticBody2D" parent="." unique_id=1623475882]
 
@@ -647,8 +822,12 @@ polygon = PackedVector2Array(300, 1430, 920, 1430, 920, 1600, 260, 1600, 260, 15
 polygon = PackedVector2Array(700, 40, 920, 40, 920, 370, 700, 370)
 
 [node name="Visual" type="Polygon2D" parent="LiftRoof" unique_id=1110917813]
-color = Color(0.38, 0.43, 0.46, 1)
+z_index = -2
+texture_repeat = 2
+color = Color(0.82, 0.88, 0.9, 1)
+texture = ExtResource("plate_art")
 polygon = PackedVector2Array(700, 40, 920, 40, 920, 370, 700, 370)
+uv = PackedVector2Array(700, 40, 920, 40, 920, 370, 700, 370)
 
 [connection signal="body_entered" from="LevelExit" to="LevelExit" method="_on_body_entered"]
 

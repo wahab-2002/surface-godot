@@ -1,0 +1,2857 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/reef_stone.svg" id="boundary_rock"]
+
+[node name="Ocean" type="Node2D"]
+z_index = -10
+
+[node name="WaterDepth0" type="Polygon2D" parent="."]
+vertex_colors = PackedColorArray(0.51, 0.84, 0.81, 1, 0.51, 0.84, 0.81, 1, 0.3, 0.69, 0.73, 1, 0.3, 0.69, 0.73, 1)
+color = Color(1.000, 1.000, 1.000, 1.000)
+polygon = PackedVector2Array(-2200.000, -600.000, 3400.000, -600.000, 3400.000, 0.000, -2200.000, 0.000)
+
+[node name="WaterDepth1" type="Polygon2D" parent="."]
+vertex_colors = PackedColorArray(0.3, 0.69, 0.73, 1, 0.3, 0.69, 0.73, 1, 0.12, 0.43, 0.53, 1, 0.12, 0.43, 0.53, 1)
+color = Color(1.000, 1.000, 1.000, 1.000)
+polygon = PackedVector2Array(-2200.000, 0.000, 3400.000, 0.000, 3400.000, 1700.000, -2200.000, 1700.000)
+
+[node name="WaterDepth2" type="Polygon2D" parent="."]
+vertex_colors = PackedColorArray(0.12, 0.43, 0.53, 1, 0.12, 0.43, 0.53, 1, 0.055, 0.24, 0.34, 1, 0.055, 0.24, 0.34, 1)
+color = Color(1.000, 1.000, 1.000, 1.000)
+polygon = PackedVector2Array(-2200.000, 1700.000, 3400.000, 1700.000, 3400.000, 6500.000, -2200.000, 6500.000)
+
+[node name="WaterDepth3" type="Polygon2D" parent="."]
+vertex_colors = PackedColorArray(0.055, 0.24, 0.34, 1, 0.055, 0.24, 0.34, 1, 0.025, 0.12, 0.21, 1, 0.025, 0.12, 0.21, 1)
+color = Color(1.000, 1.000, 1.000, 1.000)
+polygon = PackedVector2Array(-2200.000, 6500.000, 3400.000, 6500.000, 3400.000, 12500.000, -2200.000, 12500.000)
+
+[node name="WaterDepth4" type="Polygon2D" parent="."]
+vertex_colors = PackedColorArray(0.025, 0.12, 0.21, 1, 0.025, 0.12, 0.21, 1, 0.018, 0.065, 0.12, 1, 0.018, 0.065, 0.12, 1)
+color = Color(1.000, 1.000, 1.000, 1.000)
+polygon = PackedVector2Array(-2200.000, 12500.000, 3400.000, 12500.000, 3400.000, 16400.000, -2200.000, 16400.000)
+
+[node name="DaylightRay0" type="Polygon2D" parent="."]
+vertex_colors = PackedColorArray(0.7, 1, 0.88, 0.15, 0.7, 1, 0.88, 0.09, 0.7, 1, 0.88, 0, 0.7, 1, 0.88, 0)
+color = Color(1.000, 1.000, 1.000, 1.000)
+polygon = PackedVector2Array(-800.000, -30.000, -735.000, -30.000, 0.000, 2300.000, -390.000, 2300.000)
+
+[node name="DaylightRay1" type="Polygon2D" parent="."]
+vertex_colors = PackedColorArray(0.7, 1, 0.88, 0.15, 0.7, 1, 0.88, 0.09, 0.7, 1, 0.88, 0, 0.7, 1, 0.88, 0)
+color = Color(1.000, 1.000, 1.000, 1.000)
+polygon = PackedVector2Array(-410.000, -30.000, -345.000, -30.000, 390.000, 2300.000, 0.000, 2300.000)
+
+[node name="DaylightRay2" type="Polygon2D" parent="."]
+vertex_colors = PackedColorArray(0.7, 1, 0.88, 0.15, 0.7, 1, 0.88, 0.09, 0.7, 1, 0.88, 0, 0.7, 1, 0.88, 0)
+color = Color(1.000, 1.000, 1.000, 1.000)
+polygon = PackedVector2Array(-20.000, -30.000, 45.000, -30.000, 780.000, 2300.000, 390.000, 2300.000)
+
+[node name="DaylightRay3" type="Polygon2D" parent="."]
+vertex_colors = PackedColorArray(0.7, 1, 0.88, 0.15, 0.7, 1, 0.88, 0.09, 0.7, 1, 0.88, 0, 0.7, 1, 0.88, 0)
+color = Color(1.000, 1.000, 1.000, 1.000)
+polygon = PackedVector2Array(370.000, -30.000, 435.000, -30.000, 1170.000, 2300.000, 780.000, 2300.000)
+
+[node name="DaylightRay4" type="Polygon2D" parent="."]
+vertex_colors = PackedColorArray(0.7, 1, 0.88, 0.15, 0.7, 1, 0.88, 0.09, 0.7, 1, 0.88, 0, 0.7, 1, 0.88, 0)
+color = Color(1.000, 1.000, 1.000, 1.000)
+polygon = PackedVector2Array(760.000, -30.000, 825.000, -30.000, 1560.000, 2300.000, 1170.000, 2300.000)
+
+[node name="DaylightRay5" type="Polygon2D" parent="."]
+vertex_colors = PackedColorArray(0.7, 1, 0.88, 0.15, 0.7, 1, 0.88, 0.09, 0.7, 1, 0.88, 0, 0.7, 1, 0.88, 0)
+color = Color(1.000, 1.000, 1.000, 1.000)
+polygon = PackedVector2Array(1150.000, -30.000, 1215.000, -30.000, 1950.000, 2300.000, 1560.000, 2300.000)
+
+[node name="DaylightRay6" type="Polygon2D" parent="."]
+vertex_colors = PackedColorArray(0.7, 1, 0.88, 0.15, 0.7, 1, 0.88, 0.09, 0.7, 1, 0.88, 0, 0.7, 1, 0.88, 0)
+color = Color(1.000, 1.000, 1.000, 1.000)
+polygon = PackedVector2Array(1540.000, -30.000, 1605.000, -30.000, 2340.000, 2300.000, 1950.000, 2300.000)
+
+[node name="DaylightRay7" type="Polygon2D" parent="."]
+vertex_colors = PackedColorArray(0.7, 1, 0.88, 0.15, 0.7, 1, 0.88, 0.09, 0.7, 1, 0.88, 0, 0.7, 1, 0.88, 0)
+color = Color(1.000, 1.000, 1.000, 1.000)
+polygon = PackedVector2Array(1930.000, -30.000, 1995.000, -30.000, 2730.000, 2300.000, 2340.000, 2300.000)
+
+[node name="DaylightRay8" type="Polygon2D" parent="."]
+vertex_colors = PackedColorArray(0.7, 1, 0.88, 0.15, 0.7, 1, 0.88, 0.09, 0.7, 1, 0.88, 0, 0.7, 1, 0.88, 0)
+color = Color(1.000, 1.000, 1.000, 1.000)
+polygon = PackedVector2Array(2320.000, -30.000, 2385.000, -30.000, 3120.000, 2300.000, 2730.000, 2300.000)
+
+[node name="DistantReef0" type="Polygon2D" parent="."]
+color = Color(0.088, 0.231, 0.290, 0.320)
+polygon = PackedVector2Array(-467.177, 5979.991, -415.962, 5873.173, -322.068, 5827.394, -194.030, 5880.803, -125.743, 5979.991, -228.173, 6025.770)
+
+[node name="Kelp0_0" type="Polygon2D" parent="."]
+color = Color(0.104, 0.258, 0.284, 0.430)
+polygon = PackedVector2Array(-296.460, 5903.692, -303.460, 5861.906, -290.460, 5820.120, -293.460, 5799.226, -284.460, 5835.790, -294.460, 5903.692)
+
+[node name="Kelp0_1" type="Polygon2D" parent="."]
+color = Color(0.104, 0.258, 0.284, 0.430)
+polygon = PackedVector2Array(-279.460, 5903.692, -286.460, 5872.069, -273.460, 5840.445, -276.460, 5824.634, -267.460, 5852.304, -277.460, 5903.692)
+
+[node name="Kelp0_2" type="Polygon2D" parent="."]
+color = Color(0.104, 0.258, 0.284, 0.430)
+polygon = PackedVector2Array(-262.460, 5903.692, -269.460, 5870.097, -256.460, 5836.502, -259.460, 5819.705, -250.460, 5849.100, -260.460, 5903.692)
+
+[node name="DistantReef1" type="Polygon2D" parent="."]
+color = Color(0.053, 0.137, 0.179, 0.320)
+polygon = PackedVector2Array(1431.169, 15312.018, 1457.761, 15209.977, 1506.514, 15166.245, 1572.995, 15217.266, 1608.452, 15312.018, 1555.267, 15355.750)
+
+[node name="Kelp1_0" type="Polygon2D" parent="."]
+color = Color(0.077, 0.159, 0.179, 0.430)
+polygon = PackedVector2Array(1519.810, 15239.132, 1512.810, 15196.911, 1525.810, 15154.690, 1522.810, 15133.580, 1531.810, 15170.523, 1521.810, 15239.132)
+
+[node name="Kelp1_1" type="Polygon2D" parent="."]
+color = Color(0.077, 0.159, 0.179, 0.430)
+polygon = PackedVector2Array(1536.810, 15239.132, 1529.810, 15206.028, 1542.810, 15172.925, 1539.810, 15156.374, 1548.810, 15185.339, 1538.810, 15239.132)
+
+[node name="Kelp1_2" type="Polygon2D" parent="."]
+color = Color(0.077, 0.158, 0.179, 0.430)
+polygon = PackedVector2Array(1553.810, 15239.132, 1546.810, 15214.710, 1559.810, 15190.289, 1556.810, 15178.078, 1565.810, 15199.447, 1555.810, 15239.132)
+
+[node name="DistantReef2" type="Polygon2D" parent="."]
+color = Color(0.064, 0.168, 0.216, 0.320)
+polygon = PackedVector2Array(-386.324, 12189.751, -336.978, 12124.421, -246.510, 12096.423, -123.145, 12129.088, -57.350, 12189.751, -156.043, 12217.750)
+
+[node name="Kelp2_0" type="Polygon2D" parent="."]
+color = Color(0.086, 0.191, 0.214, 0.430)
+polygon = PackedVector2Array(-221.837, 12143.087, -228.837, 12123.526, -215.837, 12103.965, -218.837, 12094.185, -209.837, 12111.301, -219.837, 12143.087)
+
+[node name="Kelp2_1" type="Polygon2D" parent="."]
+color = Color(0.086, 0.191, 0.214, 0.430)
+polygon = PackedVector2Array(-204.837, 12143.087, -211.837, 12121.839, -198.837, 12100.590, -201.837, 12089.966, -192.837, 12108.559, -202.837, 12143.087)
+
+[node name="Kelp2_2" type="Polygon2D" parent="."]
+color = Color(0.086, 0.191, 0.214, 0.430)
+polygon = PackedVector2Array(-187.837, 12143.087, -194.837, 12119.227, -181.837, 12095.368, -184.837, 12083.438, -175.837, 12104.315, -185.837, 12143.087)
+
+[node name="DistantReef3" type="Polygon2D" parent="."]
+color = Color(0.087, 0.229, 0.288, 0.320)
+polygon = PackedVector2Array(1231.147, 6080.786, 1266.732, 6018.342, 1331.969, 5991.580, 1420.930, 6022.802, 1468.376, 6080.786, 1397.207, 6107.548)
+
+[node name="Kelp3_0" type="Polygon2D" parent="."]
+color = Color(0.103, 0.256, 0.282, 0.430)
+polygon = PackedVector2Array(1349.762, 6036.183, 1342.762, 6009.997, 1355.762, 5983.810, 1352.762, 5970.716, 1361.762, 5993.630, 1351.762, 6036.183)
+
+[node name="Kelp3_1" type="Polygon2D" parent="."]
+color = Color(0.103, 0.256, 0.283, 0.430)
+polygon = PackedVector2Array(1366.762, 6036.183, 1359.762, 6005.488, 1372.762, 5974.792, 1369.762, 5959.444, 1378.762, 5986.303, 1368.762, 6036.183)
+
+[node name="Kelp3_2" type="Polygon2D" parent="."]
+color = Color(0.103, 0.256, 0.282, 0.430)
+polygon = PackedVector2Array(1383.762, 6036.183, 1376.762, 6017.886, 1389.762, 5999.588, 1386.762, 5990.439, 1395.762, 6006.449, 1385.762, 6036.183)
+
+[node name="DistantReef4" type="Polygon2D" parent="."]
+color = Color(0.063, 0.165, 0.212, 0.320)
+polygon = PackedVector2Array(-417.877, 12520.550, -367.063, 12487.660, -273.903, 12473.565, -146.868, 12490.010, -79.115, 12520.550, -180.744, 12534.645)
+
+[node name="Kelp4_0" type="Polygon2D" parent="."]
+color = Color(0.085, 0.188, 0.210, 0.430)
+polygon = PackedVector2Array(-248.496, 12497.057, -255.496, 12465.431, -242.496, 12433.805, -245.496, 12417.992, -236.496, 12445.665, -246.496, 12497.057)
+
+[node name="Kelp4_1" type="Polygon2D" parent="."]
+color = Color(0.085, 0.188, 0.210, 0.430)
+polygon = PackedVector2Array(-231.496, 12497.057, -238.496, 12462.043, -225.496, 12427.029, -228.496, 12409.521, -219.496, 12440.159, -229.496, 12497.057)
+
+[node name="Kelp4_2" type="Polygon2D" parent="."]
+color = Color(0.085, 0.187, 0.210, 0.430)
+polygon = PackedVector2Array(-214.496, 12497.057, -221.496, 12476.748, -208.496, 12456.439, -211.496, 12446.284, -202.496, 12464.055, -212.496, 12497.057)
+
+[node name="DistantReef5" type="Polygon2D" parent="."]
+color = Color(0.074, 0.194, 0.245, 0.320)
+polygon = PackedVector2Array(1286.260, 9666.804, 1314.414, 9617.782, 1366.030, 9596.772, 1436.415, 9621.283, 1473.954, 9666.804, 1417.645, 9687.814)
+
+[node name="Kelp5_0" type="Polygon2D" parent="."]
+color = Color(0.093, 0.218, 0.242, 0.430)
+polygon = PackedVector2Array(1380.107, 9631.788, 1373.107, 9613.129, 1386.107, 9594.469, 1383.107, 9585.139, 1392.107, 9601.466, 1382.107, 9631.788)
+
+[node name="Kelp5_1" type="Polygon2D" parent="."]
+color = Color(0.093, 0.218, 0.242, 0.430)
+polygon = PackedVector2Array(1397.107, 9631.788, 1390.107, 9601.073, 1403.107, 9570.358, 1400.107, 9555.000, 1409.107, 9581.876, 1399.107, 9631.788)
+
+[node name="Kelp5_2" type="Polygon2D" parent="."]
+color = Color(0.093, 0.218, 0.242, 0.430)
+polygon = PackedVector2Array(1414.107, 9631.788, 1407.107, 9599.850, 1420.107, 9567.911, 1417.107, 9551.942, 1426.107, 9579.888, 1416.107, 9631.788)
+
+[node name="DistantReef6" type="Polygon2D" parent="."]
+color = Color(0.075, 0.196, 0.248, 0.320)
+polygon = PackedVector2Array(-393.908, 9416.796, -358.869, 9381.619, -294.632, 9366.543, -207.035, 9384.132, -160.317, 9416.796, -230.394, 9431.872)
+
+[node name="Kelp6_0" type="Polygon2D" parent="."]
+color = Color(0.094, 0.221, 0.245, 0.430)
+polygon = PackedVector2Array(-277.112, 9391.669, -284.112, 9357.977, -271.112, 9324.285, -274.112, 9307.439, -265.112, 9336.920, -275.112, 9391.669)
+
+[node name="Kelp6_1" type="Polygon2D" parent="."]
+color = Color(0.094, 0.221, 0.245, 0.430)
+polygon = PackedVector2Array(-260.112, 9391.669, -267.112, 9350.823, -254.112, 9309.977, -257.112, 9289.553, -248.112, 9325.294, -258.112, 9391.669)
+
+[node name="Kelp6_2" type="Polygon2D" parent="."]
+color = Color(0.094, 0.221, 0.245, 0.430)
+polygon = PackedVector2Array(-243.112, 9391.669, -250.112, 9356.656, -237.112, 9321.643, -240.112, 9304.136, -231.112, 9334.773, -241.112, 9391.669)
+
+[node name="DistantReef7" type="Polygon2D" parent="."]
+color = Color(0.071, 0.185, 0.235, 0.320)
+polygon = PackedVector2Array(1436.863, 10580.090, 1461.545, 10474.204, 1506.796, 10428.824, 1568.501, 10481.767, 1601.411, 10580.090, 1552.047, 10625.470)
+
+[node name="Kelp7_0" type="Polygon2D" parent="."]
+color = Color(0.091, 0.209, 0.232, 0.430)
+polygon = PackedVector2Array(1519.137, 10504.457, 1512.137, 10479.962, 1525.137, 10455.468, 1522.137, 10443.221, 1531.137, 10464.653, 1521.137, 10504.457)
+
+[node name="Kelp7_1" type="Polygon2D" parent="."]
+color = Color(0.091, 0.209, 0.232, 0.430)
+polygon = PackedVector2Array(1536.137, 10504.457, 1529.137, 10480.385, 1542.137, 10456.313, 1539.137, 10444.277, 1548.137, 10465.340, 1538.137, 10504.457)
+
+[node name="Kelp7_2" type="Polygon2D" parent="."]
+color = Color(0.091, 0.209, 0.232, 0.430)
+polygon = PackedVector2Array(1553.137, 10504.457, 1546.137, 10481.264, 1559.137, 10458.070, 1556.137, 10446.474, 1565.137, 10466.768, 1555.137, 10504.457)
+
+[node name="DistantReef8" type="Polygon2D" parent="."]
+color = Color(0.084, 0.221, 0.278, 0.320)
+polygon = PackedVector2Array(-281.920, 6961.652, -252.551, 6924.309, -198.708, 6908.305, -125.286, 6926.977, -86.128, 6961.652, -144.866, 6977.656)
+
+[node name="Kelp8_0" type="Polygon2D" parent="."]
+color = Color(0.101, 0.247, 0.272, 0.430)
+polygon = PackedVector2Array(-184.024, 6934.979, -191.024, 6913.443, -178.024, 6891.907, -181.024, 6881.139, -172.024, 6899.983, -182.024, 6934.979)
+
+[node name="Kelp8_1" type="Polygon2D" parent="."]
+color = Color(0.101, 0.247, 0.272, 0.430)
+polygon = PackedVector2Array(-167.024, 6934.979, -174.024, 6907.874, -161.024, 6880.770, -164.024, 6867.218, -155.024, 6890.934, -165.024, 6934.979)
+
+[node name="Kelp8_2" type="Polygon2D" parent="."]
+color = Color(0.101, 0.247, 0.272, 0.430)
+polygon = PackedVector2Array(-150.024, 6934.979, -157.024, 6912.252, -144.024, 6889.526, -147.024, 6878.163, -138.024, 6898.049, -148.024, 6934.979)
+
+[node name="DistantReef9" type="Polygon2D" parent="."]
+color = Color(0.083, 0.219, 0.275, 0.320)
+polygon = PackedVector2Array(1138.844, 7174.301, 1179.688, 7096.813, 1254.567, 7063.604, 1356.676, 7102.348, 1411.134, 7174.301, 1329.447, 7207.510)
+
+[node name="Kelp9_0" type="Polygon2D" parent="."]
+color = Color(0.100, 0.245, 0.270, 0.430)
+polygon = PackedVector2Array(1274.989, 7118.952, 1267.989, 7077.596, 1280.989, 7036.239, 1277.989, 7015.561, 1286.989, 7051.748, 1276.989, 7118.952)
+
+[node name="Kelp9_1" type="Polygon2D" parent="."]
+color = Color(0.100, 0.245, 0.270, 0.430)
+polygon = PackedVector2Array(1291.989, 7118.952, 1284.989, 7096.410, 1297.989, 7073.868, 1294.989, 7062.597, 1303.989, 7082.321, 1293.989, 7118.952)
+
+[node name="Kelp9_2" type="Polygon2D" parent="."]
+color = Color(0.100, 0.245, 0.270, 0.430)
+polygon = PackedVector2Array(1308.989, 7118.952, 1301.989, 7083.264, 1314.989, 7047.575, 1311.989, 7029.730, 1320.989, 7060.958, 1310.989, 7118.952)
+
+[node name="DistantReef10" type="Polygon2D" parent="."]
+color = Color(0.088, 0.230, 0.289, 0.320)
+polygon = PackedVector2Array(-295.687, 5994.224, -271.894, 5960.079, -228.273, 5945.446, -168.789, 5962.518, -137.065, 5994.224, -184.652, 6008.857)
+
+[node name="Kelp10_0" type="Polygon2D" parent="."]
+color = Color(0.103, 0.257, 0.283, 0.430)
+polygon = PackedVector2Array(-216.376, 5969.835, -223.376, 5950.260, -210.376, 5930.686, -213.376, 5920.898, -204.376, 5938.026, -214.376, 5969.835)
+
+[node name="Kelp10_1" type="Polygon2D" parent="."]
+color = Color(0.103, 0.257, 0.283, 0.430)
+polygon = PackedVector2Array(-199.376, 5969.835, -206.376, 5946.516, -193.376, 5923.197, -196.376, 5911.538, -187.376, 5931.942, -197.376, 5969.835)
+
+[node name="Kelp10_2" type="Polygon2D" parent="."]
+color = Color(0.103, 0.257, 0.283, 0.430)
+polygon = PackedVector2Array(-182.376, 5969.835, -189.376, 5929.299, -176.376, 5888.764, -179.376, 5868.496, -170.376, 5903.964, -180.376, 5969.835)
+
+[node name="DistantReef11" type="Polygon2D" parent="."]
+color = Color(0.099, 0.262, 0.327, 0.320)
+polygon = PackedVector2Array(1291.212, 2864.047, 1335.166, 2774.709, 1415.748, 2736.421, 1525.633, 2781.090, 1584.238, 2864.047, 1496.331, 2902.335)
+
+[node name="Kelp11_0" type="Polygon2D" parent="."]
+color = Color(0.112, 0.291, 0.319, 0.430)
+polygon = PackedVector2Array(1437.725, 2800.234, 1430.725, 2767.404, 1443.725, 2734.574, 1440.725, 2718.159, 1449.725, 2746.885, 1439.725, 2800.234)
+
+[node name="Kelp11_1" type="Polygon2D" parent="."]
+color = Color(0.112, 0.291, 0.319, 0.430)
+polygon = PackedVector2Array(1454.725, 2800.234, 1447.725, 2774.092, 1460.725, 2747.951, 1457.725, 2734.880, 1466.725, 2757.754, 1456.725, 2800.234)
+
+[node name="Kelp11_2" type="Polygon2D" parent="."]
+color = Color(0.112, 0.291, 0.319, 0.430)
+polygon = PackedVector2Array(1471.725, 2800.234, 1464.725, 2759.054, 1477.725, 2717.873, 1474.725, 2697.283, 1483.725, 2733.316, 1473.725, 2800.234)
+
+[node name="DistantReef12" type="Polygon2D" parent="."]
+color = Color(0.086, 0.226, 0.284, 0.320)
+polygon = PackedVector2Array(-369.008, 6454.822, -313.592, 6361.049, -211.997, 6320.861, -73.459, 6367.747, 0.429, 6454.822, -110.402, 6495.010)
+
+[node name="Kelp12_0" type="Polygon2D" parent="."]
+color = Color(0.102, 0.253, 0.279, 0.430)
+polygon = PackedVector2Array(-184.290, 6387.841, -191.290, 6350.561, -178.290, 6313.281, -181.290, 6294.641, -172.290, 6327.261, -182.290, 6387.841)
+
+[node name="Kelp12_1" type="Polygon2D" parent="."]
+color = Color(0.102, 0.253, 0.279, 0.430)
+polygon = PackedVector2Array(-167.290, 6387.841, -174.290, 6356.712, -161.290, 6325.582, -164.290, 6310.017, -155.290, 6337.255, -165.290, 6387.841)
+
+[node name="Kelp12_2" type="Polygon2D" parent="."]
+color = Color(0.102, 0.253, 0.279, 0.430)
+polygon = PackedVector2Array(-150.290, 6387.841, -157.290, 6344.199, -144.290, 6300.557, -147.290, 6278.736, -138.290, 6316.923, -148.290, 6387.841)
+
+[node name="DistantReef13" type="Polygon2D" parent="."]
+color = Color(0.092, 0.242, 0.303, 0.320)
+polygon = PackedVector2Array(1296.269, 4854.996, 1318.390, 4760.020, 1358.945, 4719.317, 1414.247, 4766.804, 1443.742, 4854.996, 1399.500, 4895.700)
+
+[node name="Kelp13_0" type="Polygon2D" parent="."]
+color = Color(0.107, 0.270, 0.297, 0.430)
+polygon = PackedVector2Array(1370.005, 4787.156, 1363.005, 4747.530, 1376.005, 4707.905, 1373.005, 4688.092, 1382.005, 4722.764, 1372.005, 4787.156)
+
+[node name="Kelp13_1" type="Polygon2D" parent="."]
+color = Color(0.107, 0.269, 0.297, 0.430)
+polygon = PackedVector2Array(1387.005, 4787.156, 1380.005, 4759.102, 1393.005, 4731.047, 1390.005, 4717.020, 1399.005, 4741.568, 1389.005, 4787.156)
+
+[node name="Kelp13_2" type="Polygon2D" parent="."]
+color = Color(0.107, 0.270, 0.297, 0.430)
+polygon = PackedVector2Array(1404.005, 4787.156, 1397.005, 4744.872, 1410.005, 4702.588, 1407.005, 4681.446, 1416.005, 4718.445, 1406.005, 4787.156)
+
+[node name="DistantReef14" type="Polygon2D" parent="."]
+color = Color(0.107, 0.282, 0.351, 0.320)
+polygon = PackedVector2Array(-396.556, 784.696, -343.595, 750.042, -246.500, 735.191, -114.098, 752.518, -43.484, 784.696, -149.405, 799.548)
+
+[node name="Kelp14_0" type="Polygon2D" parent="."]
+color = Color(0.118, 0.312, 0.342, 0.430)
+polygon = PackedVector2Array(-220.020, 759.943, -227.020, 717.127, -214.020, 674.310, -217.020, 652.901, -208.020, 690.366, -218.020, 759.943)
+
+[node name="Kelp14_1" type="Polygon2D" parent="."]
+color = Color(0.118, 0.312, 0.342, 0.430)
+polygon = PackedVector2Array(-203.020, 759.943, -210.020, 727.593, -197.020, 695.243, -200.020, 679.068, -191.020, 707.374, -201.020, 759.943)
+
+[node name="Kelp14_2" type="Polygon2D" parent="."]
+color = Color(0.118, 0.312, 0.342, 0.430)
+polygon = PackedVector2Array(-186.020, 759.943, -193.020, 727.367, -180.020, 694.791, -183.020, 678.503, -174.020, 707.007, -184.020, 759.943)
+
+[node name="DistantReef15" type="Polygon2D" parent="."]
+color = Color(0.078, 0.204, 0.258, 0.320)
+polygon = PackedVector2Array(1206.651, 8598.806, 1263.556, 8508.224, 1367.882, 8469.403, 1510.145, 8514.694, 1586.018, 8598.806, 1472.208, 8637.626)
+
+[node name="Kelp15_0" type="Polygon2D" parent="."]
+color = Color(0.096, 0.230, 0.254, 0.430)
+polygon = PackedVector2Array(1396.335, 8534.104, 1389.335, 8498.251, 1402.335, 8462.398, 1399.335, 8444.471, 1408.335, 8475.843, 1398.335, 8534.104)
+
+[node name="Kelp15_1" type="Polygon2D" parent="."]
+color = Color(0.096, 0.230, 0.254, 0.430)
+polygon = PackedVector2Array(1413.335, 8534.104, 1406.335, 8509.330, 1419.335, 8484.556, 1416.335, 8472.169, 1425.335, 8493.847, 1415.335, 8534.104)
+
+[node name="Kelp15_2" type="Polygon2D" parent="."]
+color = Color(0.096, 0.230, 0.254, 0.430)
+polygon = PackedVector2Array(1430.335, 8534.104, 1423.335, 8509.329, 1436.335, 8484.554, 1433.335, 8472.166, 1442.335, 8493.844, 1432.335, 8534.104)
+
+[node name="DistantReef16" type="Polygon2D" parent="."]
+color = Color(0.082, 0.216, 0.272, 0.320)
+polygon = PackedVector2Array(-170.742, 7420.375, -147.918, 7355.217, -106.074, 7327.293, -49.014, 7359.871, -18.582, 7420.375, -64.230, 7448.299)
+
+[node name="Kelp16_0" type="Polygon2D" parent="."]
+color = Color(0.099, 0.242, 0.268, 0.430)
+polygon = PackedVector2Array(-94.662, 7373.834, -101.662, 7331.193, -88.662, 7288.553, -91.662, 7267.233, -82.662, 7304.543, -92.662, 7373.834)
+
+[node name="Kelp16_1" type="Polygon2D" parent="."]
+color = Color(0.099, 0.242, 0.267, 0.430)
+polygon = PackedVector2Array(-77.662, 7373.834, -84.662, 7355.200, -71.662, 7336.566, -74.662, 7327.249, -65.662, 7343.554, -75.662, 7373.834)
+
+[node name="Kelp16_2" type="Polygon2D" parent="."]
+color = Color(0.099, 0.242, 0.268, 0.430)
+polygon = PackedVector2Array(-60.662, 7373.834, -67.662, 7332.119, -54.662, 7290.405, -57.662, 7269.548, -48.662, 7306.048, -58.662, 7373.834)
+
+[node name="DistantReef17" type="Polygon2D" parent="."]
+color = Color(0.082, 0.214, 0.270, 0.320)
+polygon = PackedVector2Array(1198.905, 7600.863, 1240.112, 7530.121, 1315.658, 7499.803, 1418.676, 7535.174, 1473.618, 7600.863, 1391.204, 7631.181)
+
+[node name="Kelp17_0" type="Polygon2D" parent="."]
+color = Color(0.099, 0.240, 0.265, 0.430)
+polygon = PackedVector2Array(1336.261, 7550.333, 1329.261, 7518.701, 1342.261, 7487.069, 1339.261, 7471.253, 1348.261, 7498.931, 1338.261, 7550.333)
+
+[node name="Kelp17_1" type="Polygon2D" parent="."]
+color = Color(0.099, 0.240, 0.265, 0.430)
+polygon = PackedVector2Array(1353.261, 7550.333, 1346.261, 7518.089, 1359.261, 7485.844, 1356.261, 7469.722, 1365.261, 7497.936, 1355.261, 7550.333)
+
+[node name="Kelp17_2" type="Polygon2D" parent="."]
+color = Color(0.099, 0.240, 0.265, 0.430)
+polygon = PackedVector2Array(1370.261, 7550.333, 1363.261, 7527.249, 1376.261, 7504.164, 1373.261, 7492.622, 1382.261, 7512.821, 1372.261, 7550.333)
+
+[node name="DistantReef18" type="Polygon2D" parent="."]
+color = Color(0.051, 0.134, 0.174, 0.320)
+polygon = PackedVector2Array(-375.690, 15699.644, -352.887, 15597.900, -311.082, 15554.295, -254.075, 15605.168, -223.671, 15699.644, -269.277, 15743.249)
+
+[node name="Kelp18_0" type="Polygon2D" parent="."]
+color = Color(0.076, 0.154, 0.175, 0.430)
+polygon = PackedVector2Array(-299.681, 15626.970, -306.681, 15602.842, -293.681, 15578.715, -296.681, 15566.651, -287.681, 15587.763, -297.681, 15626.970)
+
+[node name="Kelp18_1" type="Polygon2D" parent="."]
+color = Color(0.076, 0.154, 0.175, 0.430)
+polygon = PackedVector2Array(-282.681, 15626.970, -289.681, 15601.437, -276.681, 15575.903, -279.681, 15563.137, -270.681, 15585.478, -280.681, 15626.970)
+
+[node name="Kelp18_2" type="Polygon2D" parent="."]
+color = Color(0.076, 0.154, 0.175, 0.430)
+polygon = PackedVector2Array(-265.681, 15626.970, -272.681, 15590.913, -259.681, 15554.856, -262.681, 15536.827, -253.681, 15568.377, -263.681, 15626.970)
+
+[node name="DistantReef19" type="Polygon2D" parent="."]
+color = Color(0.056, 0.147, 0.190, 0.320)
+polygon = PackedVector2Array(1314.775, 14332.576, 1346.782, 14249.208, 1405.461, 14213.479, 1485.478, 14255.163, 1528.154, 14332.576, 1464.140, 14368.306)
+
+[node name="Kelp19_0" type="Polygon2D" parent="."]
+color = Color(0.080, 0.169, 0.190, 0.430)
+polygon = PackedVector2Array(1421.464, 14273.027, 1414.464, 14253.800, 1427.464, 14234.573, 1424.464, 14224.960, 1433.464, 14241.784, 1423.464, 14273.027)
+
+[node name="Kelp19_1" type="Polygon2D" parent="."]
+color = Color(0.080, 0.169, 0.190, 0.430)
+polygon = PackedVector2Array(1438.464, 14273.027, 1431.464, 14242.028, 1444.464, 14211.029, 1441.464, 14195.529, 1450.464, 14222.653, 1440.464, 14273.027)
+
+[node name="Kelp19_2" type="Polygon2D" parent="."]
+color = Color(0.080, 0.169, 0.190, 0.430)
+polygon = PackedVector2Array(1455.464, 14273.027, 1448.464, 14244.313, 1461.464, 14215.599, 1458.464, 14201.242, 1467.464, 14226.367, 1457.464, 14273.027)
+
+[node name="DistantReef20" type="Polygon2D" parent="."]
+color = Color(0.059, 0.153, 0.198, 0.320)
+polygon = PackedVector2Array(-321.842, 13669.468, -272.574, 13637.541, -182.248, 13623.858, -59.076, 13639.822, 6.615, 13669.468, -91.922, 13683.152)
+
+[node name="Kelp20_0" type="Polygon2D" parent="."]
+color = Color(0.082, 0.175, 0.197, 0.430)
+polygon = PackedVector2Array(-157.613, 13646.663, -164.613, 13620.341, -151.613, 13594.018, -154.613, 13580.857, -145.613, 13603.889, -155.613, 13646.663)
+
+[node name="Kelp20_1" type="Polygon2D" parent="."]
+color = Color(0.082, 0.175, 0.197, 0.430)
+polygon = PackedVector2Array(-140.613, 13646.663, -147.613, 13610.038, -134.613, 13573.413, -137.613, 13555.100, -128.613, 13587.147, -138.613, 13646.663)
+
+[node name="Kelp20_2" type="Polygon2D" parent="."]
+color = Color(0.082, 0.175, 0.197, 0.430)
+polygon = PackedVector2Array(-123.613, 13646.663, -130.613, 13621.326, -117.613, 13595.989, -120.613, 13583.320, -111.613, 13605.490, -121.613, 13646.663)
+
+[node name="DistantReef21" type="Polygon2D" parent="."]
+color = Color(0.056, 0.145, 0.188, 0.320)
+polygon = PackedVector2Array(1161.114, 14505.959, 1212.574, 14433.194, 1306.917, 14402.009, 1435.568, 14438.392, 1504.181, 14505.959, 1401.261, 14537.143)
+
+[node name="Kelp21_0" type="Polygon2D" parent="."]
+color = Color(0.079, 0.167, 0.188, 0.430)
+polygon = PackedVector2Array(1332.648, 14453.984, 1325.648, 14422.771, 1338.648, 14391.558, 1335.648, 14375.952, 1344.648, 14403.263, 1334.648, 14453.984)
+
+[node name="Kelp21_1" type="Polygon2D" parent="."]
+color = Color(0.079, 0.167, 0.188, 0.430)
+polygon = PackedVector2Array(1349.648, 14453.984, 1342.648, 14414.527, 1355.648, 14375.070, 1352.648, 14355.341, 1361.648, 14389.866, 1351.648, 14453.984)
+
+[node name="Kelp21_2" type="Polygon2D" parent="."]
+color = Color(0.079, 0.167, 0.188, 0.430)
+polygon = PackedVector2Array(1366.648, 14453.984, 1359.648, 14423.228, 1372.648, 14392.471, 1369.648, 14377.093, 1378.648, 14404.005, 1368.648, 14453.984)
+
+[node name="DistantReef22" type="Polygon2D" parent="."]
+color = Color(0.087, 0.230, 0.288, 0.320)
+polygon = PackedVector2Array(-289.393, 6096.054, -262.565, 5996.785, -213.382, 5954.242, -146.314, 6003.876, -110.544, 6096.054, -164.199, 6138.597)
+
+[node name="Kelp22_0" type="Polygon2D" parent="."]
+color = Color(0.103, 0.256, 0.283, 0.430)
+polygon = PackedVector2Array(-199.968, 6025.148, -206.968, 5991.896, -193.968, 5958.644, -196.968, 5942.018, -187.968, 5971.114, -197.968, 6025.148)
+
+[node name="Kelp22_1" type="Polygon2D" parent="."]
+color = Color(0.103, 0.256, 0.283, 0.430)
+polygon = PackedVector2Array(-182.968, 6025.148, -189.968, 5988.775, -176.968, 5952.403, -179.968, 5934.216, -170.968, 5966.042, -180.968, 6025.148)
+
+[node name="Kelp22_2" type="Polygon2D" parent="."]
+color = Color(0.103, 0.256, 0.283, 0.430)
+polygon = PackedVector2Array(-165.968, 6025.148, -172.968, 5988.584, -159.968, 5952.021, -162.968, 5933.739, -153.968, 5965.732, -163.968, 6025.148)
+
+[node name="DistantReef23" type="Polygon2D" parent="."]
+color = Color(0.076, 0.199, 0.252, 0.320)
+polygon = PackedVector2Array(1247.145, 9101.186, 1266.985, 9054.276, 1303.357, 9034.171, 1352.956, 9057.626, 1379.409, 9101.186, 1339.730, 9121.290)
+
+[node name="Kelp23_0" type="Polygon2D" parent="."]
+color = Color(0.095, 0.224, 0.248, 0.430)
+polygon = PackedVector2Array(1313.277, 9067.678, 1306.277, 9034.146, 1319.277, 9000.613, 1316.277, 8983.847, 1325.277, 9013.188, 1315.277, 9067.678)
+
+[node name="Kelp23_1" type="Polygon2D" parent="."]
+color = Color(0.095, 0.224, 0.249, 0.430)
+polygon = PackedVector2Array(1330.277, 9067.678, 1323.277, 9026.993, 1336.277, 8986.308, 1333.277, 8965.965, 1342.277, 9001.565, 1332.277, 9067.678)
+
+[node name="Kelp23_2" type="Polygon2D" parent="."]
+color = Color(0.095, 0.224, 0.249, 0.430)
+polygon = PackedVector2Array(1347.277, 9067.678, 1340.277, 9028.876, 1353.277, 8990.073, 1350.277, 8970.671, 1359.277, 9004.624, 1349.277, 9067.678)
+
+[node name="DistantReef24" type="Polygon2D" parent="."]
+color = Color(0.103, 0.272, 0.339, 0.320)
+polygon = PackedVector2Array(-240.631, 1843.278, -203.344, 1766.975, -134.984, 1734.274, -41.767, 1772.425, 7.949, 1843.278, -66.625, 1875.980)
+
+[node name="Kelp24_0" type="Polygon2D" parent="."]
+color = Color(0.115, 0.301, 0.330, 0.430)
+polygon = PackedVector2Array(-116.341, 1788.776, -123.341, 1760.638, -110.341, 1732.499, -113.341, 1718.430, -104.341, 1743.051, -114.341, 1788.776)
+
+[node name="Kelp24_1" type="Polygon2D" parent="."]
+color = Color(0.115, 0.302, 0.330, 0.430)
+polygon = PackedVector2Array(-99.341, 1788.776, -106.341, 1747.202, -93.341, 1705.627, -96.341, 1684.840, -87.341, 1721.218, -97.341, 1788.776)
+
+[node name="Kelp24_2" type="Polygon2D" parent="."]
+color = Color(0.115, 0.301, 0.330, 0.430)
+polygon = PackedVector2Array(-82.341, 1788.776, -89.341, 1761.406, -76.341, 1734.036, -79.341, 1720.351, -70.341, 1744.299, -80.341, 1788.776)
+
+[node name="DistantReef25" type="Polygon2D" parent="."]
+color = Color(0.064, 0.168, 0.215, 0.320)
+polygon = PackedVector2Array(1354.732, 12268.658, 1396.423, 12200.297, 1472.858, 12170.999, 1577.088, 12205.180, 1632.677, 12268.658, 1549.293, 12297.955)
+
+[node name="Kelp25_0" type="Polygon2D" parent="."]
+color = Color(0.086, 0.191, 0.213, 0.430)
+polygon = PackedVector2Array(1493.704, 12219.829, 1486.704, 12188.956, 1499.704, 12158.083, 1496.704, 12142.646, 1505.704, 12169.660, 1495.704, 12219.829)
+
+[node name="Kelp25_1" type="Polygon2D" parent="."]
+color = Color(0.086, 0.191, 0.213, 0.430)
+polygon = PackedVector2Array(1510.704, 12219.829, 1503.704, 12177.010, 1516.704, 12134.191, 1513.704, 12112.781, 1522.704, 12150.248, 1512.704, 12219.829)
+
+[node name="Kelp25_2" type="Polygon2D" parent="."]
+color = Color(0.086, 0.190, 0.213, 0.430)
+polygon = PackedVector2Array(1527.704, 12219.829, 1520.704, 12193.892, 1533.704, 12167.956, 1530.704, 12154.988, 1539.704, 12177.682, 1529.704, 12219.829)
+
+[node name="DistantReef26" type="Polygon2D" parent="."]
+color = Color(0.089, 0.234, 0.293, 0.320)
+polygon = PackedVector2Array(-432.119, 5652.034, -399.336, 5594.120, -339.232, 5569.300, -257.274, 5598.257, -213.562, 5652.034, -279.129, 5676.854)
+
+[node name="Kelp26_0" type="Polygon2D" parent="."]
+color = Color(0.104, 0.261, 0.287, 0.430)
+polygon = PackedVector2Array(-322.841, 5610.667, -329.841, 5586.151, -316.841, 5561.636, -319.841, 5549.378, -310.841, 5570.829, -320.841, 5610.667)
+
+[node name="Kelp26_1" type="Polygon2D" parent="."]
+color = Color(0.104, 0.261, 0.287, 0.430)
+polygon = PackedVector2Array(-305.841, 5610.667, -312.841, 5576.884, -299.841, 5543.101, -302.841, 5526.209, -293.841, 5555.769, -303.841, 5610.667)
+
+[node name="Kelp26_2" type="Polygon2D" parent="."]
+color = Color(0.104, 0.261, 0.287, 0.430)
+polygon = PackedVector2Array(-288.841, 5610.667, -295.841, 5587.605, -282.841, 5564.542, -285.841, 5553.011, -276.841, 5573.191, -286.841, 5610.667)
+
+[node name="DistantReef27" type="Polygon2D" parent="."]
+color = Color(0.095, 0.249, 0.311, 0.320)
+polygon = PackedVector2Array(1367.261, 4162.725, 1391.938, 4066.411, 1437.180, 4025.134, 1498.873, 4073.291, 1531.776, 4162.725, 1482.422, 4204.002)
+
+[node name="Kelp27_0" type="Polygon2D" parent="."]
+color = Color(0.109, 0.277, 0.304, 0.430)
+polygon = PackedVector2Array(1449.519, 4093.929, 1442.519, 4052.341, 1455.519, 4010.753, 1452.519, 3989.959, 1461.519, 4026.349, 1451.519, 4093.929)
+
+[node name="Kelp27_1" type="Polygon2D" parent="."]
+color = Color(0.109, 0.277, 0.304, 0.430)
+polygon = PackedVector2Array(1466.519, 4093.929, 1459.519, 4053.619, 1472.519, 4013.308, 1469.519, 3993.153, 1478.519, 4028.425, 1468.519, 4093.929)
+
+[node name="Kelp27_2" type="Polygon2D" parent="."]
+color = Color(0.109, 0.277, 0.304, 0.430)
+polygon = PackedVector2Array(1483.519, 4093.929, 1476.519, 4057.473, 1489.519, 4021.016, 1486.519, 4002.788, 1495.519, 4034.688, 1485.519, 4093.929)
+
+[node name="DistantReef28" type="Polygon2D" parent="."]
+color = Color(0.076, 0.201, 0.254, 0.320)
+polygon = PackedVector2Array(-377.569, 8963.240, -326.447, 8919.059, -232.724, 8900.124, -104.919, 8922.215, -36.757, 8963.240, -139.000, 8982.175)
+
+[node name="Kelp28_0" type="Polygon2D" parent="."]
+color = Color(0.095, 0.225, 0.250, 0.430)
+polygon = PackedVector2Array(-207.163, 8931.682, -214.163, 8905.571, -201.163, 8879.459, -204.163, 8866.403, -195.163, 8889.251, -205.163, 8931.682)
+
+[node name="Kelp28_1" type="Polygon2D" parent="."]
+color = Color(0.095, 0.226, 0.250, 0.430)
+polygon = PackedVector2Array(-190.163, 8931.682, -197.163, 8887.758, -184.163, 8843.834, -187.163, 8821.871, -178.163, 8860.305, -188.163, 8931.682)
+
+[node name="Kelp28_2" type="Polygon2D" parent="."]
+color = Color(0.095, 0.225, 0.250, 0.430)
+polygon = PackedVector2Array(-173.163, 8931.682, -180.163, 8905.219, -167.163, 8878.757, -170.163, 8865.525, -161.163, 8888.680, -171.163, 8931.682)
+
+[node name="DistantReef29" type="Polygon2D" parent="."]
+color = Color(0.096, 0.253, 0.316, 0.320)
+polygon = PackedVector2Array(1262.009, 3766.673, 1298.257, 3698.604, 1364.712, 3669.432, 1455.333, 3703.467, 1503.664, 3766.673, 1431.168, 3795.846)
+
+[node name="Kelp29_0" type="Polygon2D" parent="."]
+color = Color(0.110, 0.281, 0.309, 0.430)
+polygon = PackedVector2Array(1382.837, 3718.053, 1375.837, 3688.406, 1388.837, 3658.760, 1385.837, 3643.937, 1394.837, 3669.877, 1384.837, 3718.053)
+
+[node name="Kelp29_1" type="Polygon2D" parent="."]
+color = Color(0.110, 0.281, 0.309, 0.430)
+polygon = PackedVector2Array(1399.837, 3718.053, 1392.837, 3691.436, 1405.837, 3664.820, 1402.837, 3651.512, 1411.837, 3674.801, 1401.837, 3718.053)
+
+[node name="Kelp29_2" type="Polygon2D" parent="."]
+color = Color(0.110, 0.281, 0.309, 0.430)
+polygon = PackedVector2Array(1416.837, 3718.053, 1409.837, 3677.576, 1422.837, 3637.100, 1419.837, 3616.862, 1428.837, 3652.279, 1418.837, 3718.053)
+
+[node name="DistantReef30" type="Polygon2D" parent="."]
+color = Color(0.068, 0.179, 0.228, 0.320)
+polygon = PackedVector2Array(-160.499, 11128.512, -134.573, 11019.599, -87.041, 10972.923, -22.225, 11027.379, 12.343, 11128.512, -39.509, 11175.189)
+
+[node name="Kelp30_0" type="Polygon2D" parent="."]
+color = Color(0.089, 0.203, 0.226, 0.430)
+polygon = PackedVector2Array(-74.078, 11050.717, -81.078, 11013.710, -68.078, 10976.703, -71.078, 10958.200, -62.078, 10990.581, -72.078, 11050.717)
+
+[node name="Kelp30_1" type="Polygon2D" parent="."]
+color = Color(0.089, 0.203, 0.226, 0.430)
+polygon = PackedVector2Array(-57.078, 11050.717, -64.078, 11014.495, -51.078, 10978.274, -54.078, 10960.163, -45.078, 10991.857, -55.078, 11050.717)
+
+[node name="Kelp30_2" type="Polygon2D" parent="."]
+color = Color(0.089, 0.203, 0.226, 0.430)
+polygon = PackedVector2Array(-40.078, 11050.717, -47.078, 11022.337, -34.078, 10993.957, -37.078, 10979.767, -28.078, 11004.600, -38.078, 11050.717)
+
+[node name="DistantReef31" type="Polygon2D" parent="."]
+color = Color(0.053, 0.139, 0.181, 0.320)
+polygon = PackedVector2Array(1227.081, 15127.782, 1259.218, 15068.378, 1318.137, 15042.919, 1398.479, 15072.621, 1441.329, 15127.782, 1377.055, 15153.241)
+
+[node name="Kelp31_0" type="Polygon2D" parent="."]
+color = Color(0.078, 0.160, 0.181, 0.430)
+polygon = PackedVector2Array(1334.205, 15085.350, 1327.205, 15063.312, 1340.205, 15041.274, 1337.205, 15030.256, 1346.205, 15049.539, 1336.205, 15085.350)
+
+[node name="Kelp31_1" type="Polygon2D" parent="."]
+color = Color(0.078, 0.160, 0.181, 0.430)
+polygon = PackedVector2Array(1351.205, 15085.350, 1344.205, 15043.626, 1357.205, 15001.901, 1354.205, 14981.039, 1363.205, 15017.548, 1353.205, 15085.350)
+
+[node name="Kelp31_2" type="Polygon2D" parent="."]
+color = Color(0.078, 0.160, 0.181, 0.430)
+polygon = PackedVector2Array(1368.205, 15085.350, 1361.205, 15045.911, 1374.205, 15006.472, 1371.205, 14986.752, 1380.205, 15021.262, 1370.205, 15085.350)
+
+[node name="DistantReef32" type="Polygon2D" parent="."]
+color = Color(0.095, 0.250, 0.312, 0.320)
+polygon = PackedVector2Array(-426.663, 4025.449, -394.419, 3984.056, -335.305, 3966.317, -254.695, 3987.013, -211.703, 4025.449, -276.191, 4043.188)
+
+[node name="Kelp32_0" type="Polygon2D" parent="."]
+color = Color(0.109, 0.278, 0.305, 0.430)
+polygon = PackedVector2Array(-319.183, 3995.883, -326.183, 3973.803, -313.183, 3951.722, -316.183, 3940.682, -307.183, 3960.002, -317.183, 3995.883)
+
+[node name="Kelp32_1" type="Polygon2D" parent="."]
+color = Color(0.109, 0.278, 0.305, 0.430)
+polygon = PackedVector2Array(-302.183, 3995.883, -309.183, 3976.519, -296.183, 3957.155, -299.183, 3947.473, -290.183, 3964.416, -300.183, 3995.883)
+
+[node name="Kelp32_2" type="Polygon2D" parent="."]
+color = Color(0.109, 0.278, 0.305, 0.430)
+polygon = PackedVector2Array(-285.183, 3995.883, -292.183, 3965.572, -279.183, 3935.261, -282.183, 3920.105, -273.183, 3946.627, -283.183, 3995.883)
+
+[node name="DistantReef33" type="Polygon2D" parent="."]
+color = Color(0.078, 0.206, 0.260, 0.320)
+polygon = PackedVector2Array(1330.435, 8478.787, 1363.253, 8412.111, 1423.419, 8383.535, 1505.463, 8416.873, 1549.220, 8478.787, 1483.584, 8507.363)
+
+[node name="Kelp33_0" type="Polygon2D" parent="."]
+color = Color(0.096, 0.231, 0.256, 0.430)
+polygon = PackedVector2Array(1439.828, 8431.161, 1432.828, 8398.325, 1445.828, 8365.488, 1442.828, 8349.070, 1451.828, 8377.802, 1441.828, 8431.161)
+
+[node name="Kelp33_1" type="Polygon2D" parent="."]
+color = Color(0.096, 0.231, 0.256, 0.430)
+polygon = PackedVector2Array(1456.828, 8431.161, 1449.828, 8399.327, 1462.828, 8367.493, 1459.828, 8351.577, 1468.828, 8379.431, 1458.828, 8431.161)
+
+[node name="Kelp33_2" type="Polygon2D" parent="."]
+color = Color(0.096, 0.231, 0.256, 0.430)
+polygon = PackedVector2Array(1473.828, 8431.161, 1466.828, 8393.904, 1479.828, 8356.647, 1476.828, 8338.019, 1485.828, 8370.619, 1475.828, 8431.161)
+
+[node name="DistantReef34" type="Polygon2D" parent="."]
+color = Color(0.062, 0.163, 0.209, 0.320)
+polygon = PackedVector2Array(-293.140, 12753.316, -258.854, 12682.165, -195.997, 12651.672, -110.282, 12687.247, -64.568, 12753.316, -133.139, 12783.809)
+
+[node name="Kelp34_0" type="Polygon2D" parent="."]
+color = Color(0.084, 0.185, 0.208, 0.430)
+polygon = PackedVector2Array(-178.854, 12702.494, -185.854, 12669.672, -172.854, 12636.851, -175.854, 12620.440, -166.854, 12649.159, -176.854, 12702.494)
+
+[node name="Kelp34_1" type="Polygon2D" parent="."]
+color = Color(0.084, 0.186, 0.208, 0.430)
+polygon = PackedVector2Array(-161.854, 12702.494, -168.854, 12659.183, -155.854, 12615.872, -158.854, 12594.217, -149.854, 12632.114, -159.854, 12702.494)
+
+[node name="Kelp34_2" type="Polygon2D" parent="."]
+color = Color(0.084, 0.186, 0.208, 0.430)
+polygon = PackedVector2Array(-144.854, 12702.494, -151.854, 12658.557, -138.854, 12614.620, -141.854, 12592.651, -132.854, 12631.096, -142.854, 12702.494)
+
+[node name="DistantReef35" type="Polygon2D" parent="."]
+color = Color(0.079, 0.208, 0.263, 0.320)
+polygon = PackedVector2Array(1178.754, 8228.510, 1213.544, 8134.228, 1277.325, 8093.821, 1364.298, 8140.962, 1410.684, 8228.510, 1341.105, 8268.917)
+
+[node name="Kelp35_0" type="Polygon2D" parent="."]
+color = Color(0.097, 0.234, 0.259, 0.430)
+polygon = PackedVector2Array(1294.719, 8161.166, 1287.719, 8120.811, 1300.719, 8080.457, 1297.719, 8060.279, 1306.719, 8095.590, 1296.719, 8161.166)
+
+[node name="Kelp35_1" type="Polygon2D" parent="."]
+color = Color(0.097, 0.234, 0.259, 0.430)
+polygon = PackedVector2Array(1311.719, 8161.166, 1304.719, 8125.930, 1317.719, 8090.694, 1314.719, 8073.077, 1323.719, 8103.908, 1313.719, 8161.166)
+
+[node name="Kelp35_2" type="Polygon2D" parent="."]
+color = Color(0.097, 0.234, 0.258, 0.430)
+polygon = PackedVector2Array(1328.719, 8161.166, 1321.719, 8139.900, 1334.719, 8118.634, 1331.719, 8108.001, 1340.719, 8126.609, 1330.719, 8161.166)
+
+[node name="DistantReef36" type="Polygon2D" parent="."]
+color = Color(0.082, 0.215, 0.271, 0.320)
+polygon = PackedVector2Array(-156.003, 7495.896, -131.844, 7435.997, -87.552, 7410.326, -27.154, 7440.275, 5.058, 7495.896, -43.260, 7521.567)
+
+[node name="Kelp36_0" type="Polygon2D" parent="."]
+color = Color(0.099, 0.241, 0.267, 0.430)
+polygon = PackedVector2Array(-75.473, 7453.111, -82.473, 7415.499, -69.473, 7377.887, -72.473, 7359.081, -63.473, 7391.991, -73.473, 7453.111)
+
+[node name="Kelp36_1" type="Polygon2D" parent="."]
+color = Color(0.099, 0.241, 0.267, 0.430)
+polygon = PackedVector2Array(-58.473, 7453.111, -65.473, 7410.368, -52.473, 7367.624, -55.473, 7346.253, -46.473, 7383.653, -56.473, 7453.111)
+
+[node name="Kelp36_2" type="Polygon2D" parent="."]
+color = Color(0.099, 0.241, 0.267, 0.430)
+polygon = PackedVector2Array(-41.473, 7453.111, -48.473, 7419.479, -35.473, 7385.847, -38.473, 7369.031, -29.473, 7398.459, -39.473, 7453.111)
+
+[node name="DistantReef37" type="Polygon2D" parent="."]
+color = Color(0.107, 0.283, 0.351, 0.320)
+polygon = PackedVector2Array(1379.765, 770.404, 1410.875, 680.275, 1467.909, 641.649, 1545.684, 686.713, 1587.163, 770.404, 1524.944, 809.030)
+
+[node name="Kelp37_0" type="Polygon2D" parent="."]
+color = Color(0.118, 0.313, 0.342, 0.430)
+polygon = PackedVector2Array(1483.464, 706.026, 1476.464, 683.795, 1489.464, 661.564, 1486.464, 650.448, 1495.464, 669.901, 1485.464, 706.026)
+
+[node name="Kelp37_1" type="Polygon2D" parent="."]
+color = Color(0.118, 0.313, 0.342, 0.430)
+polygon = PackedVector2Array(1500.464, 706.026, 1493.464, 686.576, 1506.464, 667.126, 1503.464, 657.400, 1512.464, 674.419, 1502.464, 706.026)
+
+[node name="Kelp37_2" type="Polygon2D" parent="."]
+color = Color(0.118, 0.313, 0.342, 0.430)
+polygon = PackedVector2Array(1517.464, 706.026, 1510.464, 676.054, 1523.464, 646.082, 1520.464, 631.096, 1529.464, 657.322, 1519.464, 706.026)
+
+[node name="Plankton0" type="Polygon2D" parent="."]
+color = Color(0.313, 0.559, 0.639, 0.230)
+polygon = PackedVector2Array(-360.146, 675.440, -359.029, 674.322, -357.912, 675.440, -359.029, 676.557)
+
+[node name="Plankton1" type="Polygon2D" parent="."]
+color = Color(0.217, 0.409, 0.476, 0.230)
+polygon = PackedVector2Array(710.368, 10328.699, 712.595, 10326.472, 714.822, 10328.699, 712.595, 10330.926)
+
+[node name="Plankton2" type="Polygon2D" parent="."]
+color = Color(0.221, 0.416, 0.483, 0.230)
+polygon = PackedVector2Array(155.887, 9883.683, 158.453, 9881.118, 161.018, 9883.683, 158.453, 9886.249)
+
+[node name="Plankton3" type="Polygon2D" parent="."]
+color = Color(0.221, 0.415, 0.482, 0.230)
+polygon = PackedVector2Array(1596.589, 9937.214, 1598.632, 9935.170, 1600.675, 9937.214, 1598.632, 9939.257)
+
+[node name="Plankton4" type="Polygon2D" parent="."]
+color = Color(0.285, 0.516, 0.592, 0.230)
+polygon = PackedVector2Array(103.966, 3450.780, 106.246, 3448.501, 108.526, 3450.780, 106.246, 3453.060)
+
+[node name="Plankton5" type="Polygon2D" parent="."]
+color = Color(0.176, 0.345, 0.407, 0.230)
+polygon = PackedVector2Array(514.753, 14380.295, 517.210, 14377.838, 519.668, 14380.295, 517.210, 14382.752)
+
+[node name="Plankton6" type="Polygon2D" parent="."]
+color = Color(0.278, 0.505, 0.579, 0.230)
+polygon = PackedVector2Array(1536.080, 4184.080, 1538.264, 4181.896, 1540.448, 4184.080, 1538.264, 4186.264)
+
+[node name="Plankton7" type="Polygon2D" parent="."]
+color = Color(0.163, 0.325, 0.386, 0.230)
+polygon = PackedVector2Array(1411.155, 15657.750, 1413.139, 15655.766, 1415.123, 15657.750, 1413.139, 15659.734)
+
+[node name="Plankton8" type="Polygon2D" parent="."]
+color = Color(0.260, 0.476, 0.548, 0.230)
+polygon = PackedVector2Array(34.168, 6016.732, 35.847, 6015.053, 37.526, 6016.732, 35.847, 6018.411)
+
+[node name="Plankton9" type="Polygon2D" parent="."]
+color = Color(0.203, 0.388, 0.453, 0.230)
+polygon = PackedVector2Array(773.362, 11671.302, 774.982, 11669.683, 776.601, 11671.302, 774.982, 11672.921)
+
+[node name="Plankton10" type="Polygon2D" parent="."]
+color = Color(0.245, 0.453, 0.523, 0.230)
+polygon = PackedVector2Array(-107.447, 7510.843, -105.133, 7508.530, -102.819, 7510.843, -105.133, 7513.157)
+
+[node name="Plankton11" type="Polygon2D" parent="."]
+color = Color(0.256, 0.471, 0.543, 0.230)
+polygon = PackedVector2Array(1542.792, 6364.446, 1544.249, 6362.989, 1545.707, 6364.446, 1544.249, 6365.904)
+
+[node name="Plankton12" type="Polygon2D" parent="."]
+color = Color(0.183, 0.356, 0.419, 0.230)
+polygon = PackedVector2Array(1018.043, 13694.234, 1019.548, 13692.728, 1021.053, 13694.234, 1019.548, 13695.739)
+
+[node name="Plankton13" type="Polygon2D" parent="."]
+color = Color(0.162, 0.323, 0.384, 0.230)
+polygon = PackedVector2Array(167.276, 15789.491, 168.442, 15788.325, 169.608, 15789.491, 168.442, 15790.657)
+
+[node name="Plankton14" type="Polygon2D" parent="."]
+color = Color(0.226, 0.423, 0.491, 0.230)
+polygon = PackedVector2Array(1013.369, 9436.351, 1015.595, 9434.124, 1017.822, 9436.351, 1015.595, 9438.577)
+
+[node name="Plankton15" type="Polygon2D" parent="."]
+color = Color(0.205, 0.390, 0.456, 0.230)
+polygon = PackedVector2Array(755.487, 11513.403, 756.641, 11512.248, 757.796, 11513.403, 756.641, 11514.557)
+
+[node name="Plankton16" type="Polygon2D" parent="."]
+color = Color(0.206, 0.392, 0.458, 0.230)
+polygon = PackedVector2Array(-435.333, 11371.700, -433.444, 11369.811, -431.555, 11371.700, -433.444, 11373.589)
+
+[node name="Plankton17" type="Polygon2D" parent="."]
+color = Color(0.222, 0.417, 0.485, 0.230)
+polygon = PackedVector2Array(-425.796, 9799.272, -424.761, 9798.237, -423.726, 9799.272, -424.761, 9800.307)
+
+[node name="Plankton18" type="Polygon2D" parent="."]
+color = Color(0.198, 0.380, 0.444, 0.230)
+polygon = PackedVector2Array(1305.016, 12180.060, 1306.858, 12178.218, 1308.700, 12180.060, 1306.858, 12181.902)
+
+[node name="Plankton19" type="Polygon2D" parent="."]
+color = Color(0.196, 0.375, 0.440, 0.230)
+polygon = PackedVector2Array(312.851, 12449.667, 313.963, 12448.556, 315.075, 12449.667, 313.963, 12450.779)
+
+[node name="Plankton20" type="Polygon2D" parent="."]
+color = Color(0.184, 0.357, 0.420, 0.230)
+polygon = PackedVector2Array(379.900, 13623.916, 382.430, 13621.385, 384.961, 13623.916, 382.430, 13626.446)
+
+[node name="Plankton21" type="Polygon2D" parent="."]
+color = Color(0.314, 0.561, 0.640, 0.230)
+polygon = PackedVector2Array(890.125, 585.724, 891.819, 584.031, 893.513, 585.724, 891.819, 587.418)
+
+[node name="Plankton22" type="Polygon2D" parent="."]
+color = Color(0.251, 0.461, 0.533, 0.230)
+polygon = PackedVector2Array(-246.666, 6945.214, -244.422, 6942.969, -242.177, 6945.214, -244.422, 6947.458)
+
+[node name="Plankton23" type="Polygon2D" parent="."]
+color = Color(0.297, 0.534, 0.611, 0.230)
+polygon = PackedVector2Array(686.498, 2296.841, 688.295, 2295.044, 690.093, 2296.841, 688.295, 2298.639)
+
+[node name="Plankton24" type="Polygon2D" parent="."]
+color = Color(0.274, 0.499, 0.573, 0.230)
+polygon = PackedVector2Array(472.552, 4571.455, 474.289, 4569.718, 476.026, 4571.455, 474.289, 4573.192)
+
+[node name="Plankton25" type="Polygon2D" parent="."]
+color = Color(0.214, 0.405, 0.472, 0.230)
+polygon = PackedVector2Array(640.327, 10558.495, 642.042, 10556.780, 643.757, 10558.495, 642.042, 10560.209)
+
+[node name="Plankton26" type="Polygon2D" parent="."]
+color = Color(0.181, 0.353, 0.415, 0.230)
+polygon = PackedVector2Array(-132.649, 13913.816, -131.190, 13912.357, -129.731, 13913.816, -131.190, 13915.275)
+
+[node name="Plankton27" type="Polygon2D" parent="."]
+color = Color(0.311, 0.555, 0.634, 0.230)
+polygon = PackedVector2Array(1561.447, 937.073, 1563.811, 934.709, 1566.175, 937.073, 1563.811, 939.438)
+
+[node name="Plankton28" type="Polygon2D" parent="."]
+color = Color(0.302, 0.542, 0.619, 0.230)
+polygon = PackedVector2Array(1590.714, 1821.546, 1592.357, 1819.904, 1593.999, 1821.546, 1592.357, 1823.188)
+
+[node name="Plankton29" type="Polygon2D" parent="."]
+color = Color(0.260, 0.476, 0.549, 0.230)
+polygon = PackedVector2Array(357.406, 6001.378, 359.059, 5999.725, 360.711, 6001.378, 359.059, 6003.030)
+
+[node name="Plankton30" type="Polygon2D" parent="."]
+color = Color(0.265, 0.483, 0.557, 0.230)
+polygon = PackedVector2Array(538.496, 5539.850, 540.624, 5537.722, 542.752, 5539.850, 540.624, 5541.978)
+
+[node name="Plankton31" type="Polygon2D" parent="."]
+color = Color(0.259, 0.474, 0.547, 0.230)
+polygon = PackedVector2Array(691.732, 6122.371, 694.005, 6120.098, 696.278, 6122.371, 694.005, 6124.644)
+
+[node name="Plankton32" type="Polygon2D" parent="."]
+color = Color(0.206, 0.391, 0.457, 0.230)
+polygon = PackedVector2Array(21.658, 11428.406, 22.929, 11427.135, 24.200, 11428.406, 22.929, 11429.677)
+
+[node name="Plankton33" type="Polygon2D" parent="."]
+color = Color(0.193, 0.371, 0.435, 0.230)
+polygon = PackedVector2Array(690.148, 12732.246, 691.708, 12730.685, 693.269, 12732.246, 691.708, 12733.806)
+
+[node name="Plankton34" type="Polygon2D" parent="."]
+color = Color(0.315, 0.562, 0.642, 0.230)
+polygon = PackedVector2Array(1638.718, 496.076, 1641.312, 493.481, 1643.906, 496.076, 1641.312, 498.670)
+
+[node name="Plankton35" type="Polygon2D" parent="."]
+color = Color(0.284, 0.514, 0.589, 0.230)
+polygon = PackedVector2Array(1432.730, 3585.386, 1435.065, 3583.051, 1437.400, 3585.386, 1435.065, 3587.720)
+
+[node name="Plankton36" type="Polygon2D" parent="."]
+color = Color(0.252, 0.463, 0.535, 0.230)
+polygon = PackedVector2Array(997.152, 6833.354, 999.593, 6830.913, 1002.034, 6833.354, 999.593, 6835.795)
+
+[node name="Plankton37" type="Polygon2D" parent="."]
+color = Color(0.275, 0.499, 0.574, 0.230)
+polygon = PackedVector2Array(1393.281, 4521.606, 1395.553, 4519.334, 1397.826, 4521.606, 1395.553, 4523.879)
+
+[node name="Plankton38" type="Polygon2D" parent="."]
+color = Color(0.209, 0.397, 0.463, 0.230)
+polygon = PackedVector2Array(1238.525, 11095.891, 1240.922, 11093.494, 1243.319, 11095.891, 1240.922, 11098.288)
+
+[node name="Plankton39" type="Polygon2D" parent="."]
+color = Color(0.314, 0.561, 0.640, 0.230)
+polygon = PackedVector2Array(210.561, 584.656, 212.412, 582.805, 214.263, 584.656, 212.412, 586.507)
+
+[node name="Plankton40" type="Polygon2D" parent="."]
+color = Color(0.255, 0.468, 0.540, 0.230)
+polygon = PackedVector2Array(511.905, 6518.719, 513.696, 6516.928, 515.486, 6518.719, 513.696, 6520.510)
+
+[node name="Plankton41" type="Polygon2D" parent="."]
+color = Color(0.185, 0.359, 0.422, 0.230)
+polygon = PackedVector2Array(1464.229, 13492.391, 1466.173, 13490.447, 1468.117, 13492.391, 1466.173, 13494.335)
+
+[node name="Plankton42" type="Polygon2D" parent="."]
+color = Color(0.252, 0.464, 0.535, 0.230)
+polygon = PackedVector2Array(862.450, 6801.736, 864.857, 6799.329, 867.264, 6801.736, 864.857, 6804.144)
+
+[node name="Plankton43" type="Polygon2D" parent="."]
+color = Color(0.293, 0.528, 0.605, 0.230)
+polygon = PackedVector2Array(291.615, 2695.863, 293.561, 2693.918, 295.506, 2695.863, 293.561, 2697.809)
+
+[node name="Plankton44" type="Polygon2D" parent="."]
+color = Color(0.241, 0.447, 0.517, 0.230)
+polygon = PackedVector2Array(-409.246, 7875.351, -407.865, 7873.969, -406.483, 7875.351, -407.865, 7876.732)
+
+[node name="Plankton45" type="Polygon2D" parent="."]
+color = Color(0.227, 0.425, 0.494, 0.230)
+polygon = PackedVector2Array(1062.087, 9255.426, 1063.653, 9253.860, 1065.220, 9255.426, 1063.653, 9256.992)
+
+[node name="Plankton46" type="Polygon2D" parent="."]
+color = Color(0.260, 0.476, 0.548, 0.230)
+polygon = PackedVector2Array(28.645, 6032.458, 29.844, 6031.260, 31.042, 6032.458, 29.844, 6033.656)
+
+[node name="Plankton47" type="Polygon2D" parent="."]
+color = Color(0.210, 0.398, 0.465, 0.230)
+polygon = PackedVector2Array(778.448, 10985.745, 780.514, 10983.679, 782.580, 10985.745, 780.514, 10987.811)
+
+[node name="Plankton48" type="Polygon2D" parent="."]
+color = Color(0.205, 0.391, 0.456, 0.230)
+polygon = PackedVector2Array(686.538, 11484.538, 689.118, 11481.958, 691.698, 11484.538, 689.118, 11487.118)
+
+[node name="Plankton49" type="Polygon2D" parent="."]
+color = Color(0.263, 0.480, 0.553, 0.230)
+polygon = PackedVector2Array(-25.753, 5738.653, -23.726, 5736.626, -21.700, 5738.653, -23.726, 5740.680)
+
+[node name="Plankton50" type="Polygon2D" parent="."]
+color = Color(0.304, 0.545, 0.624, 0.230)
+polygon = PackedVector2Array(237.432, 1570.030, 239.832, 1567.630, 242.233, 1570.030, 239.832, 1572.431)
+
+[node name="Plankton51" type="Polygon2D" parent="."]
+color = Color(0.253, 0.466, 0.537, 0.230)
+polygon = PackedVector2Array(1290.028, 6671.266, 1291.076, 6670.218, 1292.123, 6671.266, 1291.076, 6672.313)
+
+[node name="Plankton52" type="Polygon2D" parent="."]
+color = Color(0.214, 0.405, 0.471, 0.230)
+polygon = PackedVector2Array(85.749, 10586.512, 87.536, 10584.726, 89.322, 10586.512, 87.536, 10588.299)
+
+[node name="Plankton53" type="Polygon2D" parent="."]
+color = Color(0.172, 0.338, 0.400, 0.230)
+polygon = PackedVector2Array(668.875, 14842.130, 671.398, 14839.607, 673.921, 14842.130, 671.398, 14844.652)
+
+[node name="Plankton54" type="Polygon2D" parent="."]
+color = Color(0.226, 0.423, 0.492, 0.230)
+polygon = PackedVector2Array(381.408, 9387.066, 383.681, 9384.794, 385.953, 9387.066, 383.681, 9389.339)
+
+[node name="Plankton55" type="Polygon2D" parent="."]
+color = Color(0.313, 0.560, 0.639, 0.230)
+polygon = PackedVector2Array(1440.886, 651.157, 1442.962, 649.081, 1445.038, 651.157, 1442.962, 653.233)
+
+[node name="Plankton56" type="Polygon2D" parent="."]
+color = Color(0.242, 0.448, 0.518, 0.230)
+polygon = PackedVector2Array(728.769, 7805.313, 731.208, 7802.874, 733.647, 7805.313, 731.208, 7807.751)
+
+[node name="Plankton57" type="Polygon2D" parent="."]
+color = Color(0.234, 0.435, 0.504, 0.230)
+polygon = PackedVector2Array(388.498, 8640.843, 391.033, 8638.308, 393.568, 8640.843, 391.033, 8643.379)
+
+[node name="Plankton58" type="Polygon2D" parent="."]
+color = Color(0.227, 0.424, 0.493, 0.230)
+polygon = PackedVector2Array(537.764, 9333.159, 538.834, 9332.088, 539.905, 9333.159, 538.834, 9334.230)
+
+[node name="Plankton59" type="Polygon2D" parent="."]
+color = Color(0.190, 0.366, 0.430, 0.230)
+polygon = PackedVector2Array(293.046, 13047.097, 294.627, 13045.515, 296.209, 13047.097, 294.627, 13048.678)
+
+[node name="Plankton60" type="Polygon2D" parent="."]
+color = Color(0.316, 0.564, 0.644, 0.230)
+polygon = PackedVector2Array(242.072, 360.236, 243.713, 358.594, 245.354, 360.236, 243.713, 361.877)
+
+[node name="Plankton61" type="Polygon2D" parent="."]
+color = Color(0.197, 0.378, 0.443, 0.230)
+polygon = PackedVector2Array(586.363, 12275.501, 587.769, 12274.095, 589.174, 12275.501, 587.769, 12276.907)
+
+[node name="Plankton62" type="Polygon2D" parent="."]
+color = Color(0.233, 0.434, 0.504, 0.230)
+polygon = PackedVector2Array(741.419, 8675.545, 743.394, 8673.570, 745.369, 8675.545, 743.394, 8677.520)
+
+[node name="Plankton63" type="Polygon2D" parent="."]
+color = Color(0.294, 0.529, 0.606, 0.230)
+polygon = PackedVector2Array(-211.666, 2598.913, -210.564, 2597.811, -209.461, 2598.913, -210.564, 2600.016)
+
+[node name="Plankton64" type="Polygon2D" parent="."]
+color = Color(0.181, 0.352, 0.415, 0.230)
+polygon = PackedVector2Array(-296.812, 13927.876, -295.358, 13926.422, -293.904, 13927.876, -295.358, 13929.330)
+
+[node name="Plankton65" type="Polygon2D" parent="."]
+color = Color(0.309, 0.554, 0.632, 0.230)
+polygon = PackedVector2Array(-51.169, 1052.120, -49.522, 1050.474, -47.876, 1052.120, -49.522, 1053.767)
+
+[node name="Plankton66" type="Polygon2D" parent="."]
+color = Color(0.185, 0.359, 0.422, 0.230)
+polygon = PackedVector2Array(1560.098, 13508.916, 1561.869, 13507.146, 1563.639, 13508.916, 1561.869, 13510.686)
+
+[node name="Plankton67" type="Polygon2D" parent="."]
+color = Color(0.304, 0.545, 0.623, 0.230)
+polygon = PackedVector2Array(1012.233, 1627.988, 1013.381, 1626.840, 1014.528, 1627.988, 1013.381, 1629.135)
+
+[node name="Plankton68" type="Polygon2D" parent="."]
+color = Color(0.239, 0.444, 0.514, 0.230)
+polygon = PackedVector2Array(1146.936, 8063.284, 1148.588, 8061.632, 1150.241, 8063.284, 1148.588, 8064.936)
+
+[node name="Plankton69" type="Polygon2D" parent="."]
+color = Color(0.278, 0.504, 0.579, 0.230)
+polygon = PackedVector2Array(1525.651, 4216.662, 1526.792, 4215.521, 1527.932, 4216.662, 1526.792, 4217.802)
+
+[node name="Plankton70" type="Polygon2D" parent="."]
+color = Color(0.311, 0.556, 0.635, 0.230)
+polygon = PackedVector2Array(759.975, 880.135, 762.185, 877.925, 764.395, 880.135, 762.185, 882.346)
+
+[node name="Plankton71" type="Polygon2D" parent="."]
+color = Color(0.279, 0.506, 0.581, 0.230)
+polygon = PackedVector2Array(62.081, 4114.578, 63.301, 4113.358, 64.521, 4114.578, 63.301, 4115.798)
+
+[node name="Plankton72" type="Polygon2D" parent="."]
+color = Color(0.237, 0.440, 0.509, 0.230)
+polygon = PackedVector2Array(774.905, 8341.895, 776.858, 8339.942, 778.811, 8341.895, 776.858, 8343.849)
+
+[node name="Plankton73" type="Polygon2D" parent="."]
+color = Color(0.174, 0.342, 0.404, 0.230)
+polygon = PackedVector2Array(1365.282, 14597.451, 1366.465, 14596.268, 1367.648, 14597.451, 1366.465, 14598.634)
+
+[node name="Plankton74" type="Polygon2D" parent="."]
+color = Color(0.302, 0.542, 0.619, 0.230)
+polygon = PackedVector2Array(1636.775, 1820.652, 1637.938, 1819.488, 1639.102, 1820.652, 1637.938, 1821.815)
+
+[node name="Plankton75" type="Polygon2D" parent="."]
+color = Color(0.193, 0.371, 0.435, 0.230)
+polygon = PackedVector2Array(1178.896, 12740.229, 1180.023, 12739.102, 1181.151, 12740.229, 1180.023, 12741.357)
+
+[node name="Plankton76" type="Polygon2D" parent="."]
+color = Color(0.195, 0.375, 0.439, 0.230)
+polygon = PackedVector2Array(246.440, 12505.404, 248.759, 12503.085, 251.079, 12505.404, 248.759, 12507.723)
+
+[node name="Plankton77" type="Polygon2D" parent="."]
+color = Color(0.202, 0.386, 0.451, 0.230)
+polygon = PackedVector2Array(1198.644, 11796.510, 1200.022, 11795.133, 1201.399, 11796.510, 1200.022, 11797.888)
+
+[node name="Plankton78" type="Polygon2D" parent="."]
+color = Color(0.166, 0.330, 0.391, 0.230)
+polygon = PackedVector2Array(-348.010, 15370.027, -346.475, 15368.491, -344.939, 15370.027, -346.475, 15371.562)
+
+[node name="Plankton79" type="Polygon2D" parent="."]
+color = Color(0.217, 0.409, 0.476, 0.230)
+polygon = PackedVector2Array(265.827, 10308.520, 267.107, 10307.240, 268.386, 10308.520, 267.107, 10309.800)
+
+[node name="Plankton80" type="Polygon2D" parent="."]
+color = Color(0.262, 0.480, 0.553, 0.230)
+polygon = PackedVector2Array(-90.603, 5756.961, -89.055, 5755.412, -87.506, 5756.961, -89.055, 5758.510)
+
+[node name="Plankton81" type="Polygon2D" parent="."]
+color = Color(0.168, 0.332, 0.393, 0.230)
+polygon = PackedVector2Array(63.200, 15242.800, 65.089, 15240.911, 66.978, 15242.800, 65.089, 15244.689)
+
+[node name="Plankton82" type="Polygon2D" parent="."]
+color = Color(0.254, 0.467, 0.539, 0.230)
+polygon = PackedVector2Array(711.888, 6606.557, 713.048, 6605.397, 714.208, 6606.557, 713.048, 6607.717)
+
+[node name="Plankton83" type="Polygon2D" parent="."]
+color = Color(0.180, 0.351, 0.414, 0.230)
+polygon = PackedVector2Array(1058.331, 13984.286, 1059.391, 13983.226, 1060.451, 13984.286, 1059.391, 13985.346)
+
+[node name="Plankton84" type="Polygon2D" parent="."]
+color = Color(0.196, 0.376, 0.440, 0.230)
+polygon = PackedVector2Array(1445.919, 12445.275, 1447.843, 12443.350, 1449.768, 12445.275, 1447.843, 12447.199)
+
+[node name="Plankton85" type="Polygon2D" parent="."]
+color = Color(0.279, 0.506, 0.580, 0.230)
+polygon = PackedVector2Array(11.220, 4123.114, 13.381, 4120.954, 15.541, 4123.114, 13.381, 4125.275)
+
+[node name="Plankton86" type="Polygon2D" parent="."]
+color = Color(0.271, 0.493, 0.567, 0.230)
+polygon = PackedVector2Array(669.946, 4906.702, 671.309, 4905.338, 672.673, 4906.702, 671.309, 4908.065)
+
+[node name="Plankton87" type="Polygon2D" parent="."]
+color = Color(0.171, 0.337, 0.398, 0.230)
+polygon = PackedVector2Array(1153.712, 14904.353, 1155.800, 14902.264, 1157.889, 14904.353, 1155.800, 14906.442)
+
+[node name="Plankton88" type="Polygon2D" parent="."]
+color = Color(0.230, 0.429, 0.498, 0.230)
+polygon = PackedVector2Array(1629.019, 9005.653, 1630.913, 9003.759, 1632.806, 9005.653, 1630.913, 9007.546)
+
+[node name="Plankton89" type="Polygon2D" parent="."]
+color = Color(0.242, 0.448, 0.518, 0.230)
+polygon = PackedVector2Array(1061.294, 7825.667, 1062.992, 7823.968, 1064.691, 7825.667, 1062.992, 7827.365)
+
+[node name="Plankton90" type="Polygon2D" parent="."]
+color = Color(0.228, 0.426, 0.495, 0.230)
+polygon = PackedVector2Array(1340.026, 9213.973, 1341.875, 9212.124, 1343.724, 9213.973, 1341.875, 9215.822)
+
+[node name="Plankton91" type="Polygon2D" parent="."]
+color = Color(0.261, 0.479, 0.551, 0.230)
+polygon = PackedVector2Array(775.172, 5853.309, 777.016, 5851.464, 778.861, 5853.309, 777.016, 5855.154)
+
+[node name="Plankton92" type="Polygon2D" parent="."]
+color = Color(0.206, 0.392, 0.457, 0.230)
+polygon = PackedVector2Array(923.959, 11423.501, 925.810, 11421.649, 927.662, 11423.501, 925.810, 11425.353)
+
+[node name="Plankton93" type="Polygon2D" parent="."]
+color = Color(0.313, 0.559, 0.638, 0.230)
+polygon = PackedVector2Array(359.655, 706.986, 362.147, 704.495, 364.638, 706.986, 362.147, 709.477)
+
+[node name="Plankton94" type="Polygon2D" parent="."]
+color = Color(0.189, 0.365, 0.428, 0.230)
+polygon = PackedVector2Array(1065.272, 13130.779, 1066.411, 13129.640, 1067.551, 13130.779, 1066.411, 13131.918)
+
+[node name="Plankton95" type="Polygon2D" parent="."]
+color = Color(0.200, 0.383, 0.448, 0.230)
+polygon = PackedVector2Array(1389.431, 11964.833, 1391.111, 11963.153, 1392.792, 11964.833, 1391.111, 11966.514)
+
+[node name="Plankton96" type="Polygon2D" parent="."]
+color = Color(0.232, 0.432, 0.501, 0.230)
+polygon = PackedVector2Array(1059.362, 8810.259, 1061.324, 8808.296, 1063.286, 8810.259, 1061.324, 8812.221)
+
+[node name="Plankton97" type="Polygon2D" parent="."]
+color = Color(0.246, 0.455, 0.525, 0.230)
+polygon = PackedVector2Array(591.634, 7382.352, 594.018, 7379.968, 596.402, 7382.352, 594.018, 7384.736)
+
+[node name="Plankton98" type="Polygon2D" parent="."]
+color = Color(0.311, 0.556, 0.635, 0.230)
+polygon = PackedVector2Array(270.974, 915.195, 272.039, 914.129, 273.105, 915.195, 272.039, 916.261)
+
+[node name="Plankton99" type="Polygon2D" parent="."]
+color = Color(0.197, 0.377, 0.442, 0.230)
+polygon = PackedVector2Array(-186.290, 12324.272, -185.106, 12323.087, -183.921, 12324.272, -185.106, 12325.456)
+
+[node name="Plankton100" type="Polygon2D" parent="."]
+color = Color(0.195, 0.374, 0.439, 0.230)
+polygon = PackedVector2Array(-135.315, 12526.836, -133.073, 12524.593, -130.830, 12526.836, -133.073, 12529.079)
+
+[node name="Plankton101" type="Polygon2D" parent="."]
+color = Color(0.199, 0.381, 0.446, 0.230)
+polygon = PackedVector2Array(893.357, 12102.252, 895.228, 12100.381, 897.100, 12102.252, 895.228, 12104.123)
+
+[node name="Plankton102" type="Polygon2D" parent="."]
+color = Color(0.249, 0.459, 0.530, 0.230)
+polygon = PackedVector2Array(1471.153, 7133.546, 1472.439, 7132.260, 1473.725, 7133.546, 1472.439, 7134.832)
+
+[node name="Plankton103" type="Polygon2D" parent="."]
+color = Color(0.250, 0.461, 0.533, 0.230)
+polygon = PackedVector2Array(671.513, 6961.800, 673.033, 6960.280, 674.552, 6961.800, 673.033, 6963.320)
+
+[node name="Plankton104" type="Polygon2D" parent="."]
+color = Color(0.242, 0.448, 0.518, 0.230)
+polygon = PackedVector2Array(1256.557, 7802.487, 1258.947, 7800.096, 1261.338, 7802.487, 1258.947, 7804.878)
+
+[node name="Plankton105" type="Polygon2D" parent="."]
+color = Color(0.268, 0.489, 0.562, 0.230)
+polygon = PackedVector2Array(-36.939, 5185.664, -34.775, 5183.500, -32.611, 5185.664, -34.775, 5187.828)
+
+[node name="Plankton106" type="Polygon2D" parent="."]
+color = Color(0.237, 0.440, 0.510, 0.230)
+polygon = PackedVector2Array(1604.920, 8319.763, 1607.375, 8317.308, 1609.831, 8319.763, 1607.375, 8322.218)
+
+[node name="Plankton107" type="Polygon2D" parent="."]
+color = Color(0.225, 0.421, 0.489, 0.230)
+polygon = PackedVector2Array(1112.543, 9524.848, 1113.957, 9523.434, 1115.372, 9524.848, 1113.957, 9526.262)
+
+[node name="Plankton108" type="Polygon2D" parent="."]
+color = Color(0.312, 0.557, 0.636, 0.230)
+polygon = PackedVector2Array(572.074, 819.847, 574.154, 817.767, 576.234, 819.847, 574.154, 821.927)
+
+[node name="Plankton109" type="Polygon2D" parent="."]
+color = Color(0.306, 0.549, 0.627, 0.230)
+polygon = PackedVector2Array(-319.486, 1365.029, -317.140, 1362.683, -314.794, 1365.029, -317.140, 1367.375)
+
+[node name="Plankton110" type="Polygon2D" parent="."]
+color = Color(0.210, 0.399, 0.465, 0.230)
+polygon = PackedVector2Array(1229.690, 10969.546, 1232.254, 10966.983, 1234.817, 10969.546, 1232.254, 10972.110)
+
+[node name="Plankton111" type="Polygon2D" parent="."]
+color = Color(0.213, 0.403, 0.469, 0.230)
+polygon = PackedVector2Array(108.695, 10697.901, 110.365, 10696.231, 112.034, 10697.901, 110.365, 10699.570)
+
+[node name="Plankton112" type="Polygon2D" parent="."]
+color = Color(0.267, 0.488, 0.561, 0.230)
+polygon = PackedVector2Array(1603.228, 5269.162, 1604.697, 5267.692, 1606.166, 5269.162, 1604.697, 5270.631)
+
+[node name="Plankton113" type="Polygon2D" parent="."]
+color = Color(0.174, 0.342, 0.404, 0.230)
+polygon = PackedVector2Array(-97.676, 14605.085, -96.196, 14603.605, -94.716, 14605.085, -96.196, 14606.565)
+
+[node name="Plankton114" type="Polygon2D" parent="."]
+color = Color(0.266, 0.485, 0.558, 0.230)
+polygon = PackedVector2Array(1313.732, 5430.925, 1315.953, 5428.704, 1318.174, 5430.925, 1315.953, 5433.146)
+
+[node name="Plankton115" type="Polygon2D" parent="."]
+color = Color(0.207, 0.394, 0.460, 0.230)
+polygon = PackedVector2Array(144.709, 11276.263, 146.474, 11274.499, 148.238, 11276.263, 146.474, 11278.028)
+
+[node name="Plankton116" type="Polygon2D" parent="."]
+color = Color(0.242, 0.448, 0.518, 0.230)
+polygon = PackedVector2Array(874.603, 7814.621, 877.083, 7812.141, 879.563, 7814.621, 877.083, 7817.101)
+
+[node name="Plankton117" type="Polygon2D" parent="."]
+color = Color(0.273, 0.497, 0.571, 0.230)
+polygon = PackedVector2Array(-356.406, 4664.179, -354.370, 4662.144, -352.335, 4664.179, -354.370, 4666.215)
+
+[node name="Plankton118" type="Polygon2D" parent="."]
+color = Color(0.297, 0.533, 0.610, 0.230)
+polygon = PackedVector2Array(571.453, 2344.036, 573.309, 2342.180, 575.164, 2344.036, 573.309, 2345.891)
+
+[node name="Plankton119" type="Polygon2D" parent="."]
+color = Color(0.311, 0.556, 0.635, 0.230)
+polygon = PackedVector2Array(521.838, 908.969, 523.517, 907.290, 525.196, 908.969, 523.517, 910.647)
+
+[node name="Plankton120" type="Polygon2D" parent="."]
+color = Color(0.292, 0.526, 0.602, 0.230)
+polygon = PackedVector2Array(1289.057, 2841.251, 1291.390, 2838.919, 1293.722, 2841.251, 1291.390, 2843.584)
+
+[node name="Plankton121" type="Polygon2D" parent="."]
+color = Color(0.245, 0.452, 0.523, 0.230)
+polygon = PackedVector2Array(-279.484, 7523.706, -277.597, 7521.819, -275.710, 7523.706, -277.597, 7525.593)
+
+[node name="Plankton122" type="Polygon2D" parent="."]
+color = Color(0.225, 0.421, 0.489, 0.230)
+polygon = PackedVector2Array(36.375, 9517.089, 38.428, 9515.036, 40.481, 9517.089, 38.428, 9519.142)
+
+[node name="Plankton123" type="Polygon2D" parent="."]
+color = Color(0.308, 0.552, 0.630, 0.230)
+polygon = PackedVector2Array(56.692, 1174.121, 59.091, 1171.722, 61.490, 1174.121, 59.091, 1176.520)
+
+[node name="Plankton124" type="Polygon2D" parent="."]
+color = Color(0.314, 0.561, 0.641, 0.230)
+polygon = PackedVector2Array(528.889, 558.821, 531.446, 556.264, 534.002, 558.821, 531.446, 561.377)
+
+[node name="Plankton125" type="Polygon2D" parent="."]
+color = Color(0.265, 0.485, 0.558, 0.230)
+polygon = PackedVector2Array(-393.630, 5457.946, -392.382, 5456.698, -391.135, 5457.946, -392.382, 5459.194)
+
+[node name="Plankton126" type="Polygon2D" parent="."]
+color = Color(0.176, 0.346, 0.408, 0.230)
+polygon = PackedVector2Array(-125.469, 14359.495, -123.738, 14357.764, -122.008, 14359.495, -123.738, 14361.226)
+
+[node name="Plankton127" type="Polygon2D" parent="."]
+color = Color(0.194, 0.373, 0.438, 0.230)
+polygon = PackedVector2Array(-389.645, 12576.246, -387.729, 12574.330, -385.814, 12576.246, -387.729, 12578.161)
+
+[node name="Plankton128" type="Polygon2D" parent="."]
+color = Color(0.169, 0.334, 0.396, 0.230)
+polygon = PackedVector2Array(-166.104, 15077.334, -163.692, 15074.922, -161.281, 15077.334, -163.692, 15079.746)
+
+[node name="Plankton129" type="Polygon2D" parent="."]
+color = Color(0.216, 0.408, 0.475, 0.230)
+polygon = PackedVector2Array(51.799, 10361.141, 54.012, 10358.928, 56.226, 10361.141, 54.012, 10363.355)
+
+[node name="SurfaceLight" type="Polygon2D" parent="."]
+color = Color(0.700, 0.940, 0.870, 1.000)
+polygon = PackedVector2Array(-2200.000, 0.000, 3400.000, 0.000, 3400.000, 44.000, -2200.000, 44.000)
+
+[node name="DeepWreckDepth" type="Node2D" parent="."]
+
+[node name="HazyRock0" type="Polygon2D" parent="DeepWreckDepth"]
+color = Color(0.056, 0.123, 0.164, 0.250)
+polygon = PackedVector2Array(417.825, 15739.595, 446.977, 15691.707, 495.565, 15661.777, 563.588, 15673.749, 612.175, 15721.637, 544.153, 15757.554)
+
+[node name="DistantWeed0_0" type="Polygon2D" parent="DeepWreckDepth"]
+color = Color(0.056, 0.142, 0.164, 0.220)
+polygon = PackedVector2Array(513.000, 15697.693, 507.000, 15684.193, 517.000, 15666.193, 513.000, 15652.693, 521.000, 15661.693, 518.000, 15679.693, 518.000, 15697.693)
+
+[node name="DistantWeed0_1" type="Polygon2D" parent="DeepWreckDepth"]
+color = Color(0.056, 0.142, 0.164, 0.220)
+polygon = PackedVector2Array(527.000, 15697.693, 521.000, 15676.993, 531.000, 15649.393, 527.000, 15628.693, 535.000, 15642.493, 532.000, 15670.093, 532.000, 15697.693)
+
+[node name="HazyRock1" type="Polygon2D" parent="DeepWreckDepth"]
+color = Color(0.056, 0.123, 0.164, 0.250)
+polygon = PackedVector2Array(568.602, 15705.910, 602.021, 15640.338, 657.720, 15599.356, 735.699, 15615.749, 791.398, 15681.321, 713.420, 15730.500)
+
+[node name="HazyRock2" type="Polygon2D" parent="DeepWreckDepth"]
+color = Color(0.056, 0.123, 0.164, 0.250)
+polygon = PackedVector2Array(759.724, 15733.594, 785.307, 15670.559, 827.945, 15631.162, 887.638, 15646.921, 930.276, 15709.956, 870.583, 15757.233)
+
+[node name="DistantWeed2_0" type="Polygon2D" parent="DeepWreckDepth"]
+color = Color(0.056, 0.142, 0.164, 0.220)
+polygon = PackedVector2Array(843.000, 15678.439, 837.000, 15664.939, 847.000, 15646.939, 843.000, 15633.439, 851.000, 15642.439, 848.000, 15660.439, 848.000, 15678.439)
+
+[node name="DistantWeed2_1" type="Polygon2D" parent="DeepWreckDepth"]
+color = Color(0.056, 0.142, 0.164, 0.220)
+polygon = PackedVector2Array(857.000, 15678.439, 851.000, 15657.739, 861.000, 15630.139, 857.000, 15609.439, 865.000, 15623.239, 862.000, 15650.839, 862.000, 15678.439)
+
+[node name="Bubble0" type="Line2D" parent="DeepWreckDepth"]
+points = PackedVector2Array(462.000, 15630.000, 461.732, 15631.000, 461.000, 15631.732, 460.000, 15632.000, 459.000, 15631.732, 458.268, 15631.000, 458.000, 15630.000, 458.268, 15629.000, 459.000, 15628.268, 460.000, 15628.000, 461.000, 15628.268, 461.732, 15629.000, 462.000, 15630.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble1" type="Line2D" parent="DeepWreckDepth"]
+points = PackedVector2Array(480.732, 15595.000, 480.330, 15596.500, 479.232, 15597.598, 477.732, 15598.000, 476.232, 15597.598, 475.134, 15596.500, 474.732, 15595.000, 475.134, 15593.500, 476.232, 15592.402, 477.732, 15592.000, 479.232, 15592.402, 480.330, 15593.500, 480.732, 15595.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble2" type="Line2D" parent="DeepWreckDepth"]
+points = PackedVector2Array(493.274, 15560.000, 492.738, 15562.000, 491.274, 15563.464, 489.274, 15564.000, 487.274, 15563.464, 485.810, 15562.000, 485.274, 15560.000, 485.810, 15558.000, 487.274, 15556.536, 489.274, 15556.000, 491.274, 15556.536, 492.738, 15558.000, 493.274, 15560.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble3" type="Line2D" parent="DeepWreckDepth"]
+points = PackedVector2Array(496.129, 15525.000, 495.861, 15526.000, 495.129, 15526.732, 494.129, 15527.000, 493.129, 15526.732, 492.397, 15526.000, 492.129, 15525.000, 492.397, 15524.000, 493.129, 15523.268, 494.129, 15523.000, 495.129, 15523.268, 495.861, 15524.000, 496.129, 15525.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble4" type="Line2D" parent="DeepWreckDepth"]
+points = PackedVector2Array(500.946, 15490.000, 500.544, 15491.500, 499.446, 15492.598, 497.946, 15493.000, 496.446, 15492.598, 495.348, 15491.500, 494.946, 15490.000, 495.348, 15488.500, 496.446, 15487.402, 497.946, 15487.000, 499.446, 15487.402, 500.544, 15488.500, 500.946, 15490.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="WreckFragment0" type="Polygon2D" parent="DeepWreckDepth"]
+color = Color(0.140, 0.200, 0.230, 0.300)
+polygon = PackedVector2Array(530.000, 15825.000, 658.000, 15802.000, 684.000, 15808.000, 542.000, 15834.000)
+
+[node name="WreckFragment1" type="Polygon2D" parent="DeepWreckDepth"]
+color = Color(0.140, 0.200, 0.230, 0.300)
+polygon = PackedVector2Array(620.000, 15850.000, 748.000, 15827.000, 774.000, 15833.000, 632.000, 15859.000)
+
+[node name="EarlyReefsDepth" type="Node2D" parent="."]
+
+[node name="HazyRock0" type="Polygon2D" parent="EarlyReefsDepth"]
+color = Color(0.062, 0.138, 0.182, 0.250)
+polygon = PackedVector2Array(297.957, 14491.230, 330.070, 14443.342, 383.591, 14413.413, 458.521, 14425.385, 512.043, 14473.272, 437.113, 14509.187)
+
+[node name="DistantWeed0_0" type="Polygon2D" parent="EarlyReefsDepth"]
+color = Color(0.062, 0.159, 0.182, 0.220)
+polygon = PackedVector2Array(403.000, 14449.328, 397.000, 14435.828, 407.000, 14417.828, 403.000, 14404.328, 411.000, 14413.328, 408.000, 14431.328, 408.000, 14449.328)
+
+[node name="DistantWeed0_1" type="Polygon2D" parent="EarlyReefsDepth"]
+color = Color(0.062, 0.159, 0.182, 0.220)
+polygon = PackedVector2Array(417.000, 14449.328, 411.000, 14428.628, 421.000, 14401.028, 417.000, 14380.328, 425.000, 14394.128, 422.000, 14421.728, 422.000, 14449.328)
+
+[node name="HazyRock1" type="Polygon2D" parent="EarlyReefsDepth"]
+color = Color(0.062, 0.138, 0.182, 0.250)
+polygon = PackedVector2Array(483.717, 14501.859, 509.602, 14450.245, 552.743, 14417.986, 613.141, 14430.889, 656.283, 14482.504, 595.885, 14521.215)
+
+[node name="HazyRock2" type="Polygon2D" parent="EarlyReefsDepth"]
+color = Color(0.062, 0.138, 0.182, 0.250)
+polygon = PackedVector2Array(612.915, 14474.094, 649.540, 14428.086, 710.583, 14399.332, 796.043, 14410.834, 857.085, 14456.841, 771.626, 14491.347)
+
+[node name="DistantWeed2_0" type="Polygon2D" parent="EarlyReefsDepth"]
+color = Color(0.062, 0.159, 0.182, 0.220)
+polygon = PackedVector2Array(733.000, 14433.837, 727.000, 14420.337, 737.000, 14402.337, 733.000, 14388.837, 741.000, 14397.837, 738.000, 14415.837, 738.000, 14433.837)
+
+[node name="DistantWeed2_1" type="Polygon2D" parent="EarlyReefsDepth"]
+color = Color(0.062, 0.159, 0.182, 0.220)
+polygon = PackedVector2Array(747.000, 14433.837, 741.000, 14413.137, 751.000, 14385.537, 747.000, 14364.837, 755.000, 14378.637, 752.000, 14406.237, 752.000, 14433.837)
+
+[node name="Bubble0" type="Line2D" parent="EarlyReefsDepth"]
+points = PackedVector2Array(352.000, 14290.000, 351.732, 14291.000, 351.000, 14291.732, 350.000, 14292.000, 349.000, 14291.732, 348.268, 14291.000, 348.000, 14290.000, 348.268, 14289.000, 349.000, 14288.268, 350.000, 14288.000, 351.000, 14288.268, 351.732, 14289.000, 352.000, 14290.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble1" type="Line2D" parent="EarlyReefsDepth"]
+points = PackedVector2Array(370.732, 14255.000, 370.330, 14256.500, 369.232, 14257.598, 367.732, 14258.000, 366.232, 14257.598, 365.134, 14256.500, 364.732, 14255.000, 365.134, 14253.500, 366.232, 14252.402, 367.732, 14252.000, 369.232, 14252.402, 370.330, 14253.500, 370.732, 14255.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble2" type="Line2D" parent="EarlyReefsDepth"]
+points = PackedVector2Array(383.274, 14220.000, 382.738, 14222.000, 381.274, 14223.464, 379.274, 14224.000, 377.274, 14223.464, 375.810, 14222.000, 375.274, 14220.000, 375.810, 14218.000, 377.274, 14216.536, 379.274, 14216.000, 381.274, 14216.536, 382.738, 14218.000, 383.274, 14220.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble3" type="Line2D" parent="EarlyReefsDepth"]
+points = PackedVector2Array(386.129, 14185.000, 385.861, 14186.000, 385.129, 14186.732, 384.129, 14187.000, 383.129, 14186.732, 382.397, 14186.000, 382.129, 14185.000, 382.397, 14184.000, 383.129, 14183.268, 384.129, 14183.000, 385.129, 14183.268, 385.861, 14184.000, 386.129, 14185.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble4" type="Line2D" parent="EarlyReefsDepth"]
+points = PackedVector2Array(390.946, 14150.000, 390.544, 14151.500, 389.446, 14152.598, 387.946, 14153.000, 386.446, 14152.598, 385.348, 14151.500, 384.946, 14150.000, 385.348, 14148.500, 386.446, 14147.402, 387.946, 14147.000, 389.446, 14147.402, 390.544, 14148.500, 390.946, 14150.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="WreckFragment0" type="Polygon2D" parent="EarlyReefsDepth"]
+color = Color(0.140, 0.200, 0.230, 0.300)
+polygon = PackedVector2Array(420.000, 14485.000, 548.000, 14462.000, 574.000, 14468.000, 432.000, 14494.000)
+
+[node name="WreckFragment1" type="Polygon2D" parent="EarlyReefsDepth"]
+color = Color(0.140, 0.200, 0.230, 0.300)
+polygon = PackedVector2Array(510.000, 14510.000, 638.000, 14487.000, 664.000, 14493.000, 522.000, 14519.000)
+
+[node name="SplitReefDepth" type="Node2D" parent="."]
+
+[node name="HazyRock0" type="Polygon2D" parent="SplitReefDepth"]
+color = Color(0.069, 0.160, 0.209, 0.250)
+polygon = PackedVector2Array(259.080, 12475.110, 287.856, 12441.452, 335.816, 12420.415, 402.960, 12428.830, 450.920, 12462.488, 383.776, 12487.732)
+
+[node name="DistantWeed0_0" type="Polygon2D" parent="SplitReefDepth"]
+color = Color(0.069, 0.184, 0.209, 0.220)
+polygon = PackedVector2Array(353.000, 12445.659, 347.000, 12432.159, 357.000, 12414.159, 353.000, 12400.659, 361.000, 12409.659, 358.000, 12427.659, 358.000, 12445.659)
+
+[node name="DistantWeed0_1" type="Polygon2D" parent="SplitReefDepth"]
+color = Color(0.069, 0.184, 0.209, 0.220)
+polygon = PackedVector2Array(367.000, 12445.659, 361.000, 12424.959, 371.000, 12397.359, 367.000, 12376.659, 375.000, 12390.459, 372.000, 12418.059, 372.000, 12445.659)
+
+[node name="HazyRock1" type="Polygon2D" parent="SplitReefDepth"]
+color = Color(0.069, 0.160, 0.209, 0.250)
+polygon = PackedVector2Array(390.481, 12445.860, 429.337, 12411.809, 494.096, 12390.526, 584.759, 12399.039, 649.519, 12433.091, 558.856, 12458.629)
+
+[node name="HazyRock2" type="Polygon2D" parent="SplitReefDepth"]
+color = Color(0.069, 0.160, 0.209, 0.250)
+polygon = PackedVector2Array(566.764, 12516.709, 602.235, 12458.384, 661.353, 12421.931, 744.118, 12436.512, 803.236, 12494.837, 720.471, 12538.580)
+
+[node name="DistantWeed2_0" type="Polygon2D" parent="SplitReefDepth"]
+color = Color(0.069, 0.184, 0.209, 0.220)
+polygon = PackedVector2Array(683.000, 12465.674, 677.000, 12452.174, 687.000, 12434.174, 683.000, 12420.674, 691.000, 12429.674, 688.000, 12447.674, 688.000, 12465.674)
+
+[node name="DistantWeed2_1" type="Polygon2D" parent="SplitReefDepth"]
+color = Color(0.069, 0.184, 0.209, 0.220)
+polygon = PackedVector2Array(697.000, 12465.674, 691.000, 12444.974, 701.000, 12417.374, 697.000, 12396.674, 705.000, 12410.474, 702.000, 12438.074, 702.000, 12465.674)
+
+[node name="Bubble0" type="Line2D" parent="SplitReefDepth"]
+points = PackedVector2Array(302.000, 12360.000, 301.732, 12361.000, 301.000, 12361.732, 300.000, 12362.000, 299.000, 12361.732, 298.268, 12361.000, 298.000, 12360.000, 298.268, 12359.000, 299.000, 12358.268, 300.000, 12358.000, 301.000, 12358.268, 301.732, 12359.000, 302.000, 12360.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble1" type="Line2D" parent="SplitReefDepth"]
+points = PackedVector2Array(320.732, 12325.000, 320.330, 12326.500, 319.232, 12327.598, 317.732, 12328.000, 316.232, 12327.598, 315.134, 12326.500, 314.732, 12325.000, 315.134, 12323.500, 316.232, 12322.402, 317.732, 12322.000, 319.232, 12322.402, 320.330, 12323.500, 320.732, 12325.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble2" type="Line2D" parent="SplitReefDepth"]
+points = PackedVector2Array(333.274, 12290.000, 332.738, 12292.000, 331.274, 12293.464, 329.274, 12294.000, 327.274, 12293.464, 325.810, 12292.000, 325.274, 12290.000, 325.810, 12288.000, 327.274, 12286.536, 329.274, 12286.000, 331.274, 12286.536, 332.738, 12288.000, 333.274, 12290.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble3" type="Line2D" parent="SplitReefDepth"]
+points = PackedVector2Array(336.129, 12255.000, 335.861, 12256.000, 335.129, 12256.732, 334.129, 12257.000, 333.129, 12256.732, 332.397, 12256.000, 332.129, 12255.000, 332.397, 12254.000, 333.129, 12253.268, 334.129, 12253.000, 335.129, 12253.268, 335.861, 12254.000, 336.129, 12255.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble4" type="Line2D" parent="SplitReefDepth"]
+points = PackedVector2Array(340.946, 12220.000, 340.544, 12221.500, 339.446, 12222.598, 337.946, 12223.000, 336.446, 12222.598, 335.348, 12221.500, 334.946, 12220.000, 335.348, 12218.500, 336.446, 12217.402, 337.946, 12217.000, 339.446, 12217.402, 340.544, 12218.500, 340.946, 12220.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="WreckFragment0" type="Polygon2D" parent="SplitReefDepth"]
+color = Color(0.140, 0.200, 0.230, 0.300)
+polygon = PackedVector2Array(370.000, 12555.000, 498.000, 12532.000, 524.000, 12538.000, 382.000, 12564.000)
+
+[node name="WreckFragment1" type="Polygon2D" parent="SplitReefDepth"]
+color = Color(0.140, 0.200, 0.230, 0.300)
+polygon = PackedVector2Array(460.000, 12580.000, 588.000, 12557.000, 614.000, 12563.000, 472.000, 12589.000)
+
+[node name="EntryGateDepth" type="Node2D" parent="."]
+
+[node name="HazyRock0" type="Polygon2D" parent="EntryGateDepth"]
+color = Color(0.076, 0.177, 0.230, 0.250)
+polygon = PackedVector2Array(387.546, 10872.083, 419.782, 10834.217, 473.509, 10810.550, 548.727, 10820.017, 602.454, 10857.883, 527.236, 10886.283)
+
+[node name="DistantWeed0_0" type="Polygon2D" parent="EntryGateDepth"]
+color = Color(0.076, 0.204, 0.230, 0.220)
+polygon = PackedVector2Array(493.000, 10838.950, 487.000, 10825.450, 497.000, 10807.450, 493.000, 10793.950, 501.000, 10802.950, 498.000, 10820.950, 498.000, 10838.950)
+
+[node name="DistantWeed0_1" type="Polygon2D" parent="EntryGateDepth"]
+color = Color(0.076, 0.204, 0.230, 0.220)
+polygon = PackedVector2Array(507.000, 10838.950, 501.000, 10818.250, 511.000, 10790.650, 507.000, 10769.950, 515.000, 10783.750, 512.000, 10811.350, 512.000, 10838.950)
+
+[node name="HazyRock1" type="Polygon2D" parent="EntryGateDepth"]
+color = Color(0.076, 0.177, 0.230, 0.250)
+polygon = PackedVector2Array(544.766, 10938.872, 579.336, 10893.226, 636.953, 10864.698, 717.617, 10876.109, 775.234, 10921.755, 694.570, 10955.989)
+
+[node name="HazyRock2" type="Polygon2D" parent="EntryGateDepth"]
+color = Color(0.076, 0.177, 0.230, 0.250)
+polygon = PackedVector2Array(737.399, 10840.641, 763.680, 10775.900, 807.480, 10735.437, 868.800, 10751.623, 912.601, 10816.363, 851.280, 10864.919)
+
+[node name="DistantWeed2_0" type="Polygon2D" parent="EntryGateDepth"]
+color = Color(0.076, 0.204, 0.230, 0.220)
+polygon = PackedVector2Array(823.000, 10783.993, 817.000, 10770.493, 827.000, 10752.493, 823.000, 10738.993, 831.000, 10747.993, 828.000, 10765.993, 828.000, 10783.993)
+
+[node name="DistantWeed2_1" type="Polygon2D" parent="EntryGateDepth"]
+color = Color(0.076, 0.204, 0.230, 0.220)
+polygon = PackedVector2Array(837.000, 10783.993, 831.000, 10763.293, 841.000, 10735.693, 837.000, 10714.993, 845.000, 10728.793, 842.000, 10756.393, 842.000, 10783.993)
+
+[node name="Bubble0" type="Line2D" parent="EntryGateDepth"]
+points = PackedVector2Array(442.000, 10810.000, 441.732, 10811.000, 441.000, 10811.732, 440.000, 10812.000, 439.000, 10811.732, 438.268, 10811.000, 438.000, 10810.000, 438.268, 10809.000, 439.000, 10808.268, 440.000, 10808.000, 441.000, 10808.268, 441.732, 10809.000, 442.000, 10810.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble1" type="Line2D" parent="EntryGateDepth"]
+points = PackedVector2Array(460.732, 10775.000, 460.330, 10776.500, 459.232, 10777.598, 457.732, 10778.000, 456.232, 10777.598, 455.134, 10776.500, 454.732, 10775.000, 455.134, 10773.500, 456.232, 10772.402, 457.732, 10772.000, 459.232, 10772.402, 460.330, 10773.500, 460.732, 10775.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble2" type="Line2D" parent="EntryGateDepth"]
+points = PackedVector2Array(473.274, 10740.000, 472.738, 10742.000, 471.274, 10743.464, 469.274, 10744.000, 467.274, 10743.464, 465.810, 10742.000, 465.274, 10740.000, 465.810, 10738.000, 467.274, 10736.536, 469.274, 10736.000, 471.274, 10736.536, 472.738, 10738.000, 473.274, 10740.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble3" type="Line2D" parent="EntryGateDepth"]
+points = PackedVector2Array(476.129, 10705.000, 475.861, 10706.000, 475.129, 10706.732, 474.129, 10707.000, 473.129, 10706.732, 472.397, 10706.000, 472.129, 10705.000, 472.397, 10704.000, 473.129, 10703.268, 474.129, 10703.000, 475.129, 10703.268, 475.861, 10704.000, 476.129, 10705.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble4" type="Line2D" parent="EntryGateDepth"]
+points = PackedVector2Array(480.946, 10670.000, 480.544, 10671.500, 479.446, 10672.598, 477.946, 10673.000, 476.446, 10672.598, 475.348, 10671.500, 474.946, 10670.000, 475.348, 10668.500, 476.446, 10667.402, 477.946, 10667.000, 479.446, 10667.402, 480.544, 10668.500, 480.946, 10670.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="WreckFragment0" type="Polygon2D" parent="EntryGateDepth"]
+color = Color(0.140, 0.200, 0.230, 0.300)
+polygon = PackedVector2Array(510.000, 11005.000, 638.000, 10982.000, 664.000, 10988.000, 522.000, 11014.000)
+
+[node name="WreckFragment1" type="Polygon2D" parent="EntryGateDepth"]
+color = Color(0.140, 0.200, 0.230, 0.300)
+polygon = PackedVector2Array(600.000, 11030.000, 728.000, 11007.000, 754.000, 11013.000, 612.000, 11039.000)
+
+[node name="LiftTransferDepth" type="Node2D" parent="."]
+
+[node name="HazyRock0" type="Polygon2D" parent="LiftTransferDepth"]
+color = Color(0.083, 0.199, 0.256, 0.250)
+polygon = PackedVector2Array(424.408, 9012.849, 457.586, 8974.604, 512.882, 8950.701, 590.296, 8960.262, 645.592, 8998.507, 568.177, 9027.191)
+
+[node name="DistantWeed0_0" type="Polygon2D" parent="LiftTransferDepth"]
+color = Color(0.083, 0.228, 0.256, 0.220)
+polygon = PackedVector2Array(533.000, 8979.385, 527.000, 8965.885, 537.000, 8947.885, 533.000, 8934.385, 541.000, 8943.385, 538.000, 8961.385, 538.000, 8979.385)
+
+[node name="DistantWeed0_1" type="Polygon2D" parent="LiftTransferDepth"]
+color = Color(0.083, 0.228, 0.256, 0.220)
+polygon = PackedVector2Array(547.000, 8979.385, 541.000, 8958.685, 551.000, 8931.085, 547.000, 8910.385, 555.000, 8924.185, 552.000, 8951.785, 552.000, 8979.385)
+
+[node name="HazyRock1" type="Polygon2D" parent="LiftTransferDepth"]
+color = Color(0.083, 0.199, 0.256, 0.250)
+polygon = PackedVector2Array(566.710, 9033.896, 606.697, 8989.215, 673.342, 8961.289, 766.645, 8972.459, 833.290, 9017.141, 739.987, 9050.652)
+
+[node name="HazyRock2" type="Polygon2D" parent="LiftTransferDepth"]
+color = Color(0.083, 0.199, 0.256, 0.250)
+polygon = PackedVector2Array(768.536, 9106.570, 797.475, 9055.247, 845.707, 9023.169, 913.232, 9036.000, 961.464, 9087.324, 893.939, 9125.816)
+
+[node name="DistantWeed2_0" type="Polygon2D" parent="LiftTransferDepth"]
+color = Color(0.083, 0.228, 0.256, 0.220)
+polygon = PackedVector2Array(863.000, 9061.662, 857.000, 9048.162, 867.000, 9030.162, 863.000, 9016.662, 871.000, 9025.662, 868.000, 9043.662, 868.000, 9061.662)
+
+[node name="DistantWeed2_1" type="Polygon2D" parent="LiftTransferDepth"]
+color = Color(0.083, 0.228, 0.256, 0.220)
+polygon = PackedVector2Array(877.000, 9061.662, 871.000, 9040.962, 881.000, 9013.362, 877.000, 8992.662, 885.000, 9006.462, 882.000, 9034.062, 882.000, 9061.662)
+
+[node name="Bubble0" type="Line2D" parent="LiftTransferDepth"]
+points = PackedVector2Array(482.000, 8930.000, 481.732, 8931.000, 481.000, 8931.732, 480.000, 8932.000, 479.000, 8931.732, 478.268, 8931.000, 478.000, 8930.000, 478.268, 8929.000, 479.000, 8928.268, 480.000, 8928.000, 481.000, 8928.268, 481.732, 8929.000, 482.000, 8930.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble1" type="Line2D" parent="LiftTransferDepth"]
+points = PackedVector2Array(500.732, 8895.000, 500.330, 8896.500, 499.232, 8897.598, 497.732, 8898.000, 496.232, 8897.598, 495.134, 8896.500, 494.732, 8895.000, 495.134, 8893.500, 496.232, 8892.402, 497.732, 8892.000, 499.232, 8892.402, 500.330, 8893.500, 500.732, 8895.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble2" type="Line2D" parent="LiftTransferDepth"]
+points = PackedVector2Array(513.274, 8860.000, 512.738, 8862.000, 511.274, 8863.464, 509.274, 8864.000, 507.274, 8863.464, 505.810, 8862.000, 505.274, 8860.000, 505.810, 8858.000, 507.274, 8856.536, 509.274, 8856.000, 511.274, 8856.536, 512.738, 8858.000, 513.274, 8860.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble3" type="Line2D" parent="LiftTransferDepth"]
+points = PackedVector2Array(516.129, 8825.000, 515.861, 8826.000, 515.129, 8826.732, 514.129, 8827.000, 513.129, 8826.732, 512.397, 8826.000, 512.129, 8825.000, 512.397, 8824.000, 513.129, 8823.268, 514.129, 8823.000, 515.129, 8823.268, 515.861, 8824.000, 516.129, 8825.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble4" type="Line2D" parent="LiftTransferDepth"]
+points = PackedVector2Array(520.946, 8790.000, 520.544, 8791.500, 519.446, 8792.598, 517.946, 8793.000, 516.446, 8792.598, 515.348, 8791.500, 514.946, 8790.000, 515.348, 8788.500, 516.446, 8787.402, 517.946, 8787.000, 519.446, 8787.402, 520.544, 8788.500, 520.946, 8790.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="DriftWindowsDepth" type="Node2D" parent="."]
+
+[node name="HazyRock0" type="Polygon2D" parent="DriftWindowsDepth"]
+color = Color(0.089, 0.214, 0.276, 0.250)
+polygon = PackedVector2Array(203.411, 7575.828, 230.888, 7538.662, 276.682, 7515.432, 340.794, 7524.724, 386.589, 7561.891, 322.477, 7589.766)
+
+[node name="DistantWeed0_0" type="Polygon2D" parent="DriftWindowsDepth"]
+color = Color(0.089, 0.247, 0.276, 0.220)
+polygon = PackedVector2Array(293.000, 7543.307, 287.000, 7529.807, 297.000, 7511.807, 293.000, 7498.307, 301.000, 7507.307, 298.000, 7525.307, 298.000, 7543.307)
+
+[node name="DistantWeed0_1" type="Polygon2D" parent="DriftWindowsDepth"]
+color = Color(0.089, 0.247, 0.276, 0.220)
+polygon = PackedVector2Array(307.000, 7543.307, 301.000, 7522.607, 311.000, 7495.007, 307.000, 7474.307, 315.000, 7488.107, 312.000, 7515.707, 312.000, 7543.307)
+
+[node name="HazyRock1" type="Polygon2D" parent="DriftWindowsDepth"]
+color = Color(0.089, 0.214, 0.276, 0.250)
+polygon = PackedVector2Array(364.418, 7590.040, 393.093, 7532.978, 440.884, 7497.314, 507.791, 7511.579, 555.582, 7568.642, 488.675, 7611.438)
+
+[node name="HazyRock2" type="Polygon2D" parent="DriftWindowsDepth"]
+color = Color(0.089, 0.214, 0.276, 0.250)
+polygon = PackedVector2Array(516.119, 7550.798, 548.783, 7507.168, 603.224, 7479.899, 679.441, 7490.807, 733.881, 7534.437, 657.664, 7567.159)
+
+[node name="DistantWeed2_0" type="Polygon2D" parent="DriftWindowsDepth"]
+color = Color(0.089, 0.247, 0.276, 0.220)
+polygon = PackedVector2Array(623.000, 7512.622, 617.000, 7499.122, 627.000, 7481.122, 623.000, 7467.622, 631.000, 7476.622, 628.000, 7494.622, 628.000, 7512.622)
+
+[node name="DistantWeed2_1" type="Polygon2D" parent="DriftWindowsDepth"]
+color = Color(0.089, 0.247, 0.276, 0.220)
+polygon = PackedVector2Array(637.000, 7512.622, 631.000, 7491.922, 641.000, 7464.322, 637.000, 7443.622, 645.000, 7457.422, 642.000, 7485.022, 642.000, 7512.622)
+
+[node name="Bubble0" type="Line2D" parent="DriftWindowsDepth"]
+points = PackedVector2Array(242.000, 7510.000, 241.732, 7511.000, 241.000, 7511.732, 240.000, 7512.000, 239.000, 7511.732, 238.268, 7511.000, 238.000, 7510.000, 238.268, 7509.000, 239.000, 7508.268, 240.000, 7508.000, 241.000, 7508.268, 241.732, 7509.000, 242.000, 7510.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble1" type="Line2D" parent="DriftWindowsDepth"]
+points = PackedVector2Array(260.732, 7475.000, 260.330, 7476.500, 259.232, 7477.598, 257.732, 7478.000, 256.232, 7477.598, 255.134, 7476.500, 254.732, 7475.000, 255.134, 7473.500, 256.232, 7472.402, 257.732, 7472.000, 259.232, 7472.402, 260.330, 7473.500, 260.732, 7475.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble2" type="Line2D" parent="DriftWindowsDepth"]
+points = PackedVector2Array(273.274, 7440.000, 272.738, 7442.000, 271.274, 7443.464, 269.274, 7444.000, 267.274, 7443.464, 265.810, 7442.000, 265.274, 7440.000, 265.810, 7438.000, 267.274, 7436.536, 269.274, 7436.000, 271.274, 7436.536, 272.738, 7438.000, 273.274, 7440.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble3" type="Line2D" parent="DriftWindowsDepth"]
+points = PackedVector2Array(276.129, 7405.000, 275.861, 7406.000, 275.129, 7406.732, 274.129, 7407.000, 273.129, 7406.732, 272.397, 7406.000, 272.129, 7405.000, 272.397, 7404.000, 273.129, 7403.268, 274.129, 7403.000, 275.129, 7403.268, 275.861, 7404.000, 276.129, 7405.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble4" type="Line2D" parent="DriftWindowsDepth"]
+points = PackedVector2Array(280.946, 7370.000, 280.544, 7371.500, 279.446, 7372.598, 277.946, 7373.000, 276.446, 7372.598, 275.348, 7371.500, 274.946, 7370.000, 275.348, 7368.500, 276.446, 7367.402, 277.946, 7367.000, 279.446, 7367.402, 280.544, 7368.500, 280.946, 7370.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="NarrowReefDepth" type="Node2D" parent="."]
+
+[node name="HazyRock0" type="Polygon2D" parent="NarrowReefDepth"]
+color = Color(0.096, 0.234, 0.299, 0.250)
+polygon = PackedVector2Array(374.274, 6027.843, 407.492, 5967.321, 462.855, 5929.495, 540.363, 5944.625, 595.726, 6005.148, 518.218, 6050.539)
+
+[node name="DistantWeed0_0" type="Polygon2D" parent="NarrowReefDepth"]
+color = Color(0.096, 0.269, 0.299, 0.220)
+polygon = PackedVector2Array(483.000, 5974.887, 477.000, 5961.387, 487.000, 5943.387, 483.000, 5929.887, 491.000, 5938.887, 488.000, 5956.887, 488.000, 5974.887)
+
+[node name="DistantWeed0_1" type="Polygon2D" parent="NarrowReefDepth"]
+color = Color(0.096, 0.269, 0.299, 0.220)
+polygon = PackedVector2Array(497.000, 5974.887, 491.000, 5954.187, 501.000, 5926.587, 497.000, 5905.887, 505.000, 5919.687, 502.000, 5947.287, 502.000, 5974.887)
+
+[node name="HazyRock1" type="Polygon2D" parent="NarrowReefDepth"]
+color = Color(0.096, 0.234, 0.299, 0.250)
+polygon = PackedVector2Array(532.859, 5894.005, 568.001, 5832.192, 626.572, 5793.559, 708.570, 5809.012, 767.141, 5870.825, 685.142, 5917.185)
+
+[node name="HazyRock2" type="Polygon2D" parent="NarrowReefDepth"]
+color = Color(0.096, 0.234, 0.299, 0.250)
+polygon = PackedVector2Array(687.510, 5972.350, 725.757, 5932.944, 789.502, 5908.314, 878.745, 5918.166, 942.490, 5957.573, 853.247, 5987.128)
+
+[node name="DistantWeed2_0" type="Polygon2D" parent="NarrowReefDepth"]
+color = Color(0.096, 0.269, 0.299, 0.220)
+polygon = PackedVector2Array(813.000, 5937.870, 807.000, 5924.370, 817.000, 5906.370, 813.000, 5892.870, 821.000, 5901.870, 818.000, 5919.870, 818.000, 5937.870)
+
+[node name="DistantWeed2_1" type="Polygon2D" parent="NarrowReefDepth"]
+color = Color(0.096, 0.269, 0.299, 0.220)
+polygon = PackedVector2Array(827.000, 5937.870, 821.000, 5917.170, 831.000, 5889.570, 827.000, 5868.870, 835.000, 5882.670, 832.000, 5910.270, 832.000, 5937.870)
+
+[node name="Bubble0" type="Line2D" parent="NarrowReefDepth"]
+points = PackedVector2Array(432.000, 5810.000, 431.732, 5811.000, 431.000, 5811.732, 430.000, 5812.000, 429.000, 5811.732, 428.268, 5811.000, 428.000, 5810.000, 428.268, 5809.000, 429.000, 5808.268, 430.000, 5808.000, 431.000, 5808.268, 431.732, 5809.000, 432.000, 5810.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble1" type="Line2D" parent="NarrowReefDepth"]
+points = PackedVector2Array(450.732, 5775.000, 450.330, 5776.500, 449.232, 5777.598, 447.732, 5778.000, 446.232, 5777.598, 445.134, 5776.500, 444.732, 5775.000, 445.134, 5773.500, 446.232, 5772.402, 447.732, 5772.000, 449.232, 5772.402, 450.330, 5773.500, 450.732, 5775.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble2" type="Line2D" parent="NarrowReefDepth"]
+points = PackedVector2Array(463.274, 5740.000, 462.738, 5742.000, 461.274, 5743.464, 459.274, 5744.000, 457.274, 5743.464, 455.810, 5742.000, 455.274, 5740.000, 455.810, 5738.000, 457.274, 5736.536, 459.274, 5736.000, 461.274, 5736.536, 462.738, 5738.000, 463.274, 5740.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble3" type="Line2D" parent="NarrowReefDepth"]
+points = PackedVector2Array(466.129, 5705.000, 465.861, 5706.000, 465.129, 5706.732, 464.129, 5707.000, 463.129, 5706.732, 462.397, 5706.000, 462.129, 5705.000, 462.397, 5704.000, 463.129, 5703.268, 464.129, 5703.000, 465.129, 5703.268, 465.861, 5704.000, 466.129, 5705.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble4" type="Line2D" parent="NarrowReefDepth"]
+points = PackedVector2Array(470.946, 5670.000, 470.544, 5671.500, 469.446, 5672.598, 467.946, 5673.000, 466.446, 5672.598, 465.348, 5671.500, 464.946, 5670.000, 465.348, 5668.500, 466.446, 5667.402, 467.946, 5667.000, 469.446, 5667.402, 470.544, 5668.500, 470.946, 5670.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="CrossflowDepth" type="Node2D" parent="."]
+
+[node name="HazyRock0" type="Polygon2D" parent="CrossflowDepth"]
+color = Color(0.103, 0.253, 0.323, 0.250)
+polygon = PackedVector2Array(222.188, 4237.532, 262.031, 4176.973, 328.438, 4139.124, 421.406, 4154.264, 487.812, 4214.823, 394.844, 4260.242)
+
+[node name="DistantWeed0_0" type="Polygon2D" parent="CrossflowDepth"]
+color = Color(0.103, 0.291, 0.323, 0.220)
+polygon = PackedVector2Array(353.000, 4184.543, 347.000, 4171.043, 357.000, 4153.043, 353.000, 4139.543, 361.000, 4148.543, 358.000, 4166.543, 358.000, 4184.543)
+
+[node name="DistantWeed0_1" type="Polygon2D" parent="CrossflowDepth"]
+color = Color(0.103, 0.291, 0.323, 0.220)
+polygon = PackedVector2Array(367.000, 4184.543, 361.000, 4163.843, 371.000, 4136.243, 367.000, 4115.543, 375.000, 4129.343, 372.000, 4156.943, 372.000, 4184.543)
+
+[node name="HazyRock1" type="Polygon2D" parent="CrossflowDepth"]
+color = Color(0.103, 0.253, 0.323, 0.250)
+polygon = PackedVector2Array(439.066, 4207.378, 463.346, 4161.558, 503.813, 4132.920, 560.467, 4144.375, 600.934, 4190.195, 544.280, 4224.560)
+
+[node name="HazyRock2" type="Polygon2D" parent="CrossflowDepth"]
+color = Color(0.103, 0.253, 0.323, 0.250)
+polygon = PackedVector2Array(592.026, 4162.812, 619.918, 4124.286, 666.405, 4100.207, 731.487, 4109.838, 777.974, 4148.365, 712.892, 4177.260)
+
+[node name="DistantWeed2_0" type="Polygon2D" parent="CrossflowDepth"]
+color = Color(0.103, 0.291, 0.323, 0.220)
+polygon = PackedVector2Array(683.000, 4129.102, 677.000, 4115.602, 687.000, 4097.602, 683.000, 4084.102, 691.000, 4093.102, 688.000, 4111.102, 688.000, 4129.102)
+
+[node name="DistantWeed2_1" type="Polygon2D" parent="CrossflowDepth"]
+color = Color(0.103, 0.291, 0.323, 0.220)
+polygon = PackedVector2Array(697.000, 4129.102, 691.000, 4108.402, 701.000, 4080.802, 697.000, 4060.102, 705.000, 4073.902, 702.000, 4101.502, 702.000, 4129.102)
+
+[node name="Bubble0" type="Line2D" parent="CrossflowDepth"]
+points = PackedVector2Array(302.000, 4090.000, 301.732, 4091.000, 301.000, 4091.732, 300.000, 4092.000, 299.000, 4091.732, 298.268, 4091.000, 298.000, 4090.000, 298.268, 4089.000, 299.000, 4088.268, 300.000, 4088.000, 301.000, 4088.268, 301.732, 4089.000, 302.000, 4090.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble1" type="Line2D" parent="CrossflowDepth"]
+points = PackedVector2Array(320.732, 4055.000, 320.330, 4056.500, 319.232, 4057.598, 317.732, 4058.000, 316.232, 4057.598, 315.134, 4056.500, 314.732, 4055.000, 315.134, 4053.500, 316.232, 4052.402, 317.732, 4052.000, 319.232, 4052.402, 320.330, 4053.500, 320.732, 4055.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble2" type="Line2D" parent="CrossflowDepth"]
+points = PackedVector2Array(333.274, 4020.000, 332.738, 4022.000, 331.274, 4023.464, 329.274, 4024.000, 327.274, 4023.464, 325.810, 4022.000, 325.274, 4020.000, 325.810, 4018.000, 327.274, 4016.536, 329.274, 4016.000, 331.274, 4016.536, 332.738, 4018.000, 333.274, 4020.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble3" type="Line2D" parent="CrossflowDepth"]
+points = PackedVector2Array(336.129, 3985.000, 335.861, 3986.000, 335.129, 3986.732, 334.129, 3987.000, 333.129, 3986.732, 332.397, 3986.000, 332.129, 3985.000, 332.397, 3984.000, 333.129, 3983.268, 334.129, 3983.000, 335.129, 3983.268, 335.861, 3984.000, 336.129, 3985.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble4" type="Line2D" parent="CrossflowDepth"]
+points = PackedVector2Array(340.946, 3950.000, 340.544, 3951.500, 339.446, 3952.598, 337.946, 3953.000, 336.446, 3952.598, 335.348, 3951.500, 334.946, 3950.000, 335.348, 3948.500, 336.446, 3947.402, 337.946, 3947.000, 339.446, 3947.402, 340.544, 3948.500, 340.946, 3950.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="RisingGatesDepth" type="Node2D" parent="."]
+
+[node name="HazyRock0" type="Polygon2D" parent="RisingGatesDepth"]
+color = Color(0.109, 0.269, 0.342, 0.250)
+polygon = PackedVector2Array(497.675, 2896.160, 532.873, 2839.616, 591.535, 2804.276, 673.662, 2818.412, 732.325, 2874.956, 650.197, 2917.364)
+
+[node name="DistantWeed0_0" type="Polygon2D" parent="RisingGatesDepth"]
+color = Color(0.109, 0.309, 0.342, 0.220)
+polygon = PackedVector2Array(613.000, 2846.684, 607.000, 2833.184, 617.000, 2815.184, 613.000, 2801.684, 621.000, 2810.684, 618.000, 2828.684, 618.000, 2846.684)
+
+[node name="DistantWeed0_1" type="Polygon2D" parent="RisingGatesDepth"]
+color = Color(0.109, 0.309, 0.342, 0.220)
+polygon = PackedVector2Array(627.000, 2846.684, 621.000, 2825.984, 631.000, 2798.384, 627.000, 2777.684, 635.000, 2791.484, 632.000, 2819.084, 632.000, 2846.684)
+
+[node name="HazyRock1" type="Polygon2D" parent="RisingGatesDepth"]
+color = Color(0.109, 0.269, 0.342, 0.250)
+polygon = PackedVector2Array(665.412, 2786.067, 699.788, 2751.231, 757.082, 2729.458, 837.294, 2738.167, 894.588, 2773.004, 814.377, 2799.131)
+
+[node name="HazyRock2" type="Polygon2D" parent="RisingGatesDepth"]
+color = Color(0.109, 0.269, 0.342, 0.250)
+polygon = PackedVector2Array(822.821, 2810.116, 859.474, 2758.768, 920.564, 2726.676, 1006.090, 2739.513, 1067.179, 2790.861, 981.654, 2829.372)
+
+[node name="DistantWeed2_0" type="Polygon2D" parent="RisingGatesDepth"]
+color = Color(0.109, 0.309, 0.342, 0.220)
+polygon = PackedVector2Array(943.000, 2765.187, 937.000, 2751.687, 947.000, 2733.687, 943.000, 2720.187, 951.000, 2729.187, 948.000, 2747.187, 948.000, 2765.187)
+
+[node name="DistantWeed2_1" type="Polygon2D" parent="RisingGatesDepth"]
+color = Color(0.109, 0.309, 0.342, 0.220)
+polygon = PackedVector2Array(957.000, 2765.187, 951.000, 2744.487, 961.000, 2716.887, 957.000, 2696.187, 965.000, 2709.987, 962.000, 2737.587, 962.000, 2765.187)
+
+[node name="Bubble0" type="Line2D" parent="RisingGatesDepth"]
+points = PackedVector2Array(562.000, 2680.000, 561.732, 2681.000, 561.000, 2681.732, 560.000, 2682.000, 559.000, 2681.732, 558.268, 2681.000, 558.000, 2680.000, 558.268, 2679.000, 559.000, 2678.268, 560.000, 2678.000, 561.000, 2678.268, 561.732, 2679.000, 562.000, 2680.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble1" type="Line2D" parent="RisingGatesDepth"]
+points = PackedVector2Array(580.732, 2645.000, 580.330, 2646.500, 579.232, 2647.598, 577.732, 2648.000, 576.232, 2647.598, 575.134, 2646.500, 574.732, 2645.000, 575.134, 2643.500, 576.232, 2642.402, 577.732, 2642.000, 579.232, 2642.402, 580.330, 2643.500, 580.732, 2645.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble2" type="Line2D" parent="RisingGatesDepth"]
+points = PackedVector2Array(593.274, 2610.000, 592.738, 2612.000, 591.274, 2613.464, 589.274, 2614.000, 587.274, 2613.464, 585.810, 2612.000, 585.274, 2610.000, 585.810, 2608.000, 587.274, 2606.536, 589.274, 2606.000, 591.274, 2606.536, 592.738, 2608.000, 593.274, 2610.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble3" type="Line2D" parent="RisingGatesDepth"]
+points = PackedVector2Array(596.129, 2575.000, 595.861, 2576.000, 595.129, 2576.732, 594.129, 2577.000, 593.129, 2576.732, 592.397, 2576.000, 592.129, 2575.000, 592.397, 2574.000, 593.129, 2573.268, 594.129, 2573.000, 595.129, 2573.268, 595.861, 2574.000, 596.129, 2575.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble4" type="Line2D" parent="RisingGatesDepth"]
+points = PackedVector2Array(600.946, 2540.000, 600.544, 2541.500, 599.446, 2542.598, 597.946, 2543.000, 596.446, 2542.598, 595.348, 2541.500, 594.946, 2540.000, 595.348, 2538.500, 596.446, 2537.402, 597.946, 2537.000, 599.446, 2537.402, 600.544, 2538.500, 600.946, 2540.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="SurfaceRunDepth" type="Node2D" parent="."]
+
+[node name="HazyRock0" type="Polygon2D" parent="SurfaceRunDepth"]
+color = Color(0.116, 0.290, 0.368, 0.250)
+polygon = PackedVector2Array(283.534, 885.087, 319.974, 830.154, 380.707, 795.821, 465.733, 809.554, 526.466, 864.487, 441.440, 905.687)
+
+[node name="DistantWeed0_0" type="Polygon2D" parent="SurfaceRunDepth"]
+color = Color(0.116, 0.333, 0.368, 0.220)
+polygon = PackedVector2Array(403.000, 837.021, 397.000, 823.521, 407.000, 805.521, 403.000, 792.021, 411.000, 801.021, 408.000, 819.021, 408.000, 837.021)
+
+[node name="DistantWeed0_1" type="Polygon2D" parent="SurfaceRunDepth"]
+color = Color(0.116, 0.333, 0.368, 0.220)
+polygon = PackedVector2Array(417.000, 837.021, 411.000, 816.321, 421.000, 788.721, 417.000, 768.021, 425.000, 781.821, 422.000, 809.421, 422.000, 837.021)
+
+[node name="HazyRock1" type="Polygon2D" parent="SurfaceRunDepth"]
+color = Color(0.116, 0.290, 0.368, 0.250)
+polygon = PackedVector2Array(446.011, 938.719, 483.208, 898.457, 545.202, 873.294, 631.994, 883.359, 693.989, 923.621, 607.197, 953.817)
+
+[node name="HazyRock2" type="Polygon2D" parent="SurfaceRunDepth"]
+color = Color(0.116, 0.290, 0.368, 0.250)
+polygon = PackedVector2Array(604.397, 889.417, 643.578, 822.798, 708.879, 781.162, 800.301, 797.816, 865.603, 864.435, 774.181, 914.399)
+
+[node name="DistantWeed2_0" type="Polygon2D" parent="SurfaceRunDepth"]
+color = Color(0.116, 0.333, 0.368, 0.220)
+polygon = PackedVector2Array(733.000, 831.126, 727.000, 817.626, 737.000, 799.626, 733.000, 786.126, 741.000, 795.126, 738.000, 813.126, 738.000, 831.126)
+
+[node name="DistantWeed2_1" type="Polygon2D" parent="SurfaceRunDepth"]
+color = Color(0.116, 0.333, 0.368, 0.220)
+polygon = PackedVector2Array(747.000, 831.126, 741.000, 810.426, 751.000, 782.826, 747.000, 762.126, 755.000, 775.926, 752.000, 803.526, 752.000, 831.126)
+
+[node name="Bubble0" type="Line2D" parent="SurfaceRunDepth"]
+points = PackedVector2Array(352.000, 810.000, 351.732, 811.000, 351.000, 811.732, 350.000, 812.000, 349.000, 811.732, 348.268, 811.000, 348.000, 810.000, 348.268, 809.000, 349.000, 808.268, 350.000, 808.000, 351.000, 808.268, 351.732, 809.000, 352.000, 810.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble1" type="Line2D" parent="SurfaceRunDepth"]
+points = PackedVector2Array(370.732, 775.000, 370.330, 776.500, 369.232, 777.598, 367.732, 778.000, 366.232, 777.598, 365.134, 776.500, 364.732, 775.000, 365.134, 773.500, 366.232, 772.402, 367.732, 772.000, 369.232, 772.402, 370.330, 773.500, 370.732, 775.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble2" type="Line2D" parent="SurfaceRunDepth"]
+points = PackedVector2Array(383.274, 740.000, 382.738, 742.000, 381.274, 743.464, 379.274, 744.000, 377.274, 743.464, 375.810, 742.000, 375.274, 740.000, 375.810, 738.000, 377.274, 736.536, 379.274, 736.000, 381.274, 736.536, 382.738, 738.000, 383.274, 740.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble3" type="Line2D" parent="SurfaceRunDepth"]
+points = PackedVector2Array(386.129, 705.000, 385.861, 706.000, 385.129, 706.732, 384.129, 707.000, 383.129, 706.732, 382.397, 706.000, 382.129, 705.000, 382.397, 704.000, 383.129, 703.268, 384.129, 703.000, 385.129, 703.268, 385.861, 704.000, 386.129, 705.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="Bubble4" type="Line2D" parent="SurfaceRunDepth"]
+points = PackedVector2Array(390.946, 670.000, 390.544, 671.500, 389.446, 672.598, 387.946, 673.000, 386.446, 672.598, 385.348, 671.500, 384.946, 670.000, 385.348, 668.500, 386.446, 667.402, 387.946, 667.000, 389.446, 667.402, 390.544, 668.500, 390.946, 670.000)
+width = 1.0
+default_color = Color(0.270, 0.520, 0.610, 0.220)
+antialiased = true
+
+[node name="PlayableEdgeReefs" type="Node2D" parent="."]
+z_index = 4
+
+[node name="LeftReef0" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.239, 0.418, 0.498, 0.85)
+polygon = PackedVector2Array(40.000, 218.000, 36.000, 290.000, 40.000, 438.550, 37.000, 557.000, -23.000, 587.000, -86.000, 552.000, -67.100, 383.500, -48.200, 170.000, 15.000, 200.000)
+uv = PackedVector2Array(40.000, 218.000, 36.000, 290.000, 40.000, 438.550, 37.000, 557.000, -23.000, 587.000, -86.000, 552.000, -67.100, 383.500, -48.200, 170.000, 15.000, 200.000)
+
+[node name="LeftLip0" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 265.000, 37.000, 295.000, 39.000, 355.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef1" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.237, 0.415, 0.494, 0.85)
+polygon = PackedVector2Array(40.000, 623.000, 36.000, 695.000, 40.000, 847.450, 37.000, 968.000, -23.000, 998.000, -86.000, 963.000, -67.100, 791.500, -48.200, 575.000, 15.000, 605.000)
+uv = PackedVector2Array(40.000, 623.000, 36.000, 695.000, 40.000, 847.450, 37.000, 968.000, -23.000, 998.000, -86.000, 963.000, -67.100, 791.500, -48.200, 575.000, 15.000, 605.000)
+
+[node name="LeftLip1" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 670.000, 37.000, 700.000, 39.000, 760.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef2" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.236, 0.411, 0.489, 0.85)
+polygon = PackedVector2Array(40.000, 1028.000, 36.000, 1100.000, 40.000, 1231.000, 37.000, 1340.000, -10.000, 1370.000, -60.000, 1335.000, -45.000, 1180.000, -30.000, 980.000, 15.000, 1010.000)
+uv = PackedVector2Array(40.000, 1028.000, 36.000, 1100.000, 40.000, 1231.000, 37.000, 1340.000, -10.000, 1370.000, -60.000, 1335.000, -45.000, 1180.000, -30.000, 980.000, 15.000, 1010.000)
+
+[node name="LeftLip2" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 1075.000, 37.000, 1105.000, 39.000, 1165.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef3" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.234, 0.408, 0.485, 0.85)
+polygon = PackedVector2Array(40.000, 1433.000, 36.000, 1505.000, 40.000, 1644.450, 37.000, 1758.000, -13.000, 1788.000, -66.000, 1753.000, -50.100, 1591.500, -34.200, 1385.000, 15.000, 1415.000)
+uv = PackedVector2Array(40.000, 1433.000, 36.000, 1505.000, 40.000, 1644.450, 37.000, 1758.000, -13.000, 1788.000, -66.000, 1753.000, -50.100, 1591.500, -34.200, 1385.000, 15.000, 1415.000)
+
+[node name="LeftLip3" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 1480.000, 37.000, 1510.000, 39.000, 1570.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef4" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.232, 0.404, 0.481, 0.85)
+polygon = PackedVector2Array(40.000, 1838.000, 36.000, 1910.000, 40.000, 2051.400, 37.000, 2166.000, -29.000, 2196.000, -98.000, 2161.000, -77.300, 1998.000, -56.600, 1790.000, 15.000, 1820.000)
+uv = PackedVector2Array(40.000, 1838.000, 36.000, 1910.000, 40.000, 2051.400, 37.000, 2166.000, -29.000, 2196.000, -98.000, 2161.000, -77.300, 1998.000, -56.600, 1790.000, 15.000, 1820.000)
+
+[node name="LeftLip4" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 1885.000, 37.000, 1915.000, 39.000, 1975.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef5" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.230, 0.401, 0.476, 0.85)
+polygon = PackedVector2Array(40.000, 2243.000, 36.000, 2315.000, 40.000, 2455.750, 37.000, 2570.000, -20.000, 2600.000, -80.000, 2565.000, -62.000, 2402.500, -44.000, 2195.000, 15.000, 2225.000)
+uv = PackedVector2Array(40.000, 2243.000, 36.000, 2315.000, 40.000, 2455.750, 37.000, 2570.000, -20.000, 2600.000, -80.000, 2565.000, -62.000, 2402.500, -44.000, 2195.000, 15.000, 2225.000)
+
+[node name="LeftLip5" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 2290.000, 37.000, 2320.000, 39.000, 2380.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef6" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.228, 0.397, 0.472, 0.85)
+polygon = PackedVector2Array(40.000, 2648.000, 36.000, 2720.000, 40.000, 2873.750, 37.000, 2995.000, -10.500, 3025.000, -61.000, 2990.000, -45.850, 2817.500, -30.700, 2600.000, 15.000, 2630.000)
+uv = PackedVector2Array(40.000, 2648.000, 36.000, 2720.000, 40.000, 2873.750, 37.000, 2995.000, -10.500, 3025.000, -61.000, 2990.000, -45.850, 2817.500, -30.700, 2600.000, 15.000, 2630.000)
+
+[node name="LeftLip6" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 2695.000, 37.000, 2725.000, 39.000, 2785.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef7" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.227, 0.393, 0.468, 0.85)
+polygon = PackedVector2Array(40.000, 3053.000, 36.000, 3125.000, 40.000, 3254.700, 37.000, 3363.000, -29.500, 3393.000, -99.000, 3358.000, -78.150, 3204.000, -57.300, 3005.000, 15.000, 3035.000)
+uv = PackedVector2Array(40.000, 3053.000, 36.000, 3125.000, 40.000, 3254.700, 37.000, 3363.000, -29.500, 3393.000, -99.000, 3358.000, -78.150, 3204.000, -57.300, 3005.000, 15.000, 3035.000)
+
+[node name="LeftLip7" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 3100.000, 37.000, 3130.000, 39.000, 3190.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef8" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.225, 0.390, 0.463, 0.85)
+polygon = PackedVector2Array(40.000, 3458.000, 36.000, 3530.000, 40.000, 3682.450, 37.000, 3803.000, -18.500, 3833.000, -77.000, 3798.000, -59.450, 3626.500, -41.900, 3410.000, 15.000, 3440.000)
+uv = PackedVector2Array(40.000, 3458.000, 36.000, 3530.000, 40.000, 3682.450, 37.000, 3803.000, -18.500, 3833.000, -77.000, 3798.000, -59.450, 3626.500, -41.900, 3410.000, 15.000, 3440.000)
+
+[node name="LeftLip8" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 3505.000, 37.000, 3535.000, 39.000, 3595.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef9" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.223, 0.386, 0.459, 0.85)
+polygon = PackedVector2Array(40.000, 3863.000, 36.000, 3935.000, 40.000, 4077.050, 37.000, 4192.000, -21.500, 4222.000, -83.000, 4187.000, -64.550, 4023.500, -46.100, 3815.000, 15.000, 3845.000)
+uv = PackedVector2Array(40.000, 3863.000, 36.000, 3935.000, 40.000, 4077.050, 37.000, 4192.000, -21.500, 4222.000, -83.000, 4187.000, -64.550, 4023.500, -46.100, 3815.000, 15.000, 3845.000)
+
+[node name="LeftLip9" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 3910.000, 37.000, 3940.000, 39.000, 4000.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef10" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.221, 0.383, 0.455, 0.85)
+polygon = PackedVector2Array(40.000, 4268.000, 36.000, 4340.000, 40.000, 4478.150, 37.000, 4591.000, 2.000, 4621.000, -36.000, 4586.000, -24.600, 4425.500, -13.200, 4220.000, 15.000, 4250.000)
+uv = PackedVector2Array(40.000, 4268.000, 36.000, 4340.000, 40.000, 4478.150, 37.000, 4591.000, 2.000, 4621.000, -36.000, 4586.000, -24.600, 4425.500, -13.200, 4220.000, 15.000, 4250.000)
+
+[node name="LeftLip10" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 4315.000, 37.000, 4345.000, 39.000, 4405.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef11" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.220, 0.379, 0.451, 0.85)
+polygon = PackedVector2Array(40.000, 4673.000, 36.000, 4745.000, 40.000, 4897.450, 37.000, 5018.000, -20.500, 5048.000, -81.000, 5013.000, -62.850, 4841.500, -44.700, 4625.000, 15.000, 4655.000)
+uv = PackedVector2Array(40.000, 4673.000, 36.000, 4745.000, 40.000, 4897.450, 37.000, 5018.000, -20.500, 5048.000, -81.000, 5013.000, -62.850, 4841.500, -44.700, 4625.000, 15.000, 4655.000)
+
+[node name="LeftLip11" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 4720.000, 37.000, 4750.000, 39.000, 4810.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef12" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.218, 0.376, 0.446, 0.85)
+polygon = PackedVector2Array(40.000, 5078.000, 36.000, 5150.000, 40.000, 5272.550, 37.000, 5377.000, -16.000, 5407.000, -72.000, 5372.000, -55.200, 5223.500, -38.400, 5030.000, 15.000, 5060.000)
+uv = PackedVector2Array(40.000, 5078.000, 36.000, 5150.000, 40.000, 5272.550, 37.000, 5377.000, -16.000, 5407.000, -72.000, 5372.000, -55.200, 5223.500, -38.400, 5030.000, 15.000, 5060.000)
+
+[node name="LeftLip12" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 5125.000, 37.000, 5155.000, 39.000, 5215.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef13" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.216, 0.372, 0.442, 0.85)
+polygon = PackedVector2Array(40.000, 5483.000, 36.000, 5555.000, 40.000, 5706.150, 37.000, 5826.000, -37.000, 5856.000, -114.000, 5821.000, -90.900, 5650.500, -67.800, 5435.000, 15.000, 5465.000)
+uv = PackedVector2Array(40.000, 5483.000, 36.000, 5555.000, 40.000, 5706.150, 37.000, 5826.000, -37.000, 5856.000, -114.000, 5821.000, -90.900, 5650.500, -67.800, 5435.000, 15.000, 5465.000)
+
+[node name="LeftLip13" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 5530.000, 37.000, 5560.000, 39.000, 5620.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef14" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.214, 0.369, 0.438, 0.85)
+polygon = PackedVector2Array(40.000, 5888.000, 36.000, 5960.000, 40.000, 6104.650, 37.000, 6221.000, -24.500, 6251.000, -89.000, 6216.000, -69.650, 6050.500, -50.300, 5840.000, 15.000, 5870.000)
+uv = PackedVector2Array(40.000, 5888.000, 36.000, 5960.000, 40.000, 6104.650, 37.000, 6221.000, -24.500, 6251.000, -89.000, 6216.000, -69.650, 6050.500, -50.300, 5840.000, 15.000, 5870.000)
+
+[node name="LeftLip14" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 5935.000, 37.000, 5965.000, 39.000, 6025.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef15" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.213, 0.365, 0.433, 0.85)
+polygon = PackedVector2Array(40.000, 6293.000, 36.000, 6365.000, 40.000, 6501.200, 37.000, 6613.000, -17.500, 6643.000, -75.000, 6608.000, -57.750, 6449.000, -40.500, 6245.000, 15.000, 6275.000)
+uv = PackedVector2Array(40.000, 6293.000, 36.000, 6365.000, 40.000, 6501.200, 37.000, 6613.000, -17.500, 6643.000, -75.000, 6608.000, -57.750, 6449.000, -40.500, 6245.000, 15.000, 6275.000)
+
+[node name="LeftLip15" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 6340.000, 37.000, 6370.000, 39.000, 6430.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef16" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.211, 0.362, 0.429, 0.85)
+polygon = PackedVector2Array(40.000, 6698.000, 36.000, 6770.000, 40.000, 6921.150, 37.000, 7041.000, -27.000, 7071.000, -94.000, 7036.000, -73.900, 6865.500, -53.800, 6650.000, 15.000, 6680.000)
+uv = PackedVector2Array(40.000, 6698.000, 36.000, 6770.000, 40.000, 6921.150, 37.000, 7041.000, -27.000, 7071.000, -94.000, 7036.000, -73.900, 6865.500, -53.800, 6650.000, 15.000, 6680.000)
+
+[node name="LeftLip16" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 6745.000, 37.000, 6775.000, 39.000, 6835.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef17" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.209, 0.358, 0.425, 0.85)
+polygon = PackedVector2Array(40.000, 7103.000, 36.000, 7175.000, 40.000, 7307.300, 37.000, 7417.000, -37.500, 7447.000, -115.000, 7412.000, -91.750, 7256.000, -68.500, 7055.000, 15.000, 7085.000)
+uv = PackedVector2Array(40.000, 7103.000, 36.000, 7175.000, 40.000, 7307.300, 37.000, 7417.000, -37.500, 7447.000, -115.000, 7412.000, -91.750, 7256.000, -68.500, 7055.000, 15.000, 7085.000)
+
+[node name="LeftLip17" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 7150.000, 37.000, 7180.000, 39.000, 7240.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef18" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.207, 0.354, 0.420, 0.85)
+polygon = PackedVector2Array(40.000, 7508.000, 36.000, 7580.000, 40.000, 7726.600, 37.000, 7844.000, -43.000, 7874.000, -126.000, 7839.000, -101.100, 7672.000, -76.200, 7460.000, 15.000, 7490.000)
+uv = PackedVector2Array(40.000, 7508.000, 36.000, 7580.000, 40.000, 7726.600, 37.000, 7844.000, -43.000, 7874.000, -126.000, 7839.000, -101.100, 7672.000, -76.200, 7460.000, 15.000, 7490.000)
+
+[node name="LeftLip18" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 7555.000, 37.000, 7585.000, 39.000, 7645.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef19" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.205, 0.351, 0.416, 0.85)
+polygon = PackedVector2Array(40.000, 7913.000, 36.000, 7985.000, 40.000, 8137.450, 37.000, 8258.000, -27.500, 8288.000, -95.000, 8253.000, -74.750, 8081.500, -54.500, 7865.000, 15.000, 7895.000)
+uv = PackedVector2Array(40.000, 7913.000, 36.000, 7985.000, 40.000, 8137.450, 37.000, 8258.000, -27.500, 8288.000, -95.000, 8253.000, -74.750, 8081.500, -54.500, 7865.000, 15.000, 7895.000)
+
+[node name="LeftLip19" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 7960.000, 37.000, 7990.000, 39.000, 8050.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef20" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.204, 0.347, 0.412, 0.85)
+polygon = PackedVector2Array(40.000, 8318.000, 36.000, 8390.000, 40.000, 8535.300, 37.000, 8652.000, 2.500, 8682.000, -35.000, 8647.000, -23.750, 8481.000, -12.500, 8270.000, 15.000, 8300.000)
+uv = PackedVector2Array(40.000, 8318.000, 36.000, 8390.000, 40.000, 8535.300, 37.000, 8652.000, 2.500, 8682.000, -35.000, 8647.000, -23.750, 8481.000, -12.500, 8270.000, 15.000, 8300.000)
+
+[node name="LeftLip20" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 8365.000, 37.000, 8395.000, 39.000, 8455.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef21" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.202, 0.344, 0.408, 0.85)
+polygon = PackedVector2Array(40.000, 8723.000, 36.000, 8795.000, 40.000, 8939.650, 37.000, 9056.000, -43.500, 9086.000, -127.000, 9051.000, -101.950, 8885.500, -76.900, 8675.000, 15.000, 8705.000)
+uv = PackedVector2Array(40.000, 8723.000, 36.000, 8795.000, 40.000, 8939.650, 37.000, 9056.000, -43.500, 9086.000, -127.000, 9051.000, -101.950, 8885.500, -76.900, 8675.000, 15.000, 8705.000)
+
+[node name="LeftLip21" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 8770.000, 37.000, 8800.000, 39.000, 8860.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef22" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.200, 0.340, 0.403, 0.85)
+polygon = PackedVector2Array(40.000, 9128.000, 36.000, 9200.000, 40.000, 9344.650, 37.000, 9461.000, -45.000, 9491.000, -130.000, 9456.000, -104.500, 9290.500, -79.000, 9080.000, 15.000, 9110.000)
+uv = PackedVector2Array(40.000, 9128.000, 36.000, 9200.000, 40.000, 9344.650, 37.000, 9461.000, -45.000, 9491.000, -130.000, 9456.000, -104.500, 9290.500, -79.000, 9080.000, 15.000, 9110.000)
+
+[node name="LeftLip22" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 9175.000, 37.000, 9205.000, 39.000, 9265.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef23" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.198, 0.337, 0.399, 0.85)
+polygon = PackedVector2Array(40.000, 9533.000, 36.000, 9605.000, 40.000, 9759.400, 37.000, 9881.000, -30.500, 9911.000, -101.000, 9876.000, -79.850, 9703.000, -58.700, 9485.000, 15.000, 9515.000)
+uv = PackedVector2Array(40.000, 9533.000, 36.000, 9605.000, 40.000, 9759.400, 37.000, 9881.000, -30.500, 9911.000, -101.000, 9876.000, -79.850, 9703.000, -58.700, 9485.000, 15.000, 9515.000)
+
+[node name="LeftLip23" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 9580.000, 37.000, 9610.000, 39.000, 9670.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef24" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.197, 0.333, 0.395, 0.85)
+polygon = PackedVector2Array(40.000, 9938.000, 36.000, 10010.000, 40.000, 10161.150, 37.000, 10281.000, 3.500, 10311.000, -33.000, 10276.000, -22.050, 10105.500, -11.100, 9890.000, 15.000, 9920.000)
+uv = PackedVector2Array(40.000, 9938.000, 36.000, 10010.000, 40.000, 10161.150, 37.000, 10281.000, 3.500, 10311.000, -33.000, 10276.000, -22.050, 10105.500, -11.100, 9890.000, 15.000, 9920.000)
+
+[node name="LeftLip24" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 9985.000, 37.000, 10015.000, 39.000, 10075.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef25" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.195, 0.330, 0.390, 0.85)
+polygon = PackedVector2Array(40.000, 10343.000, 36.000, 10415.000, 40.000, 10538.200, 37.000, 10643.000, -39.000, 10673.000, -118.000, 10638.000, -94.300, 10489.000, -70.600, 10295.000, 15.000, 10325.000)
+uv = PackedVector2Array(40.000, 10343.000, 36.000, 10415.000, 40.000, 10538.200, 37.000, 10643.000, -39.000, 10673.000, -118.000, 10638.000, -94.300, 10489.000, -70.600, 10295.000, 15.000, 10325.000)
+
+[node name="LeftLip25" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 10390.000, 37.000, 10420.000, 39.000, 10480.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef26" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.193, 0.326, 0.386, 0.85)
+polygon = PackedVector2Array(40.000, 10748.000, 36.000, 10820.000, 40.000, 10959.450, 37.000, 11073.000, -6.000, 11103.000, -52.000, 11068.000, -38.200, 10906.500, -24.400, 10700.000, 15.000, 10730.000)
+uv = PackedVector2Array(40.000, 10748.000, 36.000, 10820.000, 40.000, 10959.450, 37.000, 11073.000, -6.000, 11103.000, -52.000, 11068.000, -38.200, 10906.500, -24.400, 10700.000, 15.000, 10730.000)
+
+[node name="LeftLip26" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 10795.000, 37.000, 10825.000, 39.000, 10885.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef27" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.191, 0.323, 0.382, 0.85)
+polygon = PackedVector2Array(40.000, 11153.000, 36.000, 11225.000, 40.000, 11362.500, 37.000, 11475.000, -41.500, 11505.000, -123.000, 11470.000, -98.550, 11310.000, -74.100, 11105.000, 15.000, 11135.000)
+uv = PackedVector2Array(40.000, 11153.000, 36.000, 11225.000, 40.000, 11362.500, 37.000, 11475.000, -41.500, 11505.000, -123.000, 11470.000, -98.550, 11310.000, -74.100, 11105.000, 15.000, 11135.000)
+
+[node name="LeftLip27" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 11200.000, 37.000, 11230.000, 39.000, 11290.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef28" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.190, 0.319, 0.377, 0.85)
+polygon = PackedVector2Array(40.000, 11558.000, 36.000, 11630.000, 40.000, 11752.550, 37.000, 11857.000, -40.500, 11887.000, -121.000, 11852.000, -96.850, 11703.500, -72.700, 11510.000, 15.000, 11540.000)
+uv = PackedVector2Array(40.000, 11558.000, 36.000, 11630.000, 40.000, 11752.550, 37.000, 11857.000, -40.500, 11887.000, -121.000, 11852.000, -96.850, 11703.500, -72.700, 11510.000, 15.000, 11540.000)
+
+[node name="LeftLip28" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 11605.000, 37.000, 11635.000, 39.000, 11695.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef29" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.188, 0.315, 0.373, 0.85)
+polygon = PackedVector2Array(40.000, 11963.000, 36.000, 12035.000, 40.000, 12163.400, 37.000, 12271.000, -41.000, 12301.000, -122.000, 12266.000, -97.700, 12113.000, -73.400, 11915.000, 15.000, 11945.000)
+uv = PackedVector2Array(40.000, 11963.000, 36.000, 12035.000, 40.000, 12163.400, 37.000, 12271.000, -41.000, 12301.000, -122.000, 12266.000, -97.700, 12113.000, -73.400, 11915.000, 15.000, 11945.000)
+
+[node name="LeftLip29" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 12010.000, 37.000, 12040.000, 39.000, 12100.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef30" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.186, 0.312, 0.369, 0.85)
+polygon = PackedVector2Array(40.000, 12368.000, 36.000, 12440.000, 40.000, 12567.100, 37.000, 12674.000, -31.000, 12704.000, -102.000, 12669.000, -80.700, 12517.000, -59.400, 12320.000, 15.000, 12350.000)
+uv = PackedVector2Array(40.000, 12368.000, 36.000, 12440.000, 40.000, 12567.100, 37.000, 12674.000, -31.000, 12704.000, -102.000, 12669.000, -80.700, 12517.000, -59.400, 12320.000, 15.000, 12350.000)
+
+[node name="LeftLip30" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 12415.000, 37.000, 12445.000, 39.000, 12505.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef31" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.184, 0.308, 0.364, 0.85)
+polygon = PackedVector2Array(40.000, 12773.000, 36.000, 12845.000, 40.000, 12983.150, 37.000, 13096.000, -44.500, 13126.000, -129.000, 13091.000, -103.650, 12930.500, -78.300, 12725.000, 15.000, 12755.000)
+uv = PackedVector2Array(40.000, 12773.000, 36.000, 12845.000, 40.000, 12983.150, 37.000, 13096.000, -44.500, 13126.000, -129.000, 13091.000, -103.650, 12930.500, -78.300, 12725.000, 15.000, 12755.000)
+
+[node name="LeftLip31" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 12820.000, 37.000, 12850.000, 39.000, 12910.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef32" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.182, 0.305, 0.360, 0.85)
+polygon = PackedVector2Array(40.000, 13178.000, 36.000, 13250.000, 40.000, 13387.500, 37.000, 13500.000, 0.500, 13530.000, -39.000, 13495.000, -27.150, 13335.000, -15.300, 13130.000, 15.000, 13160.000)
+uv = PackedVector2Array(40.000, 13178.000, 36.000, 13250.000, 40.000, 13387.500, 37.000, 13500.000, 0.500, 13530.000, -39.000, 13495.000, -27.150, 13335.000, -15.300, 13130.000, 15.000, 13160.000)
+
+[node name="LeftLip32" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 13225.000, 37.000, 13255.000, 39.000, 13315.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef33" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.181, 0.301, 0.356, 0.85)
+polygon = PackedVector2Array(40.000, 13583.000, 36.000, 13655.000, 40.000, 13789.900, 37.000, 13901.000, -21.500, 13931.000, -83.000, 13896.000, -64.550, 13738.000, -46.100, 13535.000, 15.000, 13565.000)
+uv = PackedVector2Array(40.000, 13583.000, 36.000, 13655.000, 40.000, 13789.900, 37.000, 13901.000, -21.500, 13931.000, -83.000, 13896.000, -64.550, 13738.000, -46.100, 13535.000, 15.000, 13565.000)
+
+[node name="LeftLip33" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 13630.000, 37.000, 13660.000, 39.000, 13720.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef34" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.179, 0.298, 0.352, 0.85)
+polygon = PackedVector2Array(40.000, 13988.000, 36.000, 14060.000, 40.000, 14208.550, 37.000, 14327.000, -31.500, 14357.000, -103.000, 14322.000, -81.550, 14153.500, -60.100, 13940.000, 15.000, 13970.000)
+uv = PackedVector2Array(40.000, 13988.000, 36.000, 14060.000, 40.000, 14208.550, 37.000, 14327.000, -31.500, 14357.000, -103.000, 14322.000, -81.550, 14153.500, -60.100, 13940.000, 15.000, 13970.000)
+
+[node name="LeftLip34" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 14035.000, 37.000, 14065.000, 39.000, 14125.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef35" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.177, 0.294, 0.347, 0.85)
+polygon = PackedVector2Array(40.000, 14393.000, 36.000, 14465.000, 40.000, 14608.350, 37.000, 14724.000, 0.000, 14754.000, -40.000, 14719.000, -28.000, 14554.500, -16.000, 14345.000, 15.000, 14375.000)
+uv = PackedVector2Array(40.000, 14393.000, 36.000, 14465.000, 40.000, 14608.350, 37.000, 14724.000, 0.000, 14754.000, -40.000, 14719.000, -28.000, 14554.500, -16.000, 14345.000, 15.000, 14375.000)
+
+[node name="LeftLip35" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 14440.000, 37.000, 14470.000, 39.000, 14530.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef36" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.175, 0.291, 0.343, 0.85)
+polygon = PackedVector2Array(40.000, 14798.000, 36.000, 14870.000, 40.000, 15005.550, 37.000, 15117.000, -2.000, 15147.000, -44.000, 15112.000, -31.400, 14953.500, -18.800, 14750.000, 15.000, 14780.000)
+uv = PackedVector2Array(40.000, 14798.000, 36.000, 14870.000, 40.000, 15005.550, 37.000, 15117.000, -2.000, 15147.000, -44.000, 15112.000, -31.400, 14953.500, -18.800, 14750.000, 15.000, 14780.000)
+
+[node name="LeftLip36" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 14845.000, 37.000, 14875.000, 39.000, 14935.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef37" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.174, 0.287, 0.339, 0.85)
+polygon = PackedVector2Array(40.000, 15203.000, 36.000, 15275.000, 40.000, 15415.750, 37.000, 15530.000, -39.500, 15560.000, -119.000, 15525.000, -95.150, 15362.500, -71.300, 15155.000, 15.000, 15185.000)
+uv = PackedVector2Array(40.000, 15203.000, 36.000, 15275.000, 40.000, 15415.750, 37.000, 15530.000, -39.500, 15560.000, -119.000, 15525.000, -95.150, 15362.500, -71.300, 15155.000, 15.000, 15185.000)
+
+[node name="LeftLip37" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 15250.000, 37.000, 15280.000, 39.000, 15340.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="LeftReef38" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.172, 0.284, 0.334, 0.85)
+polygon = PackedVector2Array(40.000, 15608.000, 36.000, 15680.000, 40.000, 15805.150, 37.000, 15911.000, -38.500, 15941.000, -117.000, 15906.000, -93.450, 15755.500, -69.900, 15560.000, 15.000, 15590.000)
+uv = PackedVector2Array(40.000, 15608.000, 36.000, 15680.000, 40.000, 15805.150, 37.000, 15911.000, -38.500, 15941.000, -117.000, 15906.000, -93.450, 15755.500, -69.900, 15560.000, 15.000, 15590.000)
+
+[node name="LeftLip38" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(40.000, 15655.000, 37.000, 15685.000, 39.000, 15745.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef0" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.239, 0.418, 0.498, 0.85)
+polygon = PackedVector2Array(1160.000, 218.000, 1164.000, 290.000, 1160.000, 437.900, 1163.000, 556.000, 1204.500, 586.000, 1249.000, 551.000, 1235.650, 383.000, 1222.300, 170.000, 1185.000, 200.000)
+uv = PackedVector2Array(1160.000, 218.000, 1164.000, 290.000, 1160.000, 437.900, 1163.000, 556.000, 1204.500, 586.000, 1249.000, 551.000, 1235.650, 383.000, 1222.300, 170.000, 1185.000, 200.000)
+
+[node name="RightLip0" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 265.000, 1163.000, 295.000, 1161.000, 355.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef1" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.237, 0.415, 0.494, 0.85)
+polygon = PackedVector2Array(1160.000, 623.000, 1164.000, 695.000, 1160.000, 851.350, 1163.000, 974.000, 1203.000, 1004.000, 1246.000, 969.000, 1233.100, 794.500, 1220.200, 575.000, 1185.000, 605.000)
+uv = PackedVector2Array(1160.000, 623.000, 1164.000, 695.000, 1160.000, 851.350, 1163.000, 974.000, 1203.000, 1004.000, 1246.000, 969.000, 1233.100, 794.500, 1220.200, 575.000, 1185.000, 605.000)
+
+[node name="RightLip1" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 670.000, 1163.000, 700.000, 1161.000, 760.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef2" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.236, 0.411, 0.489, 0.85)
+polygon = PackedVector2Array(1160.000, 1028.000, 1164.000, 1100.000, 1160.000, 1244.000, 1163.000, 1360.000, 1219.500, 1390.000, 1279.000, 1355.000, 1261.150, 1190.000, 1243.300, 980.000, 1185.000, 1010.000)
+uv = PackedVector2Array(1160.000, 1028.000, 1164.000, 1100.000, 1160.000, 1244.000, 1163.000, 1360.000, 1219.500, 1390.000, 1279.000, 1355.000, 1261.150, 1190.000, 1243.300, 980.000, 1185.000, 1010.000)
+
+[node name="RightLip2" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 1075.000, 1163.000, 1105.000, 1161.000, 1165.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef3" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.234, 0.408, 0.485, 0.85)
+polygon = PackedVector2Array(1160.000, 1433.000, 1164.000, 1505.000, 1160.000, 1643.150, 1163.000, 1756.000, 1228.000, 1786.000, 1296.000, 1751.000, 1275.600, 1590.500, 1255.200, 1385.000, 1185.000, 1415.000)
+uv = PackedVector2Array(1160.000, 1433.000, 1164.000, 1505.000, 1160.000, 1643.150, 1163.000, 1756.000, 1228.000, 1786.000, 1296.000, 1751.000, 1275.600, 1590.500, 1255.200, 1385.000, 1185.000, 1415.000)
+
+[node name="RightLip3" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 1480.000, 1163.000, 1510.000, 1161.000, 1570.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef4" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.232, 0.404, 0.481, 0.85)
+polygon = PackedVector2Array(1160.000, 1838.000, 1164.000, 1910.000, 1160.000, 2035.150, 1163.000, 2141.000, 1228.000, 2171.000, 1296.000, 2136.000, 1275.600, 1985.500, 1255.200, 1790.000, 1185.000, 1820.000)
+uv = PackedVector2Array(1160.000, 1838.000, 1164.000, 1910.000, 1160.000, 2035.150, 1163.000, 2141.000, 1228.000, 2171.000, 1296.000, 2136.000, 1275.600, 1985.500, 1255.200, 1790.000, 1185.000, 1820.000)
+
+[node name="RightLip4" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 1885.000, 1163.000, 1915.000, 1161.000, 1975.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef5" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.230, 0.401, 0.476, 0.85)
+polygon = PackedVector2Array(1160.000, 2243.000, 1164.000, 2315.000, 1160.000, 2455.100, 1163.000, 2569.000, 1245.000, 2599.000, 1330.000, 2564.000, 1304.500, 2402.000, 1279.000, 2195.000, 1185.000, 2225.000)
+uv = PackedVector2Array(1160.000, 2243.000, 1164.000, 2315.000, 1160.000, 2455.100, 1163.000, 2569.000, 1245.000, 2599.000, 1330.000, 2564.000, 1304.500, 2402.000, 1279.000, 2195.000, 1185.000, 2225.000)
+
+[node name="RightLip5" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 2290.000, 1163.000, 2320.000, 1161.000, 2380.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef6" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.228, 0.397, 0.472, 0.85)
+polygon = PackedVector2Array(1160.000, 2648.000, 1164.000, 2720.000, 1160.000, 2869.200, 1163.000, 2988.000, 1220.000, 3018.000, 1280.000, 2983.000, 1262.000, 2814.000, 1244.000, 2600.000, 1185.000, 2630.000)
+uv = PackedVector2Array(1160.000, 2648.000, 1164.000, 2720.000, 1160.000, 2869.200, 1163.000, 2988.000, 1220.000, 3018.000, 1280.000, 2983.000, 1262.000, 2814.000, 1244.000, 2600.000, 1185.000, 2630.000)
+
+[node name="RightLip6" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 2695.000, 1163.000, 2725.000, 1161.000, 2785.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef7" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.227, 0.393, 0.468, 0.85)
+polygon = PackedVector2Array(1160.000, 3053.000, 1164.000, 3125.000, 1160.000, 3277.450, 1163.000, 3398.000, 1240.500, 3428.000, 1321.000, 3393.000, 1296.850, 3221.500, 1272.700, 3005.000, 1185.000, 3035.000)
+uv = PackedVector2Array(1160.000, 3053.000, 1164.000, 3125.000, 1160.000, 3277.450, 1163.000, 3398.000, 1240.500, 3428.000, 1321.000, 3393.000, 1296.850, 3221.500, 1272.700, 3005.000, 1185.000, 3035.000)
+
+[node name="RightLip7" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 3100.000, 1163.000, 3130.000, 1161.000, 3190.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef8" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.225, 0.390, 0.463, 0.85)
+polygon = PackedVector2Array(1160.000, 3458.000, 1164.000, 3530.000, 1160.000, 3681.150, 1163.000, 3801.000, 1206.500, 3831.000, 1253.000, 3796.000, 1239.050, 3625.500, 1225.100, 3410.000, 1185.000, 3440.000)
+uv = PackedVector2Array(1160.000, 3458.000, 1164.000, 3530.000, 1160.000, 3681.150, 1163.000, 3801.000, 1206.500, 3831.000, 1253.000, 3796.000, 1239.050, 3625.500, 1225.100, 3410.000, 1185.000, 3440.000)
+
+[node name="RightLip8" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 3505.000, 1163.000, 3535.000, 1161.000, 3595.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef9" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.223, 0.386, 0.459, 0.85)
+polygon = PackedVector2Array(1160.000, 3863.000, 1164.000, 3935.000, 1160.000, 4067.950, 1163.000, 4178.000, 1234.000, 4208.000, 1308.000, 4173.000, 1285.800, 4016.500, 1263.600, 3815.000, 1185.000, 3845.000)
+uv = PackedVector2Array(1160.000, 3863.000, 1164.000, 3935.000, 1160.000, 4067.950, 1163.000, 4178.000, 1234.000, 4208.000, 1308.000, 4173.000, 1285.800, 4016.500, 1263.600, 3815.000, 1185.000, 3845.000)
+
+[node name="RightLip9" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 3910.000, 1163.000, 3940.000, 1161.000, 4000.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef10" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.221, 0.383, 0.455, 0.85)
+polygon = PackedVector2Array(1160.000, 4268.000, 1164.000, 4340.000, 1160.000, 4489.200, 1163.000, 4608.000, 1202.500, 4638.000, 1245.000, 4603.000, 1232.250, 4434.000, 1219.500, 4220.000, 1185.000, 4250.000)
+uv = PackedVector2Array(1160.000, 4268.000, 1164.000, 4340.000, 1160.000, 4489.200, 1163.000, 4608.000, 1202.500, 4638.000, 1245.000, 4603.000, 1232.250, 4434.000, 1219.500, 4220.000, 1185.000, 4250.000)
+
+[node name="RightLip10" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 4315.000, 1163.000, 4345.000, 1161.000, 4405.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef11" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.220, 0.379, 0.451, 0.85)
+polygon = PackedVector2Array(1160.000, 4673.000, 1164.000, 4745.000, 1160.000, 4873.400, 1163.000, 4981.000, 1228.000, 5011.000, 1296.000, 4976.000, 1275.600, 4823.000, 1255.200, 4625.000, 1185.000, 4655.000)
+uv = PackedVector2Array(1160.000, 4673.000, 1164.000, 4745.000, 1160.000, 4873.400, 1163.000, 4981.000, 1228.000, 5011.000, 1296.000, 4976.000, 1275.600, 4823.000, 1255.200, 4625.000, 1185.000, 4655.000)
+
+[node name="RightLip11" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 4720.000, 1163.000, 4750.000, 1161.000, 4810.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef12" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.218, 0.376, 0.446, 0.85)
+polygon = PackedVector2Array(1160.000, 5078.000, 1164.000, 5150.000, 1160.000, 5275.150, 1163.000, 5381.000, 1233.500, 5411.000, 1307.000, 5376.000, 1284.950, 5225.500, 1262.900, 5030.000, 1185.000, 5060.000)
+uv = PackedVector2Array(1160.000, 5078.000, 1164.000, 5150.000, 1160.000, 5275.150, 1163.000, 5381.000, 1233.500, 5411.000, 1307.000, 5376.000, 1284.950, 5225.500, 1262.900, 5030.000, 1185.000, 5060.000)
+
+[node name="RightLip12" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 5125.000, 1163.000, 5155.000, 1161.000, 5215.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef13" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.216, 0.372, 0.442, 0.85)
+polygon = PackedVector2Array(1160.000, 5483.000, 1164.000, 5555.000, 1160.000, 5691.200, 1163.000, 5803.000, 1219.000, 5833.000, 1278.000, 5798.000, 1260.300, 5639.000, 1242.600, 5435.000, 1185.000, 5465.000)
+uv = PackedVector2Array(1160.000, 5483.000, 1164.000, 5555.000, 1160.000, 5691.200, 1163.000, 5803.000, 1219.000, 5833.000, 1278.000, 5798.000, 1260.300, 5639.000, 1242.600, 5435.000, 1185.000, 5465.000)
+
+[node name="RightLip13" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 5530.000, 1163.000, 5560.000, 1161.000, 5620.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef14" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.214, 0.369, 0.438, 0.85)
+polygon = PackedVector2Array(1160.000, 5888.000, 1164.000, 5960.000, 1160.000, 6100.100, 1163.000, 6214.000, 1217.000, 6244.000, 1274.000, 6209.000, 1256.900, 6047.000, 1239.800, 5840.000, 1185.000, 5870.000)
+uv = PackedVector2Array(1160.000, 5888.000, 1164.000, 5960.000, 1160.000, 6100.100, 1163.000, 6214.000, 1217.000, 6244.000, 1274.000, 6209.000, 1256.900, 6047.000, 1239.800, 5840.000, 1185.000, 5870.000)
+
+[node name="RightLip14" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 5935.000, 1163.000, 5965.000, 1161.000, 6025.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef15" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.213, 0.365, 0.433, 0.85)
+polygon = PackedVector2Array(1160.000, 6293.000, 1164.000, 6365.000, 1160.000, 6505.750, 1163.000, 6620.000, 1210.500, 6650.000, 1261.000, 6615.000, 1245.850, 6452.500, 1230.700, 6245.000, 1185.000, 6275.000)
+uv = PackedVector2Array(1160.000, 6293.000, 1164.000, 6365.000, 1160.000, 6505.750, 1163.000, 6620.000, 1210.500, 6650.000, 1261.000, 6615.000, 1245.850, 6452.500, 1230.700, 6245.000, 1185.000, 6275.000)
+
+[node name="RightLip15" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 6340.000, 1163.000, 6370.000, 1161.000, 6430.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef16" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.211, 0.362, 0.429, 0.85)
+polygon = PackedVector2Array(1160.000, 6698.000, 1164.000, 6770.000, 1160.000, 6912.700, 1163.000, 7028.000, 1232.000, 7058.000, 1304.000, 7023.000, 1282.400, 6859.000, 1260.800, 6650.000, 1185.000, 6680.000)
+uv = PackedVector2Array(1160.000, 6698.000, 1164.000, 6770.000, 1160.000, 6912.700, 1163.000, 7028.000, 1232.000, 7058.000, 1304.000, 7023.000, 1282.400, 6859.000, 1260.800, 6650.000, 1185.000, 6680.000)
+
+[node name="RightLip16" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 6745.000, 1163.000, 6775.000, 1161.000, 6835.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef17" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.209, 0.358, 0.425, 0.85)
+polygon = PackedVector2Array(1160.000, 7103.000, 1164.000, 7175.000, 1160.000, 7315.100, 1163.000, 7429.000, 1226.500, 7459.000, 1293.000, 7424.000, 1273.050, 7262.000, 1253.100, 7055.000, 1185.000, 7085.000)
+uv = PackedVector2Array(1160.000, 7103.000, 1164.000, 7175.000, 1160.000, 7315.100, 1163.000, 7429.000, 1226.500, 7459.000, 1293.000, 7424.000, 1273.050, 7262.000, 1253.100, 7055.000, 1185.000, 7085.000)
+
+[node name="RightLip17" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 7150.000, 1163.000, 7180.000, 1161.000, 7240.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef18" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.207, 0.354, 0.420, 0.85)
+polygon = PackedVector2Array(1160.000, 7508.000, 1164.000, 7580.000, 1160.000, 7712.300, 1163.000, 7822.000, 1219.500, 7852.000, 1279.000, 7817.000, 1261.150, 7661.000, 1243.300, 7460.000, 1185.000, 7490.000)
+uv = PackedVector2Array(1160.000, 7508.000, 1164.000, 7580.000, 1160.000, 7712.300, 1163.000, 7822.000, 1219.500, 7852.000, 1279.000, 7817.000, 1261.150, 7661.000, 1243.300, 7460.000, 1185.000, 7490.000)
+
+[node name="RightLip18" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 7555.000, 1163.000, 7585.000, 1161.000, 7645.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef19" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.205, 0.351, 0.416, 0.85)
+polygon = PackedVector2Array(1160.000, 7913.000, 1164.000, 7985.000, 1160.000, 8138.750, 1163.000, 8260.000, 1235.500, 8290.000, 1311.000, 8255.000, 1288.350, 8082.500, 1265.700, 7865.000, 1185.000, 7895.000)
+uv = PackedVector2Array(1160.000, 7913.000, 1164.000, 7985.000, 1160.000, 8138.750, 1163.000, 8260.000, 1235.500, 8290.000, 1311.000, 8255.000, 1288.350, 8082.500, 1265.700, 7865.000, 1185.000, 7895.000)
+
+[node name="RightLip19" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 7960.000, 1163.000, 7990.000, 1161.000, 8050.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef20" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.204, 0.347, 0.412, 0.85)
+polygon = PackedVector2Array(1160.000, 8318.000, 1164.000, 8390.000, 1160.000, 8528.150, 1163.000, 8641.000, 1230.000, 8671.000, 1300.000, 8636.000, 1279.000, 8475.500, 1258.000, 8270.000, 1185.000, 8300.000)
+uv = PackedVector2Array(1160.000, 8318.000, 1164.000, 8390.000, 1160.000, 8528.150, 1163.000, 8641.000, 1230.000, 8671.000, 1300.000, 8636.000, 1279.000, 8475.500, 1258.000, 8270.000, 1185.000, 8300.000)
+
+[node name="RightLip20" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 8365.000, 1163.000, 8395.000, 1161.000, 8455.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef21" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.202, 0.344, 0.408, 0.85)
+polygon = PackedVector2Array(1160.000, 8723.000, 1164.000, 8795.000, 1160.000, 8922.750, 1163.000, 9030.000, 1239.000, 9060.000, 1318.000, 9025.000, 1294.300, 8872.500, 1270.600, 8675.000, 1185.000, 8705.000)
+uv = PackedVector2Array(1160.000, 8723.000, 1164.000, 8795.000, 1160.000, 8922.750, 1163.000, 9030.000, 1239.000, 9060.000, 1318.000, 9025.000, 1294.300, 8872.500, 1270.600, 8675.000, 1185.000, 8705.000)
+
+[node name="RightLip21" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 8770.000, 1163.000, 8800.000, 1161.000, 8860.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef22" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.200, 0.340, 0.403, 0.85)
+polygon = PackedVector2Array(1160.000, 9128.000, 1164.000, 9200.000, 1160.000, 9332.950, 1163.000, 9443.000, 1210.500, 9473.000, 1261.000, 9438.000, 1245.850, 9281.500, 1230.700, 9080.000, 1185.000, 9110.000)
+uv = PackedVector2Array(1160.000, 9128.000, 1164.000, 9200.000, 1160.000, 9332.950, 1163.000, 9443.000, 1210.500, 9473.000, 1261.000, 9438.000, 1245.850, 9281.500, 1230.700, 9080.000, 1185.000, 9110.000)
+
+[node name="RightLip22" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 9175.000, 1163.000, 9205.000, 1161.000, 9265.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef23" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.198, 0.337, 0.399, 0.85)
+polygon = PackedVector2Array(1160.000, 9533.000, 1164.000, 9605.000, 1160.000, 9738.600, 1163.000, 9849.000, 1235.000, 9879.000, 1310.000, 9844.000, 1287.500, 9687.000, 1265.000, 9485.000, 1185.000, 9515.000)
+uv = PackedVector2Array(1160.000, 9533.000, 1164.000, 9605.000, 1160.000, 9738.600, 1163.000, 9849.000, 1235.000, 9879.000, 1310.000, 9844.000, 1287.500, 9687.000, 1265.000, 9485.000, 1185.000, 9515.000)
+
+[node name="RightLip23" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 9580.000, 1163.000, 9610.000, 1161.000, 9670.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef24" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.197, 0.333, 0.395, 0.85)
+polygon = PackedVector2Array(1160.000, 9938.000, 1164.000, 10010.000, 1160.000, 10134.500, 1163.000, 10240.000, 1244.000, 10270.000, 1328.000, 10235.000, 1302.800, 10085.000, 1277.600, 9890.000, 1185.000, 9920.000)
+uv = PackedVector2Array(1160.000, 9938.000, 1164.000, 10010.000, 1160.000, 10134.500, 1163.000, 10240.000, 1244.000, 10270.000, 1328.000, 10235.000, 1302.800, 10085.000, 1277.600, 9890.000, 1185.000, 9920.000)
+
+[node name="RightLip24" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 9985.000, 1163.000, 10015.000, 1161.000, 10075.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef25" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.195, 0.330, 0.390, 0.85)
+polygon = PackedVector2Array(1160.000, 10343.000, 1164.000, 10415.000, 1160.000, 10570.700, 1163.000, 10693.000, 1213.500, 10723.000, 1267.000, 10688.000, 1250.950, 10514.000, 1234.900, 10295.000, 1185.000, 10325.000)
+uv = PackedVector2Array(1160.000, 10343.000, 1164.000, 10415.000, 1160.000, 10570.700, 1163.000, 10693.000, 1213.500, 10723.000, 1267.000, 10688.000, 1250.950, 10514.000, 1234.900, 10295.000, 1185.000, 10325.000)
+
+[node name="RightLip25" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 10390.000, 1163.000, 10420.000, 1161.000, 10480.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef26" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.193, 0.326, 0.386, 0.85)
+polygon = PackedVector2Array(1160.000, 10748.000, 1164.000, 10820.000, 1160.000, 10975.700, 1163.000, 11098.000, 1227.500, 11128.000, 1295.000, 11093.000, 1274.750, 10919.000, 1254.500, 10700.000, 1185.000, 10730.000)
+uv = PackedVector2Array(1160.000, 10748.000, 1164.000, 10820.000, 1160.000, 10975.700, 1163.000, 11098.000, 1227.500, 11128.000, 1295.000, 11093.000, 1274.750, 10919.000, 1254.500, 10700.000, 1185.000, 10730.000)
+
+[node name="RightLip26" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 10795.000, 1163.000, 10825.000, 1161.000, 10885.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef27" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.191, 0.323, 0.382, 0.85)
+polygon = PackedVector2Array(1160.000, 11153.000, 1164.000, 11225.000, 1160.000, 11361.850, 1163.000, 11474.000, 1203.000, 11504.000, 1246.000, 11469.000, 1233.100, 11309.500, 1220.200, 11105.000, 1185.000, 11135.000)
+uv = PackedVector2Array(1160.000, 11153.000, 1164.000, 11225.000, 1160.000, 11361.850, 1163.000, 11474.000, 1203.000, 11504.000, 1246.000, 11469.000, 1233.100, 11309.500, 1220.200, 11105.000, 1185.000, 11135.000)
+
+[node name="RightLip27" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 11200.000, 1163.000, 11230.000, 1161.000, 11290.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef28" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.190, 0.319, 0.377, 0.85)
+polygon = PackedVector2Array(1160.000, 11558.000, 1164.000, 11630.000, 1160.000, 11764.900, 1163.000, 11876.000, 1224.500, 11906.000, 1289.000, 11871.000, 1269.650, 11713.000, 1250.300, 11510.000, 1185.000, 11540.000)
+uv = PackedVector2Array(1160.000, 11558.000, 1164.000, 11630.000, 1160.000, 11764.900, 1163.000, 11876.000, 1224.500, 11906.000, 1289.000, 11871.000, 1269.650, 11713.000, 1250.300, 11510.000, 1185.000, 11540.000)
+
+[node name="RightLip28" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 11605.000, 1163.000, 11635.000, 1161.000, 11695.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef29" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.188, 0.315, 0.373, 0.85)
+polygon = PackedVector2Array(1160.000, 11963.000, 1164.000, 12035.000, 1160.000, 12173.800, 1163.000, 12287.000, 1211.500, 12317.000, 1263.000, 12282.000, 1247.550, 12121.000, 1232.100, 11915.000, 1185.000, 11945.000)
+uv = PackedVector2Array(1160.000, 11963.000, 1164.000, 12035.000, 1160.000, 12173.800, 1163.000, 12287.000, 1211.500, 12317.000, 1263.000, 12282.000, 1247.550, 12121.000, 1232.100, 11915.000, 1185.000, 11945.000)
+
+[node name="RightLip29" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 12010.000, 1163.000, 12040.000, 1161.000, 12100.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef30" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.186, 0.312, 0.369, 0.85)
+polygon = PackedVector2Array(1160.000, 12368.000, 1164.000, 12440.000, 1160.000, 12593.100, 1163.000, 12714.000, 1242.500, 12744.000, 1325.000, 12709.000, 1300.250, 12537.000, 1275.500, 12320.000, 1185.000, 12350.000)
+uv = PackedVector2Array(1160.000, 12368.000, 1164.000, 12440.000, 1160.000, 12593.100, 1163.000, 12714.000, 1242.500, 12744.000, 1325.000, 12709.000, 1300.250, 12537.000, 1275.500, 12320.000, 1185.000, 12350.000)
+
+[node name="RightLip30" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 12415.000, 1163.000, 12445.000, 1161.000, 12505.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef31" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.184, 0.308, 0.364, 0.85)
+polygon = PackedVector2Array(1160.000, 12773.000, 1164.000, 12845.000, 1160.000, 12968.200, 1163.000, 13073.000, 1235.000, 13103.000, 1310.000, 13068.000, 1287.500, 12919.000, 1265.000, 12725.000, 1185.000, 12755.000)
+uv = PackedVector2Array(1160.000, 12773.000, 1164.000, 12845.000, 1160.000, 12968.200, 1163.000, 13073.000, 1235.000, 13103.000, 1310.000, 13068.000, 1287.500, 12919.000, 1265.000, 12725.000, 1185.000, 12755.000)
+
+[node name="RightLip31" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 12820.000, 1163.000, 12850.000, 1161.000, 12910.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef32" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.182, 0.305, 0.360, 0.85)
+polygon = PackedVector2Array(1160.000, 13178.000, 1164.000, 13250.000, 1160.000, 13407.000, 1163.000, 13530.000, 1205.000, 13560.000, 1250.000, 13525.000, 1236.500, 13350.000, 1223.000, 13130.000, 1185.000, 13160.000)
+uv = PackedVector2Array(1160.000, 13178.000, 1164.000, 13250.000, 1160.000, 13407.000, 1163.000, 13530.000, 1205.000, 13560.000, 1250.000, 13525.000, 1236.500, 13350.000, 1223.000, 13130.000, 1185.000, 13160.000)
+
+[node name="RightLip32" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 13225.000, 1163.000, 13255.000, 1161.000, 13315.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef33" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.181, 0.301, 0.356, 0.85)
+polygon = PackedVector2Array(1160.000, 13583.000, 1164.000, 13655.000, 1160.000, 13810.700, 1163.000, 13933.000, 1220.000, 13963.000, 1280.000, 13928.000, 1262.000, 13754.000, 1244.000, 13535.000, 1185.000, 13565.000)
+uv = PackedVector2Array(1160.000, 13583.000, 1164.000, 13655.000, 1160.000, 13810.700, 1163.000, 13933.000, 1220.000, 13963.000, 1280.000, 13928.000, 1262.000, 13754.000, 1244.000, 13535.000, 1185.000, 13565.000)
+
+[node name="RightLip33" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 13630.000, 1163.000, 13660.000, 1161.000, 13720.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef34" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.179, 0.298, 0.352, 0.85)
+polygon = PackedVector2Array(1160.000, 13988.000, 1164.000, 14060.000, 1160.000, 14189.700, 1163.000, 14298.000, 1243.500, 14328.000, 1327.000, 14293.000, 1301.950, 14139.000, 1276.900, 13940.000, 1185.000, 13970.000)
+uv = PackedVector2Array(1160.000, 13988.000, 1164.000, 14060.000, 1160.000, 14189.700, 1163.000, 14298.000, 1243.500, 14328.000, 1327.000, 14293.000, 1301.950, 14139.000, 1276.900, 13940.000, 1185.000, 13970.000)
+
+[node name="RightLip34" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 14035.000, 1163.000, 14065.000, 1161.000, 14125.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef35" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.177, 0.294, 0.347, 0.85)
+polygon = PackedVector2Array(1160.000, 14393.000, 1164.000, 14465.000, 1160.000, 14601.850, 1163.000, 14714.000, 1218.500, 14744.000, 1277.000, 14709.000, 1259.450, 14549.500, 1241.900, 14345.000, 1185.000, 14375.000)
+uv = PackedVector2Array(1160.000, 14393.000, 1164.000, 14465.000, 1160.000, 14601.850, 1163.000, 14714.000, 1218.500, 14744.000, 1277.000, 14709.000, 1259.450, 14549.500, 1241.900, 14345.000, 1185.000, 14375.000)
+
+[node name="RightLip35" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 14440.000, 1163.000, 14470.000, 1161.000, 14530.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef36" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.175, 0.291, 0.343, 0.85)
+polygon = PackedVector2Array(1160.000, 14798.000, 1164.000, 14870.000, 1160.000, 15007.500, 1163.000, 15120.000, 1245.000, 15150.000, 1330.000, 15115.000, 1304.500, 14955.000, 1279.000, 14750.000, 1185.000, 14780.000)
+uv = PackedVector2Array(1160.000, 14798.000, 1164.000, 14870.000, 1160.000, 15007.500, 1163.000, 15120.000, 1245.000, 15150.000, 1330.000, 15115.000, 1304.500, 14955.000, 1279.000, 14750.000, 1185.000, 14780.000)
+
+[node name="RightLip36" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 14845.000, 1163.000, 14875.000, 1161.000, 14935.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef37" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.174, 0.287, 0.339, 0.85)
+polygon = PackedVector2Array(1160.000, 15203.000, 1164.000, 15275.000, 1160.000, 15426.150, 1163.000, 15546.000, 1230.000, 15576.000, 1300.000, 15541.000, 1279.000, 15370.500, 1258.000, 15155.000, 1185.000, 15185.000)
+uv = PackedVector2Array(1160.000, 15203.000, 1164.000, 15275.000, 1160.000, 15426.150, 1163.000, 15546.000, 1230.000, 15576.000, 1300.000, 15541.000, 1279.000, 15370.500, 1258.000, 15155.000, 1185.000, 15185.000)
+
+[node name="RightLip37" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 15250.000, 1163.000, 15280.000, 1161.000, 15340.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true
+
+[node name="RightReef38" type="Polygon2D" parent="PlayableEdgeReefs"]
+texture = ExtResource("boundary_rock")
+texture_repeat = 2
+color = Color(0.172, 0.284, 0.334, 0.85)
+polygon = PackedVector2Array(1160.000, 15608.000, 1164.000, 15680.000, 1160.000, 15815.550, 1163.000, 15927.000, 1207.000, 15957.000, 1254.000, 15922.000, 1239.900, 15763.500, 1225.800, 15560.000, 1185.000, 15590.000)
+uv = PackedVector2Array(1160.000, 15608.000, 1164.000, 15680.000, 1160.000, 15815.550, 1163.000, 15927.000, 1207.000, 15957.000, 1254.000, 15922.000, 1239.900, 15763.500, 1225.800, 15560.000, 1185.000, 15590.000)
+
+[node name="RightLip38" type="Line2D" parent="PlayableEdgeReefs"]
+points = PackedVector2Array(1160.000, 15655.000, 1163.000, 15685.000, 1161.000, 15745.000)
+width = 2.0
+default_color = Color(0.27, 0.46, 0.5, 0.4)
+antialiased = true

@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3]
 
 [ext_resource type="Script" path="res://scripts/hazard.gd" id="1_hazard"]
+
+[ext_resource type="Texture2D" path="res://assets/hazard_scrap.svg" id="scrap_art"]
 
 [sub_resource type="RectangleShape2D" id="Rectangle_hazard"]
 size = Vector2(80, 20)
@@ -13,6 +15,8 @@ script = ExtResource("1_hazard")
 [node name="Visual" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(-40, -10, 40, -10, 40, 10, -40, 10)
 color = Color(1, 0.15, 0.2, 1)
+texture = ExtResource("scrap_art")
+texture_repeat = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("Rectangle_hazard")

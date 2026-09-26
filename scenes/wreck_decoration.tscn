@@ -1,0 +1,580 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/wreck_porthole.svg" id="wreck_porthole"]
+
+[ext_resource type="Texture2D" path="res://assets/wreck_pipe.svg" id="wreck_pipe"]
+
+[ext_resource type="Texture2D" path="res://assets/wreck_scrap.svg" id="wreck_scrap"]
+
+[node name="WreckDecoration" type="Node2D"]
+z_index = -10
+
+[node name="CargoHold" type="Node2D" parent="."]
+
+[node name="Porthole0" type="Sprite2D" parent="CargoHold"]
+position = Vector2(140, 3360)
+texture = ExtResource("wreck_porthole")
+modulate = Color(0.6, 0.75, 0.8, 0.72)
+
+[node name="Porthole1" type="Sprite2D" parent="CargoHold"]
+position = Vector2(790, 3360)
+texture = ExtResource("wreck_porthole")
+modulate = Color(0.6, 0.75, 0.8, 0.72)
+
+[node name="Pipe0" type="Sprite2D" parent="CargoHold"]
+position = Vector2(90, 3400)
+texture = ExtResource("wreck_pipe")
+flip_h = false
+modulate = Color(0.6, 0.7, 0.73, 0.65)
+
+[node name="Pipe1" type="Sprite2D" parent="CargoHold"]
+position = Vector2(866, 3400)
+texture = ExtResource("wreck_pipe")
+flip_h = true
+modulate = Color(0.6, 0.7, 0.73, 0.65)
+
+[node name="Scrap0" type="Sprite2D" parent="CargoHold"]
+position = Vector2(200, 3480)
+rotation = 0.005
+texture = ExtResource("wreck_scrap")
+modulate = Color(0.48, 0.64, 0.71, 0.6)
+
+[node name="Scrap1" type="Sprite2D" parent="CargoHold"]
+position = Vector2(420, 3489)
+rotation = 0.069
+texture = ExtResource("wreck_scrap")
+modulate = Color(0.48, 0.64, 0.71, 0.6)
+
+[node name="Scrap2" type="Sprite2D" parent="CargoHold"]
+position = Vector2(640, 3498)
+rotation = 0.127
+texture = ExtResource("wreck_scrap")
+modulate = Color(0.48, 0.64, 0.71, 0.6)
+
+[node name="SunkenBulkheads" type="Node2D" parent="."]
+
+[node name="Porthole0" type="Sprite2D" parent="SunkenBulkheads"]
+position = Vector2(140, 2850)
+texture = ExtResource("wreck_porthole")
+modulate = Color(0.6, 0.75, 0.8, 0.72)
+
+[node name="Porthole1" type="Sprite2D" parent="SunkenBulkheads"]
+position = Vector2(790, 2850)
+texture = ExtResource("wreck_porthole")
+modulate = Color(0.6, 0.75, 0.8, 0.72)
+
+[node name="Pipe0" type="Sprite2D" parent="SunkenBulkheads"]
+position = Vector2(90, 2890)
+texture = ExtResource("wreck_pipe")
+flip_h = false
+modulate = Color(0.6, 0.7, 0.73, 0.65)
+
+[node name="Pipe1" type="Sprite2D" parent="SunkenBulkheads"]
+position = Vector2(866, 2890)
+texture = ExtResource("wreck_pipe")
+flip_h = true
+modulate = Color(0.6, 0.7, 0.73, 0.65)
+
+[node name="Scrap0" type="Sprite2D" parent="SunkenBulkheads"]
+position = Vector2(200, 2970)
+rotation = -0.194
+texture = ExtResource("wreck_scrap")
+modulate = Color(0.48, 0.64, 0.71, 0.6)
+
+[node name="Scrap1" type="Sprite2D" parent="SunkenBulkheads"]
+position = Vector2(420, 2979)
+rotation = -0.103
+texture = ExtResource("wreck_scrap")
+modulate = Color(0.48, 0.64, 0.71, 0.6)
+
+[node name="Scrap2" type="Sprite2D" parent="SunkenBulkheads"]
+position = Vector2(640, 2988)
+rotation = 0.199
+texture = ExtResource("wreck_scrap")
+modulate = Color(0.48, 0.64, 0.71, 0.6)
+
+[node name="BrokenDecks" type="Node2D" parent="."]
+
+[node name="Porthole0" type="Sprite2D" parent="BrokenDecks"]
+position = Vector2(140, 2300)
+texture = ExtResource("wreck_porthole")
+modulate = Color(0.6, 0.75, 0.8, 0.72)
+
+[node name="Porthole1" type="Sprite2D" parent="BrokenDecks"]
+position = Vector2(790, 2300)
+texture = ExtResource("wreck_porthole")
+modulate = Color(0.6, 0.75, 0.8, 0.72)
+
+[node name="Pipe0" type="Sprite2D" parent="BrokenDecks"]
+position = Vector2(90, 2340)
+texture = ExtResource("wreck_pipe")
+flip_h = false
+modulate = Color(0.6, 0.7, 0.73, 0.65)
+
+[node name="Pipe1" type="Sprite2D" parent="BrokenDecks"]
+position = Vector2(866, 2340)
+texture = ExtResource("wreck_pipe")
+flip_h = true
+modulate = Color(0.6, 0.7, 0.73, 0.65)
+
+[node name="Scrap0" type="Sprite2D" parent="BrokenDecks"]
+position = Vector2(200, 2420)
+rotation = -0.041
+texture = ExtResource("wreck_scrap")
+modulate = Color(0.48, 0.64, 0.71, 0.6)
+
+[node name="Scrap1" type="Sprite2D" parent="BrokenDecks"]
+position = Vector2(420, 2429)
+rotation = 0.104
+texture = ExtResource("wreck_scrap")
+modulate = Color(0.48, 0.64, 0.71, 0.6)
+
+[node name="Scrap2" type="Sprite2D" parent="BrokenDecks"]
+position = Vector2(640, 2438)
+rotation = 0.196
+texture = ExtResource("wreck_scrap")
+modulate = Color(0.48, 0.64, 0.71, 0.6)
+
+[node name="CurrentChamber" type="Node2D" parent="."]
+
+[node name="Porthole0" type="Sprite2D" parent="CurrentChamber"]
+position = Vector2(140, 1250)
+texture = ExtResource("wreck_porthole")
+modulate = Color(0.6, 0.75, 0.8, 0.72)
+
+[node name="Porthole1" type="Sprite2D" parent="CurrentChamber"]
+position = Vector2(790, 1250)
+texture = ExtResource("wreck_porthole")
+modulate = Color(0.6, 0.75, 0.8, 0.72)
+
+[node name="Pipe0" type="Sprite2D" parent="CurrentChamber"]
+position = Vector2(90, 1290)
+texture = ExtResource("wreck_pipe")
+flip_h = false
+modulate = Color(0.6, 0.7, 0.73, 0.65)
+
+[node name="Pipe1" type="Sprite2D" parent="CurrentChamber"]
+position = Vector2(866, 1290)
+texture = ExtResource("wreck_pipe")
+flip_h = true
+modulate = Color(0.6, 0.7, 0.73, 0.65)
+
+[node name="Scrap0" type="Sprite2D" parent="CurrentChamber"]
+position = Vector2(200, 1370)
+rotation = -0.193
+texture = ExtResource("wreck_scrap")
+modulate = Color(0.48, 0.64, 0.71, 0.6)
+
+[node name="Scrap1" type="Sprite2D" parent="CurrentChamber"]
+position = Vector2(420, 1379)
+rotation = 0.133
+texture = ExtResource("wreck_scrap")
+modulate = Color(0.48, 0.64, 0.71, 0.6)
+
+[node name="Scrap2" type="Sprite2D" parent="CurrentChamber"]
+position = Vector2(640, 1388)
+rotation = -0.097
+texture = ExtResource("wreck_scrap")
+modulate = Color(0.48, 0.64, 0.71, 0.6)
+
+[node name="ExitLift" type="Node2D" parent="."]
+
+[node name="Porthole0" type="Sprite2D" parent="ExitLift"]
+position = Vector2(140, 560)
+texture = ExtResource("wreck_porthole")
+modulate = Color(0.6, 0.75, 0.8, 0.72)
+
+[node name="Porthole1" type="Sprite2D" parent="ExitLift"]
+position = Vector2(790, 560)
+texture = ExtResource("wreck_porthole")
+modulate = Color(0.6, 0.75, 0.8, 0.72)
+
+[node name="Pipe0" type="Sprite2D" parent="ExitLift"]
+position = Vector2(90, 600)
+texture = ExtResource("wreck_pipe")
+flip_h = false
+modulate = Color(0.6, 0.7, 0.73, 0.65)
+
+[node name="Pipe1" type="Sprite2D" parent="ExitLift"]
+position = Vector2(866, 600)
+texture = ExtResource("wreck_pipe")
+flip_h = true
+modulate = Color(0.6, 0.7, 0.73, 0.65)
+
+[node name="Scrap0" type="Sprite2D" parent="ExitLift"]
+position = Vector2(200, 680)
+rotation = 0.071
+texture = ExtResource("wreck_scrap")
+modulate = Color(0.48, 0.64, 0.71, 0.6)
+
+[node name="Scrap1" type="Sprite2D" parent="ExitLift"]
+position = Vector2(420, 689)
+rotation = 0.170
+texture = ExtResource("wreck_scrap")
+modulate = Color(0.48, 0.64, 0.71, 0.6)
+
+[node name="Scrap2" type="Sprite2D" parent="ExitLift"]
+position = Vector2(640, 698)
+rotation = 0.160
+texture = ExtResource("wreck_scrap")
+modulate = Color(0.48, 0.64, 0.71, 0.6)
+
+[node name="Silt0" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(502.868, 72.000, 504.000, 70.868, 505.132, 72.000, 504.000, 73.132)
+
+[node name="Silt1" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(584.258, 757.000, 585.000, 756.258, 585.742, 757.000, 585.000, 757.742)
+
+[node name="Silt2" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(574.632, 1301.000, 576.000, 1299.632, 577.368, 1301.000, 576.000, 1302.368)
+
+[node name="Silt3" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(376.649, 1853.000, 378.000, 1851.649, 379.351, 1853.000, 378.000, 1854.351)
+
+[node name="Silt4" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(610.873, 2653.000, 612.000, 2651.873, 613.127, 2653.000, 612.000, 2654.127)
+
+[node name="Silt5" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(303.611, 360.000, 305.000, 358.611, 306.389, 360.000, 305.000, 361.389)
+
+[node name="Silt6" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(327.783, 1547.000, 329.000, 1545.783, 330.217, 1547.000, 329.000, 1548.217)
+
+[node name="Silt7" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(180.894, 2283.000, 182.000, 2281.894, 183.106, 2283.000, 182.000, 2284.106)
+
+[node name="Silt8" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(155.016, 2651.000, 156.000, 2650.016, 156.984, 2651.000, 156.000, 2651.984)
+
+[node name="Silt9" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(282.507, 2146.000, 284.000, 2144.507, 285.493, 2146.000, 284.000, 2147.493)
+
+[node name="Silt10" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(74.984, 285.000, 76.000, 283.984, 77.016, 285.000, 76.000, 286.016)
+
+[node name="Silt11" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(183.140, 1141.000, 184.000, 1140.140, 184.860, 1141.000, 184.000, 1141.860)
+
+[node name="Silt12" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(457.084, 2039.000, 458.000, 2038.084, 458.916, 2039.000, 458.000, 2039.916)
+
+[node name="Silt13" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(387.513, 2732.000, 389.000, 2730.513, 390.487, 2732.000, 389.000, 2733.487)
+
+[node name="Silt14" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(398.461, 3500.000, 400.000, 3498.461, 401.539, 3500.000, 400.000, 3501.539)
+
+[node name="Silt15" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(708.747, 2832.000, 710.000, 2830.747, 711.253, 2832.000, 710.000, 2833.253)
+
+[node name="Silt16" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(130.921, 2115.000, 132.000, 2113.921, 133.079, 2115.000, 132.000, 2116.079)
+
+[node name="Silt17" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(251.191, 317.000, 252.000, 316.191, 252.809, 317.000, 252.000, 317.809)
+
+[node name="Silt18" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(889.547, 2922.000, 891.000, 2920.547, 892.453, 2922.000, 891.000, 2923.453)
+
+[node name="Silt19" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(364.015, 665.000, 365.000, 664.015, 365.985, 665.000, 365.000, 665.985)
+
+[node name="Silt20" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(85.811, 1125.000, 87.000, 1123.811, 88.189, 1125.000, 87.000, 1126.189)
+
+[node name="Silt21" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(870.584, 2142.000, 872.000, 2140.584, 873.416, 2142.000, 872.000, 2143.416)
+
+[node name="Silt22" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(91.934, 361.000, 93.000, 359.934, 94.066, 361.000, 93.000, 362.066)
+
+[node name="Silt23" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(316.499, 1799.000, 318.000, 1797.499, 319.501, 1799.000, 318.000, 1800.501)
+
+[node name="Silt24" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(740.573, 1601.000, 742.000, 1599.573, 743.427, 1601.000, 742.000, 1602.427)
+
+[node name="Silt25" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(283.975, 1712.000, 285.000, 1710.975, 286.025, 1712.000, 285.000, 1713.025)
+
+[node name="Silt26" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(731.703, 2511.000, 733.000, 2509.703, 734.297, 2511.000, 733.000, 2512.297)
+
+[node name="Silt27" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(196.496, 2291.000, 198.000, 2289.496, 199.504, 2291.000, 198.000, 2292.504)
+
+[node name="Silt28" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(124.982, 1122.000, 126.000, 1120.982, 127.018, 1122.000, 126.000, 1123.018)
+
+[node name="Silt29" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(372.068, 3186.000, 373.000, 3185.068, 373.932, 3186.000, 373.000, 3186.932)
+
+[node name="Silt30" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(136.028, 2483.000, 137.000, 2482.028, 137.972, 2483.000, 137.000, 2483.972)
+
+[node name="Silt31" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(490.673, 826.000, 492.000, 824.673, 493.327, 826.000, 492.000, 827.327)
+
+[node name="Silt32" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(389.664, 2666.000, 391.000, 2664.664, 392.336, 2666.000, 391.000, 2667.336)
+
+[node name="Silt33" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(121.518, 1286.000, 123.000, 1284.518, 124.482, 1286.000, 123.000, 1287.482)
+
+[node name="Silt34" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(522.915, 2179.000, 524.000, 2177.915, 525.085, 2179.000, 524.000, 2180.085)
+
+[node name="Silt35" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(899.289, 1848.000, 900.000, 1847.289, 900.711, 1848.000, 900.000, 1848.711)
+
+[node name="Silt36" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(840.434, 59.000, 842.000, 57.434, 843.566, 59.000, 842.000, 60.566)
+
+[node name="Silt37" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(732.134, 1703.000, 733.000, 1702.134, 733.866, 1703.000, 733.000, 1703.866)
+
+[node name="Silt38" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(614.267, 409.000, 615.000, 408.267, 615.733, 409.000, 615.000, 409.733)
+
+[node name="Silt39" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(108.124, 1028.000, 109.000, 1027.124, 109.876, 1028.000, 109.000, 1028.876)
+
+[node name="Silt40" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(656.515, 3528.000, 658.000, 3526.515, 659.485, 3528.000, 658.000, 3529.485)
+
+[node name="Silt41" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(150.533, 1885.000, 152.000, 1883.533, 153.467, 1885.000, 152.000, 1886.467)
+
+[node name="Silt42" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(741.687, 3074.000, 743.000, 3072.687, 744.313, 3074.000, 743.000, 3075.313)
+
+[node name="Silt43" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(293.817, 115.000, 295.000, 113.817, 296.183, 115.000, 295.000, 116.183)
+
+[node name="Silt44" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(682.737, 2166.000, 684.000, 2164.737, 685.263, 2166.000, 684.000, 2167.263)
+
+[node name="Silt45" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(630.052, 2089.000, 631.000, 2088.052, 631.948, 2089.000, 631.000, 2089.948)
+
+[node name="Silt46" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(659.999, 584.000, 661.000, 582.999, 662.001, 584.000, 661.000, 585.001)
+
+[node name="Silt47" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(576.119, 1123.000, 577.000, 1122.119, 577.881, 1123.000, 577.000, 1123.881)
+
+[node name="Silt48" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(192.788, 2032.000, 194.000, 2030.788, 195.212, 2032.000, 194.000, 2033.212)
+
+[node name="Silt49" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(207.662, 1388.000, 209.000, 1386.662, 210.338, 1388.000, 209.000, 1389.338)
+
+[node name="Silt50" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(135.211, 2830.000, 136.000, 2829.211, 136.789, 2830.000, 136.000, 2830.789)
+
+[node name="Silt51" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(360.211, 2234.000, 361.000, 2233.211, 361.789, 2234.000, 361.000, 2234.789)
+
+[node name="Silt52" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(770.680, 3029.000, 772.000, 3027.680, 773.320, 3029.000, 772.000, 3030.320)
+
+[node name="Silt53" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(814.701, 2727.000, 816.000, 2725.701, 817.299, 2727.000, 816.000, 2728.299)
+
+[node name="Silt54" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(191.772, 2866.000, 193.000, 2864.772, 194.228, 2866.000, 193.000, 2867.228)
+
+[node name="Silt55" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(437.084, 997.000, 438.000, 996.084, 438.916, 997.000, 438.000, 997.916)
+
+[node name="Silt56" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(266.015, 2746.000, 267.000, 2745.015, 267.985, 2746.000, 267.000, 2746.985)
+
+[node name="Silt57" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(413.418, 2255.000, 415.000, 2253.418, 416.582, 2255.000, 415.000, 2256.582)
+
+[node name="Silt58" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(234.168, 3525.000, 235.000, 3524.168, 235.832, 3525.000, 235.000, 3525.832)
+
+[node name="Silt59" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(474.256, 231.000, 475.000, 230.256, 475.744, 231.000, 475.000, 231.744)
+
+[node name="Silt60" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(275.268, 2144.000, 276.000, 2143.268, 276.732, 2144.000, 276.000, 2144.732)
+
+[node name="Silt61" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(82.110, 1136.000, 83.000, 1135.110, 83.890, 1136.000, 83.000, 1136.890)
+
+[node name="Silt62" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(132.923, 2424.000, 134.000, 2422.923, 135.077, 2424.000, 134.000, 2425.077)
+
+[node name="Silt63" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(838.288, 876.000, 839.000, 875.288, 839.712, 876.000, 839.000, 876.712)
+
+[node name="Silt64" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(672.715, 2218.000, 674.000, 2216.715, 675.285, 2218.000, 674.000, 2219.285)
+
+[node name="Silt65" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(244.915, 1324.000, 246.000, 1322.915, 247.085, 1324.000, 246.000, 1325.085)
+
+[node name="Silt66" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(235.539, 2341.000, 237.000, 2339.539, 238.461, 2341.000, 237.000, 2342.461)
+
+[node name="Silt67" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(374.745, 2608.000, 376.000, 2606.745, 377.255, 2608.000, 376.000, 2609.255)
+
+[node name="Silt68" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(508.529, 1943.000, 510.000, 1941.529, 511.471, 1943.000, 510.000, 1944.471)
+
+[node name="Silt69" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(169.469, 1809.000, 171.000, 1807.469, 172.531, 1809.000, 171.000, 1810.531)
+
+[node name="Silt70" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(862.642, 3011.000, 864.000, 3009.642, 865.358, 3011.000, 864.000, 3012.358)
+
+[node name="Silt71" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(89.278, 1606.000, 90.000, 1605.278, 90.722, 1606.000, 90.000, 1606.722)
+
+[node name="Silt72" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(863.787, 1607.000, 865.000, 1605.787, 866.213, 1607.000, 865.000, 1608.213)
+
+[node name="Silt73" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(593.818, 3018.000, 595.000, 3016.818, 596.182, 3018.000, 595.000, 3019.182)
+
+[node name="Silt74" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(224.721, 650.000, 226.000, 648.721, 227.279, 650.000, 226.000, 651.279)
+
+[node name="Silt75" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(430.472, 3164.000, 432.000, 3162.472, 433.528, 3164.000, 432.000, 3165.528)
+
+[node name="Silt76" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(473.080, 553.000, 474.000, 552.080, 474.920, 553.000, 474.000, 553.920)
+
+[node name="Silt77" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(511.260, 166.000, 512.000, 165.260, 512.740, 166.000, 512.000, 166.740)
+
+[node name="Silt78" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(849.281, 1569.000, 850.000, 1568.281, 850.719, 1569.000, 850.000, 1569.719)
+
+[node name="Silt79" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(141.744, 1752.000, 143.000, 1750.744, 144.256, 1752.000, 143.000, 1753.256)
+
+[node name="Silt80" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(214.205, 2860.000, 215.000, 2859.205, 215.795, 2860.000, 215.000, 2860.795)
+
+[node name="Silt81" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(589.653, 2309.000, 591.000, 2307.653, 592.347, 2309.000, 591.000, 2310.347)
+
+[node name="Silt82" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(662.612, 1806.000, 664.000, 1804.612, 665.388, 1806.000, 664.000, 1807.388)
+
+[node name="Silt83" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(539.600, 1855.000, 541.000, 1853.600, 542.400, 1855.000, 541.000, 1856.400)
+
+[node name="Silt84" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(523.003, 1458.000, 524.000, 1457.003, 524.997, 1458.000, 524.000, 1458.997)
+
+[node name="Silt85" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(118.677, 1866.000, 120.000, 1864.677, 121.323, 1866.000, 120.000, 1867.323)
+
+[node name="Silt86" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(894.433, 660.000, 896.000, 658.433, 897.567, 660.000, 896.000, 661.567)
+
+[node name="Silt87" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(608.474, 2279.000, 610.000, 2277.474, 611.526, 2279.000, 610.000, 2280.526)
+
+[node name="Silt88" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(475.881, 3285.000, 477.000, 3283.881, 478.119, 3285.000, 477.000, 3286.119)
+
+[node name="Silt89" type="Polygon2D" parent="."]
+color = Color(0.35, 0.56, 0.6, 0.22)
+polygon = PackedVector2Array(262.535, 1014.000, 264.000, 1012.535, 265.465, 1014.000, 264.000, 1015.465)

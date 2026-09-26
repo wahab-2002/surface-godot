@@ -18,10 +18,12 @@ var respawn_position: Vector2
 var currents: Array[Area2D] = []
 var swimming_velocity: Vector2 = Vector2.ZERO
 var current_velocity: Vector2 = Vector2.ZERO
+@onready var visual: Sprite2D = $Visual
 
 
 func _ready() -> void:
 	respawn_position = global_position
+	visual.flip_h = false
 
 
 func respawn() -> void:
@@ -36,6 +38,8 @@ func respawn() -> void:
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction != 0.0:
+		# The art faces right by default; keep the last facing direction while idle.
+		visual.flip_h = direction < 0.0
 		swimming_velocity.x = move_toward(swimming_velocity.x, direction * horizontal_speed, horizontal_acceleration * delta)
 	else:
 		swimming_velocity.x = move_toward(swimming_velocity.x, 0.0, horizontal_drag * delta)

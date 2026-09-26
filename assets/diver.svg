@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" shape-rendering="crispEdges">
+  <!-- Simple 8-bit style diver: oversized helmet, small body, tiny fins. -->
+  <rect x="13" y="4" width="22" height="19" fill="#10283a" stroke="#9bd7d8" stroke-width="2"/>
+  <rect x="17" y="8" width="14" height="9" fill="#55bac8"/>
+  <rect x="27" y="10" width="4" height="5" fill="#b9f2e8"/>
+  <rect x="9" y="10" width="4" height="7" fill="#29485a"/>
+  <rect x="34" y="10" width="4" height="4" fill="#e6d77d"/>
+  <rect x="10" y="22" width="8" height="18" fill="#d28a3c" stroke="#542f35" stroke-width="2"/>
+  <rect x="19" y="22" width="16" height="14" fill="#236888" stroke="#102f4a" stroke-width="2"/>
+  <rect x="23" y="25" width="8" height="4" fill="#3c9eb1"/>
+  <rect x="35" y="24" width="7" height="5" fill="#2b7f9b" stroke="#102f4a" stroke-width="2"/>
+  <rect x="41" y="22" width="3" height="4" fill="#e6d77d"/>
+  <rect x="20" y="35" width="6" height="7" fill="#174e70" stroke="#102f4a" stroke-width="2"/>
+  <rect x="29" y="35" width="6" height="7" fill="#174e70" stroke="#102f4a" stroke-width="2"/>
+  <rect x="12" y="39" width="12" height="5" fill="#5bc2c9" stroke="#102f4a" stroke-width="2"/>
+  <rect x="31" y="39" width="13" height="5" fill="#5bc2c9" stroke="#102f4a" stroke-width="2"/>
+  <rect x="17" y="24" width="3" height="3" fill="#f2d47a"/>
+  <path d="M32 20v4h7" fill="none" stroke="#b9d8d5" stroke-width="1"/>
+</svg>
